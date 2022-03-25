@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54140cbc8fe2924489658eee6e119b66, type: 3}
   m_Name: Tibia
   m_EditorClassIdentifier: 
-  templateName: 
-  label: 
+  templateName: Tibia
+  label: tibia
   description: 
-  tags: []
-  hitPoints: 10
-  permanentInjuryChanceFactor: 1
-  bleedRate: 1
+  tags:
+  - {fileID: 11400000, guid: da1d9c1fc332fd44ebb2e2e6338dd3f4, type: 2}
+  hitPoints: 25
+  permanentInjuryChanceFactor: 0
+  bleedRate: 0
   frostbiteVulnerability: 0
   skinCovered: 0
-  solid: 0
+  solid: 1
   alive: 1
   canScarify: 0
   beautyRelated: 0

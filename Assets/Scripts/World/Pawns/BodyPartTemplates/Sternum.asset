@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54140cbc8fe2924489658eee6e119b66, type: 3}
   m_Name: Sternum
   m_EditorClassIdentifier: 
-  templateName: 
-  label: 
+  templateName: Sternum
+  label: sternum
   description: 
-  tags: []
-  hitPoints: 10
-  permanentInjuryChanceFactor: 1
-  bleedRate: 1
+  tags:
+  - {fileID: 11400000, guid: d63f22e510e5ee241ab535e7db1478d8, type: 2}
+  hitPoints: 20
+  permanentInjuryChanceFactor: 0
+  bleedRate: 0
   frostbiteVulnerability: 0
   skinCovered: 0
-  solid: 0
+  solid: 1
   alive: 1
   canScarify: 0
   beautyRelated: 0
   conceptual: 0
   pawnGeneratorCanAmputate: 0
-  destroyableByDamage: 1
+  destroyableByDamage: 0

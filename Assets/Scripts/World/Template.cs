@@ -1,8 +1,8 @@
-using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Assets.Scripts.World
 {
-    public class Template : ScriptableObject
+    public class Template : SerializedScriptableObject
     {
         public string templateName;
         public string label;
