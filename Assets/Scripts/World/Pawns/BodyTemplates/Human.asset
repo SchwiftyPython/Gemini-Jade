@@ -17,7 +17,8 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: f76db5aad44f15141938106c0ed904fc, type: 2}
-    - {fileID: 11400000, guid: 6d1671e8a40dfef4da652693bdecfd70, type: 2}
+    - {fileID: 11400000, guid: 17dc752358f416d4ea703b1205811928, type: 2}
+    - {fileID: 11400000, guid: 42ddcd62537958e42b99d5941745e616, type: 2}
     - {fileID: 11400000, guid: a79525a8f2efac54385f4e579841a828, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -26,46 +27,58 @@ MonoBehaviour:
     SerializationNodes:
     - Name: parts
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[System.Collections.Generic.Dictionary`2[[Assets.Scripts.World.Pawns.BodyPartTemplates.BodyPartTemplate,
-        Assembly-CSharp],[System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartTemplates.BodyPartTemplate,
-        Assembly-CSharp]], mscorlib]], mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|Unity.Cloud.Collaborate.Common.SerializableDictionary`2[[Assets.Scripts.World.Pawns.BodyPartTemplates.BodyPartTemplate,
-        Assembly-CSharp],[System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartTemplates.BodyPartTemplate,
-        Assembly-CSharp]], mscorlib]], Unity.CollabProxy.Editor
-    - Name: comparer
-      Entry: 7
-      Data: 2|System.Collections.Generic.ObjectEqualityComparer`1[[Assets.Scripts.World.Pawns.BodyPartTemplates.BodyPartTemplate,
+      Data: 0|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
         Assembly-CSharp]], mscorlib
     - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 
-    - Name: $k
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
       Entry: 10
       Data: 0
-    - Name: $v
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Torso
+    - Name: children
       Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartTemplates.BodyPartTemplate,
+      Data: 1|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
       Entry: 10
       Data: 1
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Shoulder
+    - Name: children
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
     - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
       Entry: 10
       Data: 2
+    - Name: selfTabLabel
+      Entry: 6
+      Data: 
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -76,7 +89,25 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 3
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Sternum
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
