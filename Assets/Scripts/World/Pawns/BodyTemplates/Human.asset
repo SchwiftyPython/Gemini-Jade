@@ -17,9 +17,59 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: f76db5aad44f15141938106c0ed904fc, type: 2}
-    - {fileID: 11400000, guid: 17dc752358f416d4ea703b1205811928, type: 2}
-    - {fileID: 11400000, guid: 42ddcd62537958e42b99d5941745e616, type: 2}
+    - {fileID: 11400000, guid: 215f34f1121e87f4d98fc26a71283645, type: 2}
+    - {fileID: 11400000, guid: 1e54eb6f6bd6564439211bd25128b56a, type: 2}
+    - {fileID: 11400000, guid: 5cb5ed5f2d8ea974e8f590d8488dd6e2, type: 2}
+    - {fileID: 11400000, guid: 5f7f73f0306beea42a4df290cb160089, type: 2}
+    - {fileID: 11400000, guid: c4ea42b0f829d8e41b2af26f507edbaa, type: 2}
+    - {fileID: 11400000, guid: 24653c4859a35104eade7ac5d8d608cd, type: 2}
     - {fileID: 11400000, guid: a79525a8f2efac54385f4e579841a828, type: 2}
+    - {fileID: 11400000, guid: 84325e5be99134d429b3ac3599f4f958, type: 2}
+    - {fileID: 11400000, guid: c7fe87e4dd802f04ca97aaff02ba9cc1, type: 2}
+    - {fileID: 11400000, guid: b3609368427a49943b5ab8bb690fd40d, type: 2}
+    - {fileID: 11400000, guid: 6d1671e8a40dfef4da652693bdecfd70, type: 2}
+    - {fileID: 11400000, guid: 83b70cb5b89ed324ca2f81e712e545bc, type: 2}
+    - {fileID: 11400000, guid: 46ea877465e4da84083c3ca8e2c04484, type: 2}
+    - {fileID: 11400000, guid: 03d654fd0fa8128459754f9b95739ab7, type: 2}
+    - {fileID: 11400000, guid: a5d473ade45c24048af5e1ba0e8112cf, type: 2}
+    - {fileID: 11400000, guid: d0980e055ae699e4c99d8fdef890801e, type: 2}
+    - {fileID: 11400000, guid: a9cddeabf2d5d9f43beee39e303c2715, type: 2}
+    - {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
+    - {fileID: 11400000, guid: 89f2d54dd0e466c4aa087d0487e3322d, type: 2}
+    - {fileID: 11400000, guid: 51e474b1bfbd4114e8cb67b63c149afe, type: 2}
+    - {fileID: 11400000, guid: 051d82e35c5e4944ca48dbf356497f78, type: 2}
+    - {fileID: 11400000, guid: 10eec2422e4b07d49bb2edd172bc39c2, type: 2}
+    - {fileID: 11400000, guid: 0cc49591d5711de4c824d6c51ea9abee, type: 2}
+    - {fileID: 11400000, guid: 3f2ed49f9639e2b4cb9ae473a66303f8, type: 2}
+    - {fileID: 11400000, guid: 655c31c3ac41ac647acab471d3c18524, type: 2}
+    - {fileID: 11400000, guid: d511529a67f472e44814dc375b43585c, type: 2}
+    - {fileID: 11400000, guid: 31293ce6330c6c148b415e19c44174dc, type: 2}
+    - {fileID: 11400000, guid: 31bf15964bb7f6847aa95c1bb8edff34, type: 2}
+    - {fileID: 11400000, guid: 656bcb3274b33b646a08879e4b3a90c4, type: 2}
+    - {fileID: 11400000, guid: c7b287c2c1dc0c1439c3350cd9058d62, type: 2}
+    - {fileID: 11400000, guid: 2122c1b4c82d7a84f8264221e6edcd07, type: 2}
+    - {fileID: 11400000, guid: 17dc752358f416d4ea703b1205811928, type: 2}
+    - {fileID: 11400000, guid: ec5a351e5e593184a9ebb86ac579c0a2, type: 2}
+    - {fileID: 11400000, guid: 42ddcd62537958e42b99d5941745e616, type: 2}
+    - {fileID: 11400000, guid: b5eeb79730b099b4598fb7b50c895ab1, type: 2}
+    - {fileID: 11400000, guid: bcd23102f89dc904f883dbc0710a9ae9, type: 2}
+    - {fileID: 11400000, guid: 7c8593fe330a6ac43aa92e097afb5ad5, type: 2}
+    - {fileID: 11400000, guid: c59e72b006c752840befd066b9c1355d, type: 2}
+    - {fileID: 11400000, guid: 014b7479af0304b45bafc04b9bcf33f6, type: 2}
+    - {fileID: 11400000, guid: 06db5d97ae621004a843857892ae12fb, type: 2}
+    - {fileID: 11400000, guid: c26ae363c0285004ab0f7c6165b76337, type: 2}
+    - {fileID: 11400000, guid: f5ee87f71b6f34f4c9a5c39096906966, type: 2}
+    - {fileID: 11400000, guid: 3db61f1494bd1534c9327f4261cd8869, type: 2}
+    - {fileID: 11400000, guid: f1dc627d81e2c964e87ac7622a1bf4b4, type: 2}
+    - {fileID: 11400000, guid: e2750fad9ab97c44eb982534658b7241, type: 2}
+    - {fileID: 11400000, guid: 76bf3bf0093d492418abb512b681df2e, type: 2}
+    - {fileID: 11400000, guid: ba3ba8baf53e6d2479e3fd59ba19ba25, type: 2}
+    - {fileID: 11400000, guid: 5b5e0728b22824d468c2e81d1c9a56ac, type: 2}
+    - {fileID: 11400000, guid: f1bc5d313409ac946a29d02f36d3f56a, type: 2}
+    - {fileID: 11400000, guid: b86e11009121483448c1949ab8346fef, type: 2}
+    - {fileID: 11400000, guid: b546ceedffefaf04ca7b6520824d3b43, type: 2}
+    - {fileID: 11400000, guid: d58932971d9e8054081a31f9669f8653, type: 2}
+    - {fileID: 11400000, guid: c1d9e1fa0252c9640bdb131783486a95, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -41,38 +91,698 @@ MonoBehaviour:
     - Name: selfTabLabel
       Entry: 1
       Data: Torso
-    - Name: children
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 1
+    - Name: depth
+      Entry: 10
+      Data: 2
+    - Name: groups
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+      Data: 1|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
-    - Name: self
-      Entry: 10
       Data: 1
-    - Name: selfTabLabel
-      Entry: 1
-      Data: Shoulder
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0
     - Name: children
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 17
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 4
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Ribcage
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.036
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 7
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Sternum
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.015
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 8
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Pelvis
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 9
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.025
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 10
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Spine
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.025
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 11
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Stomach
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.025
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 12
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Heart
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.02
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 13
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Lung
+    - Name: customLabel
+      Entry: 1
+      Data: left lung
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.025
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 13
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Lung
+    - Name: customLabel
+      Entry: 1
+      Data: right lung
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.025
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 14
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Kidney
+    - Name: customLabel
+      Entry: 1
+      Data: left kidney
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.017
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 14
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Kidney
+    - Name: customLabel
+      Entry: 1
+      Data: right kidney
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.017
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 15
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Liver
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.025
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 16
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Neck
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 17
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 19
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.075
+    - Name: children
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
       Data: 1
     - Name: 
       Entry: 7
       Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
     - Name: self
       Entry: 10
-      Data: 2
+      Data: 20
     - Name: selfTabLabel
+      Entry: 1
+      Data: Head
+    - Name: customLabel
       Entry: 6
       Data: 
+    - Name: height
+      Entry: 10
+      Data: 17
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.8
+    - Name: children
+      Entry: 7
+      Data: 17|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 23
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Skull
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.18
+    - Name: children
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 25
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Brain
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.8
     - Name: children
       Entry: 6
       Data: 
@@ -93,12 +803,2250 @@ MonoBehaviour:
       Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
     - Name: self
       Entry: 10
-      Data: 3
+      Data: 26
     - Name: selfTabLabel
       Entry: 1
-      Data: Sternum
+      Data: Left Eye
+    - Name: customLabel
+      Entry: 1
+      Data: left eye
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 21|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
     - Name: children
       Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 26
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Eye
+    - Name: customLabel
+      Entry: 1
+      Data: right eye
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 22|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 27
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Ear
+    - Name: customLabel
+      Entry: 1
+      Data: left ear
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 23|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 27
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Ear
+    - Name: customLabel
+      Entry: 1
+      Data: right ear
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 24|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 28
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Nose
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 25|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 29
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Jaw
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 26|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 30
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.15
+    - Name: children
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 31
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Tongue
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 28|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 32
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Shoulder
+    - Name: customLabel
+      Entry: 1
+      Data: left shoulder
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 33
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.12
+    - Name: children
+      Entry: 7
+      Data: 30|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 34
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Clavicle
+    - Name: customLabel
+      Entry: 1
+      Data: left clavicle
+    - Name: height
+      Entry: 10
+      Data: 17
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 31|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.09
+    - Name: children
+      Entry: 7
+      Data: 32|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 35
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Arm
+    - Name: customLabel
+      Entry: 1
+      Data: left arm
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 33|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.77
+    - Name: children
+      Entry: 7
+      Data: 34|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 37
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Humerus
+    - Name: customLabel
+      Entry: 1
+      Data: left humerus
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 35|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 38
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Radius
+    - Name: customLabel
+      Entry: 1
+      Data: left radius
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 36|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 39
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Hand
+    - Name: customLabel
+      Entry: 1
+      Data: left hand
+    - Name: height
+      Entry: 10
+      Data: 9
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 37|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.14
+    - Name: children
+      Entry: 7
+      Data: 38|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: 'Left Pinky '
+    - Name: customLabel
+      Entry: 1
+      Data: left pinky
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 39|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 42
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.06
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Ring Finger
+    - Name: customLabel
+      Entry: 1
+      Data: left ring finger
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 40|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 42
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Middle Finger
+    - Name: customLabel
+      Entry: 1
+      Data: left middle finger
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 41|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 42
+    - Name: 
+      Entry: 10
+      Data: 43
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.08
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Index Finger
+    - Name: customLabel
+      Entry: 1
+      Data: left index finger
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 42|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 42
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Thumb
+    - Name: customLabel
+      Entry: 1
+      Data: left thumb
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 43|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 42
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.08
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 32
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Shoulder
+    - Name: customLabel
+      Entry: 1
+      Data: right shoulder
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 44|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 33
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.12
+    - Name: children
+      Entry: 7
+      Data: 45|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 34
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Clavicle
+    - Name: customLabel
+      Entry: 1
+      Data: right clavicle
+    - Name: height
+      Entry: 10
+      Data: 17
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 46|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.09
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 35
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Arm
+    - Name: customLabel
+      Entry: 1
+      Data: right arm
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 47|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.77
+    - Name: children
+      Entry: 7
+      Data: 48|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 37
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Humerus
+    - Name: customLabel
+      Entry: 1
+      Data: right humerus
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 49|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 38
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Radius
+    - Name: customLabel
+      Entry: 1
+      Data: right radius
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 50|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 36
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 39
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Hand
+    - Name: customLabel
+      Entry: 1
+      Data: right hand
+    - Name: height
+      Entry: 10
+      Data: 9
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 51|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.14
+    - Name: children
+      Entry: 7
+      Data: 52|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Pinky
+    - Name: customLabel
+      Entry: 1
+      Data: right pinky
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 53|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 44
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.06
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Ring Finger
+    - Name: customLabel
+      Entry: 1
+      Data: right ring finger
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 54|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 44
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Middle Finger
+    - Name: customLabel
+      Entry: 1
+      Data: right middle finger
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 55|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 44
+    - Name: 
+      Entry: 10
+      Data: 43
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.08
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Index Finger
+    - Name: customLabel
+      Entry: 1
+      Data: right index finger
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 56|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 44
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 41
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Thumb
+    - Name: customLabel
+      Entry: 1
+      Data: right thumb
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 57|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 40
+    - Name: 
+      Entry: 10
+      Data: 44
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.08
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 45
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Waist
+    - Name: customLabel
+      Entry: 6
+      Data: 
+    - Name: height
+      Entry: 10
+      Data: 9
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 58|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 46
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 47
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Leg
+    - Name: customLabel
+      Entry: 1
+      Data: left leg
+    - Name: height
+      Entry: 10
+      Data: 9
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 59|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 48
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.14
+    - Name: children
+      Entry: 7
+      Data: 60|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 49
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Femur
+    - Name: customLabel
+      Entry: 1
+      Data: left femur
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 61|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 48
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 50
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Tibia
+    - Name: customLabel
+      Entry: 1
+      Data: left tibia
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 62|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 48
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 51
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Foot
+    - Name: customLabel
+      Entry: 1
+      Data: left foot
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 63|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 7
+      Data: 64|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Little Toe
+    - Name: customLabel
+      Entry: 1
+      Data: left little toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 65|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.06
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Fourth Toe
+    - Name: customLabel
+      Entry: 1
+      Data: left fourth toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 66|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Middle Toe
+    - Name: customLabel
+      Entry: 1
+      Data: left middle toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 67|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.08
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Second Toe
+    - Name: customLabel
+      Entry: 1
+      Data: left second toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 68|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.09
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Left Big Toe
+    - Name: customLabel
+      Entry: 1
+      Data: left big toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 69|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.09
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 47
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Leg
+    - Name: customLabel
+      Entry: 1
+      Data: right leg
+    - Name: height
+      Entry: 10
+      Data: 9
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 70|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 48
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.14
+    - Name: children
+      Entry: 7
+      Data: 71|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 49
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Femur
+    - Name: customLabel
+      Entry: 1
+      Data: right femur
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 72|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 48
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 50
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Tibia
+    - Name: customLabel
+      Entry: 1
+      Data: right tibia
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 6
+    - Name: groups
+      Entry: 7
+      Data: 73|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 48
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 51
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Foot
+    - Name: customLabel
+      Entry: 1
+      Data: right foot
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 74|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.1
+    - Name: children
+      Entry: 7
+      Data: 75|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Little Toe
+    - Name: customLabel
+      Entry: 1
+      Data: right little toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 76|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.06
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Fourth Toe
+    - Name: customLabel
+      Entry: 1
+      Data: right fourth toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 77|MS.Internal.Xml.XPath.ClonableStack`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], System.Xml
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.07
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Middle Toe
+    - Name: customLabel
+      Entry: 1
+      Data: right middle toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 78|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.08
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Second Toe
+    - Name: customLabel
+      Entry: 1
+      Data: right second toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 79|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.09
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
+    - Name: self
+      Entry: 10
+      Data: 53
+    - Name: selfTabLabel
+      Entry: 1
+      Data: Right Big Toe
+    - Name: customLabel
+      Entry: 1
+      Data: right big toe
+    - Name: height
+      Entry: 10
+      Data: 5
+    - Name: depth
+      Entry: 10
+      Data: 18
+    - Name: groups
+      Entry: 7
+      Data: 80|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 52
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: coverage
+      Entry: 4
+      Data: 0.09
+    - Name: children
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

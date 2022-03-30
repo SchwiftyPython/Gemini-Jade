@@ -43,7 +43,5 @@ namespace Assets.Scripts.World.Pawns.BodyTemplates
         public BodyPartTemplate corePart;
 
         public List<Part> parts;
-
-        
     }
 }
