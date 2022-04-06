@@ -6,6 +6,11 @@ namespace Assets.Scripts.World.Pawns.Species
     [CreateAssetMenu(menuName = "Templates/SpeciesTemplate")]
     public class SpeciesTemplate : Template
     {
+        public int minTemp;
+        public int maxTemp;
+
+        //todo Tools
+
         public bool hasGenders = true;
 
         public bool needsRest = true;

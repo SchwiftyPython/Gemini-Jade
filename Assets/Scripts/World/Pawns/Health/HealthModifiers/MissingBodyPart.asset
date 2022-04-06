@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b00c10b7d08c4354cbff8c2300b81388, type: 3}
-  m_Name: Human
+  m_Script: {fileID: 11500000, guid: d5c8e71f89676ad42a3c2b32e98fce8a, type: 3}
+  m_Name: MissingBodyPart
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,15 +21,14 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  templateName: Human
-  label: human
-  description: 
-  minTemp: 60
-  maxTemp: 85
-  hasGenders: 1
-  needsRest: 1
-  bodyTemplate: {fileID: 11400000, guid: f0eff04e8928d384ab3aaae6f5cf27b5, type: 2}
-  lifeExpectancy: 80
-  baseBodySize: 1
-  baseHealthScale: 1
-  baseHungerRate: 1
+  templateName: MissingBodyPart
+  label: missing body part
+  description: Body part is missing.
+  initialSeverity: 0.5
+  lethalSeverity: -1
+  tendable: 1
+  chanceToCauseNoPain: 0
+  minSeverity: 0
+  maxSeverity: 3.4028235e+38
+  painPerSeverity: 0.125
+  bleedRate: 0.12
