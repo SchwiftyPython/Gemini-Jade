@@ -4,10 +4,10 @@ namespace Assets.Scripts.World.Pawns
 {
     public class Pawn
     {
-        private SpeciesTemplate _species;
+        public SpeciesTemplate species;
 
         private string _name;
 
-        //todo health
+        private Health.Health _health;
     }
 }

@@ -1,4 +1,5 @@
-using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Assets.Scripts.World.Pawns.Health
 {
@@ -14,6 +15,8 @@ namespace Assets.Scripts.World.Pawns.Health
 
         //todo health summary calculator
 
+        private List<BodyPart> _body;
+
         public HealthState State => _healthState;
 
         public bool Downed => _healthState == HealthState.Down;
@@ -28,7 +31,20 @@ namespace Assets.Scripts.World.Pawns.Health
         {
             _pawn = pawn;
 
+            //todo build body
+
             //todo set all the other properties
+        }
+
+        private void BuildBody()
+        {
+            //todo I think we just need to build the core part and that will build the whole body
+
+            var corePartInfo = _pawn.species.bodyTemplate.parts.SingleOrDefault(p => p.self.templateName.Equals(_pawn.species.bodyTemplate.corePart.templateName));
+
+            var corePart = new BodyPart(_pawn.species.bodyTemplate, corePartInfo);
+
+            _body = corePart.GetAllChildren();
         }
     }
 }

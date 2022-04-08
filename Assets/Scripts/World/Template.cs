@@ -1,3 +1,4 @@
+using Assets.Scripts.Utilities;
 using Sirenix.OdinInspector;
 
 namespace Assets.Scripts.World
@@ -7,5 +8,7 @@ namespace Assets.Scripts.World
         public string templateName;
         public string label;
         public string description;
+
+        public virtual string LabelCap => string.IsNullOrWhiteSpace(label) ? null : label.CapitalizeFirst();
     }
 }
