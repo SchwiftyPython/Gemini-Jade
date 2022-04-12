@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Utilities;
 
 namespace Assets.Scripts.World.Pawns.Health
 {
@@ -9,7 +10,7 @@ namespace Assets.Scripts.World.Pawns.Health
 
         private HealthState _healthState = HealthState.Mobile;
 
-        //todo health diffs
+        //todo health mods -- next iteration. Makes sense to only reference body parts in the health mods
 
         //todo pawn capacities
 
@@ -31,9 +32,14 @@ namespace Assets.Scripts.World.Pawns.Health
         {
             _pawn = pawn;
 
-            //todo build body
+            BuildBody();
 
             //todo set all the other properties
+        }
+
+        public List<BodyPart> GetBody()
+        {
+            return _body;
         }
 
         private void BuildBody()

@@ -24,5 +24,10 @@ namespace Assets.Scripts.World.Pawns.Species
         public float baseHealthScale = 1f;
 
         public float baseHungerRate = 1f;
+
+        public Pawn NewPawn()
+        {
+            return new Pawn(this);
+        }
     }
 }

@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.World.Pawns;
+using TMPro;
 using UnityEngine;
 
-public class BodyPartStatus : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BodyPartStatus : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private HealthMod _healthModPrefab;
+        [SerializeField] private Transform _healthModParent;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private BodyPart _part;
+
+        public TextMeshProUGUI partName;
+
+        public void Setup(BodyPart part)
+        {
+            _part = part;
+
+            partName.text = _part.LabelCapitalized;
+
+            //todo health mods
+        }
     }
 }

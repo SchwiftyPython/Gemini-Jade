@@ -40,6 +40,7 @@ namespace Assets.Scripts.World.Pawns
         {
             _body = body;
             _template = part.self;
+            _customLabel = part.customLabel;
             _height = part.height;
            _depth = part.depth;
            _coverage = part.coverage;
@@ -48,7 +49,12 @@ namespace Assets.Scripts.World.Pawns
 
            _children = new List<BodyPart>();
 
-           foreach (var cPart in part.children)
+           if (part.children == null || part.children.Count < 1)
+           {
+               return;
+           }
+
+           foreach (var cPart in part.children.ToArray())
            {
                var child = new BodyPart(body, cPart, this);
 
@@ -72,6 +78,8 @@ namespace Assets.Scripts.World.Pawns
         public List<BodyPart> GetAllChildren()
         {
             var allChildren = new List<BodyPart>();
+
+            allChildren.AddRange(_children);
 
             foreach (var child in _children)
             {
