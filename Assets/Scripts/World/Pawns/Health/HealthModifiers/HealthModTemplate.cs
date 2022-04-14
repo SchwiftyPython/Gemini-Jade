@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
@@ -6,6 +7,8 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
     public class HealthModTemplate : Template
     {
         //todo Health Mod Components
+
+        public Type healthModClass;
 
         public float initialSeverity = 0.5f;
 

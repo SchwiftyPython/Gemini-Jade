@@ -6,11 +6,11 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 {
     public class HealthMod 
     {
-        private HealthModTemplate _template;
+        public HealthModTemplate template;
 
         private int _durationTicks; 
 
-        private BodyPart _part; 
+        public BodyPart part; 
 
         private ThingTemplate _source; //source of health mod like Assault Rifle
 
@@ -20,7 +20,7 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         private bool _visible;
 
-        private Pawn _pawn;
+        public Pawn pawn;
 
         //todo need to look at all that stage label stuff
 
@@ -28,9 +28,9 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
         {
             get
             {
-                if (!(_template.lethalSeverity <= 0f))
+                if (!(template.lethalSeverity <= 0f))
                 {
-                    return (_severity / _template.lethalSeverity).ToStringPercent();
+                    return (_severity / template.lethalSeverity).ToStringPercent();
                 }
                 return null;
             }
@@ -56,16 +56,16 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         public BodyPart Part
         {
-            get => _part;
+            get => part;
             set
             {
-                if (_pawn == null && _part != null)
+                if (pawn == null && part != null)
                 {
                     Debug.LogError("HealthMod: Cannot set Part without setting pawn first.");
                 }
                 else
                 {
-                    _part = value;
+                    part = value;
                 }
             }
         }
@@ -83,13 +83,13 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         public virtual bool CauseDeathNow()
         {
-            if (_template.lethalSeverity >= 0f)
+            if (template.lethalSeverity >= 0f)
             {
-                bool lethal = _severity >= _template.lethalSeverity;
+                bool lethal = _severity >= template.lethalSeverity;
                 if (lethal)
                 {
                     Debug.Log("CauseOfDeath: lethal severity exceeded " + _severity + " >= " +
-                              _template.lethalSeverity);
+                              template.lethalSeverity);
                 }
 
                 return lethal;
@@ -108,7 +108,7 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         public override string ToString()
         {
-            return "(" + _template.templateName + ((_part != null) ? (" " + _part.Label) : "") +
+            return "(" + template.templateName + ((part != null) ? (" " + part.Label) : "") +
                    " ticksSinceCreation=" + _durationTicks + ")";
         }
     }

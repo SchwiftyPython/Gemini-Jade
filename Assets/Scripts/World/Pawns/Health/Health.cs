@@ -44,13 +44,14 @@ namespace Assets.Scripts.World.Pawns.Health
 
         private void BuildBody()
         {
-            //todo I think we just need to build the core part and that will build the whole body
-
-            var corePartInfo = _pawn.species.bodyTemplate.parts.SingleOrDefault(p => p.self.templateName.Equals(_pawn.species.bodyTemplate.corePart.templateName));
+            var corePartInfo = _pawn.species.bodyTemplate.parts.SingleOrDefault(p =>
+                p.self.templateName.Equals(_pawn.species.bodyTemplate.corePart.templateName));
 
             var corePart = new BodyPart(_pawn.species.bodyTemplate, corePartInfo);
 
-            _body = corePart.GetAllChildren();
+            _body = new List<BodyPart> {corePart};
+
+            _body.AddRange(corePart.GetAllChildren());
         }
     }
 }
