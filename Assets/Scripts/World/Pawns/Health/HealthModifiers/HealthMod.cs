@@ -16,13 +16,15 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         private float _severity;
 
-        private bool _painless;
+        public bool painless;
 
         private bool _visible;
 
         public Pawn pawn;
 
         //todo need to look at all that stage label stuff
+
+        public virtual string LabelBase => template.label;
 
         public virtual string SeverityLabel
         {
@@ -42,7 +44,9 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         public bool Bleeding => BleedRate > 1E-05f;
 
-        //todo pain stuff 
+        //todo pain stuff
+
+        public virtual float PainOffset => 0f; //todo base on current stage's offset if it causes pain
 
         //todo capacity modifiers
 

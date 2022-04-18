@@ -5,6 +5,7 @@ using Assets.Scripts.World.Pawns.BodyPartGroupTemplates;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
 using Assets.Scripts.World.Pawns.BodyTemplates;
+using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 
 namespace Assets.Scripts.World.Pawns
 {
@@ -12,7 +13,9 @@ namespace Assets.Scripts.World.Pawns
     {
         private BodyTemplate _body;
 
-        private BodyPartTemplate _template;
+        private List<HealthMod> _healthMods;
+
+        public BodyPartTemplate template;
 
         private string _customLabel;
 
@@ -20,32 +23,32 @@ namespace Assets.Scripts.World.Pawns
 
         private BodyPartHeight.BodyPartHeight _height;
 
-        private BodyPartDepth.BodyPartDepth _depth;
+        public BodyPartDepth.BodyPartDepth depth;
 
         private float _coverage;
 
         private List<BodyPartGroupTemplate> _groups;
 
-        private BodyPart _parent;
+        public BodyPart parent;
 
-        public bool IsCorePart => _parent == null;
+        public bool IsCorePart => parent == null;
 
-        public string Label => string.IsNullOrWhiteSpace(_customLabel) ? _template.label : _customLabel;
+        public string Label => string.IsNullOrWhiteSpace(_customLabel) ? template.label : _customLabel;
 
         public string LabelCapitalized => string.IsNullOrWhiteSpace(_customLabel)
-            ? _template.LabelCap
+            ? template.LabelCap
             : _customLabel.CapitalizeFirst();
 
         public BodyPart(BodyTemplate body, BodyTemplate.Part part, BodyPart parent = null)
         {
             _body = body;
-            _template = part.self;
+            template = part.self;
             _customLabel = part.customLabel;
             _height = part.height;
-           _depth = part.depth;
+           depth = part.depth;
            _coverage = part.coverage;
            _groups = new List<BodyPartGroupTemplate>(part.groups);
-           _parent = parent;
+           this.parent = parent;
 
            _children = new List<BodyPart>();
 
@@ -75,6 +78,24 @@ namespace Assets.Scripts.World.Pawns
             return false;
         }
 
+        public bool IsMissing()
+        {
+            if (_healthMods == null || _healthMods.Count < 1)
+            {
+                return false;
+            }
+
+            foreach (var mod in _healthMods)
+            {
+                if (mod is MissingBodyPart)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public List<BodyPart> GetAllChildren()
         {
             var allChildren = new List<BodyPart>();
@@ -91,7 +112,7 @@ namespace Assets.Scripts.World.Pawns
 
         public IEnumerable<BodyPart> GetChildParts(BodyPartTagTemplate tag)
         {
-            if (_template.tags.Contains(tag))
+            if (template.tags.Contains(tag))
             {
                 yield return this;
             }
@@ -126,9 +147,9 @@ namespace Assets.Scripts.World.Pawns
         public IEnumerable<BodyPart> GetConnectedParts(BodyPartTagTemplate tag)
         {
             var bodyPart = this;
-            while (bodyPart._parent != null && bodyPart._parent._template.tags.Contains(tag))
+            while (bodyPart.parent != null && bodyPart.parent.template.tags.Contains(tag))
             {
-                bodyPart = bodyPart._parent;
+                bodyPart = bodyPart.parent;
             }
             foreach (var childPart in bodyPart.GetChildParts(tag))
             {

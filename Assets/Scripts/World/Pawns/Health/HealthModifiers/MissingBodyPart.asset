@@ -20,7 +20,16 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: healthModClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: MissingBodyPart, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
   templateName: MissingBodyPart
   label: missing body part
   description: Body part is missing.

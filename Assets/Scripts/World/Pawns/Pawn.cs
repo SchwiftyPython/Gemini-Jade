@@ -11,6 +11,8 @@ namespace Assets.Scripts.World.Pawns
 
         private Health.Health _health;
 
+        public bool Dead => _health.Dead;
+
         public Pawn(SpeciesTemplate speciesTemplate)
         {
             species = speciesTemplate;

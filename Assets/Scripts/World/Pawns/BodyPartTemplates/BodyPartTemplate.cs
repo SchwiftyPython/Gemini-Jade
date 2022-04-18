@@ -32,5 +32,11 @@ namespace Assets.Scripts.World.Pawns.BodyPartTemplates
         public bool pawnGeneratorCanAmputate;
 
         public bool destroyableByDamage = true;
-	}
+
+        public float GetMaxHealth(Pawn pawn)
+        {
+            return Mathf.CeilToInt((float)hitPoints); //todo multiply by pawn health scale
+        }
+
+    }
 }
