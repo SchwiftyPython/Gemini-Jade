@@ -10,7 +10,7 @@ namespace Assets.Scripts.Utilities
         public BodyPartDepth outside;
         public BodyPartDepth undefined;
 
-        public string GetGeneralDestroyedPartLabel(BodyPart part,bool solid)
+        public string GetGeneralDestroyedPartLabel(BodyPart part, bool solid)
         {
             if (part.parent == null)
             {
