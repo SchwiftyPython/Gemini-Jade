@@ -110,6 +110,22 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
         {
         }
 
+        public virtual void PostMake()
+        {
+        }
+
+        public virtual void PostAdd()
+        {
+        }
+
+        public virtual void PostRemove()
+        {
+        }
+
+        public virtual void PostTick()
+        {
+        }
+
         public override string ToString()
         {
             return "(" + template.templateName + ((part != null) ? (" " + part.Label) : "") +

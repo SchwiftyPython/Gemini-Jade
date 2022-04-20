@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2055489319478267034}
   - component: {fileID: 2055489319478267037}
   - component: {fileID: 2055489319478267035}
-  - component: {fileID: 3504155091204861179}
+  - component: {fileID: 7401948415723391763}
   m_Layer: 5
   m_Name: HealthMod
   m_TagString: Untagged
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &3504155091204861179
+--- !u!114 &7401948415723391763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,9 +107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2055489319478267039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b876137d9beedbb4ea1af4b383a9c083, type: 3}
+  m_Script: {fileID: 11500000, guid: 62f4c12918fcc1645a1d21f6f3d1eccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modName: {fileID: 2055489319840441751}
 --- !u!1 &2055489319840441737
 GameObject:
   m_ObjectHideFlags: 0

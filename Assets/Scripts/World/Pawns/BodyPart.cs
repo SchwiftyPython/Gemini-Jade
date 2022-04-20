@@ -144,6 +144,11 @@ namespace Assets.Scripts.World.Pawns
             return GetChildParts(tag).Any();
         }
 
+        public bool HasChildParts()
+        {
+            return _children != null && _children.Any();
+        }
+
         public IEnumerable<BodyPart> GetConnectedParts(BodyPartTagTemplate tag)
         {
             var bodyPart = this;
@@ -156,5 +161,29 @@ namespace Assets.Scripts.World.Pawns
                 yield return childPart;
             }
         }
+
+        public bool HasHealthMods()
+        {
+            return _healthMods != null && _healthMods.Any();
+        }
+
+        public List<HealthMod> GetHealthMods()
+        {
+            return _healthMods;
+        }
+
+        public void AddHealthMod(HealthMod hMod)
+        {
+            if (_healthMods == null)
+            {
+                _healthMods = new List<HealthMod>();
+            }
+
+            _healthMods.Add(hMod);
+
+            hMod.PostAdd();
+        }
+
+        
     }
 }

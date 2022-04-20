@@ -13,6 +13,7 @@ namespace Assets.Scripts.UI
         private void Start()
         {
             HealthDebug.OnPawnSelected += HealthDebug_OnPawnSelected;
+            HealthDebug.OnBodyChanged += HealthDebug_OnBodyChanged;
         }
 
         private void SetCurrentPawn(Pawn pawn)
@@ -34,14 +35,29 @@ namespace Assets.Scripts.UI
 
             foreach (var bodyPart in _currentPawn.GetBody())
             {
+                if (!bodyPart.HasHealthMods())
+                {
+                    continue;
+                }
+
                 var partUi = Instantiate(bodyPartPrefab, transform);
                 partUi.Setup(bodyPart);
             }
         }
 
+        private void DrawAll()
+        {
+            //todo have a toggle to show all parts
+        }
+
         private void HealthDebug_OnPawnSelected(Pawn pawn)
         {
             SetCurrentPawn(pawn);
+            Draw();
+        }
+
+        private void HealthDebug_OnBodyChanged()
+        {
             Draw();
         }
     }

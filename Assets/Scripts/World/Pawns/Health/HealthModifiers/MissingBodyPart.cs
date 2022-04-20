@@ -62,7 +62,22 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
             }
         }
 
-        private bool ParentMissing => Part.parent.IsMissing();
+        public bool ParentMissing => Part.parent.IsMissing();
+
+        public override void PostAdd()
+        {
+            if (!part.HasChildParts())
+            {
+                return;
+            }
+
+            foreach (var child in part.GetAllChildren())
+            {
+                var missingPartMod = HealthModMaker.MakeHealthMod(template, pawn, child);
+
+                child.AddHealthMod(missingPartMod);
+            }
+        }
 
         //todo is fresh
 

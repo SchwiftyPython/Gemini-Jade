@@ -14,15 +14,15 @@ namespace Assets.Scripts.Utilities
         {
             if (part.parent == null)
             {
-                return "SeriouslyImpaired";
+                return "Seriously Impaired";
             }
 
             if (part.depth != inside) //todo && !fresh
             {
-                return "MissingBodyPart";
+                return "Missing";
             }
 
-            return solid ? "ShatteredBodyPart" : "DestroyedBodyPart";
+            return solid ? "Shattered" : "Destroyed";
         }
 	}
 }
