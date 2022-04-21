@@ -6,6 +6,7 @@ using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
 using Assets.Scripts.World.Pawns.BodyTemplates;
 using Assets.Scripts.World.Pawns.Health.HealthModifiers;
+using World.Pawns.Health.HealthModifiers;
 
 namespace Assets.Scripts.World.Pawns
 {

@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using UnityEngine;
 
-namespace Assets.Scripts.UI
+namespace UI
 {
     public class BodyPartList : MonoBehaviour
     {
@@ -33,7 +34,9 @@ namespace Assets.Scripts.UI
                 return;
             }
 
-            foreach (var bodyPart in _currentPawn.GetBody())
+            var partsToDraw = GetPartsToDraw();
+
+            foreach (var bodyPart in partsToDraw)
             {
                 if (!bodyPart.HasHealthMods())
                 {
@@ -48,6 +51,33 @@ namespace Assets.Scripts.UI
         private void DrawAll()
         {
             //todo have a toggle to show all parts
+        }
+
+        private List<BodyPart> GetPartsToDraw()
+        {
+            var partsToDraw = new List<BodyPart>();
+
+            foreach (var bodyPart in _currentPawn.GetBody())
+            {
+                if (!bodyPart.HasHealthMods() || partsToDraw.Contains(bodyPart))
+                {
+                    continue;
+                }
+
+                if (bodyPart.IsMissing())
+                {
+                    if (bodyPart.parent == null || bodyPart.parent.IsMissing())
+                    {
+                        //todo parent being null means this is core part and they are real dead
+
+                        continue;
+                    }
+                }
+
+                partsToDraw.Add(bodyPart);
+            }
+
+            return partsToDraw;
         }
 
         private void HealthDebug_OnPawnSelected(Pawn pawn)

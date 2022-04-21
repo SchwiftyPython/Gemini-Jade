@@ -375,8 +375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46161eae0ef46284b8bedd4201f798be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthModPrefab: {fileID: 7401948415723391763, guid: 192c6b4554931484ea1277bb20a79cd8, type: 3}
-  _healthModParent: {fileID: 8155581569124947940}
+  healthModPrefab: {fileID: 7401948415723391763, guid: 192c6b4554931484ea1277bb20a79cd8, type: 3}
+  healthModParent: {fileID: 8155581569124947940}
   partName: {fileID: 8155581569572169261}
 --- !u!1001 &7901814719414673550
 PrefabInstance:

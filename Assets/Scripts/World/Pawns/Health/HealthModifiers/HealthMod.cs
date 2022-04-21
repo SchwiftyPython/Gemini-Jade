@@ -1,8 +1,10 @@
 using Assets.Scripts.Utilities;
+using Assets.Scripts.World.Pawns;
+using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Assets.Scripts.World.Things;
 using UnityEngine;
 
-namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
+namespace World.Pawns.Health.HealthModifiers
 {
     public class HealthMod 
     {
@@ -18,7 +20,7 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         public bool painless;
 
-        private bool _visible;
+        public bool visible;
 
         public Pawn pawn;
 

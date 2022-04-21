@@ -24,5 +24,5 @@ namespace Assets.Scripts.Utilities
 
             return solid ? "Shattered" : "Destroyed";
         }
-	}
+    }
 }

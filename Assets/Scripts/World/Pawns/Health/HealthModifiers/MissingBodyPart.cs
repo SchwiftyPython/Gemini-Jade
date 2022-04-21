@@ -1,8 +1,9 @@
 using Assets.Scripts.Utilities;
+using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Sirenix.Utilities;
 using UnityEngine;
 
-namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
+namespace World.Pawns.Health.HealthModifiers
 {
     public class MissingBodyPart : HealthMod
     {
@@ -10,7 +11,12 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
         {
             get
             {
-                if (Part.template.tags.IsNullOrEmpty() && Part.GetAllChildren().IsNullOrEmpty() && !Bleeding)
+                if (Part.template.tags.IsNullOrEmpty() && Part.GetAllChildren().IsNullOrEmpty())
+                {
+                    return 0f;
+                }
+
+                if (!Bleeding)
                 {
                     return 0f;
                 }

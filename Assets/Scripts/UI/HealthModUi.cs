@@ -1,8 +1,9 @@
 using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using TMPro;
 using UnityEngine;
+using World.Pawns.Health.HealthModifiers;
 
-namespace Assets.Scripts.UI
+namespace UI
 {
     public class HealthModUi : MonoBehaviour
     {
