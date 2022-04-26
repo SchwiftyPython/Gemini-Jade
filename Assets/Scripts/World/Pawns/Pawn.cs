@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Species;
+using World.Pawns.Health;
 
-namespace Assets.Scripts.World.Pawns
+namespace World.Pawns
 {
     public class Pawn
     {
@@ -9,9 +11,19 @@ namespace Assets.Scripts.World.Pawns
 
         private string _name;
 
-        private Health.Health _health;
+        public Health.Health health;
 
-        public bool Dead => _health.Dead;
+        public bool Dead => health.Dead;
+
+        public bool CanWakeUp => health.CanWakeUp;
+
+        public bool IsOrganic => species.fleshType != FleshType.Machine;
+
+        public bool IsHumanoid => species.intellect >= Intellect.Humanoid;
+
+        public bool ToolUser => species.intellect >= Intellect.ToolUser;
+
+        public bool IsAnimal => !ToolUser && IsOrganic;
 
         public Pawn(SpeciesTemplate speciesTemplate)
         {
@@ -19,12 +31,12 @@ namespace Assets.Scripts.World.Pawns
 
             _name = "Testy McTestes";
 
-            _health = new Health.Health(this);
+            health = new Health.Health(this);
         }
 
         public List<BodyPart> GetBody()
         {
-            return _health.GetBody();
+            return health.GetBody();
         }
     }
 }

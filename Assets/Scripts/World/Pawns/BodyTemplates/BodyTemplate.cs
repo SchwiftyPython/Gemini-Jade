@@ -5,6 +5,7 @@ using Assets.Scripts.World.Pawns.BodyPartTemplates;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using World.Pawns.Health;
 
 namespace Assets.Scripts.World.Pawns.BodyTemplates
 {

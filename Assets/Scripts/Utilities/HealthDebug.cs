@@ -5,6 +5,7 @@ using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Assets.Scripts.World.Pawns.Species;
 using UnityEngine;
 using UnityEngine.UI;
+using World.Pawns;
 
 namespace Assets.Scripts.Utilities
 {

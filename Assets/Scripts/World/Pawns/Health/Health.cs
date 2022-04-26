@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Utilities;
+using Assets.Scripts.World.Pawns;
+using Assets.Scripts.World.Pawns.Health;
+using World.Pawns.Health.HealthFunctions;
 
-namespace Assets.Scripts.World.Pawns.Health
+namespace World.Pawns.Health
 {
     public class Health
     {
@@ -12,7 +14,7 @@ namespace Assets.Scripts.World.Pawns.Health
 
         //todo health mods -- next iteration. Makes sense to only reference body parts in the health mods
 
-        //todo pawn capacities
+        private FunctionsHandler _functions;
 
         //todo health summary calculator
 
@@ -28,6 +30,8 @@ namespace Assets.Scripts.World.Pawns.Health
 
         public float painShockThreshold = 0.8f; //todo define in pawn's stats
 
+        public bool CanWakeUp => _functions.canWakeUp;
+
         public Health(Pawn pawn)
         {
             _pawn = pawn;
@@ -40,6 +44,11 @@ namespace Assets.Scripts.World.Pawns.Health
         public List<BodyPart> GetBody()
         {
             return _body;
+        }
+
+        public float GetLevel(HealthFunctionTemplate function)
+        {
+            return _functions.GetLevel(function);
         }
 
         private void BuildBody()

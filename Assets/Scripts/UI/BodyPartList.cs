@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using UnityEngine;
+using World.Pawns;
 
 namespace UI
 {

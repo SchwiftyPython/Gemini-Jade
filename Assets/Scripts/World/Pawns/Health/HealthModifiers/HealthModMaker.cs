@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using World.Pawns;
 using World.Pawns.Health.HealthModifiers;
 
 namespace Assets.Scripts.World.Pawns.Health.HealthModifiers

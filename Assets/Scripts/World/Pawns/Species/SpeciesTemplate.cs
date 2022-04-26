@@ -1,5 +1,7 @@
 using Assets.Scripts.World.Pawns.BodyTemplates;
 using UnityEngine;
+using World.Pawns;
+using World.Pawns.Health;
 
 namespace Assets.Scripts.World.Pawns.Species
 {
@@ -24,6 +26,10 @@ namespace Assets.Scripts.World.Pawns.Species
         public float baseHealthScale = 1f;
 
         public float baseHungerRate = 1f;
+        
+        public FleshType fleshType = FleshType.Organic;
+
+        public Intellect intellect;
 
         public Pawn NewPawn()
         {

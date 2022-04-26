@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using UnityEngine;
+using World.Pawns;
 
 namespace Assets.Scripts.World.Pawns.BodyPartTemplates
 {

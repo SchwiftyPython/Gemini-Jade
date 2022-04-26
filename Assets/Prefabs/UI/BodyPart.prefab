@@ -196,8 +196,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -472,6 +472,14 @@ PrefabInstance:
     - target: {fileID: 2055489319478267039, guid: 192c6b4554931484ea1277bb20a79cd8, type: 3}
       propertyPath: m_Name
       value: HealthMod
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055489319840441751, guid: 192c6b4554931484ea1277bb20a79cd8, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055489319840441751, guid: 192c6b4554931484ea1277bb20a79cd8, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 192c6b4554931484ea1277bb20a79cd8, type: 3}
