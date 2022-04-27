@@ -6,7 +6,7 @@ namespace World.Pawns.Health.HealthFunctions.Workers
 {
     public class HealthFunctionWorker
     {
-        public virtual float CalculateFunctionLevel(List<HealthMod> healthMods)
+        public virtual float CalculateFunctionLevel(Pawn pawn, List<HealthMod> healthMods)
         {
             return 1f;
         }

@@ -3,6 +3,7 @@ using Assets.Scripts.World.Pawns;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Utilities;
+using World.Pawns.Health.HealthModifiers;
 
 namespace World.Pawns.Health.HealthFunctions
 {
@@ -24,7 +25,7 @@ namespace World.Pawns.Health.HealthFunctions
             _functionLevels = null;
         }
 
-        public float GetLevel(HealthFunctionTemplate function)
+        public float GetLevel(HealthFunctionTemplate function, List<HealthMod> healthMods)
         {
             //todo throw exception if pawn is null somehow
             
@@ -37,10 +38,15 @@ namespace World.Pawns.Health.HealthFunctions
             {
                 InitializeFunctionLevels();
             }
-            
-            //_functionLevels[function] = HealthFunctionUtils.CalculateFunctionLevel(_pawn.health.) //todo get all health mods
+
+            _functionLevels[function] = HealthFunctionUtils.CalculateFunctionLevel(_pawn, healthMods, function); 
 
             return _functionLevels[function];
+        }
+
+        public bool CapableOf(HealthFunctionTemplate function)
+        {
+            return GetLevel(function, _pawn.health.GetHealthMods()) > function.functionalMin;
         }
 
         private void InitializeFunctionLevels()

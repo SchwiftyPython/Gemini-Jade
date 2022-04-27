@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.World.Pawns.BodyPartGroupTemplates;
+using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
@@ -44,5 +45,18 @@ namespace Assets.Scripts.World.Pawns.BodyTemplates
         public BodyPartTemplate corePart;
 
         public List<Part> parts;
+        
+        public bool HasPartsWithTag(BodyPartTagTemplate tag)
+        {
+            foreach (var bodyPart in parts)
+            {
+                if (bodyPart.self.tags.Contains(tag))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

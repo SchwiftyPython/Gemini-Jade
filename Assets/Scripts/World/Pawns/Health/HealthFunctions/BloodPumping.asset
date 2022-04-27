@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117b8d72c87eb804486599bc90564b5a, type: 3}
-  m_Name: Consciousness
+  m_Name: BloodPumping
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,23 +22,17 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: workerType
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: World.Pawns.Health.HealthFunctions.Workers.ConsciousnessWorker, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
-  templateName: Consciousness
-  label: consciousness
+  templateName: BloodPumping
+  label: blood pumping
   description: 
-  machineLabel: Processing
+  machineLabel: power generation
   animalLabel: 
   showOnHumanoids: 1
   showOnAnimals: 1
-  showOnMachines: 1
-  criticalOrganic: 1
-  criticalMachines: 1
+  showOnMachines: 0
+  criticalOrganic: 0
+  criticalMachines: 0
   functionalMin: 0
   zeroIfCannotWakeUp: 0

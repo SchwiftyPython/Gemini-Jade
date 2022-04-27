@@ -2283,6 +2283,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481157578}
   m_CullTransparentMesh: 1
+--- !u!1 &504078838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 504078840}
+  - component: {fileID: 504078839}
+  - component: {fileID: 504078841}
+  m_Layer: 0
+  m_Name: TemplateRepository
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &504078839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504078838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0999bb43706b3dc44a95403ab8a8b8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodFiltrationSource: {fileID: 11400000, guid: fbd01bf6efa74b044acab25f4bdf8be0, type: 2}
+  bloodFiltrationLiver: {fileID: 11400000, guid: b0c8ea0fee7bb1f47ad089d59a9390d6, type: 2}
+  bloodFiltrationKidney: {fileID: 11400000, guid: afde9a7ac34ef3c49893b215dd5117f7, type: 2}
+  bloodPumpingSource: {fileID: 11400000, guid: c498ef0e5d60725459690cc792cd4e04, type: 2}
+  breathingSource: {fileID: 11400000, guid: 3e73e5697bf94af47bc2f198675726d4, type: 2}
+  breathingSourceCage: {fileID: 11400000, guid: d63f22e510e5ee241ab535e7db1478d8, type: 2}
+  breathingPathway: {fileID: 11400000, guid: f8b8f6d78fbca8446bd81370b6b7c4b2, type: 2}
+  consciousnessSource: {fileID: 11400000, guid: ec3157651cc696a4a95c46da1019cc3b, type: 2}
+  eatingSource: {fileID: 11400000, guid: 69f15817b2a6c9b44b3a184b71b7f7be, type: 2}
+  eatingPathway: {fileID: 11400000, guid: 525a364e397789440a9acb8f300ac070, type: 2}
+  hearingSource: {fileID: 11400000, guid: f45eb254ccbeecc47bc147a5759f6901, type: 2}
+  metabolismSource: {fileID: 11400000, guid: 084c3f26a9f77e342b079694fb87e280, type: 2}
+  manipulationLimbCore: {fileID: 11400000, guid: 379fc496fb86bad40b4a1cc71c0cd730, type: 2}
+  manipulationLimbSegment: {fileID: 11400000, guid: 829df94a6bf718d4499a43939dd0e025, type: 2}
+  manipulationLimbDigit: {fileID: 11400000, guid: 497194aa01d475e4caed0beeb8468d9c, type: 2}
+  movingLimbCore: {fileID: 11400000, guid: 0f1cde971762b3445a3ef698bace08ff, type: 2}
+  movingLimbSegment: {fileID: 11400000, guid: da1d9c1fc332fd44ebb2e2e6338dd3f4, type: 2}
+  movingLimbDigit: {fileID: 11400000, guid: c2f27ffd2bc6a2244846fbb71363de2d, type: 2}
+  pelvis: {fileID: 11400000, guid: 69e1a249a27450a45bbe7a26d05e5c75, type: 2}
+  sightSource: {fileID: 11400000, guid: c6f476e420099ec4f9380bf013c63445, type: 2}
+  spine: {fileID: 11400000, guid: a45ccdd25b5cbca45923f1e75cbc3509, type: 2}
+  talkingSource: {fileID: 11400000, guid: 7f512c44742ee0d42989774fd83e186e, type: 2}
+  talkingPathway: {fileID: 11400000, guid: 70460b20e02f227478c7081a98d5ce93, type: 2}
+  tongue: {fileID: 11400000, guid: 4854eb8b864f028439d3e4a7141d5ce7, type: 2}
+--- !u!4 &504078840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504078838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1111.9341, y: 558.19543, z: -1051.9987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &504078841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504078838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9a1f8459d34104d91d5a63a68360e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consciousness: {fileID: 11400000, guid: c97a9c435877c14438a92ba4fdc6c706, type: 2}
+  sight: {fileID: 0}
+  hearing: {fileID: 0}
+  moving: {fileID: 0}
+  manipulation: {fileID: 0}
+  talking: {fileID: 0}
+  eating: {fileID: 0}
+  breathing: {fileID: 0}
+  bloodFiltration: {fileID: 0}
+  bloodPumping: {fileID: 0}
+  metabolism: {fileID: 0}
 --- !u!1 &511182691
 GameObject:
   m_ObjectHideFlags: 0
