@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using World.Pawns.Health;
+using World.Pawns.Health.HealthFunctions;
 
 namespace UI
 {
     public class HealthSummary : MonoBehaviour
     {
-        [SerializeField] private List<HealthCapacity> capacities;
+        [SerializeField] private List<HealthFunction> functions;
         
         private void Start()
         {
@@ -26,16 +26,16 @@ namespace UI
             gameObject.SetActive(false);
         }
 
-        private void Draw(IReadOnlyDictionary<Capacity, int> capacityValues)
+        private void Draw(IReadOnlyDictionary<HealthFunctionTemplate, int> functionValues)
         {
-            foreach (var healthCapacity in capacities)
+            foreach (var healthFunction in functions)
             {
-                if (!capacityValues.ContainsKey(healthCapacity.capacityType))
+                if (!functionValues.ContainsKey(healthFunction.functionType))
                 {
                     continue;
                 }
                 
-                healthCapacity.SetCapacityValue(capacityValues[healthCapacity.capacityType]);
+                healthFunction.SetCapacityValue(functionValues[healthFunction.functionType]);
             }
         }
     }

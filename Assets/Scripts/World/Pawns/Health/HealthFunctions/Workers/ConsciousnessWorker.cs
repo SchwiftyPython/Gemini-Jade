@@ -25,13 +25,13 @@ namespace World.Pawns.Health.HealthFunctions.Workers
             var functionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
 
             tagEfficiency = Mathf.Lerp(tagEfficiency,
-                tagEfficiency * Mathf.Min(CalculateFunction(pawn, healthMods, functionRepo.bloodPumping), 1f), 0.2f); //todo need worker
+                tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.bloodPumping), 1f), 0.2f);
             
             tagEfficiency = Mathf.Lerp(tagEfficiency,
-                tagEfficiency * Mathf.Min(CalculateFunction(pawn, healthMods, functionRepo.breathing), 1f), 0.2f); //todo need worker
+                tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.breathing), 1f), 0.2f); //todo need worker
             
             return Mathf.Lerp(tagEfficiency,
-                tagEfficiency * Mathf.Min(CalculateFunction(pawn, healthMods, functionRepo.bloodFiltration), 1f), 0.2f); //todo need worker
+                tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.bloodFiltration), 1f), 0.2f); 
         }
 
         public override bool CanHaveFunction(BodyTemplate body)

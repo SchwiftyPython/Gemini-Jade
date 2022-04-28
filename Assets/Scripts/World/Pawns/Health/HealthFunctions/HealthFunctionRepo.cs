@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace World.Pawns.Health.HealthFunctions
@@ -25,5 +26,25 @@ namespace World.Pawns.Health.HealthFunctions
         public HealthFunctionTemplate bloodPumping;
 
         public HealthFunctionTemplate metabolism;
+
+        public List<HealthFunctionTemplate> GetAllHealthFunctions()
+        {
+            var functions = new List<HealthFunctionTemplate>
+            {
+                consciousness,
+                sight,
+                hearing,
+                moving,
+                manipulation,
+                talking,
+                eating,
+                breathing,
+                bloodFiltration,
+                bloodPumping,
+                metabolism
+            };
+
+            return functions;
+        }
     }
 }

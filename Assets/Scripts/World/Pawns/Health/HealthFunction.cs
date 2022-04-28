@@ -1,6 +1,6 @@
 namespace World.Pawns.Health
 {
-    public enum Capacity
+    public enum Function
     {
         Pain,
         Consciousness,

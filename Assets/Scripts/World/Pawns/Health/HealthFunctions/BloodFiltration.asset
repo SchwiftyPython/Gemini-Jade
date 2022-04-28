@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 117b8d72c87eb804486599bc90564b5a, type: 3}
-  m_Name: BloodPumping
+  m_Name: BloodFiltration
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -26,14 +26,14 @@ MonoBehaviour:
       Data: 0|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: World.Pawns.Health.HealthFunctions.Workers.BloodPumpingWorker, Assembly-CSharp
+      Data: World.Pawns.Health.HealthFunctions.Workers.BloodFiltrationWorker, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
-  templateName: BloodPumping
-  label: blood pumping
+  templateName: BloodFiltration
+  label: blood filtration
   description: 
-  machineLabel: power generation
+  machineLabel: fluid reprocessing
   animalLabel: 
   showOnHumanoids: 1
   showOnAnimals: 1

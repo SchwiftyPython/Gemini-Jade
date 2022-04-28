@@ -16,7 +16,7 @@ namespace World.Pawns.Health.HealthFunctions.Workers
             return true;
         }
         
-        protected float CalculateFunction(Pawn pawn, List<HealthMod> healthMods, HealthFunctionTemplate function)
+        protected static float CalculateFunction(Pawn pawn, HealthFunctionTemplate function)
         {
             return pawn.health.GetLevel(function);
         }

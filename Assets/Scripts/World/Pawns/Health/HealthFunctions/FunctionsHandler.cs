@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Assets.Scripts.World.Pawns;
+using System.Linq;
+using Assets.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Utilities;
@@ -18,6 +19,8 @@ namespace World.Pawns.Health.HealthFunctions
         public FunctionsHandler(Pawn pawn)
         {
             _pawn = pawn;
+            
+            HealthDebug.OnBodyChanged += HealthDebug_OnBodyChanged;
         }
 
         public void Clear()
@@ -44,6 +47,11 @@ namespace World.Pawns.Health.HealthFunctions
             return _functionLevels[function];
         }
 
+        public Dictionary<HealthFunctionTemplate, float> GetFunctionLevels()
+        {
+            return _functionLevels;
+        }
+
         public bool CapableOf(HealthFunctionTemplate function)
         {
             return GetLevel(function, _pawn.health.GetHealthMods()) > function.functionalMin;
@@ -53,7 +61,12 @@ namespace World.Pawns.Health.HealthFunctions
         {
             _functionLevels = new Dictionary<HealthFunctionTemplate, float>();
             
-            //todo add all health function templates. 
+            //todo add all health function templates.
+
+            // if addressables doesn't work out
+            // var healthFunctionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
+            //
+            // var functionKeys = healthFunctionRepo.GetAllHealthFunctions();
 
             var locations = Addressables.LoadResourceLocationsAsync("healthfunctionstemplates", typeof(HealthFunctionTemplate)).Result;
 
@@ -75,6 +88,30 @@ namespace World.Pawns.Health.HealthFunctions
                 
                 _functionLevels.Add(template, -1f);
             }
+        }
+
+        private void UpdateFunctionLevels()
+        {
+            if (_functionLevels == null || !_functionLevels.Any())
+            {
+                InitializeFunctionLevels();
+            }
+            
+            foreach (var healthFunction in _functionLevels.Keys)
+            {
+                if (!_functionLevels.ContainsKey(healthFunction))
+                {
+                    Debug.LogError($"Health Function Template: {healthFunction.templateName} doesn't exist in Function Levels!");
+                    continue;
+                }
+
+                _functionLevels[healthFunction] = GetLevel(healthFunction, _pawn.health.GetHealthMods());
+            }
+        }
+        
+        private void HealthDebug_OnBodyChanged()
+        {
+            UpdateFunctionLevels();
         }
     }
 }

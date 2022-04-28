@@ -120,6 +120,11 @@ namespace World.Pawns.Health
             return Mathf.RoundToInt(health);
         }
 
+        public IDictionary<HealthFunctionTemplate, float> GetFunctionValues()
+        {
+            return _functions.GetFunctionLevels();
+        }
+
         private void BuildBody()
         {
             var corePartInfo = _pawn.species.bodyTemplate.parts.SingleOrDefault(p =>
