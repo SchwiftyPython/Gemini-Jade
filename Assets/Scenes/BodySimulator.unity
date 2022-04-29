@@ -7490,7 +7490,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   functions:
-  - {fileID: 0}
+  - {fileID: 640842448}
+  - {fileID: 552605495}
+  - {fileID: 1282967447}
+  - {fileID: 1630496521}
+  - {fileID: 632222931}
+  - {fileID: 363268425}
+  - {fileID: 333157861}
+  - {fileID: 265596351}
+  - {fileID: 2061522169}
+  - {fileID: 1755487708}
+  - {fileID: 958207456}
 --- !u!1 &1890096111
 GameObject:
   m_ObjectHideFlags: 0

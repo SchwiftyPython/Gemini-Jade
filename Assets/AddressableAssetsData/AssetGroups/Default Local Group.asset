@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 6dd01ecbaa2631c478bed66813797013
-  m_SerializeEntries:
-  - m_GUID: c97a9c435877c14438a92ba4fdc6c706
-    m_Address: Assets/Scripts/World/Pawns/Health/HealthFunctions/Consciousness.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 282463e1612975c49b5d3dbefa2bc458, type: 2}
   m_SchemaSet:

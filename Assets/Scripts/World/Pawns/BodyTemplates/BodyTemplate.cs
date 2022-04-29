@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.World.Pawns.BodyPartGroupTemplates;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
@@ -48,7 +49,9 @@ namespace Assets.Scripts.World.Pawns.BodyTemplates
         
         public bool HasPartsWithTag(BodyPartTagTemplate tag)
         {
-            foreach (var bodyPart in parts)
+            var allParts = GetAllParts();
+            
+            foreach (var bodyPart in allParts)
             {
                 if (bodyPart.self.tags.Contains(tag))
                 {
@@ -57,6 +60,53 @@ namespace Assets.Scripts.World.Pawns.BodyTemplates
             }
 
             return false;
+        }
+
+        public List<Part> GetAllParts()
+        {
+            var allParts = new List<Part>();
+
+            foreach (var bodyPart in parts)
+            {
+                if (allParts.Contains(bodyPart))
+                {
+                    continue;
+                }
+                
+                allParts.Add(bodyPart);
+
+                var children = GetChildParts(bodyPart);
+                
+                allParts.AddRange(children);
+            }
+
+            return allParts.Distinct().ToList();
+        }
+
+        private static IEnumerable<Part> GetChildParts(Part parent)
+        {
+            var childParts = new List<Part>();
+
+            foreach (var childPart in parent.children)
+            {
+                if (childParts.Contains(childPart))
+                {
+                    continue;
+                }
+                
+                childParts.Add(childPart);
+
+                if (childPart.children == null || childPart.children.Any())
+                {
+                    continue;
+                }
+
+                var children = GetChildParts(childPart);
+                
+                childParts.AddRange(children);
+            }
+
+            return childParts;
         }
     }
 }

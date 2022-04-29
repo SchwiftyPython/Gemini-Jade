@@ -3,6 +3,8 @@ using System.Linq;
 using Assets.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 using Utilities;
 using World.Pawns.Health.HealthModifiers;
 
@@ -19,6 +21,8 @@ namespace World.Pawns.Health.HealthFunctions
         public FunctionsHandler(Pawn pawn)
         {
             _pawn = pawn;
+            
+            InitializeFunctionLevels();
             
             HealthDebug.OnBodyChanged += HealthDebug_OnBodyChanged;
         }
@@ -60,33 +64,27 @@ namespace World.Pawns.Health.HealthFunctions
         private void InitializeFunctionLevels()
         {
             _functionLevels = new Dictionary<HealthFunctionTemplate, float>();
+
+            var healthFunctionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
             
-            //todo add all health function templates.
+            var templates = healthFunctionRepo.GetAllHealthFunctions();
 
-            // if addressables doesn't work out
-            // var healthFunctionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
-            //
-            // var functionKeys = healthFunctionRepo.GetAllHealthFunctions();
-
-            var locations = Addressables.LoadResourceLocationsAsync("healthfunctionstemplates", typeof(HealthFunctionTemplate)).Result;
-
-            foreach (var location in locations)
+            foreach (var template in templates)
             {
-                var template = Addressables.LoadAssetAsync<HealthFunctionTemplate>(location.PrimaryKey).Result;
-
                 if (template == null)
                 {
-                    Debug.LogError($"Could not load Health Function Template: {location.PrimaryKey}!");
                     continue;
                 }
 
                 if (_functionLevels.ContainsKey(template))
                 {
-                    Debug.LogError($"Health Function Template: {location.PrimaryKey} already added to Function Levels!");
+                    Debug.LogError($"Health Function Template: {template.templateName} already added to Function Levels!");
                     continue;
                 }
+
+                const float initFunctionLevel = 1f;
                 
-                _functionLevels.Add(template, -1f);
+                _functionLevels.Add(template, initFunctionLevel);
             }
         }
 
@@ -96,12 +94,13 @@ namespace World.Pawns.Health.HealthFunctions
             {
                 InitializeFunctionLevels();
             }
-            
-            foreach (var healthFunction in _functionLevels.Keys)
+
+            foreach (var healthFunction in _functionLevels.Keys.ToArray())
             {
                 if (!_functionLevels.ContainsKey(healthFunction))
                 {
-                    Debug.LogError($"Health Function Template: {healthFunction.templateName} doesn't exist in Function Levels!");
+                    Debug.LogError(
+                        $"Health Function Template: {healthFunction.templateName} doesn't exist in Function Levels!");
                     continue;
                 }
 

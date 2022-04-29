@@ -42,6 +42,8 @@ namespace World.Pawns.Health
 
             BuildBody();
 
+            _functions = new FunctionsHandler(_pawn);
+
             //todo set all the other properties
         }
 

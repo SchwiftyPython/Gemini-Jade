@@ -3,9 +3,11 @@ using System.Linq;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Assets.Scripts.World.Pawns.Species;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using World.Pawns;
+using World.Pawns.Health.HealthFunctions;
 
 namespace Assets.Scripts.Utilities
 {
@@ -79,6 +81,8 @@ namespace Assets.Scripts.Utilities
             partToRemove.AddHealthMod(removePartMod);
 
             OnBodyChanged?.Invoke();
+            
+            DrawHealthSummary();
         }
 
         private void PopulateBodyPartDropdown()
@@ -106,6 +110,26 @@ namespace Assets.Scripts.Utilities
             }
 
             bodyPartsDropdown.AddOptions(_bodyPartsDict.Keys.ToList());
+        }
+
+        private void DrawHealthSummary()
+        {
+            var healthSummary = Object.FindObjectOfType<HealthSummary>();
+
+            var functionLevels = _currentPawn.health.GetFunctionValues();
+
+            var functionPercentages = new Dictionary<HealthFunctionTemplate, int>();
+
+            foreach (var function in functionLevels.Keys) //todo stick conversion to percentage part in textutils 
+            {
+                var value = functionLevels[function];
+
+                var percent = (int) (value * 100);
+                
+                functionPercentages.Add(function, percent);
+            }
+            
+            healthSummary.Draw(functionPercentages);
         }
 
         private void HealthDebug_OnPawnSelected(Pawn pawn)

@@ -10,9 +10,9 @@ namespace UI
         
         public HealthFunctionTemplate functionType;
 
-        public void SetCapacityValue(int capacityValue)
+        public void SetFunctionValue(int capacityValue)
         {
-            value.text = capacityValue.ToString();
+            value.text = $"{capacityValue.ToString()}%";
         }
     }
 }

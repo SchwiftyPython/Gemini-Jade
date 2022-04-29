@@ -26,16 +26,16 @@ namespace UI
             gameObject.SetActive(false);
         }
 
-        private void Draw(IReadOnlyDictionary<HealthFunctionTemplate, int> functionValues)
+        public void Draw(IReadOnlyDictionary<HealthFunctionTemplate, int> functionValues)
         {
             foreach (var healthFunction in functions)
             {
-                if (!functionValues.ContainsKey(healthFunction.functionType))
+                if (healthFunction.functionType == null || !functionValues.ContainsKey(healthFunction.functionType))
                 {
                     continue;
                 }
-                
-                healthFunction.SetCapacityValue(functionValues[healthFunction.functionType]);
+
+                healthFunction.SetFunctionValue(functionValues[healthFunction.functionType]);
             }
         }
     }
