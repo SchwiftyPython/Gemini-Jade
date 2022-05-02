@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 178636970}
-  functionType: {fileID: 0}
+  functionType: {fileID: 11400000, guid: e60ec2f29089d044688199c9205484e6, type: 2}
 --- !u!1 &335199508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,12 +2364,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consciousness: {fileID: 11400000, guid: c97a9c435877c14438a92ba4fdc6c706, type: 2}
-  sight: {fileID: 0}
-  hearing: {fileID: 0}
-  moving: {fileID: 0}
+  sight: {fileID: 11400000, guid: 0725b4c45d4daaf4ab2a4bc16d21ee74, type: 2}
+  hearing: {fileID: 11400000, guid: 9356f8e35025ccf4da511fa220f6b241, type: 2}
+  moving: {fileID: 11400000, guid: 3905743465ac00340816667dc2575822, type: 2}
   manipulation: {fileID: 0}
   talking: {fileID: 0}
-  eating: {fileID: 0}
+  eating: {fileID: 11400000, guid: e60ec2f29089d044688199c9205484e6, type: 2}
   breathing: {fileID: 11400000, guid: f4fe8f614d0e1e841bb2dbe8fb6fd0ea, type: 2}
   bloodFiltration: {fileID: 11400000, guid: 10696c60b886b9f4dabb8ed518e2372a, type: 2}
   bloodPumping: {fileID: 11400000, guid: 7b33d8c78f3092b43854905a5039897e, type: 2}
@@ -3102,7 +3102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 99113392}
-  functionType: {fileID: 0}
+  functionType: {fileID: 11400000, guid: 3905743465ac00340816667dc2575822, type: 2}
 --- !u!224 &637304422 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8155581569657073102, guid: 820dc452c52e2f245936759f60d57afe, type: 3}
@@ -5421,7 +5421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 1738198184}
-  functionType: {fileID: 0}
+  functionType: {fileID: 11400000, guid: 0725b4c45d4daaf4ab2a4bc16d21ee74, type: 2}
 --- !u!1 &1410787811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6357,7 +6357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 238381497}
-  functionType: {fileID: 0}
+  functionType: {fileID: 11400000, guid: 9356f8e35025ccf4da511fa220f6b241, type: 2}
 --- !u!1 &1736226959
 GameObject:
   m_ObjectHideFlags: 0

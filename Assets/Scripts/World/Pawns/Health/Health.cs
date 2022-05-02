@@ -127,6 +127,42 @@ namespace World.Pawns.Health
             return _functions.GetFunctionLevels();
         }
 
+        public float GetPainTotal()
+        {
+            //todo need to get stages implemented for us to get a number besides 0 here
+            
+            return CalculatePain();
+        }
+
+        private float CalculatePain()
+        {
+            if (!_pawn.IsOrganic || _pawn.Dead)
+            {
+                return 0f;
+            }
+
+            var healthMods = GetHealthMods();
+            
+            if (healthMods == null || !healthMods.Any())
+            {
+                return 0f;
+            }
+            
+            var pain = 0f;
+
+            foreach (var healthMod in healthMods)
+            {
+                pain += healthMod.PainOffset;
+            }
+            
+            foreach (var healthMod in healthMods)
+            {
+                pain *= healthMod.PainFactor;
+            }
+
+            return pain;
+        }
+
         private void BuildBody()
         {
             var corePartInfo = _pawn.species.bodyTemplate.parts.SingleOrDefault(p =>

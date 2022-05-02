@@ -58,7 +58,12 @@ namespace Utilities
         {
             var partsWithTag = pawn.health.GetBodyPartsWithTag(tag);
 
-            if (partsWithTag == null || !partsWithTag.Any())
+            if (partsWithTag == null)
+            {
+                return 1f;
+            }
+            
+            if (!partsWithTag.Any())
             {
                 return 1f;
             }
@@ -81,6 +86,65 @@ namespace Utilities
             //todo enforce a min max
 
             return tagEfficiency;
+        }
+
+        public static float CalculateLimbEfficiency(Pawn pawn, List<HealthMod> healthMods,
+            BodyPartTagTemplate limbCoreTag, BodyPartTagTemplate limbSegmentTag, BodyPartTagTemplate limbDigitTag,
+            float appendageWeight, out float functionalPercentage)
+        {
+            var partsWithTag = pawn.health.GetBodyPartsWithTag(limbCoreTag);
+            
+            if (partsWithTag == null)
+            {
+                functionalPercentage = 0f;
+                return 1f;
+            }
+            
+            if (!partsWithTag.Any())
+            {
+                functionalPercentage = 0f;
+                return 1f;
+            }
+            
+            var limbEfficiency = 0f;
+            var numFunctional = 0;
+
+            foreach (var bodyPart in partsWithTag)
+            {
+                var partEfficiency = CalculatePartEfficiency(bodyPart, pawn, healthMods);
+
+                var connectedParts = bodyPart.GetConnectedParts(limbSegmentTag);
+
+                foreach (var connectedPart in connectedParts)
+                {
+                    partEfficiency *= CalculatePartEfficiency(connectedPart, pawn, healthMods);
+                }
+                
+                var digitEfficiency = 0f;
+
+                if (bodyPart.HasChildParts(limbDigitTag))
+                {
+                    var childParts = bodyPart.GetChildParts(limbDigitTag).ToList();
+
+                    foreach (var childPart in childParts)
+                    {
+                        digitEfficiency += CalculatePartEfficiency(childPart, pawn, healthMods);
+                    }
+
+                    partEfficiency = Mathf.Lerp(partEfficiency, digitEfficiency / childParts.Count, appendageWeight);
+                }
+
+                limbEfficiency += partEfficiency;
+
+                if (digitEfficiency > 0f)
+                {
+                    numFunctional++;
+                }
+            }
+
+            functionalPercentage = (float)numFunctional / partsWithTag.Count;
+
+            return limbEfficiency / partsWithTag.Count;
         }
     }
 }

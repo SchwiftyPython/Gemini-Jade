@@ -49,6 +49,8 @@ namespace World.Pawns.Health.HealthModifiers
         //todo pain stuff
 
         public virtual float PainOffset => 0f; //todo base on current stage's offset if it causes pain
+        
+        public virtual float PainFactor => 0f; //todo base on current stage's offset if it causes pain
 
         //todo capacity modifiers
 
