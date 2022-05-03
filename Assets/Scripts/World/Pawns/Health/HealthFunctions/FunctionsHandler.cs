@@ -13,7 +13,15 @@ namespace World.Pawns.Health.HealthFunctions
 
         private Dictionary<HealthFunctionTemplate, float> _functionLevels;
 
-        public bool canWakeUp; //todo if consciousness >= 0.3f
+        public bool CanWakeUp
+        {
+            get
+            {
+                var functionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
+
+                return GetLevel(functionRepo.consciousness, _pawn.health.GetHealthMods()) >= 0.3f;
+            }
+        }
 
         public FunctionsHandler(Pawn pawn)
         {

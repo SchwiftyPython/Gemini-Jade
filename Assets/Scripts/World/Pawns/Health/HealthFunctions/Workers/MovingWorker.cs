@@ -33,7 +33,7 @@ namespace World.Pawns.Health.HealthFunctions.Workers
             functionLevel = Mathf.Lerp(functionLevel, functionLevel * CalculateFunction(pawn, functionRepo.bloodPumping),
                 0.2f);
 
-            return functionLevel * Mathf.Min(HealthFunctionUtils.CalculateFunctionLevel(pawn, healthMods, functionRepo.consciousness), 1f);
+            return functionLevel * Mathf.Min(CalculateFunction(pawn, functionRepo.consciousness), 1f);
         }
 
         public override bool CanHaveFunction(BodyTemplate body)

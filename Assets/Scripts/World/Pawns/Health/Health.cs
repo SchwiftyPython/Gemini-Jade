@@ -34,7 +34,7 @@ namespace World.Pawns.Health
 
         public float painShockThreshold = 0.8f; //todo define in pawn's stats
 
-        public bool CanWakeUp => _functions.canWakeUp;
+        public bool CanWakeUp => _functions.CanWakeUp;
 
         public Health(Pawn pawn)
         {

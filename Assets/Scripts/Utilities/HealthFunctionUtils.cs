@@ -20,17 +20,29 @@ namespace Utilities
                 return 0f;
             }
 
-            float level = function.Worker.CalculateFunctionLevel(pawn, healthMods);
-
-            if (level > 0f && healthMods != null && healthMods.Any())
+            var level = function.Worker.CalculateFunctionLevel(pawn, healthMods);
+            
+            if (level <= 0f)
             {
-                foreach (var healthMod in healthMods)
-                {
-                    //todo get function mods and loop through them
+                return level;
+            }
+
+            if (healthMods == null)
+            {
+                return level;
+            }
+
+            if (!healthMods.Any())
+            {
+                return level;
+            }
+
+            foreach (var healthMod in healthMods)
+            {
+                //todo get function mods and loop through them
                     
-                    //a lot of voodoo going on in this loop. See what we end up needing
-                    //will probably make more sense once we start seeing the numbers
-                }
+                //a lot of voodoo going on in this loop. See what we end up needing
+                //will probably make more sense once we start seeing the numbers
             }
 
             return level;
