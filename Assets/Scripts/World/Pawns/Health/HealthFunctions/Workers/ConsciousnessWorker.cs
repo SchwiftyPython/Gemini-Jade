@@ -19,8 +19,6 @@ namespace World.Pawns.Health.HealthFunctions.Workers
             //todo get pain total
             
             //todo if pain > 0 then subtract it from tag efficiency and add pain impactor
-            
-            //not sure what the Lerps are going to give us, but I'm curious
 
             var functionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
 
@@ -28,7 +26,7 @@ namespace World.Pawns.Health.HealthFunctions.Workers
                 tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.bloodPumping), 1f), 0.2f);
             
             tagEfficiency = Mathf.Lerp(tagEfficiency,
-                tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.breathing), 1f), 0.2f); //todo need worker
+                tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.breathing), 1f), 0.2f);
             
             return Mathf.Lerp(tagEfficiency,
                 tagEfficiency * Mathf.Min(CalculateFunction(pawn, functionRepo.bloodFiltration), 1f), 0.2f); 

@@ -9,9 +9,15 @@ namespace World.Pawns.Health.HealthFunctions
 {
     public class FunctionsHandler
     {
+        private class FunctionLevel
+        {
+            public bool dirty;
+            public float value;
+        }
+    
         private Pawn _pawn;
 
-        private Dictionary<HealthFunctionTemplate, float> _functionLevels;
+        private Dictionary<HealthFunctionTemplate, FunctionLevel> _functionLevels;
 
         public bool CanWakeUp
         {
@@ -51,14 +57,28 @@ namespace World.Pawns.Health.HealthFunctions
                 InitializeFunctionLevels();
             }
 
-            _functionLevels[function] = HealthFunctionUtils.CalculateFunctionLevel(_pawn, healthMods, function); 
+            if (!_functionLevels[function].dirty)
+            {
+                return _functionLevels[function].value;
+            }
 
-            return _functionLevels[function];
+            _functionLevels[function].value = HealthFunctionUtils.CalculateFunctionLevel(_pawn, healthMods, function);
+
+            _functionLevels[function].dirty = false;
+
+            return _functionLevels[function].value;
         }
 
         public Dictionary<HealthFunctionTemplate, float> GetFunctionLevels()
         {
-            return _functionLevels;
+            var levels = new Dictionary<HealthFunctionTemplate, float>();
+
+            foreach (var functionLevel in _functionLevels)
+            {
+                levels.Add(functionLevel.Key, functionLevel.Value.value);
+            }
+            
+            return levels;
         }
 
         public bool CapableOf(HealthFunctionTemplate function)
@@ -68,7 +88,7 @@ namespace World.Pawns.Health.HealthFunctions
 
         private void InitializeFunctionLevels()
         {
-            _functionLevels = new Dictionary<HealthFunctionTemplate, float>();
+            _functionLevels = new Dictionary<HealthFunctionTemplate, FunctionLevel>();
 
             var healthFunctionRepo = Object.FindObjectOfType<HealthFunctionRepo>();
             
@@ -88,14 +108,24 @@ namespace World.Pawns.Health.HealthFunctions
                 }
 
                 const float initFunctionLevel = 1f;
+
+                var functionLevel = new FunctionLevel
+                {
+                    dirty = true,
+                    value = initFunctionLevel
+                };
                 
-                _functionLevels.Add(template, initFunctionLevel);
+                _functionLevels.Add(template, functionLevel);
             }
         }
 
         private void UpdateFunctionLevels()
         {
-            if (_functionLevels == null || !_functionLevels.Any())
+            if (_functionLevels == null)
+            {
+                InitializeFunctionLevels();
+            }
+            else if (!_functionLevels.Any())
             {
                 InitializeFunctionLevels();
             }
@@ -109,12 +139,17 @@ namespace World.Pawns.Health.HealthFunctions
                     continue;
                 }
 
-                _functionLevels[healthFunction] = GetLevel(healthFunction, _pawn.health.GetHealthMods());
+                GetLevel(healthFunction, _pawn.health.GetHealthMods());
             }
         }
         
         private void HealthDebug_OnBodyChanged()
         {
+            foreach (var healthFunction in _functionLevels.Keys.ToArray())
+            {
+                _functionLevels[healthFunction].dirty = true;
+            }
+            
             UpdateFunctionLevels();
         }
     }
