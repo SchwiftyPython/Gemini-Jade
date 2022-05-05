@@ -5964,11 +5964,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: {fileID: 11400000, guid: 720875f356e64d24abcf8a2ee5dc5381, type: 2}
-  normal: {fileID: 11400000, guid: cf49dfe84a85f2d4e9a87625b77622d3, type: 2}
+  normalSpeed: {fileID: 11400000, guid: cf49dfe84a85f2d4e9a87625b77622d3, type: 2}
   fast: {fileID: 11400000, guid: 51dc4ca9a67761f4ea92ab81ff43c49f, type: 2}
   ultra: {fileID: 11400000, guid: 3ccb56752cfba584aaab31e1cdcbbda2, type: 2}
+  normalTick: {fileID: 11400000, guid: 63ffcf4f75f52b54cb467c69c9efa1de, type: 2}
+  rareTick: {fileID: 11400000, guid: 1a7f0f19813489a4b849ac5db9c06129, type: 2}
+  longTick: {fileID: 11400000, guid: 1d2e9ca035e0466498f585969b7f6ef3, type: 2}
   gameStartTick: 0
   currentSpeed: {fileID: 11400000, guid: cf49dfe84a85f2d4e9a87625b77622d3, type: 2}
+  prePauseSpeed: {fileID: 0}
 --- !u!4 &1509171227
 Transform:
   m_ObjectHideFlags: 0

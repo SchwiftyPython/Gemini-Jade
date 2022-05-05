@@ -1,13 +1,22 @@
+using System;
 using System.Diagnostics;
+using TickerTypes;
 using TimeSpeeds;
 using UnityEngine;
+using World.Things;
 
 public class TickController : MonoBehaviour
 {
-    [SerializeField] private TimeSpeed paused;
-    [SerializeField] private TimeSpeed normal;
-    [SerializeField] private TimeSpeed fast;
-    [SerializeField] private TimeSpeed ultra;
+    //todo need collapsible header
+    public TimeSpeed paused;
+    public TimeSpeed normalSpeed;
+    public TimeSpeed fast;
+    public TimeSpeed ultra;
+
+    //todo need collapsible header
+    public TickerType normalTick;
+    public TickerType rareTick;
+    public TickerType longTick;
 
     private int _numTicks;
 
@@ -30,14 +39,18 @@ public class TickController : MonoBehaviour
 
     private int _settleTick;
 
+    private float _realTimeToTickThrough;
+
+    private TickList normalTicks;
+    private TickList rareTicks;
+    private TickList longTicks;
+    
     public int gameStartTick;
 
     public TimeSpeed currentSpeed;
 
     public TimeSpeed prePauseSpeed;
     
-    //todo TickLists
-
     public int NumTicks => _numTicks;
 
     public int TicksSinceSettled => _numTicks - _settleTick;
@@ -55,9 +68,9 @@ public class TickController : MonoBehaviour
                 return paused.tickRateMultiplier;
             }
             
-            if (currentSpeed == normal)
+            if (currentSpeed == normalSpeed)
             {
-                return normal.tickRateMultiplier;
+                return normalSpeed.tickRateMultiplier;
             }
             
             if (currentSpeed == fast)
@@ -84,8 +97,154 @@ public class TickController : MonoBehaviour
     }
 
     public bool ColonySettled => _settleTick > 0;
+
+    private void Update()
+    {
+        if (Paused)
+        {
+            return;
+        }
+
+        var currentTimePerTick = CurrentTimePerTick;
+
+        if (Mathf.Abs(Time.deltaTime - currentTimePerTick) < currentTimePerTick * .01f)
+        {
+            _realTimeToTickThrough += currentTimePerTick;
+        }
+        else
+        {
+            _realTimeToTickThrough += Time.deltaTime;
+        }
+
+        if (clock == null)
+        {
+            clock = new Stopwatch();
+        }
+       
+        clock.Reset();
+        clock.Start();
+        
+        var tickRateMultiplier = TickRateMultiplier;
+
+        var numTicks = 0;
+
+        while (_realTimeToTickThrough > 0f && numTicks < tickRateMultiplier * 2f)
+        {
+            DoSingleTick();
+            _realTimeToTickThrough -= currentTimePerTick;
+            numTicks++;
+            if (Paused) //todo or frame rate is bad
+            {
+                break;
+            }
+        }
+
+        if (_realTimeToTickThrough > 0f)
+        {
+            _realTimeToTickThrough = 0;
+        }
+    }
+
+    public void Init()
+    {
+        clock = new Stopwatch();
+
+        normalTicks = new TickList(normalTick);
+        rareTicks = new TickList(rareTick);
+        longTicks = new TickList(longTick);
+    }
+
+    public void DoSingleTick()
+    {
+        //todo find all maps and tick through them
+
+        _numTicks += 2000;
+        
+        //Shader.SetGlobalFloat() called here. Not sure if needed later
+        
+        normalTicks.Tick();
+        rareTicks.Tick();
+        longTicks.Tick();
+        
+        //todo they have a static Find class that basically does FindObjectOfType for everyone
+        
+        //todo Date Notifier Tick
+        
+        //todo Scenario tick
+        
+        //todo World Tick -- Pawns are ticked here
+        
+        //todo Game End Tick
+        
+        //todo StoryTeller Tick
+        
+        //todo Quest Manager Tick
+        
+        //todo Auto Saver Tick
+    }
+
+    public void TogglePause()
+    {
+        if (currentSpeed != paused)
+        {
+            prePauseSpeed = currentSpeed;
+            currentSpeed = paused;
+        }
+        else if (prePauseSpeed != currentSpeed)
+        {
+            currentSpeed = prePauseSpeed;
+        }
+        else
+        {
+            currentSpeed = normalSpeed;
+        }
+    }
+
+    public void Pause()
+    {
+        if (currentSpeed != paused)
+        {
+            TogglePause();
+        }
+    }
+
+    public void RegisterTicksFor(Thing thing)
+    {
+        GetTickListFor(thing).Register(thing);
+    }
     
-    //todo methods
+    public void UnRegisterTicksFor(Thing thing)
+    {
+        GetTickListFor(thing).UnRegister(thing);
+    }
+
+    private TickList GetTickListFor(Thing thing)
+    {
+        var thingTickerType = thing.template.tickerType;
+
+        if (thingTickerType == normalTick)
+        {
+            return normalTicks;
+        }
+
+        if (thingTickerType == rareTick)
+        {
+            return rareTicks;
+        }
+
+        if(thingTickerType == longTick)
+        {
+            return longTicks;
+        }
+
+        throw new InvalidOperationException();
+    }
+
+    public void ResetSettlementTicks()
+    {
+        _settleTick = _numTicks;
+    }
+    
 }
 
 
