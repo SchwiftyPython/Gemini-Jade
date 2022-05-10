@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TickerTypes
+namespace Time.TickerTypes
 {
     [CreateAssetMenu(menuName = "Enums/TickerType")]
     public class TickerType : ScriptableObject

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TimeSpeeds
+namespace Time.TimeSpeeds
 {
     [CreateAssetMenu(menuName = "Enums/TimeSpeed")]
     public class TimeSpeed : ScriptableObject

@@ -1,6 +1,6 @@
 using System;
 using Assets.Scripts.World.Things.ThingCategories;
-using TickerTypes;
+using Time.TickerTypes;
 using UnityEngine;
 
 namespace Assets.Scripts.World.Things
