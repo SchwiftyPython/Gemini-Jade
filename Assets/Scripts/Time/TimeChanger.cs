@@ -5,6 +5,8 @@ namespace Time
 {
     public class TimeChanger : MonoBehaviour
     {
+        //todo this belongs in UI namespace
+        
         private TickController _tickController;
 
         private Button _prePauseButton;

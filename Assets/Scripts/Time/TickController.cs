@@ -1,14 +1,26 @@
 using System;
 using System.Diagnostics;
+using Assets.Scripts.Utilities;
 using Time.TickerTypes;
 using Time.TimeSpeeds;
 using UnityEngine;
+using World.Pawns;
 using World.Things;
 
 namespace Time
 {
     public class TickController : MonoBehaviour
     {
+        public const int RareTickInterval = 250;
+        
+        private int _numTicks;
+
+        private int _startingYear = 0;
+
+        private Stopwatch _clock;
+
+        private Pawn _healthDebugPawn;
+        
         //todo need collapsible header
         public TimeSpeed paused;
         public TimeSpeed normalSpeed;
@@ -19,12 +31,6 @@ namespace Time
         public TickerType normalTick;
         public TickerType rareTick;
         public TickerType longTick;
-
-        private int _numTicks;
-
-        private int _startingYear = 0;
-
-        private Stopwatch clock;
 
         private float CurrentTimePerTick
         {
@@ -118,13 +124,13 @@ namespace Time
                 _realTimeToTickThrough += UnityEngine.Time.deltaTime;
             }
 
-            if (clock == null)
+            if (_clock == null)
             {
-                clock = new Stopwatch();
+                _clock = new Stopwatch();
             }
        
-            clock.Reset();
-            clock.Start();
+            _clock.Reset();
+            _clock.Start();
         
             var tickRateMultiplier = TickRateMultiplier;
 
@@ -149,11 +155,17 @@ namespace Time
 
         public void Init()
         {
-            clock = new Stopwatch();
+            _clock = new Stopwatch();
 
             normalTicks = new TickList(normalTick);
             rareTicks = new TickList(rareTick);
             longTicks = new TickList(longTick);
+            
+            //TESTING Health Debug
+
+            HealthDebug.OnPawnSelected += SetHealthDebugPawn;
+
+            //END TESTING Health Debug 
         }
 
         public void DoSingleTick()
@@ -174,7 +186,8 @@ namespace Time
         
             //todo Scenario tick
         
-            //todo World Tick -- Pawns are ticked here
+            //todo World Tick -- Pawns are ticked here. Bypassing for now to test health boi
+            _healthDebugPawn?.Tick();
         
             //todo Game End Tick
         
@@ -219,6 +232,16 @@ namespace Time
         {
             GetTickListFor(thing).UnRegister(thing);
         }
+        
+        public void ResetSettlementTicks()
+        {
+            _settleTick = _numTicks;
+        }
+
+        public void SetHealthDebugPawn(Pawn pawn)
+        {
+            _healthDebugPawn = pawn;
+        }
 
         private TickList GetTickListFor(Thing thing)
         {
@@ -241,12 +264,6 @@ namespace Time
 
             throw new InvalidOperationException();
         }
-
-        public void ResetSettlementTicks()
-        {
-            _settleTick = _numTicks;
-        }
-    
     }
 }
 

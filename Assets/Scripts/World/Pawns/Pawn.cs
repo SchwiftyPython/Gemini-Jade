@@ -1,11 +1,15 @@
+using System;
 using System.Collections.Generic;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Species;
+using Time;
 using World.Pawns.Health;
+using World.Things;
+using Object = UnityEngine.Object;
 
 namespace World.Pawns
 {
-    public class Pawn
+    public class Pawn : Thing
     {
         public SpeciesTemplate species;
 
@@ -37,6 +41,48 @@ namespace World.Pawns
         public List<BodyPart> GetBody()
         {
             return health.GetBody();
+        }
+
+        public void Die()
+        {
+            //todo a ton of shit happens here. We'll revisit often.
+            
+            health.KillPawn();
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+
+            var tickController = Object.FindObjectOfType<TickController>();
+
+            //not sure if tick intervals are the same everywhere. May have to define per class using it.
+            if (tickController.NumTicks % TickController.RareTickInterval == 0) 
+            {
+                TickRare();
+            }
+            
+            //todo check if not suspended
+            
+            //todo bunch of trackers and whatnot ticking
+
+            health.Tick();
+
+            if (!Dead)
+            {
+                //todo mind state tick
+                
+                //todo carry tracker tick
+            }
+            
+            //todo bunch of trackers and whatnot ticking
+        }
+
+        public override void TickRare()
+        {
+            base.TickRare();
+            
+            //todo 
         }
     }
 }

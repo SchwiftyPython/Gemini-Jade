@@ -1,11 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.Health;
 using UnityEngine;
+using Utilities;
 using World.Pawns.Health.HealthFunctions;
 using World.Pawns.Health.HealthModifiers;
+using Object = UnityEngine.Object;
 
 namespace World.Pawns.Health
 {
@@ -19,6 +22,8 @@ namespace World.Pawns.Health
         //downside is we have to add and remove from two places if we do this so lets see what performance is like
 
         private FunctionsHandler _functions;
+
+        private HealthFunctionRepo _functionsRepo;
 
         //todo health summary calculator
 
@@ -41,6 +46,8 @@ namespace World.Pawns.Health
             _pawn = pawn;
 
             BuildBody();
+
+            _functionsRepo = Object.FindObjectOfType<HealthFunctionRepo>();
 
             _functions = new FunctionsHandler(_pawn);
 
@@ -134,6 +141,184 @@ namespace World.Pawns.Health
             return CalculatePain();
         }
 
+        public void Tick()
+        {
+            if (Dead)
+            {
+                return;
+            }
+
+            var healthMods = GetHealthMods();
+
+            foreach (var healthMod in healthMods)
+            {
+                healthMod.Tick();
+                healthMod.PostTick();
+
+                if (Dead)
+                {
+                    return;
+                }
+            }
+
+            var healthModsChanged = false;
+
+            //they iterate backwards here
+            foreach (var healthMod in healthMods.ToArray())
+            {
+                if (healthMod.ShouldRemove)
+                {
+                    healthMods.Remove(healthMod);
+                    healthMod.PostRemove();
+                    healthModsChanged = true;
+                }
+            }
+
+            if (healthModsChanged)
+            {
+                //todo notify health mods changed
+                //looks like it resets a bunch of caches
+                
+                CheckForHealthStateChange(null);
+            }
+        }
+
+        public void CheckForHealthStateChange(HealthMod healthMod)
+        {
+            if (Dead)
+            {
+                return;
+            }
+
+            if (ShouldBeDead())
+            {
+                _pawn.Die();
+            }
+            else if (!Downed)
+            {
+                if (ShouldBeDowned())
+                {
+                    DownPawn();
+                }
+                else
+                {
+                    if(_functions.CapableOf(_functionsRepo.manipulation))
+                    {
+                        return;
+                    }
+                    
+                    //todo bunch of other checks mostly equipment stuff
+                }
+            }
+            else if (!ShouldBeDowned())
+            {
+                UnDownPawn();
+            }
+        }
+        
+        public void KillPawn()
+        {
+            if (Dead)
+            {
+                return;
+            }
+
+            _healthState = HealthState.Dead;
+        }
+
+        private bool ShouldBeDowned()
+        {
+            if (_functions.CanWakeUp) //todo !InPainShock
+            {
+                return !_functions.CapableOf(_functionsRepo.moving);
+            }
+
+            return true;
+        }
+
+        private bool ShouldBeDead()
+        {
+            if (Dead)
+            {
+                return true;
+            }
+
+            var healthMods = GetHealthMods();
+
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod.CauseDeathNow())
+                {
+                    return true;
+                }
+            }
+
+            if (ShouldBeDeadFromCriticalFunction())
+            {
+                return true;
+            }
+
+            if (HealthFunctionUtils.CalculatePartEfficiency(GetCoreBodyPart(), _pawn, healthMods) <= 0f)
+            {
+                return true;
+            }
+
+            return ShouldBeDeadFromLethalDamage();
+        }
+
+        private bool ShouldBeDeadFromCriticalFunction()
+        {
+            var allHealthFunctions = _functionsRepo.GetAllHealthFunctions();
+
+            foreach (var healthFunction in allHealthFunctions)
+            {
+                if ((_pawn.IsOrganic ? healthFunction.criticalOrganic : healthFunction.criticalMachines) &&
+                    !_functions.CapableOf(healthFunction))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool ShouldBeDeadFromLethalDamage()
+        {
+            //todo add up severity of all injury health mods
+            
+            //todo if severity >= lethal damage threshold then return true
+
+            return false;
+        }
+
+        private void DownPawn()
+        {
+            if (Downed)
+            {
+                return;
+            }
+
+            _healthState = HealthState.Down;
+            
+            //todo if spawned drop and forbid their shit
+            
+            //todo checks damage info for an instigator then notifies pawn downed
+        }
+
+        private void UnDownPawn()
+        {
+            if (!Downed)
+            {
+                return;
+            }
+
+            _healthState = HealthState.Mobile;
+            
+            //todo message no longer downed
+            
+            //todo if spawned end current job as unable to complete. Guessing current job is bed rest or something 
+        }
+
         private float CalculatePain()
         {
             if (!_pawn.IsOrganic || _pawn.Dead)
@@ -173,6 +358,19 @@ namespace World.Pawns.Health
             _body = new List<BodyPart> {corePart};
 
             _body.AddRange(corePart.GetAllChildren());
+        }
+
+        private BodyPart GetCoreBodyPart()
+        {
+            foreach (var bodyPart in _body)
+            {
+                if (bodyPart.IsCorePart)
+                {
+                    return bodyPart;
+                }
+            }
+
+            return null;
         }
     }
 }

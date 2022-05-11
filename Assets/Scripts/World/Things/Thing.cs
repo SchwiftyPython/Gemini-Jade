@@ -9,19 +9,19 @@ namespace World.Things
         
         public bool Destroyed;
 
-        public void Tick()
+        public virtual void Tick()
         {
-            throw new NotImplementedException();
+            //todo
         }
         
-        public void TickRare()
+        public virtual void TickRare()
         {
-            throw new NotImplementedException();
+            //todo
         }
         
-        public void TickLong()
+        public virtual void TickLong()
         {
-            throw new NotImplementedException();
+            //todo
         }
     }
 }
