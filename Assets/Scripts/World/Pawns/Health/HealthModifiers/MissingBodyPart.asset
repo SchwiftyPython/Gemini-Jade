@@ -30,10 +30,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: stages
+      Entry: 6
+      Data: 
   templateName: MissingBodyPart
   label: missing body part
   description: Body part is missing.
-  initialSeverity: 0.5
+  initialSeverity: 0.001
   lethalSeverity: -1
   tendable: 1
   chanceToCauseNoPain: 0

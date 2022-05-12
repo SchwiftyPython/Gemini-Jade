@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
+using Assets.Scripts.World;
 using UnityEngine;
 
-namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
+namespace World.Pawns.Health.HealthModifiers
 {
     [CreateAssetMenu(menuName = "Templates/HealthModTemplate")]
     public class HealthModTemplate : Template
@@ -10,11 +12,11 @@ namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
 
         public Type healthModClass;
 
-        public float initialSeverity = 0.5f;
+        public float initialSeverity = 0.001f;
 
         public float lethalSeverity = -1f;
 
-        //todo Health Mod Stages
+        public List<HealthModStage> stages;
 
         public bool tendable;
 

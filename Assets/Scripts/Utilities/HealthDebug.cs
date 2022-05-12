@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using World.Pawns;
 using World.Pawns.Health.HealthFunctions;
+using World.Pawns.Health.HealthModifiers;
 
 namespace Assets.Scripts.Utilities
 {
