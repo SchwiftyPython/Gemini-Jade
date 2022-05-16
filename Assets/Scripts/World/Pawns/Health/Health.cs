@@ -59,6 +59,21 @@ namespace World.Pawns.Health
             return _body;
         }
 
+        public List<BodyPart> GetExistingParts()
+        {
+            var existingParts = new List<BodyPart>();
+
+            foreach (var bodyPart in _body)
+            {
+                if (!bodyPart.IsMissing())
+                {
+                    existingParts.Add(bodyPart);
+                }
+            }
+
+            return existingParts;
+        }
+
         public List<BodyPart> GetBodyPartsWithTag(BodyPartTagTemplate tag)
         {
             var taggedParts = new List<BodyPart>();
@@ -77,6 +92,19 @@ namespace World.Pawns.Health
         public bool HasPartsWithTag(BodyPartTagTemplate tag)
         {
             return _pawn.species.bodyTemplate.HasPartsWithTag(tag);
+        }
+        
+        public BodyPart GetCoreBodyPart()
+        {
+            foreach (var bodyPart in _body)
+            {
+                if (bodyPart.IsCorePart)
+                {
+                    return bodyPart;
+                }
+            }
+
+            return null;
         }
 
         public float GetLevel(HealthFunctionTemplate function)
@@ -99,6 +127,51 @@ namespace World.Pawns.Health
             }
 
             return mods;
+        }
+
+        public bool HasHealthMod(HealthModTemplate healthModTemplate, BodyPart bodyPart, bool mustBeVisible = false)
+        {
+            var healthMods = GetHealthMods();
+
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod.template == healthModTemplate)
+                {
+                    return true;
+                }
+
+                if (healthMod.Part == bodyPart)
+                {
+                    return true;
+                }
+                
+                if (!mustBeVisible || healthMod.visible)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool HasHealthMod(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
+        {
+            var healthMods = GetHealthMods();
+
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod.template == healthModTemplate)
+                {
+                    return true;
+                }
+                
+                if (!mustBeVisible || healthMod.visible)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         
         public float GetPartHealth(BodyPart bodyPart)
@@ -358,19 +431,6 @@ namespace World.Pawns.Health
             _body = new List<BodyPart> {corePart};
 
             _body.AddRange(corePart.GetAllChildren());
-        }
-
-        private BodyPart GetCoreBodyPart()
-        {
-            foreach (var bodyPart in _body)
-            {
-                if (bodyPart.IsCorePart)
-                {
-                    return bodyPart;
-                }
-            }
-
-            return null;
         }
     }
 }

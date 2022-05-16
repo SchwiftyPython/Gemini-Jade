@@ -26,7 +26,7 @@ namespace Assets.Scripts.World.Pawns
 
         public BodyPartDepth.BodyPartDepth depth;
 
-        private float _coverage;
+        public float coverage;
 
         private List<BodyPartGroupTemplate> _groups;
 
@@ -47,7 +47,7 @@ namespace Assets.Scripts.World.Pawns
             _customLabel = part.customLabel;
             _height = part.height;
            depth = part.depth;
-           _coverage = part.coverage;
+           coverage = part.coverage;
            _groups = new List<BodyPartGroupTemplate>(part.groups);
            this.parent = parent;
 
