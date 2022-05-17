@@ -214,6 +214,11 @@ namespace World.Pawns.Health
             return CalculatePain();
         }
 
+        public float GetBleedRateTotal()
+        {
+            return CalculateBleedRate();
+        }
+
         public void Tick()
         {
             if (Dead)
@@ -297,6 +302,34 @@ namespace World.Pawns.Health
             }
 
             _healthState = HealthState.Dead;
+        }
+
+        private float CalculateBleedRate()
+        {
+            if (!_pawn.IsOrganic || _pawn.Dead)
+            {
+                return 0f;
+            }
+
+            var bleedmodifier = 1f;
+
+            var bleedRateTotal = 0f;
+
+            var healthMods = GetHealthMods();
+
+            foreach (var healthMod in healthMods.ToArray())
+            {
+                var currentStage = healthMod.CurrentStage;
+
+                if (currentStage != null)
+                {
+                    bleedmodifier *= currentStage.bleedModifier;
+                }
+
+                bleedRateTotal += healthMod.BleedRate;
+            }
+
+            return bleedRateTotal * bleedmodifier; //todo divided by pawn health scale
         }
 
         private bool ShouldBeDowned()

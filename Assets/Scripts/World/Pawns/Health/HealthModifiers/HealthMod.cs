@@ -1,3 +1,4 @@
+using System.Linq;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Health.HealthModifiers;
@@ -37,6 +38,81 @@ namespace World.Pawns.Health.HealthModifiers
                     return (_severity / template.lethalSeverity).ToStringPercent();
                 }
                 return null;
+            }
+        }
+
+        public virtual HealthModStage CurrentStage
+        {
+            get
+            {
+                if (template.stages != null && template.stages.Any())
+                {
+                    return template.stages[CurrentStageIndex];
+                }
+
+                return null;
+            }
+        }
+
+        public virtual int CurrentStageIndex
+        {
+            get
+            {
+                if (template.stages == null)
+                {
+                    return 0;
+                }
+
+                var stages = template.stages;
+
+                var severity = Severity;
+
+                for (var index = stages.Count - 1; index >= 0; index--)
+                {
+                    if (severity >= stages[index].minSeverity)
+                    {
+                        return index;
+                    }
+                }
+
+                return 0;
+            }
+        }
+
+        public virtual float Severity
+        {
+            get => _severity;
+            set
+            {
+                var severityIsLethal = false;
+
+                if (template.lethalSeverity > 0f)
+                {
+                    if (value >= template.lethalSeverity)
+                    {
+                        value = template.lethalSeverity;
+                        severityIsLethal = true;
+                    }
+                }
+                
+                //todo boolean here check if health mod is injury type and if value > _severity
+
+                var currentStageIndex = CurrentStageIndex;
+
+                _severity = Mathf.Clamp(value, template.minSeverity, template.maxSeverity);
+
+                if (CurrentStageIndex == currentStageIndex)
+                {
+                    if (!severityIsLethal)
+                    {
+                        return;
+                    }
+                }
+
+                if (pawn.health.HasHealthMod(template))
+                {
+                    pawn.health.CheckForHealthStateChange(this);
+                }
             }
         }
 
