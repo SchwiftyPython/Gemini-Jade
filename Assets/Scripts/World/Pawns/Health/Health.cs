@@ -112,6 +112,41 @@ namespace World.Pawns.Health
             return _functions.GetLevel(function, GetHealthMods());
         }
 
+        public void AddHealthMod(HealthMod healthMod, BodyPart bodyPart = null)
+        {
+            //todo there's a lot going on here including merging with existing health mods. Add additional stuff as needed.
+            
+            //basically assuming here that if no parts to affect then it applies to core. May not be true.
+
+            if (bodyPart != null)
+            {
+                healthMod.Part = bodyPart;
+            }
+            else
+            {
+                var corePart = _pawn.health.GetCoreBodyPart();
+
+                healthMod.Part = corePart;
+                
+                corePart.AddHealthMod(healthMod);
+            }
+
+            healthMod.durationTicks = 0;
+            
+            healthMod.pawn = _pawn;
+            
+            healthMod.PostAdd();
+        }
+
+        public void RemoveHealthMod(HealthMod healthMod)
+        {
+            healthMod.Part.RemoveHealthMod(healthMod);
+            
+            healthMod.PostRemove();
+            
+            CheckForHealthStateChange(null);
+        }
+
         public List<HealthMod> GetHealthMods()
         {
             var mods = new List<HealthMod>();
@@ -127,6 +162,14 @@ namespace World.Pawns.Health
             }
 
             return mods;
+        }
+
+        public HealthMod GetFirstHealthModOf(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
+        {
+            var healthMods = GetHealthMods();
+
+            return healthMods.ToArray().FirstOrDefault(healthMod =>
+                healthMod.template == healthModTemplate && (!mustBeVisible || healthMod.visible));
         }
 
         public bool HasHealthMod(HealthModTemplate healthModTemplate, BodyPart bodyPart, bool mustBeVisible = false)

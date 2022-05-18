@@ -76,10 +76,7 @@ namespace Assets.Scripts.Utilities
 
             var removePartMod = HealthModMaker.MakeHealthMod(removeBodyPartTemplate, _currentPawn, partToRemove);
 
-            //todo this might be why they have HeDiffSet in Pawn. Adding the injury to the pawn rather than body part directly.
-            //todo we can do similar thing by using a method in pawn as a wrapper then adding mod to the part.
-
-            partToRemove.AddHealthMod(removePartMod);
+            _currentPawn.health.AddHealthMod(removePartMod, partToRemove);
 
             OnBodyChanged?.Invoke();
             

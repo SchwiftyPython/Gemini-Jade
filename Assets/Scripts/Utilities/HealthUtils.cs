@@ -1,8 +1,11 @@
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartDepth;
+using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using UnityEngine;
+using World.Pawns;
+using World.Pawns.Health.HealthModifiers;
 
-namespace Assets.Scripts.Utilities
+namespace Utilities
 {
     public class HealthUtils : MonoBehaviour
     {
@@ -23,6 +26,25 @@ namespace Assets.Scripts.Utilities
             }
 
             return solid ? "Shattered" : "Destroyed";
+        }
+
+        public void AdjustSeverity(Pawn pawn, HealthModTemplate healthModTemplate, float severityOffset)
+        {
+            if (severityOffset != 0f)
+            {
+                var firstHealthMod = pawn.health.GetFirstHealthModOf(healthModTemplate);
+
+                if (firstHealthMod != null)
+                {
+                    firstHealthMod.Severity += severityOffset;
+                }
+                else if (severityOffset > 0f)
+                {
+                    firstHealthMod = HealthModMaker.MakeHealthMod(healthModTemplate, pawn);
+                    firstHealthMod.Severity = severityOffset;
+                    pawn.health.AddHealthMod(firstHealthMod);
+                }
+            }
         }
     }
 }

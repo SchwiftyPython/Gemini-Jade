@@ -181,8 +181,6 @@ namespace Assets.Scripts.World.Pawns
             }
 
             _healthMods.Add(hMod);
-
-            hMod.PostAdd();
         }
 
         public void RemoveHealthMod(HealthMod hMod)

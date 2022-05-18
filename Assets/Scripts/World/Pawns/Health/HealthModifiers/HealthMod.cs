@@ -11,7 +11,7 @@ namespace World.Pawns.Health.HealthModifiers
     {
         public HealthModTemplate template;
 
-        private int _durationTicks; 
+        public int durationTicks; 
 
         public BodyPart part; 
 
@@ -158,7 +158,7 @@ namespace World.Pawns.Health.HealthModifiers
 
         public virtual void Tick()
         {
-            _durationTicks++;
+            durationTicks++;
 
             //todo
         }
@@ -209,7 +209,7 @@ namespace World.Pawns.Health.HealthModifiers
         public override string ToString()
         {
             return "(" + template.templateName + ((part != null) ? (" " + part.Label) : "") +
-                   " ticksSinceCreation=" + _durationTicks + ")";
+                   " ticksSinceCreation=" + durationTicks + ")";
         }
     }
 }

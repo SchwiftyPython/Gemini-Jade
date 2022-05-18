@@ -43,7 +43,7 @@ namespace Utilities
 
                   var healthMod = HealthModMaker.MakeHealthMod(healthModTemplate, pawn, partToAffect);
 
-                  partToAffect.AddHealthMod(healthMod);
+                  pawn.health.AddHealthMod(healthMod, partToAffect);
 
                   outAddedHealthMods?.Add(healthMod);
                }
@@ -58,9 +58,7 @@ namespace Utilities
          {
             var healthMod = HealthModMaker.MakeHealthMod(healthModTemplate, pawn);
 
-            var corePart = pawn.health.GetCoreBodyPart(); //basically assuming here that if no parts to affect then it applies to core. May not be true.
-            
-            corePart.AddHealthMod(healthMod);
+            pawn.health.AddHealthMod(healthMod);
             
             outAddedHealthMods?.Add(healthMod);
 
