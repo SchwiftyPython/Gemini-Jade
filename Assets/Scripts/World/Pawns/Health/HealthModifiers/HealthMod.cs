@@ -4,6 +4,7 @@ using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Assets.Scripts.World.Things;
 using UnityEngine;
+using Utilities;
 
 namespace World.Pawns.Health.HealthModifiers
 {
@@ -159,6 +160,29 @@ namespace World.Pawns.Health.HealthModifiers
         public virtual void Tick()
         {
             durationTicks++;
+
+            if (template.healthModAdders != null && pawn.IsHashIntervalTick(20)) //magic number
+            {
+                foreach (var healthModAdder in template.healthModAdders)
+                {
+                    healthModAdder.OnIntervalPassed(pawn, this);
+                }
+            }
+
+            var currentStage = CurrentStage;
+
+            if (currentStage == null)
+            {
+                return;
+            }
+
+            if (currentStage.healthModAdders != null && pawn.IsHashIntervalTick(20)) //magic number
+            {
+                foreach (var healthModAdder in currentStage.healthModAdders)
+                {
+                    healthModAdder.OnIntervalPassed(pawn, this);
+                }
+            }
 
             //todo
         }

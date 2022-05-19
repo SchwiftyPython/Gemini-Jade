@@ -30,6 +30,10 @@ MonoBehaviour:
   needsRest: 1
   bodyTemplate: {fileID: 11400000, guid: f0eff04e8928d384ab3aaae6f5cf27b5, type: 2}
   lifeExpectancy: 80
+  healthModAdderSets:
+  - {fileID: 11400000, guid: 1a659d0a6fec7964e9910c0e1a5ba204, type: 2}
   baseBodySize: 1
   baseHealthScale: 1
   baseHungerRate: 1
+  fleshType: 0
+  intellect: 2

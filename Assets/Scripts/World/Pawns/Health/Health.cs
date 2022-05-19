@@ -302,6 +302,31 @@ namespace World.Pawns.Health
                 
                 CheckForHealthStateChange(null);
             }
+
+            if (!_pawn.IsHashIntervalTick(20)) //magic number
+            {
+                return;
+            }
+
+            var healthModAdderSets = _pawn.species.healthModAdderSets;
+
+            if (healthModAdderSets != null)
+            {
+                foreach (var healthModAdderSet in healthModAdderSets.ToArray())
+                {
+                    var healthModAdders = healthModAdderSet.healthModAdders;
+
+                    foreach (var healthModAdder in healthModAdders.ToArray())
+                    {
+                        healthModAdder.OnIntervalPassed(_pawn, null);
+                        
+                        if (_pawn.Dead)
+                        {
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         public void CheckForHealthStateChange(HealthMod healthMod)

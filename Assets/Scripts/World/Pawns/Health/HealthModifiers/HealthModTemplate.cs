@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Assets.Scripts.World;
 using UnityEngine;
+using World.Pawns.Health.HealthModifierAdders;
 
 namespace World.Pawns.Health.HealthModifiers
 {
@@ -29,5 +30,7 @@ namespace World.Pawns.Health.HealthModifiers
         public float painPerSeverity = 1f;
 
         public float bleedRate = 1f;
+
+        public List<HealthModAdder> healthModAdders;
     }
 }

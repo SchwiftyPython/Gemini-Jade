@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using World.Pawns.Health.HealthModifierAdders;
 
 namespace World.Pawns.Health.HealthModifiers
 {
@@ -45,8 +46,8 @@ namespace World.Pawns.Health.HealthModifiers
         public List<HealthModTemplate> immunities;
     
         //todo health function modifiers
-    
-        //todo health mod givers
+
+        public List<HealthModAdder> healthModAdders;
     
         //todo mental state givers
     

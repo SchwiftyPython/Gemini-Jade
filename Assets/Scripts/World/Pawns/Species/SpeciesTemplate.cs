@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using Assets.Scripts.World.Pawns.BodyTemplates;
 using UnityEngine;
 using World.Pawns;
 using World.Pawns.Health;
+using World.Pawns.Health.HealthModifierAdderSetTemplates;
 
 namespace Assets.Scripts.World.Pawns.Species
 {
@@ -20,6 +22,8 @@ namespace Assets.Scripts.World.Pawns.Species
         public BodyTemplate bodyTemplate;
 
         public float lifeExpectancy = 10f;
+
+        public List<HealthModAdderSetTemplate> healthModAdderSets;
 
         public float baseBodySize = 1f;
 

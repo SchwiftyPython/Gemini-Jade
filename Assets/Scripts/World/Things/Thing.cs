@@ -9,6 +9,8 @@ namespace World.Things
         
         public bool Destroyed;
 
+        public int id = -1;
+
         public virtual void Tick()
         {
             //todo
