@@ -1,5 +1,4 @@
 using Assets.Scripts.Utilities;
-using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Sirenix.Utilities;
 using UnityEngine;
 using Utilities;

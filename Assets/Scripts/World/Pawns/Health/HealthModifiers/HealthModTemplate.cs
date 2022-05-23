@@ -32,5 +32,7 @@ namespace World.Pawns.Health.HealthModifiers
         public float bleedRate = 1f;
 
         public List<HealthModAdder> healthModAdders;
+        
+        public bool makesAlert = true;
     }
 }

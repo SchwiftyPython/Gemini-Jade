@@ -5,7 +5,6 @@ using Assets.Scripts.World.Pawns.BodyPartGroupTemplates;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
 using Assets.Scripts.World.Pawns.BodyTemplates;
-using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using World.Pawns.Health.HealthModifiers;
 
 namespace Assets.Scripts.World.Pawns
@@ -14,7 +13,7 @@ namespace Assets.Scripts.World.Pawns
     {
         private BodyTemplate _body;
 
-        private List<HealthMod> _healthMods;
+        //private List<HealthMod> _healthMods;
 
         public BodyPartTemplate template;
 
@@ -79,7 +78,7 @@ namespace Assets.Scripts.World.Pawns
             return false;
         }
 
-        public bool IsMissing()
+        /*public bool IsMissing()
         {
             if (_healthMods == null || _healthMods.Count < 1)
             {
@@ -95,7 +94,7 @@ namespace Assets.Scripts.World.Pawns
             }
 
             return false;
-        }
+        }*/
 
         public List<BodyPart> GetAllChildren()
         {
@@ -163,7 +162,7 @@ namespace Assets.Scripts.World.Pawns
             }
         }
 
-        public bool HasHealthMods()
+        /*public bool HasHealthMods()
         {
             return _healthMods != null && _healthMods.Any();
         }
@@ -191,6 +190,6 @@ namespace Assets.Scripts.World.Pawns
             }
 
             _healthMods.Remove(hMod);
-        }
+        }*/
     }
 }

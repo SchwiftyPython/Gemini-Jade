@@ -1,9 +1,8 @@
 using System;
+using Assets.Scripts.World.Pawns;
 using UnityEngine;
-using World.Pawns;
-using World.Pawns.Health.HealthModifiers;
 
-namespace Assets.Scripts.World.Pawns.Health.HealthModifiers
+namespace World.Pawns.Health.HealthModifiers
 {
     public static class HealthModMaker 
     {

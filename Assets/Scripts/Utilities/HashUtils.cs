@@ -1,5 +1,6 @@
 using System;
 using Time;
+using UnityEngine;
 using World.Things;
 using Object = UnityEngine.Object;
 
@@ -14,7 +15,7 @@ namespace Utilities
 
         public static int HashOffset(this int baseInt)
         {
-            return HashCombine(baseInt, 134217727); //some magic number. I did int.max / 16
+            return HashCombine(baseInt, 169495095); //some magic number.
         }
 
         public static int HashOffsetTicks(this Thing thing)
@@ -26,7 +27,11 @@ namespace Utilities
 
         public static bool IsHashIntervalTick(this Thing thing, int interval)
         {
-            return thing.HashOffsetTicks() % interval == 0;
+            var hashOffsetTicks = thing.HashOffsetTicks();
+            
+            Debug.Log($"Pawn Hash Offset Ticks: {hashOffsetTicks}");
+            
+            return hashOffsetTicks % interval == 0;
         }
     }
 }

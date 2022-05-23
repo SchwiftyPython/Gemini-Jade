@@ -18,8 +18,7 @@ namespace World.Pawns.Health
 
         private HealthState _healthState = HealthState.Mobile;
 
-        //todo health mods -- might be too slow to get mods from body parts for health summary
-        //downside is we have to add and remove from two places if we do this so lets see what performance is like
+        private HealthModCollection _healthModCollection;
 
         private FunctionsHandler _functions;
 
@@ -112,35 +111,29 @@ namespace World.Pawns.Health
             return _functions.GetLevel(function, GetHealthMods());
         }
 
-        public void AddHealthMod(HealthMod healthMod, BodyPart bodyPart = null)
+        public void AddHealthMod(HealthMod healthModToAdd, BodyPart bodyPart = null)
         {
-            //todo there's a lot going on here including merging with existing health mods. Add additional stuff as needed.
+            _healthModCollection.AddHealthMod(healthModToAdd, bodyPart);
             
-            //basically assuming here that if no parts to affect then it applies to core. May not be true.
+            CheckForHealthStateChange(healthModToAdd);
 
-            if (bodyPart != null)
+            if (_pawn.species.healthModAdderSets == null)
             {
-                healthMod.Part = bodyPart;
-            }
-            else
-            {
-                var corePart = _pawn.health.GetCoreBodyPart();
-
-                healthMod.Part = corePart;
-                
-                corePart.AddHealthMod(healthMod);
+                return;
             }
 
-            healthMod.durationTicks = 0;
-            
-            healthMod.pawn = _pawn;
-            
-            healthMod.PostAdd();
+            foreach (var healthModAdderSet in _pawn.species.healthModAdderSets.ToArray())
+            {
+                foreach (var healthModAdder in healthModAdderSet.healthModAdders.ToArray())
+                {
+                    healthModAdder.OnHealthModAdded(_pawn, healthModToAdd);
+                }
+            }
         }
 
         public void RemoveHealthMod(HealthMod healthMod)
         {
-            healthMod.Part.RemoveHealthMod(healthMod);
+            //healthMod.Part.RemoveHealthMod(healthMod);
             
             healthMod.PostRemove();
             
@@ -166,83 +159,27 @@ namespace World.Pawns.Health
 
         public HealthMod GetFirstHealthModOf(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
         {
-            var healthMods = GetHealthMods();
+            return _healthModCollection.GetFirstHealthModOf(healthModTemplate, mustBeVisible);
+        }
 
-            return healthMods.ToArray().FirstOrDefault(healthMod =>
-                healthMod.template == healthModTemplate && (!mustBeVisible || healthMod.visible));
+        public bool BodyPartIsMissing(BodyPart part)
+        {
+            return _healthModCollection.BodyPartIsMissing(part);
         }
 
         public bool HasHealthMod(HealthModTemplate healthModTemplate, BodyPart bodyPart, bool mustBeVisible = false)
         {
-            var healthMods = GetHealthMods();
-
-            foreach (var healthMod in healthMods)
-            {
-                if (healthMod.template == healthModTemplate)
-                {
-                    return true;
-                }
-
-                if (healthMod.Part == bodyPart)
-                {
-                    return true;
-                }
-                
-                if (!mustBeVisible || healthMod.visible)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return _healthModCollection.HasHealthMod(healthModTemplate, bodyPart, mustBeVisible);
         }
 
         public bool HasHealthMod(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
         {
-            var healthMods = GetHealthMods();
-
-            foreach (var healthMod in healthMods)
-            {
-                if (healthMod.template == healthModTemplate)
-                {
-                    return true;
-                }
-                
-                if (!mustBeVisible || healthMod.visible)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return _healthModCollection.HasHealthMod(healthModTemplate, mustBeVisible);
         }
         
         public float GetPartHealth(BodyPart bodyPart)
         {
-            var health = bodyPart.template.GetMaxHealth(_pawn);
-
-            var healthMods = bodyPart.GetHealthMods();
-
-            if (healthMods != null && healthMods.Any())
-            {
-                foreach (var healthMod in healthMods)
-                {
-                    if (healthMod is MissingBodyPart)
-                    {
-                        return 0f;
-                    }
-                    //todo if injury health -= injury severity
-                }
-            }
-
-            health = Mathf.Max(health, 0f);
-
-            if (!bodyPart.template.destroyableByDamage)
-            {
-                health = Mathf.Max(health, 1f);
-            }
-
-            return Mathf.RoundToInt(health);
+            return _healthModCollection.GetBodyPartHealth(bodyPart);
         }
 
         public IDictionary<HealthFunctionTemplate, float> GetFunctionValues()
@@ -254,12 +191,12 @@ namespace World.Pawns.Health
         {
             //todo need to get stages implemented for us to get a number besides 0 here
             
-            return CalculatePain();
+            return _healthModCollection.TotalPain;
         }
 
         public float GetBleedRateTotal()
         {
-            return CalculateBleedRate();
+            return _healthModCollection.TotalBleedRate;
         }
 
         public void Tick()
@@ -303,10 +240,12 @@ namespace World.Pawns.Health
                 CheckForHealthStateChange(null);
             }
 
-            if (!_pawn.IsHashIntervalTick(20)) //magic number
+            if (!_pawn.IsHashIntervalTick(6)) //magic number. Looks like we'll need to experiment with what numbers work. This one happens to.
             {
                 return;
             }
+            
+            Debug.Log($"Pawn Hash Interval Passed");
 
             var healthModAdderSets = _pawn.species.healthModAdderSets;
 
@@ -370,34 +309,6 @@ namespace World.Pawns.Health
             }
 
             _healthState = HealthState.Dead;
-        }
-
-        private float CalculateBleedRate()
-        {
-            if (!_pawn.IsOrganic || _pawn.Dead)
-            {
-                return 0f;
-            }
-
-            var bleedmodifier = 1f;
-
-            var bleedRateTotal = 0f;
-
-            var healthMods = GetHealthMods();
-
-            foreach (var healthMod in healthMods.ToArray())
-            {
-                var currentStage = healthMod.CurrentStage;
-
-                if (currentStage != null)
-                {
-                    bleedmodifier *= currentStage.bleedModifier;
-                }
-
-                bleedRateTotal += healthMod.BleedRate;
-            }
-
-            return bleedRateTotal * bleedmodifier; //todo divided by pawn health scale
         }
 
         private bool ShouldBeDowned()
@@ -491,35 +402,6 @@ namespace World.Pawns.Health
             //todo message no longer downed
             
             //todo if spawned end current job as unable to complete. Guessing current job is bed rest or something 
-        }
-
-        private float CalculatePain()
-        {
-            if (!_pawn.IsOrganic || _pawn.Dead)
-            {
-                return 0f;
-            }
-
-            var healthMods = GetHealthMods();
-            
-            if (healthMods == null || !healthMods.Any())
-            {
-                return 0f;
-            }
-            
-            var pain = 0f;
-
-            foreach (var healthMod in healthMods)
-            {
-                pain += healthMod.PainOffset;
-            }
-            
-            foreach (var healthMod in healthMods)
-            {
-                pain *= healthMod.PainFactor;
-            }
-
-            return pain;
         }
 
         private void BuildBody()

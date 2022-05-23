@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
-using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using World.Pawns;
 using World.Pawns.Health.HealthModifiers;
 

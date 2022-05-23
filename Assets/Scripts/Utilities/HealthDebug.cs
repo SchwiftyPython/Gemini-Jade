@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.World.Pawns;
-using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Assets.Scripts.World.Pawns.Species;
 using UI;
 using UnityEngine;

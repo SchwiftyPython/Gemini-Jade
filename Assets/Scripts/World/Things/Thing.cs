@@ -1,5 +1,6 @@
 using System;
 using Assets.Scripts.World.Things;
+using Random = UnityEngine.Random;
 
 namespace World.Things
 {
@@ -24,6 +25,13 @@ namespace World.Things
         public virtual void TickLong()
         {
             //todo
+        }
+
+        public void GenerateId()
+        {
+            //todo stick into thing maker and ensure unique ids
+
+            id = 0;
         }
     }
 }

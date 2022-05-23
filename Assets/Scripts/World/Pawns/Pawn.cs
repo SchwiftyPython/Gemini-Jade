@@ -36,6 +36,8 @@ namespace World.Pawns
             _name = "Testy McTestes";
 
             health = new Health.Health(this);
+            
+            GenerateId();
         }
 
         public List<BodyPart> GetBody()

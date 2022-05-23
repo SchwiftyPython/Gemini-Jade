@@ -1,7 +1,6 @@
 using System.Linq;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
-using Assets.Scripts.World.Pawns.Health.HealthModifiers;
 using Assets.Scripts.World.Things;
 using UnityEngine;
 using Utilities;
@@ -155,7 +154,17 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
-        //todo tendable now
+        public virtual bool NeedsTending()
+        {
+            if (!template.tendable || Severity <= 0f || !visible) //todo is perm or immune
+            {
+                return false;
+            }
+            
+            //todo check tend duration
+
+            return true;
+        }
 
         public virtual void Tick()
         {
@@ -204,6 +213,28 @@ namespace World.Pawns.Health.HealthModifiers
             }
 
             return false;
+        }
+
+        public virtual bool TryMergeWith(HealthMod otherHealthMod)
+        {
+            if (otherHealthMod == null)
+            {
+                return false;
+            }
+
+            if (otherHealthMod.template != template)
+            {
+                return false;
+            }
+
+            if (otherHealthMod.Part != Part)
+            {
+                return false;
+            }
+
+            Severity += otherHealthMod.Severity;
+            durationTicks = 0;
+            return true;
         }
 
         public virtual void Notify_PawnDied()

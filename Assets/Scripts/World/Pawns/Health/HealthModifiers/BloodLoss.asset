@@ -22,18 +22,24 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: healthModClass
-      Entry: 6
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.HealthModifiers.HealthMod, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
     - Name: stages
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[World.Pawns.Health.HealthModifiers.HealthModStage,
+      Data: 1|System.Collections.Generic.List`1[[World.Pawns.Health.HealthModifiers.HealthModStage,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 4
     - Name: 
       Entry: 7
-      Data: 1|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+      Data: 2|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
     - Name: minSeverity
       Entry: 4
       Data: 0.15
@@ -91,6 +97,9 @@ MonoBehaviour:
     - Name: immunities
       Entry: 6
       Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
     - Name: partEfficiencyOffset
       Entry: 4
       Data: 0
@@ -105,7 +114,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+      Data: 3|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
     - Name: minSeverity
       Entry: 4
       Data: 0.3
@@ -163,6 +172,9 @@ MonoBehaviour:
     - Name: immunities
       Entry: 6
       Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
     - Name: partEfficiencyOffset
       Entry: 4
       Data: 0
@@ -177,7 +189,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+      Data: 4|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
     - Name: minSeverity
       Entry: 4
       Data: 0.45
@@ -235,6 +247,9 @@ MonoBehaviour:
     - Name: immunities
       Entry: 6
       Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
     - Name: partEfficiencyOffset
       Entry: 4
       Data: 0
@@ -249,7 +264,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+      Data: 5|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
     - Name: minSeverity
       Entry: 4
       Data: 0.6
@@ -307,6 +322,9 @@ MonoBehaviour:
     - Name: immunities
       Entry: 6
       Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
     - Name: partEfficiencyOffset
       Entry: 4
       Data: 0
@@ -324,6 +342,9 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 8
+      Data: 
+    - Name: healthModAdders
+      Entry: 6
       Data: 
   templateName: BloodLoss
   label: blood loss
