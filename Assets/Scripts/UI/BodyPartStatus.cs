@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Assets.Scripts.World.Pawns;
 using TMPro;
 using UnityEngine;
+using World.Pawns.Health.HealthModifiers;
 
 namespace UI
 {
@@ -13,27 +15,19 @@ namespace UI
 
         public TextMeshProUGUI partName;
 
-        public void Setup(BodyPart part)
+        public void Setup(BodyPart part, List<HealthMod> healthMods)
         {
-            _part = part;
-
-            partName.text = _part.LabelCapitalized;
-
             foreach (Transform child in healthModParent)
             {
                 Destroy(child.gameObject);
             }
+            
+            _part = part;
 
-            if (!part.HasHealthMods())
+            partName.text = _part.LabelCapitalized;
+
+            foreach (var healthMod in healthMods)
             {
-                return;
-            }
-
-            foreach (var healthMod in part.GetHealthMods())
-            {
-                //todo can probably just show highest level parent that's missing instead of all parts
-                //todo like shoulder is missing so of course arm, fingers, etc are missing too
-
                 var healthModUiUi = Instantiate(healthModPrefab, healthModParent);
                 healthModUiUi.Setup(healthMod);
             }

@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using UnityEngine;
 using World.Pawns;
+using World.Pawns.Health.HealthModifiers;
 
 namespace UI
 {
@@ -35,17 +37,17 @@ namespace UI
                 return;
             }
 
-            var partsToDraw = GetPartsToDraw();
+            var healthModsToDraw = GetHealthModsToDraw();
 
-            foreach (var bodyPart in partsToDraw)
+            if (!healthModsToDraw.Any())
             {
-                if (!bodyPart.HasHealthMods())
-                {
-                    continue;
-                }
+                return;
+            }
 
+            foreach (var healthMod in healthModsToDraw)
+            {
                 var partUi = Instantiate(bodyPartPrefab, transform);
-                partUi.Setup(bodyPart);
+                partUi.Setup(healthMod.Key, healthMod.Value);
             }
         }
 
@@ -54,31 +56,57 @@ namespace UI
             //todo have a toggle to show all parts
         }
 
-        private List<BodyPart> GetPartsToDraw()
+        private Dictionary<BodyPart, List<HealthMod>> GetHealthModsToDraw() //todo ui probably shouldn't handle this 
         {
-            var partsToDraw = new List<BodyPart>();
+            var modsToDraw = new Dictionary<BodyPart, List<HealthMod>>();
 
-            foreach (var bodyPart in _currentPawn.GetBody())
+            var allMods = _currentPawn.health.GetHealthMods();
+
+            if (allMods == null)
             {
-                if (!bodyPart.HasHealthMods() || partsToDraw.Contains(bodyPart))
-                {
-                    continue;
-                }
-
-                if (bodyPart.IsMissing())
-                {
-                    if (bodyPart.parent == null || bodyPart.parent.IsMissing())
-                    {
-                        //todo parent being null means this is core part and they are real dead
-
-                        continue;
-                    }
-                }
-
-                partsToDraw.Add(bodyPart);
+                return modsToDraw;
             }
 
-            return partsToDraw;
+            if (!allMods.Any())
+            {
+                return modsToDraw;
+            }
+
+            var wholeBodyPart = new BodyPart();
+
+            foreach (var healthMod in allMods.ToArray())
+            {
+                if (healthMod.Part == null)
+                {
+                    if (modsToDraw.ContainsKey(wholeBodyPart))
+                    {
+                        modsToDraw[wholeBodyPart].Add(healthMod);
+                    }
+                    else
+                    {
+                        modsToDraw.Add(wholeBodyPart, new List<HealthMod>{healthMod});
+                    }
+                }
+                else
+                {
+                    if (modsToDraw.ContainsKey(healthMod.Part))
+                    {
+                        modsToDraw[healthMod.Part].Add(healthMod);
+                    }
+
+                    if (_currentPawn.health.BodyPartIsMissing(healthMod.Part))
+                    {
+                        if (healthMod.Part.parent == null || _currentPawn.health.BodyPartIsMissing(healthMod.Part.parent))
+                        {
+                            continue;
+                        }
+                    }
+                
+                    modsToDraw.Add(healthMod.Part, new List<HealthMod>{healthMod});
+                }
+            }
+
+            return modsToDraw;
         }
 
         private void HealthDebug_OnPawnSelected(Pawn pawn)

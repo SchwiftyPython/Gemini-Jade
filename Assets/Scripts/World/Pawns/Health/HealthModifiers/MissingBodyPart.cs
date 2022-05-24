@@ -68,7 +68,7 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
-        public bool ParentMissing => Part.parent.IsMissing();
+        public bool ParentMissing => pawn.health.BodyPartIsMissing(Part.parent);
 
         public override void PostAdd()
         {
@@ -81,7 +81,7 @@ namespace World.Pawns.Health.HealthModifiers
             {
                 var missingPartMod = HealthModMaker.MakeHealthMod(template, pawn, child);
 
-                child.AddHealthMod(missingPartMod);
+                pawn.health.AddHealthMod(missingPartMod);
             }
         }
 

@@ -65,7 +65,7 @@ namespace Assets.Scripts.Utilities
 
             var partToRemove = _bodyPartsDict[partName];
 
-            if (partToRemove.IsMissing())
+            if (_currentPawn.health.BodyPartIsMissing(partToRemove))
             {
                 Debug.LogError($"Can't remove {partName}! Body Part is already missing!");
                 return;
@@ -98,7 +98,7 @@ namespace Assets.Scripts.Utilities
 
             foreach (var part in parts)
             {
-                if (_bodyPartsDict.ContainsKey(part.LabelCapitalized) || part.IsMissing())
+                if (_bodyPartsDict.ContainsKey(part.LabelCapitalized) || _currentPawn.health.BodyPartIsMissing(part))
                 {
                     continue;
                 }

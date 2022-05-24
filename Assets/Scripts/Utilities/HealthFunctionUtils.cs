@@ -52,7 +52,7 @@ namespace Utilities
         {
             //todo there are checks here for added parts as an impact. 
 
-            if (bodyPart.parent != null && bodyPart.parent.IsMissing())
+            if (bodyPart.parent != null && pawn.health.BodyPartIsMissing(bodyPart.parent))
             {
                 return 0f;
             }

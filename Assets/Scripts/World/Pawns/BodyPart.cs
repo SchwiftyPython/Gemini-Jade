@@ -65,6 +65,11 @@ namespace Assets.Scripts.World.Pawns
            }
         }
 
+        public BodyPart()
+        {
+            _customLabel = "Whole Body";
+        }
+
         public bool IsInGroup(BodyPartGroupTemplate group)
         {
             foreach (var g in _groups)

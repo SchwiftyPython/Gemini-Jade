@@ -50,6 +50,8 @@ namespace World.Pawns.Health
 
             _functions = new FunctionsHandler(_pawn);
 
+            _healthModCollection = new HealthModCollection(_pawn);
+
             //todo set all the other properties
         }
 
@@ -60,17 +62,7 @@ namespace World.Pawns.Health
 
         public List<BodyPart> GetExistingParts()
         {
-            var existingParts = new List<BodyPart>();
-
-            foreach (var bodyPart in _body)
-            {
-                if (!bodyPart.IsMissing())
-                {
-                    existingParts.Add(bodyPart);
-                }
-            }
-
-            return existingParts;
+            return _healthModCollection.GetExistingParts();
         }
 
         public List<BodyPart> GetBodyPartsWithTag(BodyPartTagTemplate tag)
@@ -142,19 +134,7 @@ namespace World.Pawns.Health
 
         public List<HealthMod> GetHealthMods()
         {
-            var mods = new List<HealthMod>();
-            
-            foreach (var bodyPart in _body)
-            {
-                if (!bodyPart.HasHealthMods())
-                {
-                    continue;
-                }
-                
-                mods.AddRange(bodyPart.GetHealthMods());
-            }
-
-            return mods;
+            return _healthModCollection.healthMods;
         }
 
         public HealthMod GetFirstHealthModOf(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
@@ -189,8 +169,6 @@ namespace World.Pawns.Health
 
         public float GetPainTotal()
         {
-            //todo need to get stages implemented for us to get a number besides 0 here
-            
             return _healthModCollection.TotalPain;
         }
 

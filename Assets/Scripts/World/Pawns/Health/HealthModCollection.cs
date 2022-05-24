@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.World.Pawns;
@@ -7,7 +8,7 @@ using World.Pawns.Health.HealthModifiers;
 
 namespace World.Pawns.Health
 {
-    public class HealthModCollection : MonoBehaviour
+    public class HealthModCollection
     {
         public Pawn pawn;
 
@@ -193,7 +194,116 @@ namespace World.Pawns.Health
                 (!forAlert || healthMod.template.makesAlert) && healthMod.NeedsTending());
         }
         
-        //todo more methods
+        //todo GetAllComps
+        
+        //todo get tendable injuries
+        
+        //todo more injury methods
+
+        public List<MissingBodyPart> GetMissingBodyParts()
+        {
+            var missingBodyParts = new List<MissingBodyPart>();
+
+            var missingPartsQueue = new Queue<BodyPart>();
+
+            missingPartsQueue.Enqueue(pawn.health.GetCoreBodyPart());
+
+            while (missingPartsQueue.Any())
+            {
+                var currentPart = missingPartsQueue.Dequeue();
+                
+                //todo check for added parts
+
+                MissingBodyPart missingBodyPart = null;
+
+                foreach (var partMod in GetHealthMods<MissingBodyPart>())
+                {
+                    if (partMod.Part != currentPart)
+                    {
+                        continue;
+                    }
+
+                    missingBodyPart = partMod;
+                    break;
+                }
+
+                if (missingBodyPart != null)
+                {
+                    missingBodyParts.Add(missingBodyPart);
+                    continue;
+                }
+
+                foreach (var childPart in currentPart.GetAllChildren().ToArray())
+                {
+                    missingPartsQueue.Enqueue(childPart);
+                }
+            }
+
+            return missingBodyParts;
+        }
+        
+        public List<BodyPart> GetExistingParts()
+        {
+            var existingParts = new List<BodyPart>();
+
+            foreach (var bodyPart in pawn.GetBody())
+            {
+                if (!BodyPartIsMissing(bodyPart))
+                {
+                    existingParts.Add(bodyPart);
+                }
+            }
+
+            return existingParts;
+        }
+
+        public BodyPart GetRandomExistingPart() //todo damage def
+        {
+            var existingParts = GetExistingParts();
+
+            return !existingParts.Any() ? null : existingParts.RandomElementByWeight(part => part.coverage); //todo * hit chance mod from damage def
+        }
+
+        public List<HealthMod> GetTendableNonInjuryNonMissingHealthMods()
+        {
+            //todo
+
+            throw new NotImplementedException();
+        }
+
+        public bool HasTendableNonInjuryNonMissingHealthMod(bool forAlert = false)
+        {
+            //todo 
+
+            throw new NotImplementedException();
+        }
+
+        public bool HasImmunizableNotImmuneHealthMod()
+        {
+            //todo 
+
+            throw new NotImplementedException();
+        }
+
+        public List<T> GetHealthMods<T>() where T : HealthMod
+        {
+            var filteredMods = new List<T>();
+            
+            foreach (var healthMod in healthMods.ToArray())
+            {
+                if (healthMod is T mod)
+                {
+                    filteredMods.Add(mod);
+                }
+            }
+
+            return filteredMods;
+        }
+
+        public void Clear()
+        {
+            healthMods.Clear();
+        }
 
         private float GetHungerRateModifier()
         {
