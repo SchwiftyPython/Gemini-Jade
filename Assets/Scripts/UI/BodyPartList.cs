@@ -36,12 +36,28 @@ namespace UI
             {
                 return;
             }
+            
+            //todo either we use an ordered collection or just pull out the Whole Body part first and then process the rest
 
             var healthModsToDraw = GetHealthModsToDraw();
 
-            if (!healthModsToDraw.Any())
+            if (healthModsToDraw.Count < 1)
             {
                 return;
+            }
+            
+            //draw Whole Body first if it exists
+            foreach (var healthMod in healthModsToDraw.ToArray())
+            {
+                if (healthMod.Key.template != null)
+                {
+                    continue;
+                }
+                
+                var partUi = Instantiate(bodyPartPrefab, transform);
+                partUi.Setup(healthMod.Key, healthMod.Value);
+
+                healthModsToDraw.Remove(healthMod.Key);
             }
 
             foreach (var healthMod in healthModsToDraw)
@@ -58,6 +74,8 @@ namespace UI
 
         private Dictionary<BodyPart, List<HealthMod>> GetHealthModsToDraw() //todo ui probably shouldn't handle this 
         {
+            //wonder if we could do a group by with linq for this
+            
             var modsToDraw = new Dictionary<BodyPart, List<HealthMod>>();
 
             var allMods = _currentPawn.health.GetHealthMods();
@@ -67,7 +85,7 @@ namespace UI
                 return modsToDraw;
             }
 
-            if (!allMods.Any())
+            if (allMods.Count < 1)
             {
                 return modsToDraw;
             }

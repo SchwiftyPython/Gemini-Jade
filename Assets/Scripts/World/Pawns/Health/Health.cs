@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.Health;
@@ -14,6 +15,8 @@ namespace World.Pawns.Health
 {
     public class Health
     {
+        private const int HealthModAdderInterval = 100;
+        
         private Pawn _pawn;
 
         private HealthState _healthState = HealthState.Mobile;
@@ -27,6 +30,8 @@ namespace World.Pawns.Health
         //todo health summary calculator
 
         private List<BodyPart> _body;
+
+        private int _intervalCheckCounter;
 
         public HealthState State => _healthState;
 
@@ -52,6 +57,8 @@ namespace World.Pawns.Health
 
             _healthModCollection = new HealthModCollection(_pawn);
 
+            _intervalCheckCounter = 0;
+            
             //todo set all the other properties
         }
 
@@ -218,13 +225,20 @@ namespace World.Pawns.Health
                 CheckForHealthStateChange(null);
             }
 
-            if (!_pawn.IsHashIntervalTick(6)) //magic number. Looks like we'll need to experiment with what numbers work. This one happens to.
+            if (_intervalCheckCounter > HealthModAdderInterval)
             {
-                return;
-            }
-            
-            Debug.Log($"Pawn Hash Interval Passed");
+                ProcessHealthModAdders();
 
+                _intervalCheckCounter = 0;
+            }
+            else
+            {
+                _intervalCheckCounter++;
+            }
+        }
+
+        public void ProcessHealthModAdders()
+        {
             var healthModAdderSets = _pawn.species.healthModAdderSets;
 
             if (healthModAdderSets != null)
@@ -244,6 +258,12 @@ namespace World.Pawns.Health
                     }
                 }
             }
+            
+            //todo testing remove
+
+            var healthDebug = Object.FindObjectOfType<HealthDebug>();
+            
+            healthDebug.HealthDebug_OnBodyChanged();
         }
 
         public void CheckForHealthStateChange(HealthMod healthMod)

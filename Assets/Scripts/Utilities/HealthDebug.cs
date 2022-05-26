@@ -45,6 +45,11 @@ namespace Assets.Scripts.Utilities
             OnPawnSelected?.Invoke(pawn);
         }
 
+        public static void NotifyBodyChanged()
+        {
+            OnBodyChanged?.Invoke();
+        }
+
         public void RemoveBodyPart()
         {
             var partName = bodyPartsDropdown.options[bodyPartsDropdown.value].text;
@@ -76,10 +81,8 @@ namespace Assets.Scripts.Utilities
             var removePartMod = HealthModMaker.MakeHealthMod(removeBodyPartTemplate, _currentPawn, partToRemove);
 
             _currentPawn.health.AddHealthMod(removePartMod, partToRemove);
-
-            OnBodyChanged?.Invoke();
             
-            DrawHealthSummary();
+            OnBodyChanged?.Invoke();
         }
 
         private void PopulateBodyPartDropdown()
@@ -136,9 +139,11 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
-        private void HealthDebug_OnBodyChanged()
+        public void HealthDebug_OnBodyChanged()
         {
             PopulateBodyPartDropdown();
+
+            DrawHealthSummary();
         }
     }
 }

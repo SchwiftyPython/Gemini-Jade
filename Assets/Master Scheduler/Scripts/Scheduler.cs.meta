@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: d276e2047b0371c4588f2bc9222b0e48
+labels:
+- Task
+- batch
+- batching
+- cpu
+- efficient
+- fps
+- job
+- queue
+- scheduler
+- usage
+timeCreated: 1505050641
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

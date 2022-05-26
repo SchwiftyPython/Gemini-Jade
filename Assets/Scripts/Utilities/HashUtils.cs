@@ -15,7 +15,7 @@ namespace Utilities
 
         public static int HashOffset(this int baseInt)
         {
-            return HashCombine(baseInt, 169495095); //some magic number.
+            return HashCombine(baseInt, 169495093); //some magic number.
         }
 
         public static int HashOffsetTicks(this Thing thing)

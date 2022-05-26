@@ -1,4 +1,3 @@
-using Assets.Scripts.Utilities;
 using Sirenix.Utilities;
 using UnityEngine;
 using Utilities;

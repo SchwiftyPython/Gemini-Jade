@@ -170,6 +170,8 @@ namespace Time
 
         public void DoSingleTick()
         {
+            //todo if this is slowing us down maybe look into adding all tick lists to scheduler
+            
             //todo find all maps and tick through them
 
             _numTicks += 2000;

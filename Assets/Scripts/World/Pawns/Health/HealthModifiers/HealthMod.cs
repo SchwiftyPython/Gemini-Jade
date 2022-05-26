@@ -9,6 +9,10 @@ namespace World.Pawns.Health.HealthModifiers
 {
     public class HealthMod 
     {
+        private const int HealthModAdderInterval = 100;
+        
+        private int _intervalCheckCounter;
+
         public HealthModTemplate template;
 
         public int durationTicks; 
@@ -27,7 +31,7 @@ namespace World.Pawns.Health.HealthModifiers
 
         //todo need to look at all that stage label stuff
 
-        public virtual string LabelBase => template.label;
+        public virtual string LabelBase => template.label.CapitalizeFirst();
 
         public virtual string SeverityLabel
         {
@@ -170,27 +174,36 @@ namespace World.Pawns.Health.HealthModifiers
         {
             durationTicks++;
 
-            if (template.healthModAdders != null && pawn.IsHashIntervalTick(20)) //magic number
+            if (_intervalCheckCounter > HealthModAdderInterval)
             {
-                foreach (var healthModAdder in template.healthModAdders)
+                _intervalCheckCounter = 0;
+                
+                if (template.healthModAdders != null)
                 {
-                    healthModAdder.OnIntervalPassed(pawn, this);
+                    foreach (var healthModAdder in template.healthModAdders)
+                    {
+                        healthModAdder.OnIntervalPassed(pawn, this);
+                    }
+                }
+                
+                var currentStage = CurrentStage;
+
+                if (currentStage == null)
+                {
+                    return;
+                }
+
+                if (currentStage.healthModAdders != null) //magic number
+                {
+                    foreach (var healthModAdder in currentStage.healthModAdders)
+                    {
+                        healthModAdder.OnIntervalPassed(pawn, this);
+                    }
                 }
             }
-
-            var currentStage = CurrentStage;
-
-            if (currentStage == null)
+            else
             {
-                return;
-            }
-
-            if (currentStage.healthModAdders != null && pawn.IsHashIntervalTick(20)) //magic number
-            {
-                foreach (var healthModAdder in currentStage.healthModAdders)
-                {
-                    healthModAdder.OnIntervalPassed(pawn, this);
-                }
+                _intervalCheckCounter++;
             }
 
             //todo

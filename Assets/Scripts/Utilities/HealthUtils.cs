@@ -1,3 +1,4 @@
+using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartDepth;
 using UnityEngine;
@@ -43,6 +44,10 @@ namespace Utilities
                     firstHealthMod.Severity = severityOffset;
                     pawn.health.AddHealthMod(firstHealthMod);
                 }
+                
+                //todo notify change in health
+                
+                HealthDebug.NotifyBodyChanged();
             }
         }
         

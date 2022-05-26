@@ -5,15 +5,12 @@ using Assets.Scripts.World.Pawns.BodyPartGroupTemplates;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.BodyPartTemplates;
 using Assets.Scripts.World.Pawns.BodyTemplates;
-using World.Pawns.Health.HealthModifiers;
 
 namespace Assets.Scripts.World.Pawns
 {
     public class BodyPart
     {
         private BodyTemplate _body;
-
-        //private List<HealthMod> _healthMods;
 
         public BodyPartTemplate template;
 
