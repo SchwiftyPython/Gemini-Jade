@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d9fbdf7a4af16b34a918ab5ae1679c13
+labels:
+- ai
+- pathfinding
+timeCreated: 1505051983
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

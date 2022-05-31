@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54140cbc8fe2924489658eee6e119b66, type: 3}
+  m_Name: Stomach
+  m_EditorClassIdentifier: 
+  templateName: Stomach
+  label: stomach
+  description: 
+  tags:
+  - {fileID: 11400000, guid: 084c3f26a9f77e342b079694fb87e280, type: 2}
+  hitPoints: 20
+  permanentInjuryChanceFactor: 1
+  bleedRate: 1
+  frostbiteVulnerability: 0
+  skinCovered: 0
+  solid: 0
+  alive: 1
+  canScarify: 0
+  beautyRelated: 0
+  conceptual: 0
+  pawnGeneratorCanAmputate: 0
+  destroyableByDamage: 1
