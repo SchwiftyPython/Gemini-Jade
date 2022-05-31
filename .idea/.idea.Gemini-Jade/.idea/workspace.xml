@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Body-Sim" />
+      </map>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/17/6b10f0ea/Activator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/UI/BodyPartList.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28722bRfBNQZeEMvmfAKtXiYXsG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.496614&quot;,
+    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\User\source\repos\Gemini-Jade -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\User\source\repos\Gemini-Jade" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="" />
+      <created>1650553098205</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650553098205</updated>
+      <workItem from="1650553112905" duration="1263000" />
+      <workItem from="1650634499516" duration="173000" />
+      <workItem from="1650886040834" duration="2503000" />
+      <workItem from="1650975906738" duration="17906000" />
+      <workItem from="1651059099636" duration="14827000" />
+      <workItem from="1651145706955" duration="9354000" />
+      <workItem from="1651227904792" duration="11260000" />
+      <workItem from="1651491722127" duration="4086000" />
+      <workItem from="1651510923322" duration="4806000" />
+      <workItem from="1651574353687" duration="10330000" />
+      <workItem from="1651678256624" duration="8507000" />
+      <workItem from="1651749186928" duration="9341000" />
+      <workItem from="1652182459052" duration="5113000" />
+      <workItem from="1652264743638" duration="1197000" />
+      <workItem from="1652266352814" duration="14773000" />
+      <workItem from="1652353094659" duration="6721000" />
+      <workItem from="1652701354381" duration="11824000" />
+      <workItem from="1652789975651" duration="4380000" />
+      <workItem from="1652870568299" duration="6645000" />
+      <workItem from="1652961337388" duration="7106000" />
+      <workItem from="1653302489101" duration="18088000" />
+      <workItem from="1653390205075" duration="11624000" />
+      <workItem from="1653478573693" duration="6179000" />
+      <workItem from="1653568894609" duration="10119000" />
+      <workItem from="1653911315118" duration="6666000" />
+      <workItem from="1653999980649" duration="8651000" />
+    </task>
+    <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
+      <created>1650554230040</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650554230040</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added Health Capacity Summary stuff to UI">
+      <created>1650902082147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650902082147</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs">
+      <created>1651007702557</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1651007702557</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function">
+      <created>1651081849858</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651081849858</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think">
+      <created>1651175173474</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651175173474</updated>
+    </task>
+    <task id="LOCAL-00006" summary="We get some values back for blood filtration, breathing, and consciousness when removing body parts.&#10;So far nothing wacky.">
+      <created>1651246622188</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1651246622188</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added Eating.asset&#10;Added Sight.asset&#10;Added Hearing.asset&#10;Added Moving.asset&#10;Added workers for each asset added.&#10;Sight and Hearing work okay.&#10;Eating and moving return 0% every refresh.">
+      <created>1651516214852</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1651516214852</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added the rest of the Function Workers and Function Assets&#10;Everything seems to be working okay&#10;Need to cache functions as they are calculated to prevent recalculations">
+      <created>1651598374048</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651598374048</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added TimeSpeeds&#10;Added TickController.cs">
+      <created>1651689275204</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1651689275204</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added TickList.cs&#10;Added Thing.cs&#10;Added methods to TickController.cs">
+      <created>1651761896715</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1651761896715</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace">
+      <created>1652205943605</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652205943605</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods">
+      <created>1652291264032</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652291264033</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added stages to health mods">
+      <created>1652373891882</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652373891882</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs">
+      <created>1652725722445</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652725722445</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added BloodLoss.cs&#10;Added methods to get current bleed rate and calculate stage of health mod based on severity">
+      <created>1652806259352</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652806259352</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Finished up adjusting severity of health mods&#10;Finished BloodLoss.cs&#10;Added AddHealthMod and RemoveHealthMod methods to Health.cs">
+      <created>1652881671028</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652881671028</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added HashUtils.cs&#10;Added HealthModAdderSetTemplate.cs&#10;Added Organic HealthModifierAdderSetTemplate&#10;Looks like Remove BodyPart is broken now.">
+      <created>1652971888914</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1652971888914</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss.">
+      <created>1653335775440</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653335775440</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Finished conversion to HealthModCollection.cs&#10;Blood loss shows up under Whole Body as intended, but not when an injury first happens. Probably need to trigger event somewhere.">
+      <created>1653410316872</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1653410316872</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added Master Scheduler Asset&#10;Added intervals to health mod adder checks&#10;Added Injury.cs">
+      <created>1653583475156</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1653583475156</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet.">
+      <created>1654016447519</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1654016447519</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing" />
+    <MESSAGE value="Added Health Capacity Summary stuff to UI" />
+    <MESSAGE value="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs" />
+    <MESSAGE value="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function" />
+    <MESSAGE value="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think" />
+    <MESSAGE value="We get some values back for blood filtration, breathing, and consciousness when removing body parts.&#10;So far nothing wacky." />
+    <MESSAGE value="Added Eating.asset&#10;Added Sight.asset&#10;Added Hearing.asset&#10;Added Moving.asset&#10;Added workers for each asset added.&#10;Sight and Hearing work okay.&#10;Eating and moving return 0% every refresh." />
+    <MESSAGE value="Added the rest of the Function Workers and Function Assets&#10;Everything seems to be working okay&#10;Need to cache functions as they are calculated to prevent recalculations" />
+    <MESSAGE value="Added TimeSpeeds&#10;Added TickController.cs" />
+    <MESSAGE value="Added TickList.cs&#10;Added Thing.cs&#10;Added methods to TickController.cs" />
+    <MESSAGE value="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace" />
+    <MESSAGE value="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods" />
+    <MESSAGE value="Added stages to health mods" />
+    <MESSAGE value="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs" />
+    <MESSAGE value="Added BloodLoss.cs&#10;Added methods to get current bleed rate and calculate stage of health mod based on severity" />
+    <MESSAGE value="Finished up adjusting severity of health mods&#10;Finished BloodLoss.cs&#10;Added AddHealthMod and RemoveHealthMod methods to Health.cs" />
+    <MESSAGE value="Added HashUtils.cs&#10;Added HealthModAdderSetTemplate.cs&#10;Added Organic HealthModifierAdderSetTemplate&#10;Looks like Remove BodyPart is broken now." />
+    <MESSAGE value="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss." />
+    <MESSAGE value="Finished conversion to HealthModCollection.cs&#10;Blood loss shows up under Whole Body as intended, but not when an injury first happens. Probably need to trigger event somewhere." />
+    <MESSAGE value="Added Master Scheduler Asset&#10;Added intervals to health mod adder checks&#10;Added Injury.cs" />
+    <MESSAGE value="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet." />
+  </component>
+</project>
