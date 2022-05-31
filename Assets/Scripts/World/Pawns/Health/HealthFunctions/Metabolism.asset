@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117b8d72c87eb804486599bc90564b5a, type: 3}
+  m_Name: Metabolism
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: workerType
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.HealthFunctions.Workers.MetabolismWorker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  templateName: Metabolism
+  label: metabolism
+  description: 
+  machineLabel: 
+  animalLabel: 
+  showOnHumanoids: 1
+  showOnAnimals: 1
+  showOnMachines: 0
+  criticalOrganic: 1
+  criticalMachines: 0
+  functionalMin: 0
+  zeroIfCannotWakeUp: 0

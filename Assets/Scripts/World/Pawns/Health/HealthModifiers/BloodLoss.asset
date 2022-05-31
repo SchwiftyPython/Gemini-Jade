@@ -1,0 +1,359 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c8e71f89676ad42a3c2b32e98fce8a, type: 3}
+  m_Name: BloodLoss
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: healthModClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.HealthModifiers.HealthMod, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stages
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[World.Pawns.Health.HealthModifiers.HealthModStage,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 2|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+    - Name: minSeverity
+      Entry: 4
+      Data: 0.15
+    - Name: label
+      Entry: 1
+      Data: mild
+    - Name: visible
+      Entry: 5
+      Data: true
+    - Name: lifeThreatening
+      Entry: 5
+      Data: false
+    - Name: vomitChance
+      Entry: 4
+      Data: 0
+    - Name: suddenDeathChance
+      Entry: 4
+      Data: 0
+    - Name: painModifier
+      Entry: 4
+      Data: 1
+    - Name: painOffset
+      Entry: 4
+      Data: 0
+    - Name: bleedModifier
+      Entry: 4
+      Data: 1
+    - Name: naturalHealingModifier
+      Entry: 4
+      Data: -1
+    - Name: opinionOfOthersModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: restModifier
+      Entry: 4
+      Data: 1
+    - Name: restModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: brawlChance
+      Entry: 4
+      Data: 1
+    - Name: foodPoisoningChance
+      Entry: 4
+      Data: 1
+    - Name: mentalBreakChance
+      Entry: 4
+      Data: 0
+    - Name: immunities
+      Entry: 6
+      Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
+    - Name: partEfficiencyOffset
+      Entry: 4
+      Data: 0
+    - Name: partIgnoreMissingHp
+      Entry: 5
+      Data: false
+    - Name: destroyPart
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+    - Name: minSeverity
+      Entry: 4
+      Data: 0.3
+    - Name: label
+      Entry: 1
+      Data: moderate
+    - Name: visible
+      Entry: 5
+      Data: true
+    - Name: lifeThreatening
+      Entry: 5
+      Data: false
+    - Name: vomitChance
+      Entry: 4
+      Data: 0
+    - Name: suddenDeathChance
+      Entry: 4
+      Data: 0
+    - Name: painModifier
+      Entry: 4
+      Data: 1
+    - Name: painOffset
+      Entry: 4
+      Data: 0
+    - Name: bleedModifier
+      Entry: 4
+      Data: 1
+    - Name: naturalHealingModifier
+      Entry: 4
+      Data: -1
+    - Name: opinionOfOthersModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: restModifier
+      Entry: 4
+      Data: 1
+    - Name: restModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: brawlChance
+      Entry: 4
+      Data: 1
+    - Name: foodPoisoningChance
+      Entry: 4
+      Data: 1
+    - Name: mentalBreakChance
+      Entry: 4
+      Data: 0
+    - Name: immunities
+      Entry: 6
+      Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
+    - Name: partEfficiencyOffset
+      Entry: 4
+      Data: 0
+    - Name: partIgnoreMissingHp
+      Entry: 5
+      Data: false
+    - Name: destroyPart
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+    - Name: minSeverity
+      Entry: 4
+      Data: 0.45
+    - Name: label
+      Entry: 1
+      Data: severe
+    - Name: visible
+      Entry: 5
+      Data: true
+    - Name: lifeThreatening
+      Entry: 5
+      Data: false
+    - Name: vomitChance
+      Entry: 4
+      Data: 0
+    - Name: suddenDeathChance
+      Entry: 4
+      Data: 0
+    - Name: painModifier
+      Entry: 4
+      Data: 1
+    - Name: painOffset
+      Entry: 4
+      Data: 0
+    - Name: bleedModifier
+      Entry: 4
+      Data: 1
+    - Name: naturalHealingModifier
+      Entry: 4
+      Data: -1
+    - Name: opinionOfOthersModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: restModifier
+      Entry: 4
+      Data: 1
+    - Name: restModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: brawlChance
+      Entry: 4
+      Data: 1
+    - Name: foodPoisoningChance
+      Entry: 4
+      Data: 1
+    - Name: mentalBreakChance
+      Entry: 4
+      Data: 0
+    - Name: immunities
+      Entry: 6
+      Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
+    - Name: partEfficiencyOffset
+      Entry: 4
+      Data: 0
+    - Name: partIgnoreMissingHp
+      Entry: 5
+      Data: false
+    - Name: destroyPart
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|World.Pawns.Health.HealthModifiers.HealthModStage, Assembly-CSharp
+    - Name: minSeverity
+      Entry: 4
+      Data: 0.6
+    - Name: label
+      Entry: 1
+      Data: extreme
+    - Name: visible
+      Entry: 5
+      Data: true
+    - Name: lifeThreatening
+      Entry: 5
+      Data: false
+    - Name: vomitChance
+      Entry: 4
+      Data: 0
+    - Name: suddenDeathChance
+      Entry: 4
+      Data: 0
+    - Name: painModifier
+      Entry: 4
+      Data: 1
+    - Name: painOffset
+      Entry: 4
+      Data: 0
+    - Name: bleedModifier
+      Entry: 4
+      Data: 1
+    - Name: naturalHealingModifier
+      Entry: 4
+      Data: -1
+    - Name: opinionOfOthersModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifier
+      Entry: 4
+      Data: 1
+    - Name: hungerRateModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: restModifier
+      Entry: 4
+      Data: 1
+    - Name: restModifierOffset
+      Entry: 4
+      Data: 0
+    - Name: brawlChance
+      Entry: 4
+      Data: 1
+    - Name: foodPoisoningChance
+      Entry: 4
+      Data: 1
+    - Name: mentalBreakChance
+      Entry: 4
+      Data: 0
+    - Name: immunities
+      Entry: 6
+      Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
+    - Name: partEfficiencyOffset
+      Entry: 4
+      Data: 0
+    - Name: partIgnoreMissingHp
+      Entry: 5
+      Data: false
+    - Name: destroyPart
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: healthModAdders
+      Entry: 6
+      Data: 
+  templateName: BloodLoss
+  label: blood loss
+  description: 
+  initialSeverity: 0.001
+  lethalSeverity: 1
+  tendable: 0
+  chanceToCauseNoPain: 0
+  minSeverity: 0
+  maxSeverity: 3.4028235e+38
+  painPerSeverity: 1
+  bleedRate: 1

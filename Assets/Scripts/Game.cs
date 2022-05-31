@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using Time;
 using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        var tickController = FindObjectOfType<TickController>();
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        tickController.Init();
     }
 }

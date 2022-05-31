@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54140cbc8fe2924489658eee6e119b66, type: 3}
+  m_Name: Finger
+  m_EditorClassIdentifier: 
+  templateName: Finger
+  label: finger
+  description: 
+  tags:
+  - {fileID: 11400000, guid: 497194aa01d475e4caed0beeb8468d9c, type: 2}
+  hitPoints: 8
+  permanentInjuryChanceFactor: 1
+  bleedRate: 1
+  frostbiteVulnerability: 8
+  skinCovered: 1
+  solid: 0
+  alive: 1
+  canScarify: 0
+  beautyRelated: 0
+  conceptual: 0
+  pawnGeneratorCanAmputate: 1
+  destroyableByDamage: 1
