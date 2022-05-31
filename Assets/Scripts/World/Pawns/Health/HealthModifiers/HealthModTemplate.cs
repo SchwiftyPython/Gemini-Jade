@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Assets.Scripts.World;
 using UnityEngine;
 using World.Pawns.Health.HealthModifierAdders;
+using World.Pawns.Health.HealthModifierComponents.HealthModCompProperties;
 
 namespace World.Pawns.Health.HealthModifiers
 {
     [CreateAssetMenu(menuName = "Templates/HealthModTemplate")]
     public class HealthModTemplate : Template
     {
-        //todo Health Mod Components
+        public List<HealthModCompProps> comps;
 
         public Type healthModClass;
 
