@@ -27,6 +27,7 @@ namespace Assets.Scripts.Utilities
         public SpeciesTemplate humanTemplate;
 
         public HealthModTemplate removeBodyPartTemplate;
+        public HealthModTemplate cutBodyPartTemplate;
 
         public Dropdown bodyPartsDropdown;
 
@@ -83,6 +84,43 @@ namespace Assets.Scripts.Utilities
             _currentPawn.health.AddHealthMod(removePartMod, partToRemove);
             
             OnBodyChanged?.Invoke();
+            
+            PopulateBodyPartDropdown();
+        }
+
+        public void CutBodyPart()
+        {
+            var partName = bodyPartsDropdown.options[bodyPartsDropdown.value].text;
+
+            if (string.IsNullOrEmpty(partName))
+            {
+                Debug.LogError("Can't cut body part! No part selected!");
+                return;
+            }
+
+            if (!_bodyPartsDict.ContainsKey(partName))
+            {
+                Debug.LogError($"Can't cut {partName}! Doesn't exist in Body Parts Dictionary!");
+                return;
+            }
+
+            //todo make some equivalent to Damage Worker class and Add Injury Subclass or method
+
+            var partToCut = _bodyPartsDict[partName];
+
+            if (_currentPawn.health.BodyPartIsMissing(partToCut))
+            {
+                Debug.LogError($"Can't cut {partName}! Body Part is already missing!");
+                return;
+            }
+
+            var cutPartMod = HealthModMaker.MakeHealthMod(cutBodyPartTemplate, _currentPawn, partToCut);
+            
+            _currentPawn.health.AddHealthMod(cutPartMod, partToCut);
+            
+            OnBodyChanged?.Invoke();
+            
+            PopulateBodyPartDropdown();
         }
 
         private void PopulateBodyPartDropdown()
@@ -141,8 +179,6 @@ namespace Assets.Scripts.Utilities
 
         public void HealthDebug_OnBodyChanged()
         {
-            PopulateBodyPartDropdown();
-
             DrawHealthSummary();
         }
     }

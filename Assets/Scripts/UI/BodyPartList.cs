@@ -82,11 +82,15 @@ namespace UI
 
             if (allMods == null)
             {
+                Debug.Log("All health mods null.");
+                
                 return modsToDraw;
             }
 
             if (allMods.Count < 1)
             {
+                Debug.Log("All health mods is empty.");
+                
                 return modsToDraw;
             }
 

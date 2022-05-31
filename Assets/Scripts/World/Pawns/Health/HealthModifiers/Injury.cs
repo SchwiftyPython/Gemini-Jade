@@ -96,6 +96,8 @@ namespace World.Pawns.Health.HealthModifiers
 
             if (bleedingStoppedDueToDurationPre != bleedingStoppedDueToDurationPost)
             {
+                Debug.Log($"Bleeding stopped due to duration. Duration Ticks: {durationTicks}");
+                
                 pawn.health.CheckForHealthStateChange(this);
             }
         }
@@ -114,7 +116,12 @@ namespace World.Pawns.Health.HealthModifiers
                 return false;
             }
 
-            if (otherInjury.Part != Part) //todo or is tended, perm, or can't be merged
+            if (otherInjury.Part != Part) //todo or is tended or perm
+            {
+                return false;
+            }
+
+            if (!template.canMerge) 
             {
                 return false;
             }

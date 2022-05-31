@@ -28,8 +28,18 @@ namespace World.Pawns.Health.HealthModifiers
         public float maxSeverity = float.MaxValue;
 
         public float painPerSeverity = 1f;
+        
+        public float averagePainPerSeverityPermanent = 0.5f;
 
         public float bleedRate = 1f;
+        
+        public bool canMerge;
+        
+        public string destroyedLabel;
+
+        public string destroyedOutLabel;
+
+        public bool useRemovedLabel;
 
         public List<HealthModAdder> healthModAdders;
         

@@ -22,7 +22,13 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: healthModClass
-      Entry: 6
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.HealthModifiers.Injury, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
     - Name: stages
       Entry: 6
@@ -30,15 +36,20 @@ MonoBehaviour:
     - Name: healthModAdders
       Entry: 6
       Data: 
-  templateName: 
-  label: 
-  description: 
+  templateName: Cut
+  label: cut
+  description: A cut.
   initialSeverity: 0.001
   lethalSeverity: -1
-  tendable: 0
+  tendable: 1
   chanceToCauseNoPain: 0
   minSeverity: 0
   maxSeverity: 3.4028235e+38
-  painPerSeverity: 1
-  bleedRate: 1
+  painPerSeverity: 0.0125
+  averagePainPerSeverityPermanent: 0.00625
+  bleedRate: 0.06
+  canMerge: 0
+  destroyedLabel: Cut off
+  destroyedOutLabel: Cut out
+  useRemovedLabel: 0
   makesAlert: 1

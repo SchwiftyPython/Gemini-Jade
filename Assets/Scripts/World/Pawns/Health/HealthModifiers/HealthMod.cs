@@ -9,7 +9,7 @@ namespace World.Pawns.Health.HealthModifiers
 {
     public class HealthMod 
     {
-        private const int HealthModAdderInterval = 100;
+        private const int HealthModAdderInterval = 1000;
         
         private int _intervalCheckCounter;
 
@@ -98,29 +98,24 @@ namespace World.Pawns.Health.HealthModifiers
                         severityIsLethal = true;
                     }
                 }
-                
-                //todo boolean here check if health mod is injury type and if value > _severity
+
+                var isInjury = this is Injury && value > _severity &&
+                               Mathf.RoundToInt(value) != Mathf.RoundToInt(_severity);
 
                 var currentStageIndex = CurrentStageIndex;
 
                 _severity = Mathf.Clamp(value, template.minSeverity, template.maxSeverity);
 
-                if (CurrentStageIndex == currentStageIndex)
+                if ((CurrentStageIndex != currentStageIndex || severityIsLethal || isInjury) && pawn.health.HasHealthMod(template)) //they check for the health mod directly so might need an overload
                 {
-                    if (!severityIsLethal)
-                    {
-                        return;
-                    }
-                }
-
-                if (pawn.health.HasHealthMod(template))
-                {
-                    pawn.health.CheckForHealthStateChange(this);
+                   pawn.health.CheckForHealthStateChange(this);
+                    
+                    //todo mood and thoughts
                 }
             }
         }
 
-        public virtual bool ShouldRemove => _severity <= 0f;
+        public virtual bool ShouldRemove => Severity <= 0f;
 
         public virtual float BleedRate => 0f;
 
@@ -241,6 +236,11 @@ namespace World.Pawns.Health.HealthModifiers
             }
 
             if (otherHealthMod.Part != Part)
+            {
+                return false;
+            }
+            
+            if (!template.canMerge) 
             {
                 return false;
             }

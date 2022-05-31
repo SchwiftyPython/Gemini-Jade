@@ -5,6 +5,7 @@ using Assets.Scripts.World.Pawns;
 using UnityEngine;
 using Utilities;
 using World.Pawns.Health.HealthModifiers;
+using Object = UnityEngine.Object;
 
 namespace World.Pawns.Health
 {
@@ -12,7 +13,7 @@ namespace World.Pawns.Health
     {
         public Pawn pawn;
 
-        public List<HealthMod> healthMods = new List<HealthMod>();
+        public List<HealthMod> healthMods;
         
         //there are some caches and other collections here. Might be needed.
 
@@ -59,26 +60,18 @@ namespace World.Pawns.Health
         public HealthModCollection(Pawn pawn)
         {
             this.pawn = pawn;
+            
+            healthMods = new List<HealthMod>();
         }
 
         public void AddHealthMod(HealthMod healthModToAdd, BodyPart bodyPart = null)
         {
-            //todo there's a lot going on here including merging with existing health mods. Add additional stuff as needed.
+            //todo there's a lot going on here. Add additional stuff as needed.
 
             if (bodyPart != null)
             {
                 healthModToAdd.Part = bodyPart;
-                
-                //bodyPart.AddHealthMod(healthMod);
             }
-            // else
-            // {
-            //     var corePart = pawn.health.GetCoreBodyPart();
-            //
-            //     healthMod.Part = corePart;
-            //     
-            //     corePart.AddHealthMod(healthMod);
-            // }
 
             healthModToAdd.durationTicks = 0;
             
@@ -98,8 +91,47 @@ namespace World.Pawns.Health
             {
                 healthMods.Add(healthModToAdd);
                 healthModToAdd.PostAdd();
+                
+                //todo thoughts and needs
             }
 
+            var isMissingPart = healthModToAdd is MissingBodyPart;
+
+            if (!isMissingPart && healthModToAdd.Part != null && !healthModToAdd.Part.IsCorePart &&
+                GetBodyPartHealth(healthModToAdd.Part) == 0f)
+            {
+                //todo check for added parts
+
+                var healthModRepo = Object.FindObjectOfType<HealthModRepo>();
+
+                var missingPartHealthMod = HealthModMaker.MakeHealthMod(healthModRepo.missingBodyPart, pawn);
+                
+                //todo missing part is fresh = !hasAddedParts
+                
+                //todo last injury = healthModToAdd.template
+                
+                pawn.health.AddHealthMod(missingPartHealthMod, healthModToAdd.Part);
+                
+                //todo add missing part mod to damage result
+                
+                //todo if has added part do some stuff
+
+                isMissingPart = true;
+            }
+            
+            //todo notify apparel of lost body part if applicable
+        }
+
+        public void RemoveHealthMod(HealthMod healthModToRemove)
+        {
+            if (!HasHealthMod(healthModToRemove.template))
+            {
+                return;
+            }
+
+            healthMods.Remove(healthModToRemove);
+            
+            healthModToRemove.PostRemove();
         }
 
         public int GetNumberOf(HealthModTemplate template)

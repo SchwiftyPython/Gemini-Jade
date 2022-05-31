@@ -15,7 +15,7 @@ namespace World.Pawns.Health
 {
     public class Health
     {
-        private const int HealthModAdderInterval = 100;
+        private const int HealthModAdderInterval = 1000;
         
         private Pawn _pawn;
 
@@ -132,9 +132,7 @@ namespace World.Pawns.Health
 
         public void RemoveHealthMod(HealthMod healthMod)
         {
-            //healthMod.Part.RemoveHealthMod(healthMod);
-            
-            healthMod.PostRemove();
+            _healthModCollection.RemoveHealthMod(healthMod);
             
             CheckForHealthStateChange(null);
         }
@@ -211,8 +209,8 @@ namespace World.Pawns.Health
             {
                 if (healthMod.ShouldRemove)
                 {
-                    healthMods.Remove(healthMod);
-                    healthMod.PostRemove();
+                    RemoveHealthMod(healthMod);
+                    
                     healthModsChanged = true;
                 }
             }
