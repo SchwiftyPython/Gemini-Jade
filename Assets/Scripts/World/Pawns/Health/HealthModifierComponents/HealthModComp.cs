@@ -34,7 +34,7 @@ namespace World.Pawns.Health.HealthModifierComponents
         {
         }
 
-        public virtual void PostMerge()
+        public virtual void PostMerge(HealthMod otherHealthMod)
         {
         }
 
@@ -51,7 +51,7 @@ namespace World.Pawns.Health.HealthModifierComponents
         {
         }
 
-        public virtual void Tended(float quality, float maxQuality)
+        public virtual void Tend(float quality, float maxQuality)
         {
         }
         

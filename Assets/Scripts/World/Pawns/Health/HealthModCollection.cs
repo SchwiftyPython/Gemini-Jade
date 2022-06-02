@@ -4,6 +4,7 @@ using System.Linq;
 using Assets.Scripts.World.Pawns;
 using UnityEngine;
 using Utilities;
+using World.Pawns.Health.HealthModifierComponents;
 using World.Pawns.Health.HealthModifiers;
 using Object = UnityEngine.Object;
 
@@ -225,8 +226,26 @@ namespace World.Pawns.Health
             return healthMods.ToArray().Any(healthMod =>
                 (!forAlert || healthMod.template.makesAlert) && healthMod.NeedsTending());
         }
-        
-        //todo GetAllComps
+
+        public List<HealthModComp> GetAllComps()
+        {
+            var components = new List<HealthModComp>();
+
+            foreach (var healthMod in healthMods)
+            {
+                if (!healthMod.HasComps)
+                {
+                    continue;
+                }
+
+                foreach (var healthModComp in healthMod.comps)
+                {
+                    components.Add(healthModComp);
+                }
+            }
+
+            return components;
+        }
         
         //todo get tendable injuries
         
