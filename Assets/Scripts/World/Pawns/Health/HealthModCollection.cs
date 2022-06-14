@@ -246,8 +246,106 @@ namespace World.Pawns.Health
 
             return components;
         }
+
+        public List<Injury> GetTendableInjuries()
+        {
+            var tendableInjuries = new List<Injury>();
+            
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod is Injury injury && injury.NeedsTending())
+                {
+                    tendableInjuries.Add(injury);
+                }
+            }
+
+            return tendableInjuries;
+        }
         
-        //todo get tendable injuries
+        public bool HasTendableInjury()
+        {
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod is Injury injury && injury.NeedsTending())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        public bool HasNaturallyHealingInjury()
+        {
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod is Injury injury && injury.CanHealNaturally())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool HasTendedAndHealingInjury()
+        {
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod is not Injury injury)
+                {
+                    continue;
+                }
+
+                if (injury.CanHealFromTending() && injury.Severity > 0f)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
+        // public bool HasTemperatureInjury(TemperatureInjuryStage minStage)
+        // {
+        //     todo
+        // }
+
+        public IEnumerable<BodyPart> GetInjuredParts()
+        {
+            return (from hm in healthMods where hm is Injury select hm.Part).Distinct();
+        }
+
+        public IEnumerable<BodyPart> GetNaturallyHealingInjuredParts()
+        {
+            var naturalHealingParts = new List<BodyPart>();
+            
+            foreach (var injuredPart in GetInjuredParts())
+            {
+                foreach (var healthMod in healthMods)
+                {
+                    if (healthMod is not Injury injury)
+                    {
+                        continue;
+                    }
+
+                    if (injury.Part != injuredPart)
+                    {
+                        continue;
+                    }
+
+                    if (!injury.CanHealNaturally())
+                    {
+                        continue;
+                    }
+
+                    naturalHealingParts.Add(injuredPart);
+                    break;
+                }
+            }
+
+            return naturalHealingParts;
+        }
         
         //todo more injury methods
 
@@ -317,23 +415,58 @@ namespace World.Pawns.Health
 
         public List<HealthMod> GetTendableNonInjuryNonMissingHealthMods()
         {
-            //todo
+            var tendableMods = new List<HealthMod>();
 
-            throw new NotImplementedException();
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod is not Injury && healthMod is not MissingBodyPart && healthMod.NeedsTending())
+                {
+                    tendableMods.Add(healthMod);
+                }
+            }
+
+            return tendableMods;
         }
 
         public bool HasTendableNonInjuryNonMissingHealthMod(bool forAlert = false)
         {
-            //todo 
+            foreach (var healthMod in healthMods)
+            {
+                if (forAlert && !healthMod.template.makesAlert)
+                {
+                    continue;
+                }
 
-            throw new NotImplementedException();
+                if (healthMod is not Injury && healthMod is not MissingBodyPart && healthMod.NeedsTending())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public bool HasImmunizableNotImmuneHealthMod()
         {
-            //todo 
+            foreach (var healthMod in healthMods)
+            {
+                if (healthMod is Injury or MissingBodyPart)
+                {
+                    continue;
+                }
 
-            throw new NotImplementedException();
+                if (!healthMod.Visible)
+                {
+                    continue;
+                }
+
+                if (healthMod.template.CanDevelopImmunityNaturally() && !healthMod.FullyImmune())
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public List<T> GetHealthMods<T>() where T : HealthMod
