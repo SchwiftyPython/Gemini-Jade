@@ -86,7 +86,9 @@ namespace World.Pawns.Health.HealthModifierComponents
         public override void Tend(float quality, float maxQuality)
         {
             tendQuality = Mathf.Clamp(quality + Random.Range(-0.25f, 0.25f), 0f, maxQuality);
+            
             _totalTendQuality += tendQuality;
+            
             if (Props.TendIsPermanent)
             {
                 tendTicksLeft = 1;
@@ -98,7 +100,7 @@ namespace World.Pawns.Health.HealthModifierComponents
             
             //todo floating tend quality indicator
 
-            base.Pawn.health.CheckForHealthStateChange(parent);
+            Pawn.health.CheckForHealthStateChange(parent);
         }
 
         public override string DebugString()

@@ -15,7 +15,7 @@ namespace World.Pawns.Health
 {
     public class Health
     {
-        private const int TickInterval = 1000;
+        private const int TickInterval = 1000; //all of the intervals are in HealthTuning. Different intervals for vomit, death, health mod update.
         
         private Pawn _pawn;
 
@@ -225,7 +225,7 @@ namespace World.Pawns.Health
             
             //todo immunity handler tick
 
-            if (_intervalCheckCounter > TickInterval)
+            if (_intervalCheckCounter > TickInterval) //todo use modulo to check multiple intervals and not have to worry about resetting counter
             {
                 if (_pawn.IsOrganic) //todo and pawn needs food == null || not starving
                 {

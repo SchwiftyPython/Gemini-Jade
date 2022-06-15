@@ -47,7 +47,7 @@ namespace World.Pawns.Health.HealthModifierComponents
         {
         }
 
-        public virtual void PostInjuryHeal()
+        public virtual void PostInjuryHeal(float amount)
         {
         }
 
