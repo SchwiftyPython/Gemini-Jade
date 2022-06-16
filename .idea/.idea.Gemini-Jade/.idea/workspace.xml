@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/GetsPermanent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/GetsPermanent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/GetsPermanent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/GetsPermanent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/PainLevel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/PainLevel.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTemplates/BodyPartTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTemplates/BodyPartTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/TendDuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/TendDuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/GetsPermanent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/GetsPermanent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +19,12 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/da/d21144ec/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/17/6b10f0ea/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" root0="FORCE_HIGHLIGHTING" />
@@ -136,7 +131,8 @@
       <workItem from="1654167013348" duration="11672000" />
       <workItem from="1655209245341" duration="1781000" />
       <workItem from="1655215791804" duration="4371000" />
-      <workItem from="1655302538319" duration="8433000" />
+      <workItem from="1655302538319" duration="9035000" />
+      <workItem from="1655391618843" duration="2742000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -320,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655224402992</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added GetsPermanent.cs Comp and Comp Prop&#10;Added HealthAdjustments.cs&#10;Added PainLevel.cs">
+      <created>1655319491367</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1655319491367</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +347,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Health Capacity Summary stuff to UI" />
     <MESSAGE value="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs" />
     <MESSAGE value="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function" />
     <MESSAGE value="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think" />
@@ -369,6 +371,7 @@
     <MESSAGE value="Added HealthModComp.cs&#10;Added HealthModCompProps.cs&#10;Added Comp SeverityPerDay.cs&#10;Added Comp Prop SeverityPerDay.cs&#10;Added Tend Duration" />
     <MESSAGE value="Added TendDuration.cs Health Mod Component Property&#10;&#10;Added Alert methods to HealthMod&#10;&#10;Started processing health mod components" />
     <MESSAGE value="Added more methods to HealthModCollection.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more methods to HealthModCollection.cs" />
+    <MESSAGE value="Added GetsPermanent.cs Comp and Comp Prop&#10;Added HealthAdjustments.cs&#10;Added PainLevel.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GetsPermanent.cs Comp and Comp Prop&#10;Added HealthAdjustments.cs&#10;Added PainLevel.cs" />
   </component>
 </project>

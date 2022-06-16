@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utilities;
 
 namespace World.Pawns.Health.HealthModifierComponents
 {
@@ -16,10 +17,7 @@ namespace World.Pawns.Health.HealthModifierComponents
 
         public bool IsPermanent
         {
-            get
-            {
-                return isPermanent;
-            }
+            get => isPermanent;
             set
             {
                 if (value == isPermanent)
@@ -29,12 +27,15 @@ namespace World.Pawns.Health.HealthModifierComponents
 
                 isPermanent = value;
 
-                if (isPermanent)
+                if (!isPermanent)
                 {
-                    permDamageThreshold = DefaultPermDamageThreshold;
-                    
-                    //todo set pain level
+                    return;
                 }
+
+                permDamageThreshold = DefaultPermDamageThreshold;
+
+                SetPainLevel(HealthAdjustments.InjuryPainLevels.RandomElementByWeight(painLevel => painLevel.weight)
+                    .level);
             }
         }
 
@@ -58,7 +59,10 @@ namespace World.Pawns.Health.HealthModifierComponents
 
             if (!parent.Part.template.delicate)
             {
-                //todo become perm chance by severity curve
+                var healthAdjustments = Object.FindObjectOfType<HealthAdjustments>();
+
+                becomePermChance *=
+                    healthAdjustments.BecomePermanentChanceFactorBySeverityCurve.Evaluate(parent.Severity);
             }
 
             if (Random.Range(0f, 1f) < becomePermChance)
