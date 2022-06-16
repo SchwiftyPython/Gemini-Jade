@@ -30,7 +30,51 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: comps
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[World.Pawns.Health.HealthModifierComponents.HealthModCompProperties.HealthModCompProps,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|World.Pawns.Health.HealthModifierComponents.HealthModCompProperties.TendDuration,
+        Assembly-CSharp
+    - Name: compClass
+      Entry: 7
+      Data: 3|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.HealthModifierComponents.TendDuration, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: tendAllAtOnce
+      Entry: 5
+      Data: false
+    - Name: disappearsAtTotalTendQuality
+      Entry: 3
+      Data: -1
+    - Name: severityPerDayTended
+      Entry: 4
+      Data: 0
+    - Name: showTendQuality
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: stages
+      Entry: 6
+      Data: 
+    - Name: healthModAdders
       Entry: 6
       Data: 
   templateName: MissingBodyPart
@@ -43,4 +87,10 @@ MonoBehaviour:
   minSeverity: 0
   maxSeverity: 3.4028235e+38
   painPerSeverity: 0.125
+  averagePainPerSeverityPermanent: 0.5
   bleedRate: 0.12
+  canMerge: 0
+  destroyedLabel: 
+  destroyedOutLabel: 
+  useRemovedLabel: 0
+  makesAlert: 1

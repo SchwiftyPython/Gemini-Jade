@@ -30,6 +30,8 @@ namespace Assets.Scripts.World.Pawns.BodyPartTemplates
 
         public bool conceptual;
 
+        public bool delicate;
+
         public bool pawnGeneratorCanAmputate;
 
         public bool destroyableByDamage = true;

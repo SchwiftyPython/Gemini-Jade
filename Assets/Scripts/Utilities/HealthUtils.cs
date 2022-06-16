@@ -3,6 +3,7 @@ using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartDepth;
 using UnityEngine;
 using World.Pawns;
+using World.Pawns.Health.HealthModifierComponents;
 using World.Pawns.Health.HealthModifiers;
 
 namespace Utilities
@@ -49,20 +50,6 @@ namespace Utilities
                 
                 HealthDebug.NotifyBodyChanged();
             }
-        }
-        
-        public static bool FullyImmune(HealthMod healthMod)
-        {
-            //todo check Immune component
-
-            return false;
-        }
-
-        public static bool IsPermanent(HealthMod healthMod)
-        {
-            //todo check Gets Permanent component
-
-            return false;
         }
     }
 }

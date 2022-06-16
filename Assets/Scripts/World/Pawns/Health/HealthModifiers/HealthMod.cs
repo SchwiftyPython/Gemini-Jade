@@ -1,9 +1,15 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Things;
 using UnityEngine;
 using Utilities;
+using World.Pawns.Health.HealthModifierComponents;
+using World.Pawns.Health.HealthModifierComponents.HealthModCompProperties;
+using World.Things;
 
 namespace World.Pawns.Health.HealthModifiers
 {
@@ -12,6 +18,8 @@ namespace World.Pawns.Health.HealthModifiers
         private const int HealthModAdderInterval = 1000;
         
         private int _intervalCheckCounter;
+        
+        public List<HealthModComp> comps = new List<HealthModComp>();
 
         public HealthModTemplate template;
 
@@ -115,11 +123,66 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
-        public virtual bool ShouldRemove => Severity <= 0f;
+        public virtual bool ShouldRemove
+        {
+            get
+            {
+                if (comps == null)
+                {
+                    return Severity <= 0f;
+                }
+
+                if (!comps.Any())
+                {
+                    return Severity <= 0f;
+                }
+
+                foreach (var comp in comps)
+                {
+                    if (comp.ShouldRemove)
+                    {
+                        return true;
+                    }
+                }
+
+                return Severity <= 0f;
+            }
+        }
+
+        public virtual bool Visible
+        {
+            get
+            {
+                if (comps != null)
+                {
+                    foreach (var comp in comps)
+                    {
+                        if (comp.DisallowVisible())
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                if (visible)
+                {
+                    return true;
+                }
+
+                if (CurrentStage != null)
+                {
+                    return CurrentStage.visible;
+                }
+
+                return true;
+            }
+        }
 
         public virtual float BleedRate => 0f;
 
         public bool Bleeding => BleedRate > 1E-05f;
+
+        public bool HasComps => template.comps != null && template.comps.Any();
 
         //todo pain stuff
 
@@ -247,31 +310,159 @@ namespace World.Pawns.Health.HealthModifiers
 
             Severity += otherHealthMod.Severity;
             durationTicks = 0;
+
+            foreach (var comp in comps)
+            {
+                comp.PostMerge(otherHealthMod);
+            }
+            
             return true;
         }
 
-        public virtual void Notify_PawnDied()
+        public virtual void Alert_PawnDied()
         {
+            foreach (var comp in comps)
+            {
+                comp.Alert_PawnDied();
+            }
         }
 
-        public virtual void Notify_PawnKilled()
+        public virtual void Alert_PawnKilled()
         {
+            foreach (var comp in comps)
+            {
+                comp.Alert_PawnKilled();
+            }
+        }
+        
+        public virtual void Alert_PawnPostApplyDamage() //todo args DamageInfo dinfo, float totalDamageDealt
+        {
+            foreach (var comp in comps)
+            {
+                comp.Alert_PawnPostApplyDamage();
+            }
+        }
+        
+        public virtual void Alert_PawnUsedVerb() //todo args Verb verb, LocalTargetInfo target
+        {
+            foreach (var comp in comps)
+            {
+                comp.Alert_PawnUsedVerb();
+            }
+        }
+        
+        public virtual void Alert_EntropyGained(float baseAmount, float finalAmount, Thing source = null)
+        {
+            foreach (var comp in comps)
+            {
+                comp.Alert_EntropyGained(baseAmount, finalAmount, source);
+            }
+        }
+        
+        public virtual void Alert_ImplantUsed(string violationSourceName, float detectionChance, int violationSourceLevel = -1)
+        {
+            foreach (var comp in comps)
+            {
+                comp.Alert_ImplantUsed(violationSourceName, detectionChance, violationSourceLevel);
+            }
+        }
+        
+        public virtual void ModifyChemicalEffect() //todo chemical template and effect amount
+        {
+            foreach (var comp in comps)
+            {
+                comp.ModifyChemicalEffect();
+            }
         }
 
         public virtual void PostMake()
         {
         }
 
-        public virtual void PostAdd()
+        public virtual void PostAdd() //todo damage info as arg
         {
+            //todo check if template affects needs
+
+            if (comps == null)
+            {
+                return;
+            }
+
+            foreach (var comp in comps)
+            {
+                comp.PostAdd();
+            }
+
         }
 
         public virtual void PostRemove()
         {
+            //todo check if template affects needs
+
+            if (comps == null)
+            {
+                return;
+            }
+
+            foreach (var comp in comps)
+            {
+                comp.PostRemove();
+            }
         }
 
         public virtual void PostTick()
         {
+            if (comps != null)
+            {
+                var severityAdjustment = 0f;
+
+                foreach (var comp in comps)
+                {
+                    comp.PostTick(ref severityAdjustment);
+                }
+
+                Severity += severityAdjustment;
+            }
+        }
+
+        public virtual void Tend(float quality, float maxQuality)
+        {
+            foreach (var comp in comps)
+            {
+                comp.Tend(quality, maxQuality);
+            }
+        }
+        
+        private void InitializeComps()
+        {
+            if (template.comps == null)
+            {
+                return;
+            }
+            
+            comps = new List<HealthModComp>();
+            
+            foreach (var compProp in template.comps)
+            {
+                HealthModComp healthModComp = null;
+                
+                try
+                {
+                    healthModComp = (HealthModComp)Activator.CreateInstance(compProp.compClass);
+                    
+                    healthModComp.props = compProp;
+                    
+                    healthModComp.parent = this;
+                    
+                    comps.Add(healthModComp);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError("Could not instantiate or initialize a HealthModComp: " + ex);
+                    
+                    comps.Remove(healthModComp);
+                }
+            }
         }
 
         public override string ToString()
