@@ -1,15 +1,17 @@
 using System;
 using Assets.Scripts.World;
 using UnityEngine;
+using World.Pawns.Health.DamageTypes;
 using World.Pawns.Health.DamageWorkers;
 using World.Pawns.Health.HealthModifiers;
 
 namespace World.Pawns.Health.DamageTemplates
 {
+    [CreateAssetMenu(menuName = "Templates/DamageTemplate")]
     public class DamageTemplate : Template
     {
         private DamageWorker _worker;
-        
+
         public Type workerClass = typeof(DamageWorker);
 
         public bool isAttack;
@@ -27,6 +29,8 @@ namespace World.Pawns.Health.DamageTemplates
         public float plantDamageMod = 1f;
         
         //todo sounds
+
+        public DamageType[] damageTypes;
 
         public string deathMessage = "{0} has been killed.";
         

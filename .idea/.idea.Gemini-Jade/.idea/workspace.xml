@@ -2,18 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageResult.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Cut.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Cut.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/AcidDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/AcidDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/BluntDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/BluntDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/ColdDamage 1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/ColdDamage 1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/FallDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/FallDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/ForceDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/ForceDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/LightningDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/LightningDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/NecroticDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/NecroticDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/PiercingDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/PiercingDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/PoisonDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/PoisonDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/PsychicDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/PsychicDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/RadiantDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/RadiantDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/SlashingDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/SlashingDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/SonicDamage.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/SonicDamage.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/CutWorker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/CutWorker.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +58,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/HealthModCompProps.cs" root0="FORCE_HIGHLIGHTING" />
@@ -142,7 +166,8 @@
       <workItem from="1655391618843" duration="2742000" />
       <workItem from="1655398026503" duration="664000" />
       <workItem from="1655466237767" duration="2497000" />
-      <workItem from="1655742255024" duration="3867000" />
+      <workItem from="1655742255024" duration="4202000" />
+      <workItem from="1655814124352" duration="3933000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -333,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655319491367</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added DamageInfo.cs&#10;Added DamageResult.cs&#10;Added DamageTemplate.cs&#10;Added DamageWorker.cs">
+      <created>1655746686938</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1655746686938</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +389,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs" />
     <MESSAGE value="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function" />
     <MESSAGE value="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think" />
     <MESSAGE value="We get some values back for blood filtration, breathing, and consciousness when removing body parts.&#10;So far nothing wacky." />
@@ -382,6 +413,7 @@
     <MESSAGE value="Added TendDuration.cs Health Mod Component Property&#10;&#10;Added Alert methods to HealthMod&#10;&#10;Started processing health mod components" />
     <MESSAGE value="Added more methods to HealthModCollection.cs" />
     <MESSAGE value="Added GetsPermanent.cs Comp and Comp Prop&#10;Added HealthAdjustments.cs&#10;Added PainLevel.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GetsPermanent.cs Comp and Comp Prop&#10;Added HealthAdjustments.cs&#10;Added PainLevel.cs" />
+    <MESSAGE value="Added DamageInfo.cs&#10;Added DamageResult.cs&#10;Added DamageTemplate.cs&#10;Added DamageWorker.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added DamageInfo.cs&#10;Added DamageResult.cs&#10;Added DamageTemplate.cs&#10;Added DamageWorker.cs" />
   </component>
 </project>
