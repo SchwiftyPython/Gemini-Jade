@@ -1,6 +1,7 @@
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.BodyPartDepth;
+using Assets.Scripts.World.Pawns.BodyPartHeight;
 using UnityEngine;
 using World.Pawns;
 using World.Pawns.Health.HealthModifierComponents;
@@ -12,7 +13,12 @@ namespace Utilities
     {
         public BodyPartDepth inside;
         public BodyPartDepth outside;
-        public BodyPartDepth undefined;
+        public BodyPartDepth depthUndefined;
+
+        public BodyPartHeight top;
+        public BodyPartHeight middle;
+        public BodyPartHeight bottom;
+        public BodyPartHeight heightUndefined;
 
         public string GetGeneralDestroyedPartLabel(BodyPart part, bool solid)
         {

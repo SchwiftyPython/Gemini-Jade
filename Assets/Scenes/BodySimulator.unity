@@ -5473,7 +5473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inside: {fileID: 11400000, guid: 24653c4859a35104eade7ac5d8d608cd, type: 2}
   outside: {fileID: 11400000, guid: 1e54eb6f6bd6564439211bd25128b56a, type: 2}
-  undefined: {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
+  depthUndefined: {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
+  top: {fileID: 11400000, guid: a9cddeabf2d5d9f43beee39e303c2715, type: 2}
+  middle: {fileID: 11400000, guid: 215f34f1121e87f4d98fc26a71283645, type: 2}
+  bottom: {fileID: 11400000, guid: c7fe87e4dd802f04ca97aaff02ba9cc1, type: 2}
+  heightUndefined: {fileID: 11400000, guid: c4ea42b0f829d8e41b2af26f507edbaa, type: 2}
 --- !u!4 &1154250643
 Transform:
   m_ObjectHideFlags: 0
