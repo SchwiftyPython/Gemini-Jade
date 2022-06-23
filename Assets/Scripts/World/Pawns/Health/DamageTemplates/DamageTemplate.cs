@@ -1,6 +1,7 @@
 using System;
 using Assets.Scripts.World;
 using UnityEngine;
+using UnityEngine.Serialization;
 using World.Pawns.Health.DamageTypes;
 using World.Pawns.Health.DamageWorkers;
 using World.Pawns.Health.HealthModifiers;
@@ -18,7 +19,7 @@ namespace World.Pawns.Health.DamageTemplates
 
         public bool knocksBack = true;
 
-        public bool damageHp = true;
+        public bool damagesHp = true;
 
         public bool interrupt = true;
 
