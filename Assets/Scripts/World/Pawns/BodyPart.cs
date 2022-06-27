@@ -80,24 +80,6 @@ namespace Assets.Scripts.World.Pawns
             return false;
         }
 
-        /*public bool IsMissing()
-        {
-            if (_healthMods == null || _healthMods.Count < 1)
-            {
-                return false;
-            }
-
-            foreach (var mod in _healthMods)
-            {
-                if (mod is MissingBodyPart)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }*/
-
         public List<BodyPart> GetAllChildren()
         {
             var allChildren = new List<BodyPart>();

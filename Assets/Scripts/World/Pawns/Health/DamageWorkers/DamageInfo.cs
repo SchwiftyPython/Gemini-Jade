@@ -14,6 +14,8 @@ namespace World.Pawns.Health.DamageWorkers
     {
         //todo ThingTemplate _weapon;
 
+        public Thing Attacker { get; set; }
+        
         public Thing Target { get; }
 
         public DamageTemplate Template { get; set; }
@@ -36,7 +38,7 @@ namespace World.Pawns.Health.DamageWorkers
 
         public float Amount { get; set; }
 
-        public DamageInfo(DamageTemplate template, float amount, float armorPenetration = 0f, BodyPart hitPart = null, Thing target = null) //todo weaponTemplate
+        public DamageInfo(DamageTemplate template, float amount, float armorPenetration = 0f, BodyPart hitPart = null, Thing attacker = null, Thing target = null) //todo weaponTemplate
         {
             Template = template;
             Amount = amount;
@@ -54,7 +56,24 @@ namespace World.Pawns.Health.DamageWorkers
             WeaponHealthMod = null;
             AllowDamageToSpread = true;
             IgnoreArmor = false;
+            Attacker = attacker;
             Target = target;
+        }
+
+        public DamageInfo(DamageInfo damageInfo)
+        {
+            Template = damageInfo.Template;
+            Amount = damageInfo.Amount;
+            ArmorPenetration = damageInfo.ArmorPenetration;
+            HitPart = damageInfo.HitPart;
+            Height = damageInfo.Height;
+            Depth = damageInfo.Depth;
+            WeaponBodyPartGroup = damageInfo.WeaponBodyPartGroup;
+            WeaponHealthMod = damageInfo.WeaponHealthMod;
+            AllowDamageToSpread = damageInfo.AllowDamageToSpread;
+            IgnoreArmor = damageInfo.IgnoreArmor;
+            Attacker = damageInfo.Attacker;
+            Target = damageInfo.Target;
         }
 
         public void SetBodyArea(BodyPartHeight height, BodyPartDepth depth)

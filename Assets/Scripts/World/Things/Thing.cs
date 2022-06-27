@@ -14,6 +14,8 @@ namespace World.Things
         public bool Destroyed;
 
         public int id = -1;
+        
+        public bool spawned;
 
         public virtual int HitPoints
         {
