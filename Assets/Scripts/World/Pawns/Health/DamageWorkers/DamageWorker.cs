@@ -2,10 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.World.Pawns;
 using UnityEngine;
+using Utilities;
 using World.Pawns.BodyPartGroupTemplates;
-using World.Pawns.BodyPartTags;
 using World.Pawns.Health.DamageTemplates;
+using World.Pawns.Health.HealthModifiers;
 using World.Things;
+using GetsPermanent = World.Pawns.Health.HealthModifierComponents.HealthModCompProperties.GetsPermanent;
 
 namespace World.Pawns.Health.DamageWorkers
 {
@@ -54,9 +56,49 @@ namespace World.Pawns.Health.DamageWorkers
             return damageResult;
         }
 
-        protected virtual BodyPart ChooseHitPart(DamageInfo damageInfo, Pawn pawn)
+        protected virtual BodyPart ChooseHitPart(DamageInfo damageInfo, Pawn target)
         {
-            return null;
+            return target.health.GetRandomBodyPart(damageInfo.Height, damageInfo.Depth);
+        }
+
+        protected void AddInjury(Pawn target, float totalDamage, DamageInfo damageInfo, DamageResult damageResult)
+        {
+            if (target.health.BodyPartIsMissing(damageInfo.HitPart))
+            {
+                return;
+            }
+            
+            var healthModTemplate = damageInfo.Template.healthModTemplate;
+
+            if (healthModTemplate == null)
+            {
+                return;
+            }
+            
+            var injury = (Injury)HealthModMaker.MakeHealthMod(healthModTemplate, target, damageInfo.HitPart);
+            
+            //todo injury.source = damageInfo.Weapon;
+
+            //todo injury.sourceBodyPartGroup = damageInfo.WeaponBodyPartGroup;
+
+            //todo injury.sourceHealthMod = damageInfo.WeaponHealthMod;
+
+            injury.Severity = totalDamage;
+
+            AddInjury(target, injury, damageInfo, damageResult);
+        }
+        
+        protected void AddInjury(Pawn target, Injury injury, DamageInfo damageInfo, DamageResult damageResult)
+        {
+            injury.GetComp<HealthModifierComponents.GetsPermanent>()?.PreFinalizeInjury();
+            
+            target.health.AddHealthMod(injury, injury.Part);
+
+            damageResult.wounded = true;
+            
+            damageResult.AddBodyPart(target, injury.Part);
+            
+            damageResult.AddHealthMod(injury);
         }
 
         private DamageResult ApplyToPawn(DamageInfo damageInfo, Pawn target)
@@ -141,8 +183,22 @@ namespace World.Pawns.Health.DamageWorkers
                 damageResult.headshot = true;
             }
             
-            //todo rest of method
-            
+            var healthModTemplate = damageInfo.Template.healthModTemplate;
+
+            if (healthModTemplate == null)
+            {
+                return;
+            }
+
+            if (healthModTemplate.GetCompPropsFor(typeof(GetsPermanent)) == null)
+            {
+                return;
+            }
+
+            if (damageInfo.HitPart.template.permanentInjuryChanceFactor > 0f)
+            {
+                AddInjury(target, damage, damageInfo, damageResult);
+            }
         }
 
         private BodyPart GetPartFromDamageInfo(DamageInfo damageInfo, Pawn pawn)

@@ -2,8 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.World.Pawns;
+using Assets.Scripts.World.Pawns.BodyPartDepth;
+using Assets.Scripts.World.Pawns.BodyPartHeight;
+using Assets.Scripts.World.Pawns.BodyPartTags;
 using UnityEngine;
 using Utilities;
+using World.Pawns.Health.DamageTemplates;
 using World.Pawns.Health.HealthModifierComponents;
 using World.Pawns.Health.HealthModifiers;
 using Object = UnityEngine.Object;
@@ -406,11 +410,77 @@ namespace World.Pawns.Health
             return existingParts;
         }
 
-        public BodyPart GetRandomExistingPart() //todo damage def
+        public List<BodyPart> GetExistingParts(BodyPartHeight height, BodyPartDepth depth,
+            BodyPartTagTemplate tag = null, BodyPart parent = null)
+        {
+            var existingParts = new List<BodyPart>();
+
+            var healthUtils = Object.FindObjectOfType<HealthUtils>();
+
+            foreach (var bodyPart in pawn.GetBody())
+            {
+                if (pawn.health.BodyPartIsMissing(bodyPart))
+                {
+                    continue;
+                }
+
+                if (height != healthUtils.heightUndefined)
+                {
+                    if (bodyPart.height != height)
+                    {
+                        continue;
+                    }
+                }
+
+                if (depth != healthUtils.depthUndefined)
+                {
+                    if (bodyPart.depth != depth)
+                    {
+                        continue;
+                    }
+                }
+
+                if (tag != null)
+                {
+                    if (!bodyPart.template.tags.Contains(tag))
+                    {
+                        continue;
+                    }
+                }
+
+                if (parent == null)
+                {
+                    existingParts.Add(bodyPart);
+                }
+                else if (bodyPart.parent == parent)
+                {
+                    existingParts.Add(bodyPart);
+                }
+            }
+            return existingParts;
+        }
+
+        public BodyPart GetRandomExistingPart() 
         {
             var existingParts = GetExistingParts();
 
-            return !existingParts.Any() ? null : existingParts.RandomElementByWeight(part => part.coverage); //todo * hit chance mod from damage def
+            return !existingParts.Any() ? null : existingParts.RandomElementByWeight(part => part.coverage);
+        }
+
+        public BodyPart GetRandomExistingPart(BodyPartHeight height, BodyPartDepth depth, BodyPart parent = null)
+        {
+            var existingParts = GetExistingParts(height, depth, null, parent);
+
+            if (existingParts.Any())
+            {
+                return existingParts.RandomElementByWeight(part => part.coverage);
+            }
+
+            var healthUtils = Object.FindObjectOfType<HealthUtils>();
+
+            existingParts = GetExistingParts(healthUtils.heightUndefined, depth, null, parent);
+
+            return !existingParts.Any() ? null : existingParts.RandomElementByWeight(part => part.coverage);
         }
 
         public List<HealthMod> GetTendableNonInjuryNonMissingHealthMods()

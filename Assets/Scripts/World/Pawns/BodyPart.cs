@@ -18,7 +18,7 @@ namespace Assets.Scripts.World.Pawns
 
         private List<BodyPart> _children;
 
-        private BodyPartHeight.BodyPartHeight _height;
+        public BodyPartHeight.BodyPartHeight height;
 
         public BodyPartDepth.BodyPartDepth depth;
 
@@ -41,7 +41,7 @@ namespace Assets.Scripts.World.Pawns
             _body = body;
             template = part.self;
             _customLabel = part.customLabel;
-            _height = part.height;
+            height = part.height;
            depth = part.depth;
            coverage = part.coverage;
            _groups = new List<BodyPartGroupTemplate>(part.groups);

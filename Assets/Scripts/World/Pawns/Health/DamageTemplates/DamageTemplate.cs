@@ -45,7 +45,9 @@ namespace World.Pawns.Health.DamageTemplates
         
         //todo additional health mods
 
-        public HealthModTemplate healthModTemplate;
+        //if we decide to use different health mods depending on if hit part
+        //is solid or flesh we'll need a method in health utils to get the correct health mod
+        public HealthModTemplate healthModTemplate; 
 
         public bool explodes;
 

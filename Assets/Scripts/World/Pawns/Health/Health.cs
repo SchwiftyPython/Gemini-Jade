@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
+using Assets.Scripts.World.Pawns.BodyPartDepth;
+using Assets.Scripts.World.Pawns.BodyPartHeight;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.Health;
 using Utilities;
@@ -106,9 +108,12 @@ namespace World.Pawns.Health
         
         public BodyPart GetRandomBodyPart()
         {
-            var existingParts = GetExistingParts();
-            
-            return existingParts[Random.Range(0, existingParts.Count)];
+            return _healthModCollection.GetRandomExistingPart();
+        }
+        
+        public BodyPart GetRandomBodyPart(BodyPartHeight height, BodyPartDepth depth, BodyPart parent = null)
+        {
+            return _healthModCollection.GetRandomExistingPart(height, depth, parent);
         }
 
         public float GetLevel(HealthFunctionTemplate function)

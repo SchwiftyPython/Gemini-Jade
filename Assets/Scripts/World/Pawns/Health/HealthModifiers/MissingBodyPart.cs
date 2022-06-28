@@ -34,7 +34,7 @@ namespace World.Pawns.Health.HealthModifiers
 
                 if (Part.depth == healthUtils.inside)
                 {
-                    return healthUtils.GetGeneralDestroyedPartLabel(Part, part.template.solid);
+                    return healthUtils.GetGeneralDestroyedPartLabel(Part, Part.template.solid);
                 }
 
                 return "Missing"; //todo label from injury source. Like explosion would say "shredded", sword "cutoff", etc.
@@ -71,12 +71,12 @@ namespace World.Pawns.Health.HealthModifiers
 
         public override void PostAdd()
         {
-            if (!part.HasChildParts())
+            if (!Part.HasChildParts())
             {
                 return;
             }
 
-            foreach (var child in part.GetAllChildren())
+            foreach (var child in Part.GetAllChildren())
             {
                 var missingPartMod = HealthModMaker.MakeHealthMod(template, pawn, child);
 
