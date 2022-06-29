@@ -7,7 +7,6 @@ using World.Pawns.BodyPartGroupTemplates;
 using World.Pawns.Health.DamageTemplates;
 using World.Pawns.Health.HealthModifiers;
 using World.Things;
-using GetsPermanent = World.Pawns.Health.HealthModifierComponents.HealthModCompProperties.GetsPermanent;
 
 namespace World.Pawns.Health.DamageWorkers
 {
@@ -148,6 +147,8 @@ namespace World.Pawns.Health.DamageWorkers
 
         private void ApplyDamageToPart(DamageInfo damageInfo, Pawn target, DamageResult damageResult)
         {
+            damageInfo.HitPart = GetPartFromDamageInfo(damageInfo, target);  
+            
             if (damageInfo.HitPart == null)
             {
                 return;
@@ -190,7 +191,7 @@ namespace World.Pawns.Health.DamageWorkers
                 return;
             }
 
-            if (healthModTemplate.GetCompPropsFor(typeof(GetsPermanent)) == null)
+            if (healthModTemplate.GetCompPropsFor(typeof(World.Pawns.Health.HealthModifierComponents.GetsPermanent)) == null)
             {
                 return;
             }

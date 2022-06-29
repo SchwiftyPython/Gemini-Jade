@@ -35,7 +35,7 @@ MonoBehaviour:
   description: 
   isAttack: 1
   knocksBack: 1
-  damageHp: 1
+  damagesHp: 1
   interrupt: 1
   ranged: 0
   buildingDamageMod: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
   damageTypes:
   - {fileID: 11400000, guid: 62ceb63a0d5e7dd409e306ed5191f002, type: 2}
   deathMessage: '{0} has been cut to death.'
-  baseDamage: -1
+  baseDamage: 3
   baseArmorPen: -1
   baseStoppingPower: 0
   healthModTemplate: {fileID: 11400000, guid: b7a4cb5804739644aa4f89ea7189f3ef, type: 2}

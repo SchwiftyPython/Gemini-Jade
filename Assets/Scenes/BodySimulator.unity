@@ -2470,6 +2470,7 @@ GameObject:
   - component: {fileID: 504078841}
   - component: {fileID: 504078842}
   - component: {fileID: 504078843}
+  - component: {fileID: 504078844}
   m_Layer: 0
   m_Name: TemplateRepository
   m_TagString: Untagged
@@ -2594,6 +2595,19 @@ MonoBehaviour:
   torso: {fileID: 11400000, guid: 5cb5ed5f2d8ea974e8f590d8488dd6e2, type: 2}
   upperHead: {fileID: 11400000, guid: 10eec2422e4b07d49bb2edd172bc39c2, type: 2}
   waist: {fileID: 11400000, guid: 76bf3bf0093d492418abb512b681df2e, type: 2}
+--- !u!114 &504078844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504078838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5056e75150b0c6744bc7a3f0a5ce9289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutDamageTemplate: {fileID: 11400000, guid: b2e1b3ab8a98cc94db05dad9fe9fd25b, type: 2}
 --- !u!1 &511182691
 GameObject:
   m_ObjectHideFlags: 0

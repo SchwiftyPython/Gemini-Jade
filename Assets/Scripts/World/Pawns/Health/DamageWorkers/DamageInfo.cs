@@ -81,5 +81,10 @@ namespace World.Pawns.Health.DamageWorkers
             Height = height;
             Depth = depth;
         }
+
+        public DamageResult Apply(Thing target)
+        {
+            return Template.Worker.Apply(this, target);
+        }
     }
 }

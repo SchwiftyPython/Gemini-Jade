@@ -71,7 +71,7 @@ namespace Utilities
                 return default;
             }
 
-            var weightThreshold = Random.Range(0, 100) * totalWeight; //they use murmurhash here if this doesn't work
+            var weightThreshold = Random.Range(0f, 1f) * totalWeight; //they use murmurhash here if this doesn't work
 
             var runningTotal = 0f;
 

@@ -5,7 +5,10 @@ using Assets.Scripts.World.Pawns.Species;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 using World.Pawns;
+using World.Pawns.Health.DamageTemplates;
+using World.Pawns.Health.DamageWorkers;
 using World.Pawns.Health.HealthFunctions;
 using World.Pawns.Health.HealthModifiers;
 
@@ -90,34 +93,30 @@ namespace Assets.Scripts.Utilities
 
         public void CutBodyPart()
         {
-            var partName = bodyPartsDropdown.options[bodyPartsDropdown.value].text;
+            var damageTemplateRepo = FindObjectOfType<DamageTemplateRepo>();
 
-            if (string.IsNullOrEmpty(partName))
-            {
-                Debug.LogError("Can't cut body part! No part selected!");
-                return;
-            }
-
-            if (!_bodyPartsDict.ContainsKey(partName))
-            {
-                Debug.LogError($"Can't cut {partName}! Doesn't exist in Body Parts Dictionary!");
-                return;
-            }
-
-            //todo make some equivalent to Damage Worker class and Add Injury Subclass or method
-
-            var partToCut = _bodyPartsDict[partName];
-
-            if (_currentPawn.health.BodyPartIsMissing(partToCut))
-            {
-                Debug.LogError($"Can't cut {partName}! Body Part is already missing!");
-                return;
-            }
-
-            var cutPartMod = HealthModMaker.MakeHealthMod(cutBodyPartTemplate, _currentPawn, partToCut);
+            var cutTemplate = damageTemplateRepo.cutDamageTemplate;
             
-            _currentPawn.health.AddHealthMod(cutPartMod, partToCut);
+            //todo weapon/source of damage
+
+            var damageAmount = cutTemplate.baseDamage;
             
+            damageAmount = (int) Random.Range(damageAmount * .04f, damageAmount * 1.6f);
+
+            var attacker = humanTemplate.NewPawn();
+
+            var damageInfo = new DamageInfo(cutTemplate, damageAmount, cutTemplate.baseArmorPen, null, attacker, _currentPawn);
+
+            var healthUtils = FindObjectOfType<HealthUtils>();
+            
+            damageInfo.SetBodyArea(healthUtils.heightUndefined, healthUtils.outside);
+            
+            var damageResult = _currentPawn.TakeDamage(damageInfo);
+
+            Debug.Log($"Successfully cut pawn!");
+            
+            Debug.Log(damageResult.ToString());
+
             OnBodyChanged?.Invoke();
             
             PopulateBodyPartDropdown();
