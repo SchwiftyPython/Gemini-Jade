@@ -91,7 +91,7 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
-        public void CutBodyPart()
+        public void CutPawn()
         {
             var damageTemplateRepo = FindObjectOfType<DamageTemplateRepo>();
 

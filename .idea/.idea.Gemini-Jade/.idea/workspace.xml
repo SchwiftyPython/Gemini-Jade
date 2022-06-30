@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplateRepo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplateRepo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BodySimulator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BodySimulator.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyTemplates/Human.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyTemplates/Human.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Cut.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Cut.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Cut.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Cut.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +19,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/c4/6d02eb53/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,10 +80,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23232">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23232" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -153,7 +142,8 @@
       <workItem from="1656330363380" duration="1855000" />
       <workItem from="1656344579961" duration="8279000" />
       <workItem from="1656412723070" duration="10378000" />
-      <workItem from="1656513164994" duration="10439000" />
+      <workItem from="1656513164994" duration="10742000" />
+      <workItem from="1656586045747" duration="1933000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -386,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656428876695</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay">
+      <created>1656527606377</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1656527606377</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +407,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added TimeSpeeds&#10;Added TickController.cs" />
     <MESSAGE value="Added TickList.cs&#10;Added Thing.cs&#10;Added methods to TickController.cs" />
     <MESSAGE value="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace" />
     <MESSAGE value="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods" />
@@ -435,23 +431,24 @@
     <MESSAGE value="Fleshed out DamageResult.cs and DamageWorker.cs" />
     <MESSAGE value="Added BodyPartGroupRepo.cs&#10;Added more methods to DamageWorker.cs" />
     <MESSAGE value="AddInjury methods and added override to CutWorker.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="AddInjury methods and added override to CutWorker.cs" />
+    <MESSAGE value="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs</url>
-          <line>193</line>
-          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\Pawns\Health\DamageWorkers\DamageWorker.cs" initialLine="194" containingFunctionPresentation="method 'ApplyDamageToPart'">
+          <line>121</line>
+          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\Pawns\Health\DamageWorkers\DamageWorker.cs" initialLine="121" containingFunctionPresentation="method 'ApplyToPawn'">
             <startOffsets>
-              <option value="5724" />
+              <option value="3725" />
             </startOffsets>
             <endOffsets>
-              <option value="5837" />
+              <option value="3772" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
