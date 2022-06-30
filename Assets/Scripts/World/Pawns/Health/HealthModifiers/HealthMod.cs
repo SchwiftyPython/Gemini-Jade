@@ -25,7 +25,7 @@ namespace World.Pawns.Health.HealthModifiers
 
         public int durationTicks; 
 
-        public BodyPart part; 
+        private BodyPart _part; 
 
         private ThingTemplate _source; //source of health mod like Assault Rifle
 
@@ -202,16 +202,16 @@ namespace World.Pawns.Health.HealthModifiers
 
         public BodyPart Part
         {
-            get => part;
+            get => _part;
             set
             {
-                if (pawn == null && part != null)
+                if (pawn == null && _part != null)
                 {
                     Debug.LogError("HealthMod: Cannot set Part without setting pawn first.");
                 }
                 else
                 {
-                    part = value;
+                    _part = value;
                 }
             }
         }
@@ -467,7 +467,7 @@ namespace World.Pawns.Health.HealthModifiers
 
         public override string ToString()
         {
-            return "(" + template.templateName + ((part != null) ? (" " + part.Label) : "") +
+            return "(" + template.templateName + ((_part != null) ? (" " + _part.Label) : "") +
                    " ticksSinceCreation=" + durationTicks + ")";
         }
     }

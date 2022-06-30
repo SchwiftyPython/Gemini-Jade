@@ -2469,6 +2469,8 @@ GameObject:
   - component: {fileID: 504078839}
   - component: {fileID: 504078841}
   - component: {fileID: 504078842}
+  - component: {fileID: 504078843}
+  - component: {fileID: 504078844}
   m_Layer: 0
   m_Name: TemplateRepository
   m_TagString: Untagged
@@ -2565,6 +2567,47 @@ MonoBehaviour:
   missingBodyPart: {fileID: 11400000, guid: df902fc1c2aacd940b0c55e0be7dea6d, type: 2}
   bloodLoss: {fileID: 11400000, guid: 8bb81a05c08771e42b398bd43c85a6e9, type: 2}
   cut: {fileID: 11400000, guid: b7a4cb5804739644aa4f89ea7189f3ef, type: 2}
+--- !u!114 &504078843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504078838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6922f930cf3f55e4192a97d1e99c2370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arms: {fileID: 11400000, guid: bcd23102f89dc904f883dbc0710a9ae9, type: 2}
+  eyes: {fileID: 11400000, guid: 3f2ed49f9639e2b4cb9ae473a66303f8, type: 2}
+  feet: {fileID: 11400000, guid: d58932971d9e8054081a31f9669f8653, type: 2}
+  fullHead: {fileID: 11400000, guid: 051d82e35c5e4944ca48dbf356497f78, type: 2}
+  hands: {fileID: 11400000, guid: 06db5d97ae621004a843857892ae12fb, type: 2}
+  leftHand: {fileID: 11400000, guid: f5ee87f71b6f34f4c9a5c39096906966, type: 2}
+  legs: {fileID: 11400000, guid: 5b5e0728b22824d468c2e81d1c9a56ac, type: 2}
+  middleFinger: {fileID: 11400000, guid: 3db61f1494bd1534c9327f4261cd8869, type: 2}
+  mouth: {fileID: 11400000, guid: 7a0e315baec517e43bc9dfa568140ce5, type: 2}
+  neck: {fileID: 11400000, guid: 89f2d54dd0e466c4aa087d0487e3322d, type: 2}
+  rightHand: {fileID: 11400000, guid: f1dc627d81e2c964e87ac7622a1bf4b4, type: 2}
+  shoulders: {fileID: 11400000, guid: ec5a351e5e593184a9ebb86ac579c0a2, type: 2}
+  teeth: {fileID: 11400000, guid: c7b287c2c1dc0c1439c3350cd9058d62, type: 2}
+  torso: {fileID: 11400000, guid: 5cb5ed5f2d8ea974e8f590d8488dd6e2, type: 2}
+  upperHead: {fileID: 11400000, guid: 10eec2422e4b07d49bb2edd172bc39c2, type: 2}
+  waist: {fileID: 11400000, guid: 76bf3bf0093d492418abb512b681df2e, type: 2}
+--- !u!114 &504078844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504078838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5056e75150b0c6744bc7a3f0a5ce9289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutDamageTemplate: {fileID: 11400000, guid: b2e1b3ab8a98cc94db05dad9fe9fd25b, type: 2}
 --- !u!1 &511182691
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5516,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inside: {fileID: 11400000, guid: 24653c4859a35104eade7ac5d8d608cd, type: 2}
   outside: {fileID: 11400000, guid: 1e54eb6f6bd6564439211bd25128b56a, type: 2}
-  undefined: {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
+  depthUndefined: {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
+  top: {fileID: 11400000, guid: a9cddeabf2d5d9f43beee39e303c2715, type: 2}
+  middle: {fileID: 11400000, guid: 215f34f1121e87f4d98fc26a71283645, type: 2}
+  bottom: {fileID: 11400000, guid: c7fe87e4dd802f04ca97aaff02ba9cc1, type: 2}
+  heightUndefined: {fileID: 11400000, guid: c4ea42b0f829d8e41b2af26f507edbaa, type: 2}
 --- !u!4 &1154250643
 Transform:
   m_ObjectHideFlags: 0
@@ -5741,7 +5788,7 @@ GameObject:
   - component: {fileID: 1252846932}
   - component: {fileID: 1252846931}
   m_Layer: 5
-  m_Name: CutPartButton
+  m_Name: CutPawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5814,7 +5861,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1597256787}
         m_TargetAssemblyTypeName: Assets.Scripts.Utilities.HealthDebug, Assembly-CSharp
-        m_MethodName: CutBodyPart
+        m_MethodName: CutPawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6956,7 +7003,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cut Part
+  m_text: 'Cut Pawn
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

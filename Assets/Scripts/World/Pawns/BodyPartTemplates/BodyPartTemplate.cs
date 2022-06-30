@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using UnityEngine;
 using World.Pawns;
+using World.Pawns.Health.DamageTemplates;
 
 namespace Assets.Scripts.World.Pawns.BodyPartTemplates
 {
@@ -40,6 +41,5 @@ namespace Assets.Scripts.World.Pawns.BodyPartTemplates
         {
             return Mathf.CeilToInt((float)hitPoints); //todo multiply by pawn health scale
         }
-
     }
 }

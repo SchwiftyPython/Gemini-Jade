@@ -1,15 +1,16 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
+using Assets.Scripts.World.Pawns.BodyPartDepth;
+using Assets.Scripts.World.Pawns.BodyPartHeight;
 using Assets.Scripts.World.Pawns.BodyPartTags;
 using Assets.Scripts.World.Pawns.Health;
-using UnityEngine;
 using Utilities;
 using World.Pawns.Health.HealthFunctions;
 using World.Pawns.Health.HealthModifiers;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace World.Pawns.Health
 {
@@ -103,6 +104,16 @@ namespace World.Pawns.Health
             }
 
             return null;
+        }
+        
+        public BodyPart GetRandomBodyPart()
+        {
+            return _healthModCollection.GetRandomExistingPart();
+        }
+        
+        public BodyPart GetRandomBodyPart(BodyPartHeight height, BodyPartDepth depth, BodyPart parent = null)
+        {
+            return _healthModCollection.GetRandomExistingPart(height, depth, parent);
         }
 
         public float GetLevel(HealthFunctionTemplate function)

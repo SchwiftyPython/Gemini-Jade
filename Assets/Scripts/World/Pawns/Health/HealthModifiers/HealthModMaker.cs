@@ -17,7 +17,7 @@ namespace World.Pawns.Health.HealthModifiers
             var healthMod = (HealthMod) Activator.CreateInstance(template.healthModClass);
             healthMod.template = template;
             healthMod.pawn = pawn;
-            healthMod.part = part;
+            healthMod.Part = part;
 
             return healthMod;
         }

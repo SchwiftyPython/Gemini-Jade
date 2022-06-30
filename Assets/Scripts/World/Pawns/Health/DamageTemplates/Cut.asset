@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3316a6e79e6eae148a786bdae364e93f, type: 3}
+  m_Name: Cut
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: workerClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.DamageWorkers.CutWorker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  templateName: Cut
+  label: cut
+  description: 
+  isAttack: 1
+  knocksBack: 1
+  damagesHp: 1
+  interrupt: 1
+  ranged: 0
+  buildingDamageMod: 1
+  plantDamageMod: 1
+  damageTypes:
+  - {fileID: 11400000, guid: 62ceb63a0d5e7dd409e306ed5191f002, type: 2}
+  deathMessage: '{0} has been cut to death.'
+  baseDamage: 3
+  baseArmorPen: -1
+  baseStoppingPower: 0
+  healthModTemplate: {fileID: 11400000, guid: b7a4cb5804739644aa4f89ea7189f3ef, type: 2}
+  explodes: 0
+  explosionHeatPerTile: 0
+  hitMultipleTargetsCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 2.1052632
+      outSlope: 2.1052632
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.95
+      value: 2
+      inSlope: 2.857143
+      outSlope: 2.857143
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
