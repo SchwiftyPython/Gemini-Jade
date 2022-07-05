@@ -1,14 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Assets.Scripts.Utilities;
 using Assets.Scripts.World.Pawns;
-using Assets.Scripts.World.Things;
 using UnityEngine;
-using Utilities;
 using World.Pawns.Health.HealthModifierComponents;
-using World.Pawns.Health.HealthModifierComponents.HealthModCompProperties;
 using World.Things;
 
 namespace World.Pawns.Health.HealthModifiers

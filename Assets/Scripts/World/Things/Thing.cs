@@ -1,7 +1,4 @@
-using System;
-using Assets.Scripts.World.Things;
 using World.Pawns.Health.DamageWorkers;
-using Random = UnityEngine.Random;
 
 namespace World.Things
 {

@@ -247,7 +247,7 @@ namespace Time
 
         private TickList GetTickListFor(Thing thing)
         {
-            var thingTickerType = thing.template.tickerType;
+            var thingTickerType = thing.template.TickerType;
 
             if (thingTickerType == normalTick)
             {
