@@ -1,6 +1,7 @@
+using Assets.Scripts.World;
 using UnityEngine;
 
-namespace Assets.Scripts.World.Things.ThingCategories
+namespace World.Things.ThingCategories
 {
     [CreateAssetMenu(menuName = "Templates/ThingCategoryTemplate")]
     public class ThingCategoryTemplate : Template

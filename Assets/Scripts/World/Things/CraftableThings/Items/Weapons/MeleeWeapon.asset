@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d095336e3f280b34692ce6b4959cb828, type: 3}
+  m_Name: MeleeWeapon
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _thingClass
+      Entry: 6
+      Data: 
+  templateName: MeleeWeapon
+  label: 
+  description: 
+  _parent: {fileID: 11400000, guid: 0031daf96717927459c26e0c08d4ca0a, type: 2}
+  _category: {fileID: 11400000, guid: bc6b59f5efc3f6e40b210f536325c1d9, type: 2}
+  _layer: 0
+  _tickerType: {fileID: 0}
+  _stackLimit: -1
+  _maxHitPoints: -1
+  _flammability: -1
+  _beauty: -2147483648
+  destroyable: 1
+  rotatable: 1
+  useHitPoints: 1
+  selectable: 1
