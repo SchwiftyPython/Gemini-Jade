@@ -29,6 +29,8 @@ namespace World.Things
         
         [SerializeField] private int _beauty = int.MinValue;
         
+        [SerializeField] private int _mass = -1;
+        
         //stats end here.
 
         public bool destroyable = true;
@@ -145,8 +147,17 @@ namespace World.Things
             }
         }
         
-        
-        
-        
+        public int Mass
+        {
+            get
+            {
+                if (_mass != -1)
+                {
+                    return _mass;
+                }
+                
+                return _parent != null ? _parent.Mass : _mass;
+            }
+        }
     }
 }
