@@ -1,5 +1,7 @@
 using System;
 using Assets.Scripts.World;
+using Assets.Scripts.World.Pawns.BodyPartDepth;
+using Assets.Scripts.World.Pawns.BodyPartHeight;
 using UnityEngine;
 using UnityEngine.Serialization;
 using World.Pawns.Health.DamageTypes;
@@ -22,6 +24,10 @@ namespace World.Pawns.Health.DamageTemplates
         public bool damagesHp = true;
 
         public bool interrupt = true;
+
+        public BodyPartHeight height;
+
+        public BodyPartDepth depth;
 
         public bool ranged;
 

@@ -125,6 +125,8 @@ namespace Assets.Scripts.Utilities
         public void AttackWithWeapon()
         {
             //todo have a weapon select dropdown
+            
+            
         }
 
         private void PopulateBodyPartDropdown()
