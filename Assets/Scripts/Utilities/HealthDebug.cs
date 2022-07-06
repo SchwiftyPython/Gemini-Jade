@@ -122,6 +122,11 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
+        public void AttackWithWeapon()
+        {
+            //todo have a weapon select dropdown
+        }
+
         private void PopulateBodyPartDropdown()
         {
             bodyPartsDropdown.ClearOptions();

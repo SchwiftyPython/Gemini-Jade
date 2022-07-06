@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/MeleeWeapon.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/MeleeWeapon.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/Knife.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/Knife.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +154,7 @@
       <workItem from="1656675565877" duration="605000" />
       <workItem from="1656932162205" duration="5735000" />
       <workItem from="1657018652645" duration="2351000" />
+      <workItem from="1657105601095" duration="2970000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -390,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656527606377</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added Knife">
+      <created>1657035306294</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1657035306294</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +425,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace" />
     <MESSAGE value="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods" />
     <MESSAGE value="Added stages to health mods" />
     <MESSAGE value="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs" />
@@ -439,7 +449,8 @@
     <MESSAGE value="AddInjury methods and added override to CutWorker.cs" />
     <MESSAGE value="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay" />
     <MESSAGE value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
+    <MESSAGE value="Added Knife" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Knife" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

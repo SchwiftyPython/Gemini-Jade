@@ -24,10 +24,11 @@ MonoBehaviour:
     - Name: _thingClass
       Entry: 6
       Data: 
-  templateName: 
-  label: 
-  description: 
-  _parent: {fileID: 0}
+  templateName: Knife
+  label: knife
+  description: A tool or weapon used for cutting, usually consisting of a metal blade
+    and a handle.
+  _parent: {fileID: 11400000, guid: cbaaf19e7ebd6f84187ae9150a6451be, type: 2}
   _category: {fileID: 0}
   _layer: 0
   _tickerType: {fileID: 0}
@@ -35,6 +36,7 @@ MonoBehaviour:
   _maxHitPoints: -1
   _flammability: -1
   _beauty: -2147483648
+  _mass: -1
   destroyable: 1
   rotatable: 1
   useHitPoints: 1
