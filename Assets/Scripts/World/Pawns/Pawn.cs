@@ -52,6 +52,11 @@ namespace World.Pawns
             health.KillPawn();
         }
 
+        public bool IsImmobile()
+        {
+            return health.Downed; //todo or sleeping, etc
+        }
+
         public override void Tick()
         {
             base.Tick();
