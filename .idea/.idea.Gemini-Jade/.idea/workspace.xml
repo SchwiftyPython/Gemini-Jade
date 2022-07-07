@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/SmallBlade.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/SmallBlade.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Blunt.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Blunt.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Stab.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/Stab.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/BluntWorker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/BluntWorker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/StabWorker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/StabWorker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Crush.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Crush.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Stab.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Stab.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/Handle.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/Handle.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/Point.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/Point.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/Knife.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/Knife.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/SmallBlade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/SmallBlade.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +39,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/c4/6d02eb53/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -45,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/BluntWorker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/HealthModCompProps.cs" root0="FORCE_HIGHLIGHTING" />
@@ -169,7 +175,8 @@
       <workItem from="1657018652645" duration="2351000" />
       <workItem from="1657105601095" duration="4422000" />
       <workItem from="1657115123150" duration="642000" />
-      <workItem from="1657116208442" duration="8152000" />
+      <workItem from="1657116208442" duration="8260000" />
+      <workItem from="1657199246265" duration="4918000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -423,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657109425882</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset">
+      <created>1657126706415</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1657126706415</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +461,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added stages to health mods" />
     <MESSAGE value="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs" />
     <MESSAGE value="Added BloodLoss.cs&#10;Added methods to get current bleed rate and calculate stage of health mod based on severity" />
     <MESSAGE value="Finished up adjusting severity of health mods&#10;Finished BloodLoss.cs&#10;Added AddHealthMod and RemoveHealthMod methods to Health.cs" />
@@ -472,6 +485,7 @@
     <MESSAGE value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
     <MESSAGE value="Added Knife" />
     <MESSAGE value="Added basic implementation of Action.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added basic implementation of Action.cs" />
+    <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
   </component>
 </project>

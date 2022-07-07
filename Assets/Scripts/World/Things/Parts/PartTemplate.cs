@@ -21,8 +21,6 @@ namespace World.Things.Parts
         public int warmup;
 
         public int cooldown;
-        
-        public int ticksBetweenActions;
 
         public int actionCount;
         

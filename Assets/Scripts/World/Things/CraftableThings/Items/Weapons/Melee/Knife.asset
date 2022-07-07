@@ -37,6 +37,10 @@ MonoBehaviour:
   _flammability: -1
   _beauty: -2147483648
   _mass: -1
+  _parts:
+  - {fileID: 11400000, guid: 6825f7be38034244d9fcf37ed3519f75, type: 2}
+  - {fileID: 11400000, guid: 71c76050dec64594f979901c77ebf4e0, type: 2}
+  - {fileID: 11400000, guid: 7dcdf88c8399f974bad55567f0424309, type: 2}
   destroyable: 1
   rotatable: 1
   useHitPoints: 1

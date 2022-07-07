@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3316a6e79e6eae148a786bdae364e93f, type: 3}
+  m_Name: Blunt
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: workerClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Pawns.Health.DamageWorkers.BluntWorker, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  templateName: Blunt
+  label: blunt
+  description: 
+  isAttack: 1
+  knocksBack: 1
+  damagesHp: 1
+  interrupt: 1
+  height: {fileID: 0}
+  depth: {fileID: 11400000, guid: 1e54eb6f6bd6564439211bd25128b56a, type: 2}
+  ranged: 0
+  buildingDamageMod: 1.5
+  plantDamageMod: 1
+  damageTypes:
+  - {fileID: 11400000, guid: 54488803a477c97449a45befcdb34acd, type: 2}
+  deathMessage: '{0} has been beaten to death.'
+  baseDamage: 3
+  baseArmorPen: -1
+  baseStoppingPower: 0
+  healthModTemplate: {fileID: 11400000, guid: cf30942d0fc22da47b065a94030c5bf1, type: 2}
+  explodes: 0
+  explosionHeatPerTile: 0
+  hitMultipleTargetsCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

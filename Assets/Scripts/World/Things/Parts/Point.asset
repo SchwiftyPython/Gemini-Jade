@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2061efc701abbd541b2a2f30a179e23f, type: 3}
-  m_Name: SmallBlade
+  m_Name: Point
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: b2e1b3ab8a98cc94db05dad9fe9fd25b, type: 2}
+    - {fileID: 11400000, guid: 55cd3a6d6cb8bc64eabb244a72669ff1, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,7 +27,7 @@ MonoBehaviour:
       Data: 0|World.Pawns.Actions.MeleeAttack, Assembly-CSharp
     - Name: name
       Entry: 1
-      Data: Cut
+      Data: Stab
     - Name: user
       Entry: 6
       Data: 
@@ -46,13 +46,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  templateName: SmallBlade
-  label: small blade
+  templateName: Point
+  label: point
   description: 
-  damage: 11
+  damage: 13
   armorPenetration: 0
   speed: 0
-  range: 1
+  range: 0
   warmup: 0
   cooldown: 50
   actionCount: 1

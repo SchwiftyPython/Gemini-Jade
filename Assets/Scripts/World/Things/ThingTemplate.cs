@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Time.TickerTypes;
 using UnityEngine;
 using World.Things.CraftableThings;
+using World.Things.Parts;
 using World.Things.ThingCategories;
 
 namespace World.Things
@@ -30,6 +32,8 @@ namespace World.Things
         [SerializeField] private int _beauty = int.MinValue;
         
         [SerializeField] private int _mass = -1;
+
+        [SerializeField] private List<PartTemplate> _parts;
         
         //stats end here.
 
@@ -158,6 +162,30 @@ namespace World.Things
                 
                 return _parent != null ? _parent.Mass : _mass;
             }
+        }
+        
+        public List<PartTemplate> Parts
+        {
+            get
+            {
+                if (_parts != null)
+                {
+                    return _parts;
+                }
+                
+                return _parent != null ? _parent.Parts : _parts;
+            }
+        }
+
+        public Thing MakeThing()
+        {
+            //todo make with different materials
+            
+            var thing = (Thing) Activator.CreateInstance(ThingClass);
+            
+            thing.template = this;
+
+            return thing;
         }
     }
 }
