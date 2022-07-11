@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using World.Pawns.Health.DamageWorkers;
 using World.Things;
@@ -10,7 +11,7 @@ namespace World.Pawns.Actions
 
         private const float DamageModifierMax = 1.6f;
         
-        protected override bool TryAction()
+        public override bool TryAction()
         {
             var userPawn = user as Pawn;
             
@@ -32,6 +33,11 @@ namespace World.Pawns.Actions
                 //todo log combat event
 
                 var damageResult = ApplyDamageTo(target);
+                
+                Debug.Log($"Damage dealt: {damageResult.totalDamage}");
+                
+                Debug.Log(
+                    $"Parts hit: {string.Join(", ", damageResult.parts.Select(p => p.LabelCapitalized).ToArray())}");
                 
                 //todo check if any damage dealt
                 
@@ -67,6 +73,8 @@ namespace World.Pawns.Actions
 
         private static bool AutoHits(Thing targetThing)
         {
+            return true;
+            
             return TargetIsImmobile(targetThing);
         }
 
