@@ -11,9 +11,9 @@ namespace World.Things
     [CreateAssetMenu(menuName = "Templates/ThingTemplate")]
     public class ThingTemplate : CraftableTemplate
     {
-        [SerializeField] private ThingTemplate _parent;
+        [SerializeField] private ThingTemplate parent;
         
-        [SerializeField] private Type _thingClass;
+        [SerializeField] private Type thingClass;
 
         [SerializeField] private ThingCategoryTemplate _category = null;
 
@@ -23,7 +23,7 @@ namespace World.Things
 
         [SerializeField] private int _stackLimit = -1;
         
-        //stats start here. May need a separate class for this.
+        //stats start. May need a separate class for this.
         
         [SerializeField] private int _maxHitPoints = -1;
         
@@ -35,7 +35,7 @@ namespace World.Things
 
         [SerializeField] private List<PartTemplate> _parts;
         
-        //stats end here.
+        //stats end 
 
         public bool destroyable = true;
 
@@ -51,12 +51,12 @@ namespace World.Things
         {
             get
             {
-                if (_thingClass != null)
+                if (thingClass != null)
                 {
-                    return _thingClass;
+                    return thingClass;
                 }
 
-                return _parent != null ? _parent.ThingClass : _thingClass;
+                return parent != null ? parent.ThingClass : thingClass;
             }
         }
         
@@ -69,7 +69,7 @@ namespace World.Things
                     return _category;
                 }
                 
-                return _parent != null ? _parent.Category : _category;
+                return parent != null ? parent.Category : _category;
             }
         }
         
@@ -82,7 +82,7 @@ namespace World.Things
                     return _layer;
                 }
                 
-                return _parent != null ? _parent.Layer : _layer;
+                return parent != null ? parent.Layer : _layer;
             }
         }
         
@@ -95,7 +95,7 @@ namespace World.Things
                     return _tickerType;
                 }
                 
-                return _parent != null ? _parent.TickerType : _tickerType;
+                return parent != null ? parent.TickerType : _tickerType;
             }
         }
         
@@ -108,7 +108,7 @@ namespace World.Things
                     return _stackLimit;
                 }
                 
-                return _parent != null ? _parent.StackLimit : _stackLimit;
+                return parent != null ? parent.StackLimit : _stackLimit;
             }
         }
         
@@ -121,7 +121,7 @@ namespace World.Things
                     return _maxHitPoints;
                 }
                 
-                return _parent != null ? _parent.MaxHitPoints : _maxHitPoints;
+                return parent != null ? parent.MaxHitPoints : _maxHitPoints;
             }
         }
         
@@ -134,7 +134,7 @@ namespace World.Things
                     return _flammability;
                 }
                 
-                return _parent != null ? _parent.Flammability : _flammability;
+                return parent != null ? parent.Flammability : _flammability;
             }
         }
         
@@ -147,7 +147,7 @@ namespace World.Things
                     return _beauty;
                 }
                 
-                return _parent != null ? _parent.Beauty : _beauty;
+                return parent != null ? parent.Beauty : _beauty;
             }
         }
         
@@ -160,7 +160,7 @@ namespace World.Things
                     return _mass;
                 }
                 
-                return _parent != null ? _parent.Mass : _mass;
+                return parent != null ? parent.Mass : _mass;
             }
         }
         
@@ -173,7 +173,7 @@ namespace World.Things
                     return _parts;
                 }
                 
-                return _parent != null ? _parent.Parts : _parts;
+                return parent != null ? parent.Parts : _parts;
             }
         }
 

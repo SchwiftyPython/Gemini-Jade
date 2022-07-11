@@ -19,7 +19,7 @@ namespace World.Pawns.Actions
 
         public Thing equipmentSource;
 
-        protected virtual bool TryAction()
+        public virtual bool TryAction() //todo set back to protected once we implement Action Tick
         {
             return true;
         }

@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _thingClass
+    - Name: thingClass
       Entry: 7
       Data: 0|System.RuntimeType, mscorlib
     - Name: 
@@ -33,7 +33,7 @@ MonoBehaviour:
   templateName: Weapon
   label: 
   description: 
-  _parent: {fileID: 0}
+  parent: {fileID: 0}
   _category: {fileID: 11400000, guid: 1c619ceabe736a140a7a9011e91cdf27, type: 2}
   _layer: 1
   _tickerType: {fileID: 0}
@@ -41,6 +41,8 @@ MonoBehaviour:
   _maxHitPoints: 100
   _flammability: 1
   _beauty: -3
+  _mass: -1
+  _parts: []
   destroyable: 1
   rotatable: 1
   useHitPoints: 1

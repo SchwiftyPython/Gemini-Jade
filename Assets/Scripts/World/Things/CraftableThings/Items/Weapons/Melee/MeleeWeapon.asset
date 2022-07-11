@@ -21,13 +21,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _thingClass
+    - Name: thingClass
       Entry: 6
       Data: 
   templateName: MeleeWeapon
   label: 
   description: 
-  _parent: {fileID: 11400000, guid: 0031daf96717927459c26e0c08d4ca0a, type: 2}
+  parent: {fileID: 11400000, guid: 0031daf96717927459c26e0c08d4ca0a, type: 2}
   _category: {fileID: 11400000, guid: bc6b59f5efc3f6e40b210f536325c1d9, type: 2}
   _layer: 0
   _tickerType: {fileID: 0}
@@ -35,6 +35,8 @@ MonoBehaviour:
   _maxHitPoints: -1
   _flammability: -1
   _beauty: -2147483648
+  _mass: -1
+  _parts: []
   destroyable: 1
   rotatable: 1
   useHitPoints: 1

@@ -11,6 +11,7 @@ using World.Pawns.Health.DamageTemplates;
 using World.Pawns.Health.DamageWorkers;
 using World.Pawns.Health.HealthFunctions;
 using World.Pawns.Health.HealthModifiers;
+using World.Things;
 
 namespace Assets.Scripts.Utilities
 {
@@ -126,7 +127,21 @@ namespace Assets.Scripts.Utilities
         {
             //todo have a weapon select dropdown
             
+            var knifeTemplate = FindObjectOfType<ThingTemplateRepo>().knifeTemplateTest;
             
+            var knife = knifeTemplate.MakeThing();
+
+            var parts = knife.template.Parts;
+            
+            var partToUse = parts[Random.Range(0, parts.Count)];
+
+            var partAction = partToUse.action;
+
+            partAction.target = _currentPawn;
+
+            var success = partAction.TryAction();
+            
+            Debug.Log($"Attempt to attack with {knifeTemplate.label} {partToUse.label}: {success}");
         }
 
         private void PopulateBodyPartDropdown()
