@@ -2,17 +2,278 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplateRepo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplateRepo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/Square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/Square.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/gridCell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/gridCell.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/gridCellHollow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/gridCellHollow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/walltest 1x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/walltest 1x2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/walltest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/walltest.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Documentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Documentation/Hypertonic Games - Grid Placement System Documentation V1.0.0.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Documentation/Hypertonic Games - Grid Placement System Documentation V1.0.0.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/CreateGridLayersMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/CreateGridLayersMenu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/CreateGridManagerMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/CreateGridManagerMenu.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/GridLayersManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/GridLayersManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/GridManagerEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/GridManagerEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/GridSettingsEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Editor/GridPlacement/GridSettingsEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/Mouse Input Definition.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/Mouse Input Definition.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/MouseInputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/MouseInputDefinition.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/Touch Input Definition.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/Touch Input Definition.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/TouchInputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Grid Input Actions/TouchInputDefinition.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Scripts/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Scripts/Plugins/GridPlacementSystem.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Scripts/Plugins/GridPlacementSystem.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Scripts/Plugins/GridPlacementSystem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Runtime/Scripts/Plugins/GridPlacementSystem.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scenes/Add Programatically.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scenes/Add Programatically.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scripts/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scripts/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scripts/GridObjectSpawnData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Scripts/GridObjectSpawnData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Settings/Add Programatically Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Add Programatically Demo/Settings/Add Programatically Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Input Definitions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Input Definitions/Right Mouse Button Input Definition.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Input Definitions/Right Mouse Button Input Definition.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Input Definitions/RightClickMouseInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Input Definitions/RightClickMouseInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scenes/Basic Grid Demo.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scenes/Basic Grid Demo.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/ExampleGridObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/ExampleGridObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/GridControlManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/GridControlManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/SavingAndLoading.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/SavingAndLoading/GridSaveManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/SavingAndLoading/GridSaveManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_CancelPlacement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_CancelPlacement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_ChangeAlignment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_ChangeAlignment.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_CloseObjectSelection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_CloseObjectSelection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_ConfirmPlacement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_ConfirmPlacement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_Delete.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_Delete.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_GridObjectSelectionOption.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_GridObjectSelectionOption.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_OpenChangeAlignmentOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_OpenChangeAlignmentOptions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_RotateLeft.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_RotateLeft.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_RotateRight.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Button_RotateRight.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Saving and Loading.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Saving and Loading/Button_LoadGridObjects.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Saving and Loading/Button_LoadGridObjects.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Saving and Loading/Button_SaveGridObjects.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UI Buttons/Saving and Loading/Button_SaveGridObjects.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UIManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Scripts/UIManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Basic Grid Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Basic Grid Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/InvisibleGrid.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/InvisibleGrid.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Odd Grid Size.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Odd Grid Size.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Rectangle Grid Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Rectangle Grid Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Right Click Input Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Right Click Input Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Rounded Grid Cells.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Rounded Grid Cells.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Small Grid Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Basic Grid Demo/Settings/Small Grid Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Scenes/Large Grid Demo.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Scenes/Large Grid Demo.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Scripts/LargeGridGameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Scripts/LargeGridGameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Settings/Large Grid Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Large Grid Demo/Settings/Large Grid Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Scenes/Multiple Grids Demo.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Scenes/Multiple Grids Demo.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Scripts/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Scripts/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Settings/Grid Settings A.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Settings/Grid Settings A.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Settings/Grid Settings B.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Multiple Grids Demo/Settings/Grid Settings B.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Grid Input Definitions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Grid Input Definitions/Mouse Hover Input Definition.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Grid Input Definitions/Mouse Hover Input Definition.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Grid Input Definitions/MouseHoverInputDefinition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Grid Input Definitions/MouseHoverInputDefinition.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scenes/PaintModeDemo.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scenes/PaintModeDemo.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scripts/DeleteGridObjectManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scripts/DeleteGridObjectManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scripts/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Scripts/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Settings/PaintModeSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Paint Mode Demo/Settings/PaintModeSettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/GridObjectPlaceable.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/GridObjectPlaceable.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/GridObjectUnPlaceable.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/GridObjectUnPlaceable.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/GroundPlane.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/GroundPlane.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour A.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour A.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour B.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour B.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour C.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour C.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour D.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour D.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour E.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Materials/Object Colour E.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Event System (New).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Event System (New).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Event System (Old).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Event System (Old).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube .5x.5.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube .5x.5.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 1x1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 1x1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 2.5x2.5.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 2.5x2.5.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 2x1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 2x1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 2x2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 2x2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 8x1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Prefabs/Grid Objects/Cube 8x1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Scripts/EventSystemManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Scripts/EventSystemManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_add_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_add_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_adjust_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_adjust_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_check_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_check_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_delete_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_delete_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_open_with_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_open_with_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_refresh_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_refresh_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_remove_circle_outline_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_remove_circle_outline_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_vertical_align_top_white_48dp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/outline_vertical_align_top_white_48dp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/sp_rounded_box_12px_Fill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/sp_rounded_box_12px_Fill.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/sp_ui_circle_512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Icons/sp_ui_circle_512.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/Cube_.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/Cube_.5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube1x1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube1x1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube2.5x2.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube2.5x2.5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube2x1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube2x1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube2x2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube2x2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube8x1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/Item Previews/cube8x1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCell.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellHollow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellHollow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellHollowGrey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellHollowGrey.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellRounded.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellRounded.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellRoundedHollow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellRoundedHollow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellTransparent.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HypertonicGames/GridPlacement/Samples/Shared Sample Assets/Textures/gridCellTransparent.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/GridObject.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/GridObject.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/Ground.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/Ground.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/Wall.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/Wall.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/walltest.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/walltest.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridManager2d.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridManager2d.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Map.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Map.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Settings/PaintModeSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Settings/PaintModeSettings.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/BodySimulator.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BodySimulator.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/Knife.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/Knife.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/MeleeWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Melee/MeleeWeapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Weapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Items/Weapons/Weapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +288,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/c4/6d02eb53/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -37,7 +295,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/17/6b10f0ea/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Layer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Grid/GridManager2d.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Map.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,6 +312,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/SeverityPerDay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/PainLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://J:/Assorted Game Assets/FyWorld-master/FyWorld-master/FyWorld/Assets/Fy/Scripts/World/GroundGrid.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -95,10 +358,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10756">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10756" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -169,6 +432,11 @@
       <workItem from="1657116208442" duration="8260000" />
       <workItem from="1657199246265" duration="4918000" />
       <workItem from="1657534390965" duration="4333000" />
+      <workItem from="1657722326419" duration="1590000" />
+      <workItem from="1657798448922" duration="14911000" />
+      <workItem from="1657891028382" duration="1976000" />
+      <workItem from="1658147517397" duration="1203000" />
+      <workItem from="1658232201481" duration="596000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
