@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GridPlacementSystem</name>
+    </assembly>
+    <members>
+        <member name="F:Hypertonic.GridPlacement.GridDisplayManager._gridImage">
+            <summary>
+            The image that displays the tiled grid
+            </summary>
+        </member>
+        <member name="E:Hypertonic.GridPlacement.GridManager.OnStartModifyObjectPlacement">
+            <summary>
+            An event that fires when an already placed grid object enters placement mode to modify its placement.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.Setup">
+            <summary>
+            Setup method required to initialise the grid system
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.Setup(Hypertonic.GridPlacement.GridSettings)">
+            <summary>
+            Setup method required to initialise the grid system. This overload allows the system to
+            use a different GridSettings object.
+            </summary>
+            <param name="gridSettings"> Used to configure the grid system </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.DisplayGrid">
+            <summary>
+            Displays the grid.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.HideGrid">
+            <summary>
+            Hides the grid.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.ModifyPlacementOfGridObject(UnityEngine.GameObject)">
+            <summary>
+            Modify the placement of an already placed grid object.
+            </summary>
+            <param name="gridObject">The grid object that is to be modified. </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.EnterPlacementMode(UnityEngine.GameObject)">
+            <summary>
+            Passes the grid object to the grid system and enters placement mode. 
+            </summary>
+            <param name="gridObjectToPlace"> The object that is being added to the grid </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.ChangeAlignment(Hypertonic.GridPlacement.Enums.ObjectAlignment)">
+            <summary>
+            Change the snap position of the current object being placed.
+            </summary>
+            <param name="objectAlignment">The new alignment for the grid object</param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.ConfirmPlacement">
+            <summary>
+            Used to confirm the placement of the grid object in it's current position. You can only confirm the placement when the object position in the grid is valid. 
+            E.G it's not partically outside of the grid or overlapping another grid object.
+            </summary>
+            <returns> Returns if the object was successfully placed </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.GetGridPosition">
+            <summary>
+            Returns the world space position of the center of the grid
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.GetGridObjectAtCellIndex(System.Int32,System.Int32)">
+            <summary>
+            Used to get a grid object at a specific grid cell index.
+            </summary>
+            <param name="cellX"></param>
+            <param name="cellY"></param>
+            <returns>The grid object at the requested grid position, or null if no grid object is placed in that position </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.DeleteObject(UnityEngine.GameObject,System.Boolean)">
+            <summary>
+            Deletes a grid object and removes it from the grid.
+            </summary>
+            <param name="gridObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.RemoveObjectFromGrid(UnityEngine.GameObject)">
+            <summary>
+            Removes any referenecs to the object from the grid. However does not destory the Gameobject
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.CancelPlacement(System.Boolean)">
+            <summary>
+            Cancel the current placement of a grid object and hide the grid.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.HandleGridObjectRotated">
+            <summary>
+            Updated the grid object after a rotation has been applied.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.AddObjectToGrid(UnityEngine.GameObject,UnityEngine.Vector2Int,Hypertonic.GridPlacement.Enums.ObjectAlignment)">
+            <summary>
+            This function provides a way to add an object to the grid without going through the placement flow. 
+            If you are adding multiple objects to the grid at once this function MUST be awaited. Or use the function PopulateWithGridData.
+            </summary>
+            <param name="gridObject">The object to add to the grid</param>
+            <param name="gridCellIndex">The cell index where the grid object should be placed. </param>
+            <param name="objectAlignment">The alignment of the object. By default it is Upper Left</param>
+            <returns> If the grid was successfully populated with the grid data </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.PopulateWithGridData(Hypertonic.GridPlacement.Models.GridData,System.Boolean)">
+            <summary>
+            Allows you populate the grid with multiple objects at once. 
+            </summary>
+            <param name="gridData">Contains the required information for placing the grid objects in the grid</param>
+            <param name="clearGrid"> Determines if the current grid objects should be deleted.</param>
+            <returns> If the grid was successfully populated with the grid data </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.AddObjectToGridByCellAsync(UnityEngine.GameObject,UnityEngine.Vector2Int,Hypertonic.GridPlacement.Enums.ObjectAlignment)">
+            <summary>
+            This function allows for objects to be added programatically without having to go though the placement mode flow.
+            If you are calling this function is a loop you MUST wait for each coroutine to finish before calling this function again. This can
+            be achieved by using the yield return operators.
+            </summary>
+            <param name="gridObject"> The object to add the grid </param>
+            <param name="gridCellIndex"> the position on the grid where the object should spawn </param>
+            <param name="alignment"> The desired alignment of the object </param>
+            <returns> If the placement was successul </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.ClearGrid(System.Boolean)">
+            <summary>
+            Clears the grid of all current objects assigned to it.
+            </summary>
+            <param name="destroyGridObjects"> Determines if the grid objects being cleared should be destoryed or have the references from the grid removed. </param>
+        </member>
+        <member name="F:Hypertonic.GridPlacement.GridManager._paintObjectPrefab">
+            <summary>
+            This is used to store a reference to the prefab that should be placed continuously.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.StartPaintMode(UnityEngine.GameObject)">
+            <summary>
+            Sets the grid to paint mode. Allows for continuous placement of objects.
+            </summary>
+            <param name="gridObjectToPlacePrefab"> The prefab of the object to use in paint mode </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.EndPaintMode(System.Boolean)">
+            <summary>
+            End paint mode. 
+            </summary>
+            <param name="hideGrid"> Hide the grid when paint mode has ended. </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.UpdatePlatformGridInputsDefinitionMappings(System.Collections.Generic.List{Hypertonic.GridPlacement.Models.PlatformGridInputsDefinitionMapping})">
+            <summary>
+            Change the input definitions used by the grid.
+            </summary>
+            <param name="platformGridInputsDefinitionMappings"> The new platform grid input definitions to use. </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManager.SetupEditor">
+            <summary>
+            Sets up the class when called from the editor
+            </summary>
+        </member>
+        <member name="T:Hypertonic.GridPlacement.GridManagerAccessor">
+            <summary>
+            This class is used to easily get a reference to the GridManager instance in the scene.
+            </summary>
+        </member>
+        <member name="P:Hypertonic.GridPlacement.GridManagerAccessor.GridManager">
+            <summary>
+            If multiple grid managers have been register then this function will return the selected grid manager. If there is only one grid manager registered then it will returned by default.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.GetGridManagerByKey(System.String)">
+            <summary>
+            Returns a grid manager by selecting it by it's key.
+            </summary>
+            <param name="key">The key set in the grid settings </param>
+            <returns>The grid manager with that key </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.RegisterGridManager(System.String,Hypertonic.GridPlacement.GridManager)">
+            <summary>
+            Registers a Grid Manager with a key. The key should be set from the key value in the Grid Settings object.
+            </summary>
+            <param name="key">The key for the grid manager </param>
+            <param name="gridManager">The grid manager to register in the Grid Manager Accessor </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.UnregisterGridManager(System.String,Hypertonic.GridPlacement.GridManager)">
+            <summary>
+            Unregisters a Grid Manager by it's key 
+            </summary>
+            <param name="key">The key associated with the grid manager </param>
+            <param name="gridManager"> The Grid Manager to be unregistered </param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.HasGridManager(System.String)">
+            <summary>
+            A check to see if the Grid Manager associated with a given key has been registered
+            </summary>
+            <param name="key">The key for the grid manager</param>
+            <returns>True if the Grid Manager is registered </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.TryGetGridManager(Hypertonic.GridPlacement.GridManager@)">
+            <summary>
+            Trys to get the default Grid Manager
+            </summary>
+            <param name="gridManager"> The reference to the Grid Manager if it exists </param>
+            <returns>True if the Grid Manager has been registered. False if not. </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.TryGetGridManager(System.String,Hypertonic.GridPlacement.GridManager@)">
+            <summary>
+            Trys to get a Grid Manager by it's key
+            </summary>
+            <param name="key">The key of the grid manager</param>
+            <param name="gridManager"> The reference to the Grid Manager if it exists </param>
+            <returns>True if the Grid Manager has been registered. False if not. </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridManagerAccessor.SetSelectedGridManager(System.String)">
+            <summary>
+            Set the selected (default) Grid Manager. After setting the selected Grid Manager by it's key you
+            can use the Grid Manager property to access the selected Grid Manager quicker.
+            </summary>
+            <param name="key"> The key of the selected grid manager</param>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridObjectPlacementManager.CalculateBoundsForChildTransformRelativeMin(UnityEngine.Collider,UnityEngine.Vector3)">
+            <summary>
+            This function calculates the position of the object relative to the root object.
+            </summary>
+            <param name="transform"></param>
+            <param name="rootObjectPosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridObjectPlacementManager.GetObjectRelativeSize">
+            <summary>
+            Returns the size of the object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridObjectPlacementManager.PlaceObject(UnityEngine.Vector2Int)">
+            <summary>
+            Places the object by setting up the grid object info component
+            </summary>
+            <param name="gridCellIndex">The should be the raw grid cell index of the position without the offset of the alignment applied. </param>
+        </member>
+        <member name="T:Hypertonic.GridPlacement.GridUtilities">
+            <summary>
+            This class provides useful functions related to the Grid.
+            </summary>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.GetCenterOfGridArea(UnityEngine.Vector3,UnityEngine.Vector3,Hypertonic.GridPlacement.Enums.ObjectAlignment,Hypertonic.GridPlacement.GridSettings)">
+            <summary>
+            Function to determine the center of an area from the worldspace position. Get Cell position does not work if the area is even and greate than 1 in either dimension
+            </summary>
+            <param name="worldSpaceOfSelectedGridCell">The position in world space </param>
+            <param name="objectSize"> The Size of the object</param>
+            <param name="objectAlignment"> The alignment of the object </param>
+            <param name="gridSettings">The grid settings</param>
+            <returns> The center of the grid area</returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.GetWorldPositionFromCellIndex(UnityEngine.Vector2Int,Hypertonic.GridPlacement.GridSettings)">
+            <summary>
+            Returns the position in world space from a grid cell index
+            </summary>
+            <param name="cellIndex">The index of the grid cell</param>
+            <param name="gridSettings">The grid settings </param>
+            <returns>The world space position of the grid cell </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Hypertonic.GridPlacement.GridUtilities.GetWorldSizeOfCell(Hypertonic.GridPlacement.GridSettings)" -->
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.CalculateCellSpanOfGridObject(UnityEngine.Vector3,System.Single)">
+            <summary>
+            Return the exact amount of Grid cells that the grid object takes up.
+            </summary>
+            <param name="objectSize">The size of the object</param>
+            <param name="cellSize">The size of the cell </param>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.CalculateGridCellAreaRequiredForObject(UnityEngine.Vector3,System.Single,Hypertonic.GridPlacement.Enums.ObjectAlignment)">
+            <summary>
+            This function is responsible for calculating the actual area required based on the cellspan of the object and it's alignment
+            If an object is centered on an axis it'll need an extra cell for padding
+            </summary>
+            <param name="objectBounds">The size of the object</param>
+            <param name="cellSize">The size of the cell</param>
+            <param name="objectAlignment"> The alignment of the grid object</param>
+            <returns> The area required to fit a grid object in. </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.GetTotalBounds(System.Collections.Generic.List{UnityEngine.Vector3})">
+            <summary>
+            Calculates the total bounds from a list of bounds vectors
+            </summary>
+            <param name="bounds"> The list of bounds </param>
+            <returns>The total bounds </returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.GridSettingsValid(Hypertonic.GridPlacement.GridSettings)">
+            <summary>
+            Determines if the Grid Settings are valid. This function calculates the number of vertical cells required for desired amount of cells
+            horizontally with a certain width.
+            </summary>
+            <param name="gridSettings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.GridUtilities.GetCameraForGrid(Hypertonic.GridPlacement.GridSettings)">
+            <summary>
+            Finds the camera component that is assigned to the Canvas component of the placement grid UI
+            </summary>
+            <param name="gridSettings"> The grid settings of the grid </param>
+            <returns> The Unity Camera component assigned to the Canvas component of the placement grid UI</returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.PlacementGrid.GetCellPositionFromGridCellIndex(UnityEngine.Vector2,Hypertonic.GridPlacement.GridSettings)">
+            <summary>
+            Returns the world space position of the nearest cell to the provided world space position
+            </summary>
+            <param name="gridCellIndex">The grid cell index</param>
+            <param name="gridSettings">The grid settings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.PlacementGrid.CanPlaceObject(UnityEngine.Vector2Int,UnityEngine.Vector3,Hypertonic.GridPlacement.Enums.ObjectAlignment)">
+            <summary>
+            Determine if the cells that the object is placed on are available
+            </summary>
+            <param name="gridCellOfObject"> This represents the XY of the grid cell that the 
+            object is snapped to. Not including the offset applied. </param>
+            <param name="objectSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hypertonic.GridPlacement.PlacementGrid.CalculateGridCellSpanForObject(UnityEngine.Vector3,System.Single)">
+            <summary>
+            Calculated how many grid cells the object will require to be placed alonng the X and Y
+            </summary>
+            <param name="objectSize"> The size of the object that is being placed</param>
+            <param name="cellSize">How big each cell is in the grid in Unity Worldspace </param>
+        </member>
+        <member name="T:Hypertonic.GridPlacement.UnavailableGridCellDisplayManager">
+            <summary>
+            Used to manage the objects that display which grid cells are available.
+            Storing the objects that cover numerous cells is more efficient that creating and showing images for each cell.
+            </summary>
+        </member>
+    </members>
+</doc>
