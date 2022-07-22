@@ -33,7 +33,7 @@ namespace UI.Grid
             {
                 OnObjectPlaced?.Invoke();
 
-                GridObject.OnConfirmPlacement -= HandleConfirmPlacement;
+                //GridObject.OnConfirmPlacement -= HandleConfirmPlacement;
             }
         }
 

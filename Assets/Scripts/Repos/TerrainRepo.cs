@@ -6,9 +6,9 @@ using World.TileTypes;
 namespace Repos
 {
     /// <summary>
-    /// Stores all Tile Types.
+    /// Stores all Terrain Tile Types.
     /// </summary>
-    /// <remarks>Functions like a Singleton. Use FindObjectOfType&lt;TerrainStore&gt;() to get a reference.</remarks>
+    /// <remarks>Functions like a Singleton. Use FindObjectOfType&lt;TerrainRepo&gt;() to get a reference.</remarks>
     public class TerrainRepo : MonoBehaviour
     {
         [SerializeField] private TileType ground;

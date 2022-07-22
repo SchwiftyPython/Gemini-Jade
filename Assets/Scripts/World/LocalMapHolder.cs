@@ -1,7 +1,9 @@
 using Generators;
 using GoRogue;
+using GoRogue.GameFramework;
 using UnityEngine;
 using Utilities;
+using GameObject = UnityEngine.GameObject;
 
 namespace World
 {
@@ -26,6 +28,11 @@ namespace World
         {
             Clear();
             
+            PlaceTiles(map);
+        }
+
+        private void PlaceTiles(Map map)
+        {
             for (var currentColumn = 0; currentColumn < map.Width; currentColumn++)
             {
                 for (var currentRow = 0; currentRow < map.Height; currentRow++)
@@ -37,7 +44,7 @@ namespace World
                     var tileInstance = Instantiate(terrainSlotPrefab, new Vector2(currentColumn, currentRow),
                         Quaternion.identity);
 
-                    tileInstance.GetComponent<SpriteRenderer>().sprite = tile.Texture;
+                    tileInstance.GetComponentInChildren<SpriteRenderer>().sprite = tile.Texture;
 
                     tile.SetSpriteInstance(tileInstance);
                 }

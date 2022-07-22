@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 674682465395995725}
-  - component: {fileID: 1994337125}
+  - component: {fileID: -2145270551464757976}
   m_Layer: 0
-  m_Name: GridObject
+  m_Name: PlacedObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,19 +33,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1994337125
-BoxCollider:
+--- !u!114 &-2145270551464757976
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674682465395995714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926c86aaee1488d4faa5a591129a3be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &674682465400549773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71,11 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 923593582989314912, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 923593582989314912, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 923593582989314912, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_LocalRotation.y
@@ -87,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 923593582989314912, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 923593582989314912, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -100,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 923593582989314913, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a2ccfa17e226c1a4a858557c944b5302, type: 3}
+      objectReference: {fileID: 1763610685, guid: e2fc42738f9c21b4890551222adc24a4, type: 3}
     - target: {fileID: 923593582989314918, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_Name
       value: walltest

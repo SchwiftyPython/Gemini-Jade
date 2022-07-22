@@ -17,7 +17,7 @@ namespace World.Things
 
         [SerializeField] private ThingCategoryTemplate _category = null;
 
-        [SerializeField] private Layer _layer = Layer.Undefined; 
+        [SerializeField] private MapLayer _layer = MapLayer.Undefined; 
 
         [SerializeField] private TickerType _tickerType = null;
 
@@ -73,16 +73,16 @@ namespace World.Things
             }
         }
         
-        public Layer Layer
+        public MapLayer MapLayer
         {
             get
             {
-                if (_layer != Layer.Undefined)
+                if (_layer != MapLayer.Undefined)
                 {
                     return _layer;
                 }
                 
-                return parent != null ? parent.Layer : _layer;
+                return parent != null ? parent.MapLayer : _layer;
             }
         }
         

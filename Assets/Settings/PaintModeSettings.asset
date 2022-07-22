@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PaintModeSettings
   m_EditorClassIdentifier: 
   Key: PaintModeSettings
-  Width: 10
-  Height: 10
+  Width: 50
+  Height: 50
   GridSizeRatio: {x: 1, y: 1}
-  AmountOfCellsX: 10
-  AmountOfCellsY: 10
-  GridPosition: {x: 0, y: 0.001, z: 0}
+  AmountOfCellsX: 50
+  AmountOfCellsY: 50
+  GridPosition: {x: 25, y: 0.001, z: 25}
   CellImage: {fileID: 21300000, guid: a107871f0ede20e44bfec91ce6a5c6a9, type: 3}
   OccupiedCellImage: {fileID: 21300000, guid: 65313060f61c96e44abb3e955c727115, type: 3}
   CellColourAvailable: {r: 0.6383647, g: 1, b: 0.6383647, a: 1}
@@ -30,7 +30,7 @@ MonoBehaviour:
   ChangeObjectMaterials: 1
   ObjectPlaceableMaterial: {fileID: 2100000, guid: 7fb8be3249023ba41932317f6da47b0d, type: 2}
   ObjectUnPlaceableMaterial: {fileID: 2100000, guid: 447137d51a391c74fa67e1a5883f0520, type: 2}
-  DefaultAlignment: 0
+  DefaultAlignment: 7
   PlatformGridInputsDefinitionMappings:
   - Name: Android
     GridInputDefinition: {fileID: 11400000, guid: 70fcce22272cff34b9805a0242ff3b49, type: 2}

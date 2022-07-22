@@ -8,7 +8,9 @@ namespace UI.Grid
     {
         public static event System.Action<GameObject> OnObjectSelected;
         
-        [SerializeField] private GameObject gridObjectToSpawnPrefab;
+        //[SerializeField] private GridObject gridObjectToSpawnPrefab;
+
+        [SerializeField] private Sprite gridObjectTexture;
 
         private void Start()
         {
@@ -18,16 +20,19 @@ namespace UI.Grid
             {
                 button.onClick.AddListener(HandleButtonClicked);
             }
+            
+            // if (gridObjectToSpawnPrefab == null)
+            // {
+            //     Debug.LogError("Error. No prefab assigned to spawn on this selection option");
+            //     return;
+            // }
+            //
+            // gridObjectToSpawnPrefab.SetSpriteTexture(gridObjectTexture);
         }
         
         private void HandleButtonClicked()
         {
-            if (gridObjectToSpawnPrefab == null)
-            {
-                Debug.LogError("Error. No prefab assigned to spawn on this selection option");
-            }
-
-            OnObjectSelected?.Invoke(gridObjectToSpawnPrefab);
+            //OnObjectSelected?.Invoke(gridObjectToSpawnPrefab.gameObject);
         }
     }
 }
