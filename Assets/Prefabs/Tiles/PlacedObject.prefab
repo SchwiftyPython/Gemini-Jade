@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926c86aaee1488d4faa5a591129a3be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 400177533855398636}
 --- !u!1001 &674682465400549773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,10 +103,15 @@ PrefabInstance:
       objectReference: {fileID: 1763610685, guid: e2fc42738f9c21b4890551222adc24a4, type: 3}
     - target: {fileID: 923593582989314918, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
       propertyPath: m_Name
-      value: walltest
+      value: Sprite
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
+--- !u!212 &400177533855398636 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 923593582989314913, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}
+  m_PrefabInstance: {fileID: 674682465400549773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &400177533855398637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 923593582989314912, guid: 3d74e6e8c25023f4dbfe03d4aedd1c3c, type: 3}

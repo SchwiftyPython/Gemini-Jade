@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
+using World;
+using World.PlacedObjectTypes;
 
 namespace UI.Grid
 {
     [RequireComponent(typeof(Button))]
     public class SelectGridObjectButton : MonoBehaviour
     {
-        public static event System.Action<GameObject> OnObjectSelected;
+        public static event System.Action<PlacedObjectType> OnObjectSelected;
         
-        //[SerializeField] private GridObject gridObjectToSpawnPrefab;
-
-        [SerializeField] private Sprite gridObjectTexture;
+        [SerializeField] private PlacedObjectType placedObjectType;
 
         private void Start()
         {
@@ -21,18 +21,16 @@ namespace UI.Grid
                 button.onClick.AddListener(HandleButtonClicked);
             }
             
-            // if (gridObjectToSpawnPrefab == null)
-            // {
-            //     Debug.LogError("Error. No prefab assigned to spawn on this selection option");
-            //     return;
-            // }
-            //
-            // gridObjectToSpawnPrefab.SetSpriteTexture(gridObjectTexture);
+            if (placedObjectType == null)
+            {
+                Debug.LogError("Error. No prefab assigned to spawn on this selection option");
+                return;
+            }
         }
         
         private void HandleButtonClicked()
         {
-            //OnObjectSelected?.Invoke(gridObjectToSpawnPrefab.gameObject);
+            OnObjectSelected?.Invoke(placedObjectType);
         }
     }
 }

@@ -47,15 +47,22 @@ namespace World
 
         public UnityEngine.GameObject SpriteInstance { get; private set; }
 
-        public BaseObject(Coord position, int layer, bool isStatic, bool isWalkable, bool isTransparent)
+        public BaseObject(Coord position, MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent)
         {
-            backingField = new GameObject(position, layer, this, isStatic, isWalkable, isTransparent);
+            backingField = new GameObject(position, (int) layer, this, isStatic, isWalkable, isTransparent);
         }
 
         protected BaseObject()
         {
         }
-        
+
+        protected BaseObject(Vector3 position, MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent)
+        {
+            var coord = new Coord((int) position.x, (int) position.y);
+            
+            backingField = new GameObject(coord, (int) layer, this, isStatic, isWalkable, isTransparent);
+        }
+
         public void SetSpriteInstance(UnityEngine.GameObject instance)
         {
             SpriteInstance = instance;

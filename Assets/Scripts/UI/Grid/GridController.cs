@@ -20,7 +20,7 @@ namespace UI.Grid
             //This is for moving objects around willy nilly. Will only be applicable to blueprints, not constructed objects.
             //GridObject.OnObjectSelected += OnGridObjectSelected; 
 
-            SelectGridObjectButton.OnObjectSelected += OnGridObjectSelected;
+            //SelectGridObjectButton.OnObjectSelected += OnGridObjectSelected;
             
             StartCoroutine(CheckForInput());
         }
