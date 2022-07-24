@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/WallTest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/WallTest.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tiles/PlacedObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/PlacedObject.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/PlacedObjectType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/PlacedObjectType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +190,8 @@
       <workItem from="1658232201481" duration="596000" />
       <workItem from="1658312674437" duration="7894000" />
       <workItem from="1658488495657" duration="15105000" />
-      <workItem from="1658575747817" duration="8989000" />
+      <workItem from="1658575747817" duration="9389000" />
+      <workItem from="1658660588497" duration="10323000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -459,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658515102929</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid.">
+      <created>1658586163133</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1658586163133</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +490,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added BloodLoss.cs&#10;Added methods to get current bleed rate and calculate stage of health mod based on severity" />
     <MESSAGE value="Finished up adjusting severity of health mods&#10;Finished BloodLoss.cs&#10;Added AddHealthMod and RemoveHealthMod methods to Health.cs" />
     <MESSAGE value="Added HashUtils.cs&#10;Added HealthModAdderSetTemplate.cs&#10;Added Organic HealthModifierAdderSetTemplate&#10;Looks like Remove BodyPart is broken now." />
     <MESSAGE value="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss." />
@@ -508,6 +514,7 @@
     <MESSAGE value="Added basic implementation of Action.cs" />
     <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
     <MESSAGE value="Adding new grid system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding new grid system." />
+    <MESSAGE value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
+    <option name="LAST_COMMIT_MESSAGE" value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
   </component>
 </project>

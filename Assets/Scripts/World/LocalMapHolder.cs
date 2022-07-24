@@ -15,13 +15,7 @@ namespace World
 
         private void Start()
         {
-            //testing map gen
-
-            var mapGen = new LocalMapGenerator();
             
-            var map = mapGen.GenerateMap(50, 50);
-            
-            Build(map);
         }
 
         public void Build(LocalMap map)

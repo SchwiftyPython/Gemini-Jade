@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using World;
 using World.PlacedObjectTypes;
 
 namespace UI.Grid
@@ -23,7 +22,7 @@ namespace UI.Grid
             
             if (placedObjectType == null)
             {
-                Debug.LogError("Error. No prefab assigned to spawn on this selection option");
+                Debug.LogError("Error. No placed object type assigned to spawn on this selection option");
                 return;
             }
         }

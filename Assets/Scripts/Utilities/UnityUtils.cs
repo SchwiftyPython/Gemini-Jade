@@ -1,3 +1,4 @@
+using GoRogue;
 using UnityEngine;
 
 namespace Utilities
@@ -10,6 +11,11 @@ namespace Utilities
             {
                 Object.Destroy(parent.transform.GetChild(i).gameObject);
             }
+        }
+        
+        public static Coord ToCoord(this Vector2Int position)
+        {
+            return new Coord(position.x, position.y);
         }
     }
 }

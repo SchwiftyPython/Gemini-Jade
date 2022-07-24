@@ -8,9 +8,17 @@ namespace World
     {
         public static PlacedObject Create(Vector3 gridPosition, Dir direction, PlacedObjectType placedObjectType)
         {
-            var placedObjectInstance = Instantiate(placedObjectType.prefab, gridPosition, Quaternion.Euler(0, 0, 0));
+            var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
+            
+            var placedObjectInstance = Instantiate(placedObjectType.prefab,  gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
             
             var placedObject = placedObjectInstance.GetComponent<PlacedObject>();
+            
+            //placedObjectInstance.rotation = Quaternion.Euler(0, 0, placedObject.GetRotationAngle(direction));
+
+            //var rotationOffset = placedObject.GetRotationOffset(direction);
+            
+            //placedObjectInstance.position = new Vector3(-rotationOffset.x, -rotationOffset.y, 0f);
 
             placedObject.spriteRenderer.sprite = placedObjectType.texture;
 
@@ -21,7 +29,7 @@ namespace World
             placedObject.direction = direction;
 
             placedObject.GridObject =
-                new GridObject(gridPosition, true, placedObjectType.walkable, placedObjectType.transparent);
+                new GridObject(placedObject, gridPosition, true, placedObjectType.walkable, placedObjectType.transparent);
 
             return placedObject;
         }
@@ -116,7 +124,7 @@ namespace World
             }
         }
 
-        public List<Vector2Int> GetGridPositions(Vector2Int offset, Dir dir)
+        public List<Vector2Int> GetGridPositions(Vector2Int origin, Dir dir)
         {
             var gridPositionList = new List<Vector2Int>();
             
@@ -129,7 +137,7 @@ namespace World
                     {
                         for (var y = 0; y < placedObjectType.height; y++)
                         {
-                            gridPositionList.Add(offset + new Vector2Int(x, y));
+                            gridPositionList.Add(origin + new Vector2Int(x, y));
                         }
                     }
 
@@ -141,7 +149,7 @@ namespace World
                     {
                         for (var y = 0; y < placedObjectType.width; y++)
                         {
-                            gridPositionList.Add(offset + new Vector2Int(x, y));
+                            gridPositionList.Add(origin + new Vector2Int(x, y));
                         }
                     }
 
