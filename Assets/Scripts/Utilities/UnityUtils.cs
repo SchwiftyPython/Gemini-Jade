@@ -17,5 +17,15 @@ namespace Utilities
         {
             return new Coord(position.x, position.y);
         }
+
+        public static Vector3 ToVector3(this Vector2Int position)
+        {
+            return new Vector3(position.x, position.y);
+        }
+        
+        public static Vector2Int ToVector2Int(this Vector3 position)
+        {
+            return new Vector2Int((int) position.x, (int) position.y);
+        }
     }
 }

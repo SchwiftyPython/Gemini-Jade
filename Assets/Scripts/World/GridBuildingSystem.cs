@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UI.Grid;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,7 +36,7 @@ namespace World
                 var gridPositions = ghostObject.GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
 
                 var canPlace = true;
-                
+
                 foreach (var gridPosition in gridPositions)
                 {
                     if (!_localMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
@@ -49,13 +50,10 @@ namespace World
                 {
                     if (Mouse.current.leftButton.isPressed)
                     {
-                        var placedObject = PlacedObject.Create(new Vector3(mousePosition.x, mousePosition.y), _dir,
+                        var placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
                             _selectedObjectType);
                     
-                        foreach (var gridPosition in gridPositions)
-                        {
-                            _localMap.PlaceGridObjectAt(gridPosition.ToCoord(), placedObject.GridObject);
-                        }
+                        _localMap.PlacePlacedObject(placedObject);
                     }
                 }
 
@@ -143,11 +141,11 @@ namespace World
                 default:
                 case PlacedObject.Dir.Down: return new Vector2Int(0, 0);
                 
-                case PlacedObject.Dir.Left: return new Vector2Int(_selectedObjectType.width, 0);
+                case PlacedObject.Dir.Left: return new Vector2Int(1, 0);
                 
-                case PlacedObject.Dir.Up: return new Vector2Int(_selectedObjectType.height, _selectedObjectType.width);
+                case PlacedObject.Dir.Up: return new Vector2Int(1,1);
                 
-                case PlacedObject.Dir.Right: return new Vector2Int(0, _selectedObjectType.height);
+                case PlacedObject.Dir.Right: return new Vector2Int(0, 1);
             }
         }
 

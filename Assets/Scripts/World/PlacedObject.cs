@@ -1,35 +1,36 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 using World.PlacedObjectTypes;
 
 namespace World
 {
     public class PlacedObject : MonoBehaviour
     {
-        public static PlacedObject Create(Vector3 gridPosition, Dir direction, PlacedObjectType placedObjectType)
+        public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectType placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
             
             var placedObjectInstance = Instantiate(placedObjectType.prefab,  gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
-            
-            var placedObject = placedObjectInstance.GetComponent<PlacedObject>();
-            
-            //placedObjectInstance.rotation = Quaternion.Euler(0, 0, placedObject.GetRotationAngle(direction));
 
-            //var rotationOffset = placedObject.GetRotationOffset(direction);
-            
-            //placedObjectInstance.position = new Vector3(-rotationOffset.x, -rotationOffset.y, 0f);
+            var placedObject = placedObjectInstance.GetComponent<PlacedObject>();
 
             placedObject.spriteRenderer.sprite = placedObjectType.texture;
 
             placedObject.placedObjectType = placedObjectType;
-            
-            placedObject.gridPosition = gridPosition;
-            
+
             placedObject.direction = direction;
 
-            placedObject.GridObject =
-                new GridObject(placedObject, gridPosition, true, placedObjectType.walkable, placedObjectType.transparent);
+            placedObject.GridObjects = new List<GridObject>();
+            
+            placedObject.gridPositions = placedObject.GetGridPositions(origin, direction);
+
+            foreach (var position in placedObject.gridPositions)
+            {
+                var gridObject = new GridObject(placedObject, position, true, placedObjectType.walkable, placedObjectType.transparent);
+                
+                placedObject.GridObjects.Add(gridObject);
+            }
 
             return placedObject;
         }
@@ -88,11 +89,13 @@ namespace World
 
         protected PlacedObjectType placedObjectType;
 
-        protected Vector3 gridPosition;
+        protected List<Vector3> gridPositions;
         
         protected Dir direction;
         
-        public GridObject GridObject { get; private set; }
+        public List<GridObject> GridObjects { get; private set; }
+        
+        public SpriteRenderer SpriteRenderer => spriteRenderer;
 
         public int GetRotationAngle(Dir dir)
         {
@@ -124,35 +127,55 @@ namespace World
             }
         }
 
-        public List<Vector2Int> GetGridPositions(Vector2Int origin, Dir dir)
+        public List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
         {
-            var gridPositionList = new List<Vector2Int>();
+            var gridPositionList = new List<Vector3>();
             
             switch (dir)
             {
                 default:
                 case Dir.Down:
-                case Dir.Up:
                     for (var x = 0; x < placedObjectType.width; x++)
                     {
                         for (var y = 0; y < placedObjectType.height; y++)
                         {
-                            gridPositionList.Add(origin + new Vector2Int(x, y));
+                            gridPositionList.Add(new Vector3(origin.x, origin.y) + new Vector3(x, y));
+                        }
+                    }
+
+                    break;
+                
+                case Dir.Up:
+                    for (var x = placedObjectType.width - 1; x >= 0; x--)
+                    {
+                        for (var y = placedObjectType.height - 1; y >= 0; y--)
+                        {
+                            gridPositionList.Add(new Vector3(origin.x, origin.y) - new Vector3(x, y));
                         }
                     }
 
                     break;
                 
                 case Dir.Left:
-                case Dir.Right:
                     for (var x = 0; x < placedObjectType.height; x++)
                     {
                         for (var y = 0; y < placedObjectType.width; y++)
                         {
-                            gridPositionList.Add(origin + new Vector2Int(x, y));
+                            gridPositionList.Add(new Vector3(origin.x, origin.y) + new Vector3(x, y));
                         }
                     }
 
+                    break;
+                
+                case Dir.Right:
+                    for (var x = placedObjectType.height - 1; x >= 0; x--)
+                    {
+                        for (var y = placedObjectType.width - 1; y >= 0; y--)
+                        {
+                            gridPositionList.Add(new Vector3(origin.x, origin.y) - new Vector3(x, y));
+                        }
+                    }
+                    
                     break;
             }
 

@@ -6,6 +6,8 @@ namespace World
 {
     public class GhostObject : MonoBehaviour
     {
+        private const string GhostObjectLayerName = "GhostObject";
+        
         private Transform _instance;
     
         private PlacedObjectType _placedObjectType;
@@ -23,7 +25,7 @@ namespace World
         private void LateUpdate()
         {
             var targetPosition = _gridBuildingSystem.GetMouseWorldSnappedPosition();
-            
+
             transform.position = Vector3.Lerp(transform.position, targetPosition, UnityEngine.Time.deltaTime * 25f);
 
             transform.rotation = Quaternion.Lerp(transform.rotation, _gridBuildingSystem.GetObjectRotation(), UnityEngine.Time.deltaTime * 25f);
@@ -60,6 +62,12 @@ namespace World
             
                 _instance.localEulerAngles = Vector3.zero;
                 
+                var placedObjectGhost = _instance.GetComponent<PlacedObject>();
+
+                placedObjectGhost.SpriteRenderer.sprite = objectType.texture;
+
+                placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
+                
                 Show();
             }
         }
@@ -72,7 +80,6 @@ namespace World
             {
                 default:
                 case PlacedObject.Dir.Down:
-                case PlacedObject.Dir.Up:
                     for (var x = 0; x < _placedObjectType.width; x++)
                     {
                         for (var y = 0; y < _placedObjectType.height; y++)
@@ -83,8 +90,18 @@ namespace World
 
                     break;
                 
+                case PlacedObject.Dir.Up:
+                    for (var x = _placedObjectType.width - 1; x >= 0; x--)
+                    {
+                        for (var y = _placedObjectType.height - 1; y >= 0; y--)
+                        {
+                            gridPositionList.Add(origin - new Vector2Int(x, y));
+                        }
+                    }
+
+                    break;
+                
                 case PlacedObject.Dir.Left:
-                case PlacedObject.Dir.Right:
                     for (var x = 0; x < _placedObjectType.height; x++)
                     {
                         for (var y = 0; y < _placedObjectType.width; y++)
@@ -93,6 +110,17 @@ namespace World
                         }
                     }
 
+                    break;
+                
+                case PlacedObject.Dir.Right:
+                    for (var x = _placedObjectType.height - 1; x >= 0; x--)
+                    {
+                        for (var y = _placedObjectType.width - 1; y >= 0; y--)
+                        {
+                            gridPositionList.Add(origin - new Vector2Int(x, y));
+                        }
+                    }
+                    
                     break;
             }
 

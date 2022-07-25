@@ -36,6 +36,14 @@ namespace World
             return gridObject == null;
         }
         
+        public void PlacePlacedObject(PlacedObject placedObject)
+        {
+            foreach (var gridObject in placedObject.GridObjects)
+            {
+                PlaceGridObject(gridObject);
+            }
+        }
+        
         public void PlaceGridObjectAt(Coord gridPosition, GridObject gridObject)
         {
             gridObject.Position = gridPosition;
@@ -49,6 +57,20 @@ namespace World
             else
             {
                 Debug.Log($"Failed to place object at {gridPosition}");
+            }
+        }
+        
+        private void PlaceGridObject(IGameObject gridObject)
+        {
+            var placed = AddEntity(gridObject);
+
+            if (placed)
+            {
+                Debug.Log($"Placed object at {gridObject.Position.ToString()}");
+            }
+            else
+            {
+                Debug.Log($"Failed to place object at {gridObject.Position.ToString()}");
             }
         }
     }
