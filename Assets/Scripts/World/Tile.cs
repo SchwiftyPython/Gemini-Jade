@@ -1,55 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
-using GoRogue.GameFramework;
 using UnityEngine;
 using World.TileTypes;
-using GameObject = GoRogue.GameFramework.GameObject;
+using Random = UnityEngine.Random;
 
 namespace World
 {
-    public class Tile : IGameObject
+    public class Tile : BaseObject
     {
-        protected IGameObject _backingField;
-
-        public uint ID => _backingField.ID;
-
-        public int Layer => _backingField.Layer;
-        
-        public Map CurrentMap => _backingField.CurrentMap;
-
-        public bool IsStatic => _backingField.IsStatic;
-
-        public bool IsTransparent 
-        {
-            get => _backingField.IsTransparent;
-            set => _backingField.IsTransparent = value;
-        }
-
-        public bool IsWalkable 
-        {
-            get => _backingField.IsWalkable;
-            set => _backingField.IsWalkable = value;
-        }
-
-        public Coord Position 
-        {
-            get => _backingField.Position;
-            set => _backingField.Position = value;
-        }
-
-        public event EventHandler<ItemMovedEventArgs<IGameObject>> Moved 
-        {
-            add => _backingField.Moved += value;
-            remove => _backingField.Moved -= value;
-        }
-        
-        public Sprite Texture { get; set; }
-
-        public UnityEngine.GameObject SpriteInstance { get; private set; }
-        
-        
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -62,19 +21,11 @@ namespace World
         /// </summary>
         /// <param name="tileType">Tile's <see cref="TileType"/>.</param>
         /// <param name="position">Tile's position.</param>
-        public Tile(Coord position, TileType tileType)
+        public Tile(Coord position, TileType tileType) : base(position, (int) MapLayer.Terrain,  true, tileType.walkable, tileType.transparent)
         {
-            _backingField = new GameObject(position, 0, this, true,
-                tileType.walkable, tileType.transparent);
-            
-            Texture = tileType.GetTexture();
+            Texture = ChooseTexture(tileType);
         }
-        
-        public void SetSpriteInstance(UnityEngine.GameObject instance)
-        {
-            SpriteInstance = instance;
-        }
-        
+
         public Tile GetAdjacentTileByDirection(Direction direction)
         {
             var neighbors = AdjacencyRule.EIGHT_WAY.NeighborsClockwise(Position, direction);
@@ -103,54 +54,32 @@ namespace World
             return tiles;
         }
 
-        public void AddComponent(object component)
+        protected override Sprite GetTextureFrom(ScriptableObject objectType)
         {
-            _backingField.AddComponent(component);
+            var tileType = objectType as TileType;
+
+            return tileType == null ? base.GetTextureFrom(objectType) : ChooseTexture(tileType);
         }
 
-        public T GetComponent<T>()
+        /// <summary>
+        /// Gets a random Sprite that's assigned to the TileType.
+        /// </summary>
+        /// <returns>A random Sprite that's assigned to the TileType.</returns>
+        private static Sprite ChooseTexture(TileType tileType)
         {
-            return _backingField.GetComponent<T>();
-        }
+            if (tileType.Textures == null)
+            {
+                Debug.LogError($"No texture defined for {tileType.name}");
+                return null;
+            }
 
-        public IEnumerable<T> GetComponents<T>()
-        {
-            return _backingField.GetComponents<T>();
-        }
+            if (tileType.Textures.Any())
+            {
+                return tileType.Textures[Random.Range(0, tileType.Textures.Length)];
+            }
 
-        public bool HasComponent(Type componentType)
-        {
-            return _backingField.HasComponent(componentType);
-        }
-
-        public bool HasComponent<T>()
-        {
-            return _backingField.HasComponent<T>();
-        }
-
-        public bool HasComponents(params Type[] componentTypes)
-        {
-            return _backingField.HasComponents(componentTypes);
-        }
-
-        public void RemoveComponent(object component)
-        {
-            _backingField.RemoveComponent(component);
-        }
-
-        public void RemoveComponents(params object[] components)
-        {
-            _backingField.RemoveComponents(components);
-        }
-
-        public bool MoveIn(Direction direction)
-        {
-            return _backingField.MoveIn(direction);
-        }
-
-        public void OnMapChanged(Map newMap)
-        {
-            _backingField.OnMapChanged(newMap);
+            Debug.LogError($"No texture defined for {tileType.name}");
+            return null;
         }
     }
 }

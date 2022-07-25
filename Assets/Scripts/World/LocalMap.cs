@@ -1,5 +1,7 @@
 using GoRogue;
 using GoRogue.GameFramework;
+using UnityEngine;
+using World.PlacedObjectTypes;
 
 namespace World
 {
@@ -20,6 +22,56 @@ namespace World
         public Tile GetTileAt(Coord position)
         {
             return OutOfBounds(position) ? null : GetTerrain<Tile>(position);
+        }
+        
+        public GridObject GetGridObjectAt(Coord position)
+        {
+            return OutOfBounds(position) ? null : GetEntity<GridObject>(position);
+        }
+
+        public bool CanPlaceGridObjectAt(Coord gridPosition)
+        {
+            var gridObject = GetGridObjectAt(gridPosition);
+
+            return gridObject == null;
+        }
+        
+        public void PlacePlacedObject(PlacedObject placedObject)
+        {
+            foreach (var gridObject in placedObject.GridObjects)
+            {
+                PlaceGridObject(gridObject);
+            }
+        }
+        
+        public void PlaceGridObjectAt(Coord gridPosition, GridObject gridObject)
+        {
+            gridObject.Position = gridPosition;
+
+            var placed = AddEntity(gridObject);
+
+            if (placed)
+            {
+                Debug.Log($"Placed object at {gridPosition}");
+            }
+            else
+            {
+                Debug.Log($"Failed to place object at {gridPosition}");
+            }
+        }
+        
+        private void PlaceGridObject(IGameObject gridObject)
+        {
+            var placed = AddEntity(gridObject);
+
+            if (placed)
+            {
+                Debug.Log($"Placed object at {gridObject.Position.ToString()}");
+            }
+            else
+            {
+                Debug.Log($"Failed to place object at {gridObject.Position.ToString()}");
+            }
         }
     }
 }

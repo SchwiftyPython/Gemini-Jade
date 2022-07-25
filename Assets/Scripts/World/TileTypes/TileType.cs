@@ -15,6 +15,8 @@ namespace World.TileTypes
         /// The textures available for the TileType.
         /// </summary>
         [SerializeField] private Sprite[] textures;
+        
+        public Sprite[] Textures => textures;
 
         /// <summary>
         /// Whether or not the object is considered "transparent", eg. whether or not light passes through it.
@@ -36,27 +38,6 @@ namespace World.TileTypes
         public Tile NewTile(Coord position)
         {
             return new Tile(position, this);
-        }
-
-        /// <summary>
-        /// Gets a random Sprite that's assigned to the TileType.
-        /// </summary>
-        /// <returns>A random Sprite that's assigned to the TileType.</returns>
-        public Sprite GetTexture()
-        {
-            if (textures == null)
-            {
-                Debug.LogError($"No texture defined for {name}");
-                return null;
-            }
-
-            if (textures.Any())
-            {
-                return textures[Random.Range(0, textures.Length)];
-            }
-
-            Debug.LogError($"No texture defined for {name}");
-            return null;
         }
     }
 }
