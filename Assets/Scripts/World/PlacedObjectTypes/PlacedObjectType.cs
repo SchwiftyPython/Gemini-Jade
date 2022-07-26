@@ -11,6 +11,8 @@ namespace World.PlacedObjectTypes
 
         public Sprite texture; //todo could make this a dictionary for all the different material types or do a recolor with shader
         
+        public Sprite blueprintTexture;
+        
         /// <summary>
         /// Whether or not the object is considered "transparent", eg. whether or not light passes through it.
         /// </summary>

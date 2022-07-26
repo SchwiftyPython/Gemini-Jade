@@ -15,6 +15,7 @@ MonoBehaviour:
   label: Wall Test
   prefab: {fileID: 674682465395995725, guid: ed4b1146b586f9141b46b391c162e822, type: 3}
   texture: {fileID: 1763610685, guid: e2fc42738f9c21b4890551222adc24a4, type: 3}
+  blueprintTexture: {fileID: 21300000, guid: 862f1926c0acb2d4e9ed88a89ba2d9cc, type: 3}
   transparent: 0
   walkable: 0
   width: 1

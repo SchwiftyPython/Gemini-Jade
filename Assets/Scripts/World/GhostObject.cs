@@ -63,8 +63,10 @@ namespace World
                 _instance.localEulerAngles = Vector3.zero;
                 
                 var placedObjectGhost = _instance.GetComponent<PlacedObject>();
+                
+                //todo need to check if it has a blueprint. If not skip the blueprint texture
 
-                placedObjectGhost.SpriteRenderer.sprite = objectType.texture;
+                placedObjectGhost.SpriteRenderer.sprite = objectType.blueprintTexture;
 
                 placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
                 

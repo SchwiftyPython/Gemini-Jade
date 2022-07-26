@@ -14,6 +14,8 @@ namespace World
             var placedObjectInstance = Instantiate(placedObjectType.prefab,  gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
 
             var placedObject = placedObjectInstance.GetComponent<PlacedObject>();
+            
+            //todo need to check if it has a blueprint. If not skip the blueprint texture
 
             placedObject.spriteRenderer.sprite = placedObjectType.texture;
 
