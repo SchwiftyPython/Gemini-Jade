@@ -4,17 +4,17 @@ using UI.Grid;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utilities;
-using World.PlacedObjectTypes;
+using World.Things.CraftableThings;
 
 namespace World
 {
     public class GridBuildingSystem : MonoBehaviour
     {
         public event EventHandler OnSelectedChanged;
-    
-        private LocalMap _localMap;
-    
-        private PlacedObjectType _selectedObjectType;
+
+        public LocalMap LocalMap { get; private set; }
+
+        private PlacedObjectTemplate _selectedObjectType;
         
         [SerializeField] private GhostObject ghostObject;
 
@@ -39,7 +39,7 @@ namespace World
 
                 foreach (var gridPosition in gridPositions)
                 {
-                    if (!_localMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
+                    if (!LocalMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
                     {
                         canPlace = false;
                         break;
@@ -53,7 +53,7 @@ namespace World
                         var placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
                             _selectedObjectType);
                     
-                        _localMap.PlacePlacedObject(placedObject);
+                        LocalMap.PlacePlacedObject(placedObject);
                     }
                 }
 
@@ -96,7 +96,7 @@ namespace World
         
         public void SetLocalMap(LocalMap localMap)
         {
-            _localMap = localMap;
+            LocalMap = localMap;
         }
         
         public Quaternion GetObjectRotation()
@@ -156,7 +156,7 @@ namespace World
             ghostObject.Hide();
         }
 
-        private void OnObjectSelected(PlacedObjectType objectType)
+        private void OnObjectSelected(PlacedObjectTemplate objectType)
         {
             if (objectType == null)
             {

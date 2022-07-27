@@ -1,8 +1,9 @@
+using UnityEngine;
 using World.Pawns.Health.DamageWorkers;
 
 namespace World.Things
 {
-    public class Thing
+    public class Thing : BaseObject
     {
         private int _hitPoints;
         
@@ -13,6 +14,15 @@ namespace World.Things
         public int id = -1;
         
         public bool spawned;
+
+        protected Thing(Vector3 position, MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent) : base(position,
+            layer, isStatic, isWalkable, isTransparent)
+        {
+        }
+
+        protected Thing()
+        {
+        }
 
         public virtual int HitPoints
         {

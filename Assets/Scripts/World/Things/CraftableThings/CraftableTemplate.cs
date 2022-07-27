@@ -4,9 +4,11 @@ using UnityEngine;
 namespace World.Things.CraftableThings
 {
     [CreateAssetMenu(menuName = "Templates/Create CraftableTemplate", fileName = "CraftableTemplate")]
-    public class CraftableTemplate : Template
+    public class CraftableTemplate : ThingTemplate
     {
-        //todo
+        public int workToMake;
+        
+        //todo materials
     }
 
 }

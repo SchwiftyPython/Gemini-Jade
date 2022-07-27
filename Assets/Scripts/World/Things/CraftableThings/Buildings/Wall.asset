@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d095336e3f280b34692ce6b4959cb828, type: 3}
-  m_Name: Building
+  m_Script: {fileID: 11500000, guid: 1cbc60a73a1fbc545bbb5dd6040f3179, type: 3}
+  m_Name: Wall
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -26,24 +26,32 @@ MonoBehaviour:
       Data: 0|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: UnityEngine.Rendering.VirtualTexturingEditor.Building, UnityEditor.CoreModule
+      Data: World.Things.CraftableThings.Buildings.Building, Assembly-CSharp
     - Name: 
       Entry: 8
       Data: 
-  templateName: Building
-  label: 
-  description: 
-  parent: {fileID: 0}
-  _category: {fileID: 0}
+  templateName: Wall
+  label: wall
+  description: Your standard wall.
+  parent: {fileID: 11400000, guid: 4f1102d8b7a3455499158d210233b9a7, type: 2}
+  _category: {fileID: 11400000, guid: bf44c11f405b00d40a7ff7c99a96e516, type: 2}
   _layer: 3
   _tickerType: {fileID: 0}
   _stackLimit: -1
-  _maxHitPoints: -1
-  _flammability: -1
+  _maxHitPoints: 450
+  _flammability: 1
   _beauty: -2147483648
   _mass: -1
   _parts: []
+  prefab: {fileID: 0}
+  texture: {fileID: 1763610685, guid: e2fc42738f9c21b4890551222adc24a4, type: 3}
   destroyable: 1
   rotatable: 1
   useHitPoints: 1
   selectable: 1
+  transparent: 0
+  walkable: 0
+  workToMake: 100
+  blueprintTexture: {fileID: 21300000, guid: 862f1926c0acb2d4e9ed88a89ba2d9cc, type: 3}
+  width: 1
+  height: 1

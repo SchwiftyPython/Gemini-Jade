@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using World.PlacedObjectTypes;
+using World.Things.CraftableThings;
 
 namespace World
 {
@@ -10,7 +10,7 @@ namespace World
         
         private Transform _instance;
     
-        private PlacedObjectType _placedObjectType;
+        private PlacedObjectTemplate _placedObjectType;
         
         private GridBuildingSystem _gridBuildingSystem;
 
@@ -43,7 +43,7 @@ namespace World
             transform.position = Vector3.zero;
         }
 
-        public void Setup(PlacedObjectType objectType)
+        public void Setup(PlacedObjectTemplate objectType)
         {
             if (_instance != null)
             {
@@ -52,27 +52,31 @@ namespace World
                 _instance = null;
             }
 
-            if (objectType != null)
+            if (objectType == null)
             {
-                _placedObjectType = objectType;
-            
-                _instance = Instantiate(_placedObjectType.prefab, Vector3.zero, Quaternion.identity, transform);
-            
-                _instance.localPosition = Vector3.zero;
-            
-                _instance.localEulerAngles = Vector3.zero;
-                
-                var placedObjectGhost = _instance.GetComponent<PlacedObject>();
-                
-                //todo need to check if it has a blueprint. If not skip the blueprint texture
-
-                placedObjectGhost.SpriteRenderer.sprite = objectType.blueprintTexture;
-
-                placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
-                
-                Show();
+                return;
             }
+
+            _placedObjectType = objectType;
+            
+            _instance = Instantiate(_placedObjectType.Prefab, Vector3.zero, Quaternion.identity, transform);
+            
+            _instance.localPosition = Vector3.zero;
+            
+            _instance.localEulerAngles = Vector3.zero;
+                
+            var placedObjectGhost = _instance.GetComponent<PlacedObject>();
+                
+            placedObjectGhost.SpriteRenderer.sprite = NeedsToBeMade
+                ? objectType.blueprintTexture
+                : objectType.texture;
+
+            placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
+                
+            Show();
         }
+        
+        public bool NeedsToBeMade => _placedObjectType.workToMake > 0;
         
         public List<Vector2Int> GetGridPositions(Vector2Int origin, PlacedObject.Dir dir)
         {
@@ -129,7 +133,7 @@ namespace World
             return gridPositionList;
         }
 
-        private void OnObjectSelected(PlacedObjectType objectType)
+        private void OnObjectSelected(PlacedObjectTemplate objectType)
         {
             if (_instance != null)
             {
@@ -142,7 +146,7 @@ namespace World
             {
                 _placedObjectType = objectType;
             
-                _instance = Instantiate(_placedObjectType.prefab, Vector3.zero, Quaternion.identity, transform);
+                _instance = Instantiate(_placedObjectType.Prefab, Vector3.zero, Quaternion.identity, transform);
             
                 _instance.localPosition = Vector3.zero;
             

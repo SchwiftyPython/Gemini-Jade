@@ -1,15 +1,27 @@
 using UnityEngine;
+using World.Things;
 
 namespace World
 {
-    public class GridObject : BaseObject
+    public class GridObject : Thing
     {
-        private PlacedObject _placedObject;
-        
+        public PlacedObject PlacedObject { get; }
+
         public GridObject(PlacedObject placedObject, Vector3 position, bool isStatic, bool isWalkable, bool isTransparent) : base(position,
             MapLayer.GridObject, isStatic, isWalkable, isTransparent)
         {
-            _placedObject = placedObject;
+            PlacedObject = placedObject;
+        }
+        
+        public GridObject(PlacedObject placedObject, MapLayer layer, Vector3 position, bool isStatic, bool isWalkable, bool isTransparent) : base(position,
+            layer, isStatic, isWalkable, isTransparent)
+        {
+            PlacedObject = placedObject;
+        }
+
+        public bool IsBlueprint()
+        {
+            return PlacedObject.NeedsToBeMade;
         }
     }
 }

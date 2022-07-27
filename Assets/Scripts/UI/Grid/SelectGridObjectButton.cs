@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-using World.PlacedObjectTypes;
+using World.Things.CraftableThings;
 
 namespace UI.Grid
 {
     [RequireComponent(typeof(Button))]
     public class SelectGridObjectButton : MonoBehaviour
     {
-        public static event System.Action<PlacedObjectType> OnObjectSelected;
+        public static event System.Action<PlacedObjectTemplate> OnObjectSelected;
         
-        [SerializeField] private PlacedObjectType placedObjectType;
+        [SerializeField] private PlacedObjectTemplate placedObjectType;
 
         private void Start()
         {
