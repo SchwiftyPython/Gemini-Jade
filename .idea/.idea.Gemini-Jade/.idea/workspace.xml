@@ -2,56 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTemplates.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTemplates/WallTest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTemplates/WallTest.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Furniture.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Furniture/2x1TableTest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Furniture/2x1TableTest.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/PlacedObjectTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/PlacedObjectTemplate.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/Building.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/Building.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Blueprints.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Blueprints/Blueprint.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Blueprints/Blueprint.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Blueprints/Buildable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Blueprints/Buildable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/2x1TableTest.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/2x1TableTest.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/PlacedObjectType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/PlacedObjectType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/WallTest.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTypes/WallTest.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Buildables.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Buildables/Building.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Buildables/Building.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Buildables/Building.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Buildables/Building.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/CraftableTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/CraftableTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,10 +101,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17520">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17520" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -236,7 +187,7 @@
       <workItem from="1658745611674" duration="11210000" />
       <workItem from="1658831891476" duration="4374000" />
       <workItem from="1658922409626" duration="3542000" />
-      <workItem from="1658930826179" duration="6405000" />
+      <workItem from="1658930826179" duration="6841000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -525,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658849445968</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished.">
+      <created>1658939595087</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1658939595087</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +507,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss." />
     <MESSAGE value="Finished conversion to HealthModCollection.cs&#10;Blood loss shows up under Whole Body as intended, but not when an injury first happens. Probably need to trigger event somewhere." />
     <MESSAGE value="Added Master Scheduler Asset&#10;Added intervals to health mod adder checks&#10;Added Injury.cs" />
     <MESSAGE value="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet." />
@@ -574,6 +531,7 @@
     <MESSAGE value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
     <MESSAGE value="Can place 1 x 1 grid objects&#10;Can rotate 1 x 1 grid objects" />
     <MESSAGE value="Started working on blueprint functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started working on blueprint functionality" />
+    <MESSAGE value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
   </component>
 </project>

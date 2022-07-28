@@ -31,6 +31,11 @@ namespace World
 
         public bool CanPlaceGridObjectAt(Coord gridPosition)
         {
+            if (OutOfBounds(gridPosition))
+            {
+                return false;
+            }
+            
             var gridObject = GetGridObjectAt(gridPosition);
 
             return gridObject == null;
