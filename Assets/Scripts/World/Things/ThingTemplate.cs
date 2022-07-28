@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.World;
+using GoRogue.GameFramework;
 using Time.TickerTypes;
 using UnityEngine;
-using World.Things.CraftableThings;
+using UnityEngine.Serialization;
 using World.Things.Parts;
 using World.Things.ThingCategories;
 
 namespace World.Things
 {
-    [CreateAssetMenu(menuName = "Templates/ThingTemplate")]
-    public class ThingTemplate : CraftableTemplate
+    [CreateAssetMenu(menuName = "Templates/Thing Template")]
+    public class ThingTemplate : Template
     {
         [SerializeField] private ThingTemplate parent;
         
@@ -37,6 +39,11 @@ namespace World.Things
         
         //stats end 
 
+        [SerializeField] private Transform prefab;
+        public Transform Prefab => prefab == null ? parent.Prefab : prefab;
+
+        public Sprite texture;
+
         public bool destroyable = true;
 
         public bool rotatable = true;
@@ -44,6 +51,18 @@ namespace World.Things
         public bool useHitPoints = true;
         
         public bool selectable = true;
+        
+        /// <summary>
+        /// Whether or not the object is considered "transparent", eg. whether or not light passes through it.
+        /// </summary>
+        public bool transparent;
+
+        /// <summary>
+        /// Whether or not the object is to be considered "walkable", eg. whether or not the square it resides
+        /// on can be traversed by other, non-walkable objects on the same <see cref="Map"/>.  Effectively, whether or not this
+        /// object collides.
+        /// </summary>
+        public bool walkable;
 
         //todo components and component properties
 

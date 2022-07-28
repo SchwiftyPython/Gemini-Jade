@@ -1,80 +1,60 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Utilities;
-using World.PlacedObjectTypes;
+using World.Things.CraftableThings;
 
 namespace World
 {
     public class PlacedObject : MonoBehaviour
     {
-        public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectType placedObjectType)
+        public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
-            
-            var placedObjectInstance = Instantiate(placedObjectType.prefab,  gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
+
+            var placedObjectInstance = Instantiate(placedObjectType.Prefab,
+                gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
 
             var placedObject = placedObjectInstance.GetComponent<PlacedObject>();
-
-            placedObject.spriteRenderer.sprite = placedObjectType.texture;
-
+            
             placedObject.placedObjectType = placedObjectType;
+
+            MapLayer layer;
+            bool walkable;
+            bool transparent;
+
+            placedObject.remainingWork = placedObjectType.workToMake;
+
+            if (placedObject.NeedsToBeMade)
+            {
+                placedObject.spriteRenderer.sprite = placedObjectType.blueprintTexture;
+
+                walkable = true;
+                
+                transparent = true;
+            }
+            else
+            {
+                placedObject.spriteRenderer.sprite = placedObjectType.texture;
+
+                walkable = placedObjectType.walkable;
+                
+                transparent = placedObjectType.transparent;
+            }
 
             placedObject.direction = direction;
 
             placedObject.GridObjects = new List<GridObject>();
-            
+
             placedObject.gridPositions = placedObject.GetGridPositions(origin, direction);
 
             foreach (var position in placedObject.gridPositions)
             {
-                var gridObject = new GridObject(placedObject, position, true, placedObjectType.walkable, placedObjectType.transparent);
-                
+                var gridObject = new GridObject(placedObject, position, true, walkable,
+                    transparent);
+
                 placedObject.GridObjects.Add(gridObject);
             }
 
             return placedObject;
-        }
-
-        public static Dir GetNextDir(Dir dir)
-        {
-            switch (dir)
-            {
-                default:
-                case Dir.Down: return Dir.Left;
-                case Dir.Left: return Dir.Up;
-                case Dir.Up: return Dir.Right;
-                case Dir.Right: return Dir.Down;
-            }
-        }
-
-        public static Vector2Int GetDirForwardVector(Dir dir)
-        {
-            switch (dir)
-            {
-                default:
-                case Dir.Down: return new Vector2Int(0, -1);
-                
-                case Dir.Left: return new Vector2Int(-1, 0);
-                
-                case Dir.Up: return new Vector2Int(0, +1);
-                
-                case Dir.Right: return new Vector2Int(+1, 0);
-            }
-        }
-
-        public static Dir GetDir(Vector2Int from, Vector2Int to)
-        {
-            if (from.x < to.x)
-            {
-                return Dir.Right;
-            }
-
-            if (from.x > to.x)
-            {
-                return Dir.Left;
-            }
-
-            return from.y < to.y ? Dir.Up : Dir.Down;
         }
 
         public enum Dir 
@@ -87,45 +67,19 @@ namespace World
         
         [SerializeField] protected SpriteRenderer spriteRenderer;
 
-        protected PlacedObjectType placedObjectType;
+        protected PlacedObjectTemplate placedObjectType;
 
         protected List<Vector3> gridPositions;
         
         protected Dir direction;
+
+        protected int remainingWork;
         
         public List<GridObject> GridObjects { get; private set; }
         
         public SpriteRenderer SpriteRenderer => spriteRenderer;
-
-        public int GetRotationAngle(Dir dir)
-        {
-            switch (dir)
-            {
-                default:
-                case Dir.Down: return 0;
-                
-                case Dir.Left: return 90;
-                
-                case Dir.Up: return 180;
-                
-                case Dir.Right: return 270;
-            }
-        }
-
-        public Vector2Int GetRotationOffset(Dir dir)
-        {
-            switch (dir)
-            {
-                default:
-                case Dir.Down: return new Vector2Int(0, 0);
-                
-                case Dir.Left: return new Vector2Int(0, placedObjectType.width);
-                
-                case Dir.Up: return new Vector2Int(placedObjectType.width, placedObjectType.height);
-                
-                case Dir.Right: return new Vector2Int(placedObjectType.height, 0);
-            }
-        }
+        
+        public bool NeedsToBeMade => remainingWork > 0;
 
         public List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
         {
@@ -180,6 +134,18 @@ namespace World
             }
 
             return gridPositionList;
+        }
+
+        public void Make()
+        {
+            SpriteRenderer.sprite = placedObjectType.texture;
+
+            foreach (var gridObject in GridObjects)
+            {
+                gridObject.IsWalkable = placedObjectType.walkable;
+                
+                gridObject.IsTransparent = placedObjectType.transparent;
+            }
         }
     }
 }

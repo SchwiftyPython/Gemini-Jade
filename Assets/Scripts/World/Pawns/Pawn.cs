@@ -29,7 +29,7 @@ namespace World.Pawns
 
         public bool IsAnimal => !ToolUser && IsOrganic;
 
-        public Pawn(SpeciesTemplate speciesTemplate)
+        public Pawn(SpeciesTemplate speciesTemplate) : base()
         {
             species = speciesTemplate;
 
