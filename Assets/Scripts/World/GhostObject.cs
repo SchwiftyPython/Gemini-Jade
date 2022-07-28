@@ -9,6 +9,8 @@ namespace World
         private const string GhostObjectLayerName = "GhostObject";
         
         private Transform _instance;
+
+        private PlacedObject _placedObjectGhost;
     
         private PlacedObjectTemplate _placedObjectType;
         
@@ -65,18 +67,28 @@ namespace World
             
             _instance.localEulerAngles = Vector3.zero;
                 
-            var placedObjectGhost = _instance.GetComponent<PlacedObject>();
+            _placedObjectGhost = _instance.GetComponent<PlacedObject>();
                 
-            placedObjectGhost.SpriteRenderer.sprite = NeedsToBeMade
+            _placedObjectGhost.SpriteRenderer.sprite = NeedsToBeMade
                 ? objectType.blueprintTexture
                 : objectType.texture;
 
-            placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
+            _placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
                 
             Show();
         }
         
         public bool NeedsToBeMade => _placedObjectType.workToMake > 0;
+
+        public void ColorSpriteRed()
+        {
+            _placedObjectGhost.SpriteRenderer.color = Color.red;
+        }
+
+        public void ColorSpriteWhite()
+        {
+            _placedObjectGhost.SpriteRenderer.color = Color.white;
+        }
         
         public List<Vector2Int> GetGridPositions(Vector2Int origin, PlacedObject.Dir dir)
         {

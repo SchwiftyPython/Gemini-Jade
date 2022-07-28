@@ -48,6 +48,8 @@ namespace World
 
                 if (canPlace)
                 {
+                    ghostObject.ColorSpriteWhite();
+                    
                     if (Mouse.current.leftButton.isPressed)
                     {
                         var placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
@@ -55,6 +57,10 @@ namespace World
                     
                         LocalMap.PlacePlacedObject(placedObject);
                     }
+                }
+                else
+                {
+                    ghostObject.ColorSpriteRed();
                 }
 
                 if (Keyboard.current.rKey.wasPressedThisFrame)

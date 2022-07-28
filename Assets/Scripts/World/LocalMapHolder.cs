@@ -36,7 +36,7 @@ namespace World
                     var tile = map.GetTerrain<Tile>(coord);
 
                     var tileInstance = Instantiate(terrainSlotPrefab, new Vector2(currentColumn, currentRow),
-                        Quaternion.identity);
+                        Quaternion.identity, transform);
 
                     tileInstance.GetComponentInChildren<SpriteRenderer>().sprite = tile.Texture;
 
