@@ -43,7 +43,7 @@ MonoBehaviour:
   _beauty: -2147483648
   _mass: -1
   _parts: []
-  prefab: {fileID: 0}
+  prefab: {fileID: 674682465395995725, guid: adb5b5e46db546f41b5ae7c89980b99e, type: 3}
   texture: {fileID: 1763610685, guid: e2fc42738f9c21b4890551222adc24a4, type: 3}
   destroyable: 1
   rotatable: 1
@@ -55,3 +55,4 @@ MonoBehaviour:
   blueprintTexture: {fileID: 21300000, guid: 862f1926c0acb2d4e9ed88a89ba2d9cc, type: 3}
   width: 1
   height: 1
+  isWall: 1

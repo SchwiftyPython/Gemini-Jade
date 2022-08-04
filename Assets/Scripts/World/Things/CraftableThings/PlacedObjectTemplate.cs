@@ -10,5 +10,7 @@ namespace World.Things.CraftableThings
         public int width = 1;
     
         public int height = 1;
+
+        public bool isWall = false;
     }
 }

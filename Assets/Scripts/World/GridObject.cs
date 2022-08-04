@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utilities;
 using World.Things;
 
 namespace World
@@ -22,6 +23,24 @@ namespace World
         public bool IsBlueprint()
         {
             return PlacedObject.NeedsToBeMade;
+        }
+        
+        public bool IsWall()
+        {
+            var wallObject = PlacedObject as WallPlacedObject;
+            
+            return wallObject != null;
+        }
+
+        public bool HasWallNeighborTo(BitMaskDirection bitMaskDirection)
+        {
+            var mapDirection = bitMaskDirection.ToMapDirection();
+
+            var targetCoord = Position + mapDirection;
+            
+            var neighbor = Object.FindObjectOfType<GridBuildingSystem>().LocalMap.GetGridObjectAt(targetCoord);
+            
+            return neighbor != null && neighbor.IsWall();
         }
     }
 }

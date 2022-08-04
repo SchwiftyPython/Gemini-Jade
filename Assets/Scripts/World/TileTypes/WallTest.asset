@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2efea5154d6f9049be1e68e335231db, type: 3}
   m_Name: WallTest
   m_EditorClassIdentifier: 
-  textures:
-  - {fileID: 1763610685, guid: e2fc42738f9c21b4890551222adc24a4, type: 3}
+  textures: []
   transparent: 0
   walkable: 0

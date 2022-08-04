@@ -65,17 +65,17 @@ namespace World
             Right,
         }
         
-        [SerializeField] protected SpriteRenderer spriteRenderer;
+        [SerializeField] protected internal SpriteRenderer spriteRenderer;
 
-        protected PlacedObjectTemplate placedObjectType;
+        protected internal PlacedObjectTemplate placedObjectType;
 
-        protected List<Vector3> gridPositions;
+        protected internal List<Vector3> gridPositions;
         
-        protected Dir direction;
+        protected internal Dir direction;
 
-        protected int remainingWork;
+        protected internal int remainingWork;
         
-        public List<GridObject> GridObjects { get; private set; }
+        public List<GridObject> GridObjects { get; internal set; }
         
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         
@@ -136,7 +136,7 @@ namespace World
             return gridPositionList;
         }
 
-        public void Make()
+        public virtual void Make()
         {
             SpriteRenderer.sprite = placedObjectType.texture;
 

@@ -11,7 +11,14 @@ namespace Utilities
 
             foreach (var blueprint in blueprints)
             {
-                blueprint.Make();
+                if (blueprint.placedObjectType.isWall)
+                {
+                    ((WallPlacedObject)blueprint).Make();
+                }
+                else
+                {
+                    blueprint.Make();
+                }
             }
         }
     }

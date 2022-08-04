@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UI.Grid;
 using UnityEngine;
@@ -10,6 +11,73 @@ namespace World
 {
     public class GridBuildingSystem : MonoBehaviour
     {
+        private static readonly Dictionary<int, int> BitMaskValueToIndex = new()
+        {
+            {0, 0},
+            {2, 1},
+            {16, 2},
+            {64, 3},
+            {8, 4},
+            {66, 5},
+            {24, 6},
+            {90, 7},
+            {10, 8},
+            {18, 9},
+            {80, 10},
+            {72, 11},
+            {11, 12},
+            {22, 13},
+            {208, 14},
+            {31, 15},
+            {214, 16},
+            {248, 17},
+            {107, 18},
+            {95, 19},
+            {123, 20},
+            {250, 21},
+            {222, 22},
+            {26, 23},
+            {82, 24},
+            {88, 25},
+            {74, 26},
+            {223, 27},
+            {254, 28},
+            {251, 29},
+            {127, 30},
+            {216, 31},
+            {120, 32},
+            {27, 33},
+            {30, 34},
+            {219, 35},
+            {94, 36},
+            {126, 37},
+            {218, 38},
+            {91, 39},
+            {122, 40},
+            {255, 41},
+            {210, 42},
+            {86, 43},
+            {75, 44},
+            {106, 45},
+            {104, 46}
+        };
+
+        public static int CalculateTileIndex(bool east, bool west, bool north, bool south, bool northWest,
+            bool northEast, bool southWest, bool southEast)
+        {
+            var direction = (east ? BitMaskDirection.East : 0) | (west ? BitMaskDirection.West : 0)  | (north ? BitMaskDirection.North : 0) | (south ? BitMaskDirection.South : 0);
+            
+            direction |= north && west && northWest ? BitMaskDirection.NorthWest : 0;
+            
+            direction |= north && east && northEast ? BitMaskDirection.NorthEast : 0;
+            
+            direction |= south && west && southWest ? BitMaskDirection.SouthWest : 0;
+            
+            direction |= south && east && southEast ? BitMaskDirection.SouthEast : 0;
+
+            return BitMaskValueToIndex[(int) direction];
+        }
+        
         public event EventHandler OnSelectedChanged;
 
         public LocalMap LocalMap { get; private set; }
@@ -52,9 +120,19 @@ namespace World
                     
                     if (Mouse.current.leftButton.isPressed)
                     {
-                        var placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
-                            _selectedObjectType);
-                    
+                        PlacedObject placedObject;
+                        
+                        if (_selectedObjectType.isWall)
+                        {
+                            placedObject = WallPlacedObject.Create(mousePosition.ToVector2Int(), _dir,
+                                _selectedObjectType);
+                        }
+                        else
+                        {
+                            placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
+                                _selectedObjectType);
+                        }
+
                         LocalMap.PlacePlacedObject(placedObject);
                     }
                 }
