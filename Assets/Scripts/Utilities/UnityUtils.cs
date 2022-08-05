@@ -20,6 +20,11 @@ namespace Utilities
         {
             return new Coord(position.x, position.y);
         }
+        
+        public static Coord ToCoord(this Vector3 position)
+        {
+            return new Coord((int) position.x, (int) position.y);
+        }
 
         public static Vector3 ToVector3(this Vector2Int position)
         {

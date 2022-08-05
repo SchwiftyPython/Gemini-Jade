@@ -116,5 +116,10 @@ namespace Utilities
 
             return default;
         }
+        
+        public static T[] EnumToArray<T>()
+        {
+            return (T[]) Enum.GetValues(typeof(T));
+        }
     }
 }

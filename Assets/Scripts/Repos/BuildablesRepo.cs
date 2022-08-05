@@ -18,7 +18,7 @@ namespace Repos
 
         [SerializeField] private Sprite testWallSpriteSheet;
 
-        private List<Sprite> _testWallSprites;
+        private Sprite[] _testWallSprites;
 
         private void Start()
         {
@@ -43,7 +43,7 @@ namespace Repos
 
         private void LoadWallSprites()
         {
-            _testWallSprites = new List<Sprite>();
+            _testWallSprites = new Sprite[NumWallSprites];
 
             int width = 32;
 
@@ -51,22 +51,30 @@ namespace Repos
 
             var numPerRow = 8;
 
-            var rowIndex = 0;
+            var colIndex = 0;
+
+            var rowIndex = 5;
 
             for (int i = 0; i < NumWallSprites; i++)
             {
-                if (rowIndex >= numPerRow)
+                if (colIndex >= numPerRow)
                 {
-                    rowIndex = 0;
+                    colIndex = 0;
+                    
+                    rowIndex--;
                 }
                 
-                var x = rowIndex * width;
+                var x = colIndex * width;
                 
-                var sprite = Sprite.Create(testWallSpriteSheet.texture, new Rect(x, 0, width, height), new Vector2(0.0f, 0.0f), 32);
+                var y = rowIndex * height;
                 
-                _testWallSprites.Add(sprite);
+                Debug.Log($"x: {x}, y: {y}");
+                
+                var sprite = Sprite.Create(testWallSpriteSheet.texture, new Rect(x, y, width, height), new Vector2(0.0f, 0.0f), 32);
 
-                rowIndex++;
+                _testWallSprites[i] = sprite;
+
+                colIndex++;
             }
         }
     }

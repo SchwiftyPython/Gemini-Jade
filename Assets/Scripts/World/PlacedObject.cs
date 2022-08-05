@@ -138,6 +138,8 @@ namespace World
 
         public virtual void Make()
         {
+            remainingWork = 0;
+            
             SpriteRenderer.sprite = placedObjectType.texture;
 
             foreach (var gridObject in GridObjects)

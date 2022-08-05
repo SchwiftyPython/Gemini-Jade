@@ -1,7 +1,11 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using GoRogue;
 using GoRogue.GameFramework;
 using UnityEngine;
+using Utilities;
 
 namespace World
 {
@@ -46,6 +50,11 @@ namespace World
             foreach (var gridObject in placedObject.GridObjects)
             {
                 PlaceGridObject(gridObject);
+            }
+
+            if (placedObject.placedObjectType.isWall)
+            {
+                UpdateNeighborWallTextures(placedObject.gridPositions.First().ToCoord());
             }
         }
         
@@ -110,6 +119,24 @@ namespace World
             else
             {
                 Debug.Log($"Failed to place object at {gridObject.Position.ToString()}");
+            }
+        }
+        
+        private void UpdateNeighborWallTextures(Coord coord)
+        {
+            foreach (var directionType in CollectionUtils.EnumToArray<Direction.Types>())
+            {
+                UpdateNeighborWallTexture(coord, Direction.ToDirection(directionType));
+            }
+        }
+
+        private void UpdateNeighborWallTexture(Coord coord, Direction direction)
+        {
+            var neighbor = GetGridObjectAt(coord + direction);
+            
+            if (neighbor != null && neighbor.PlacedObject.placedObjectType.isWall)
+            {
+                ((WallPlacedObject)neighbor.PlacedObject).UpdateTexture();
             }
         }
     }

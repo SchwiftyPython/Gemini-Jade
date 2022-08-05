@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Repos;
 using UnityEngine;
-using World.Pawns.Health.HealthModifiers;
 using World.Things.CraftableThings;
 
 namespace World
@@ -30,16 +29,12 @@ namespace World
 
             if (placedObject.NeedsToBeMade)
             {
-                placedObject.spriteRenderer.sprite = placedObjectType.blueprintTexture;
-
                 walkable = true;
                 
                 transparent = true;
             }
             else
             {
-                placedObject.spriteRenderer.sprite = placedObjectType.texture;
-
                 walkable = placedObjectType.walkable;
                 
                 transparent = placedObjectType.transparent;
@@ -78,15 +73,21 @@ namespace World
             {
                 //todo get blueprint sprite
                 SpriteRenderer.sprite = buildablesRepo.GetWallSpriteAt(tileIndex);
+                
+                SpriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
             }
             else
             {
                 SpriteRenderer.sprite = buildablesRepo.GetWallSpriteAt(tileIndex);
+                
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
         }
 
         public override void Make()
         {
+            remainingWork = 0;
+            
             UpdateTexture();
 
             GridObjects.First().IsWalkable = placedObjectType.walkable;
