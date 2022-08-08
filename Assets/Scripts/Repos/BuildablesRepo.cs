@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using GoRogue;
 using UnityEngine;
-using World;
 using World.TileTypes;
 
 namespace Repos
@@ -14,9 +11,15 @@ namespace Repos
     {
         private const int NumWallSprites = 47;
         
+        private const int Width = 32;
+
+        private const int Height = 32;
+
+        private const int NumPerRow = 8;
+        
         [SerializeField] private TileType wall;
 
-        [SerializeField] private Sprite testWallSpriteSheet;
+        [SerializeField] private Sprite testWallSpriteSheet; //todo need a collection of these for each material
 
         private Sprite[] _testWallSprites;
 
@@ -25,17 +28,6 @@ namespace Repos
             LoadWallSprites();
         }
 
-        /// <summary>
-        /// Get a new Wall <see cref="Tile"/> at given position.
-        /// </summary>
-        /// <param name="position">Given position.</param>
-        /// <returns>A Ground <see cref="Tile"/> at given position.</returns>
-        /// <remarks>Just for testing out grid system. Might work if we pass in wall type as a param.</remarks>
-        public Tile WallTile(Coord position)
-        {
-            return wall.NewTile(position);
-        }
-        
         public Sprite GetWallSpriteAt(int index)
         {
             return _testWallSprites[index];
@@ -45,32 +37,25 @@ namespace Repos
         {
             _testWallSprites = new Sprite[NumWallSprites];
 
-            int width = 32;
-
-            int height = 32;
-
-            var numPerRow = 8;
-
             var colIndex = 0;
 
             var rowIndex = 5;
 
-            for (int i = 0; i < NumWallSprites; i++)
+            for (var i = 0; i < NumWallSprites; i++)
             {
-                if (colIndex >= numPerRow)
+                if (colIndex >= NumPerRow)
                 {
                     colIndex = 0;
-                    
+
                     rowIndex--;
                 }
-                
-                var x = colIndex * width;
-                
-                var y = rowIndex * height;
-                
-                Debug.Log($"x: {x}, y: {y}");
-                
-                var sprite = Sprite.Create(testWallSpriteSheet.texture, new Rect(x, y, width, height), new Vector2(0.0f, 0.0f), 32);
+
+                var x = colIndex * Width;
+
+                var y = rowIndex * Height;
+
+                var sprite = Sprite.Create(testWallSpriteSheet.texture, new Rect(x, y, Width, Height),
+                    new Vector2(0.0f, 0.0f), 32);
 
                 _testWallSprites[i] = sprite;
 

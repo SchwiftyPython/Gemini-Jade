@@ -65,20 +65,19 @@ namespace World
         public static int CalculateTileIndex(bool east, bool west, bool north, bool south, bool northWest,
             bool northEast, bool southWest, bool southEast)
         {
-            var direction = (east ? BitMaskDirection.East : 0) | (west ? BitMaskDirection.West : 0)  | (north ? BitMaskDirection.North : 0) | (south ? BitMaskDirection.South : 0);
-            
+            var direction = (east ? BitMaskDirection.East : 0) | (west ? BitMaskDirection.West : 0) |
+                            (north ? BitMaskDirection.North : 0) | (south ? BitMaskDirection.South : 0);
+
             direction |= north && west && northWest ? BitMaskDirection.NorthWest : 0;
-            
+
             direction |= north && east && northEast ? BitMaskDirection.NorthEast : 0;
-            
+
             direction |= south && west && southWest ? BitMaskDirection.SouthWest : 0;
-            
+
             direction |= south && east && southEast ? BitMaskDirection.SouthEast : 0;
 
             return BitMaskValueToIndex[(int) direction];
         }
-        
-        public event EventHandler OnWallPlacedOrRemoved;
 
         public LocalMap LocalMap { get; private set; }
 
@@ -97,61 +96,65 @@ namespace World
         
         private void Update()
         {
-            if (_placingObject)
+            if (!_placingObject)
             {
-                var mousePosition = GetMouseGridSnappedPosition();
+                return;
+            }
 
-                var gridPositions = ghostObject.GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
+            var mousePosition = GetMouseGridSnappedPosition();
 
-                var canPlace = true;
+            var gridPositions = ghostObject.GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
 
-                foreach (var gridPosition in gridPositions)
+            var canPlace = true;
+
+            foreach (var gridPosition in gridPositions)
+            {
+                if (LocalMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
                 {
-                    if (!LocalMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
-                    {
-                        canPlace = false;
-                        break;
-                    }
+                    continue;
                 }
 
-                if (canPlace)
-                {
-                    ghostObject.ColorSpriteWhite();
+                canPlace = false;
+                break;
+            }
+
+            if (canPlace)
+            {
+                ghostObject.ColorSpriteWhite();
                     
-                    if (Mouse.current.leftButton.isPressed)
-                    {
-                        PlacedObject placedObject;
+                if (Mouse.current.leftButton.isPressed)
+                {
+                    PlacedObject placedObject;
                         
-                        if (_selectedObjectType.isWall)
-                        {
-                            placedObject = WallPlacedObject.Create(mousePosition.ToVector2Int(), _dir,
-                                _selectedObjectType);
-                        }
-                        else
-                        {
-                            placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
-                                _selectedObjectType);
-                        }
-
-                        LocalMap.PlacePlacedObject(placedObject);
+                    if (_selectedObjectType.isWall)
+                    {
+                        placedObject = WallPlacedObject.Create(mousePosition.ToVector2Int(), _dir,
+                            _selectedObjectType);
                     }
-                }
-                else
-                {
-                    ghostObject.ColorSpriteRed();
-                }
+                    else
+                    {
+                        placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
+                            _selectedObjectType);
+                    }
 
-                if (Keyboard.current.rKey.wasPressedThisFrame)
-                {
-                    _dir = GetNextDir();
+                    LocalMap.PlacePlacedObject(placedObject);
                 }
+            }
+            else
+            {
+                ghostObject.ColorSpriteRed();
+            }
 
-                if(Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
-                {
-                    DeselectObjectType();
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                _dir = GetNextDir();
+            }
+
+            if(Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                DeselectObjectType();
                     
-                    _placingObject = false;
-                }
+                _placingObject = false;
             }
         }
         
@@ -205,8 +208,8 @@ namespace World
             
             return Quaternion.Euler(0, 0, rotationAngle);
         }
-        
-        public PlacedObject.Dir GetNextDir()
+
+        private PlacedObject.Dir GetNextDir()
         {
             switch (_dir)
             {
@@ -217,8 +220,8 @@ namespace World
                 case PlacedObject.Dir.Right: return PlacedObject.Dir.Down;
             }
         }
-        
-        public Vector2Int GetRotationOffset()
+
+        private Vector2Int GetRotationOffset()
         {
             switch (_dir)
             {

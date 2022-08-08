@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using GoRogue;
 using GoRogue.GameFramework;
 using UnityEngine;
@@ -15,14 +13,7 @@ namespace World
         {
             Direction.YIncreasesUpward = true;
         }
-        
-        public bool OutOfBounds(Coord targetCoord)
-        {
-            var (x, y) = targetCoord;
 
-            return x >= Width || x < 0 || y >= Height || y < 0;
-        }
-        
         public Tile GetTileAt(Coord position)
         {
             return OutOfBounds(position) ? null : GetTerrain<Tile>(position);
@@ -55,22 +46,6 @@ namespace World
             if (placedObject.placedObjectType.isWall)
             {
                 UpdateNeighborWallTextures(placedObject.gridPositions.First().ToCoord());
-            }
-        }
-        
-        public void PlaceGridObjectAt(Coord gridPosition, GridObject gridObject)
-        {
-            gridObject.Position = gridPosition;
-
-            var placed = AddEntity(gridObject);
-
-            if (placed)
-            {
-                Debug.Log($"Placed object at {gridPosition}");
-            }
-            else
-            {
-                Debug.Log($"Failed to place object at {gridPosition}");
             }
         }
 
@@ -108,17 +83,20 @@ namespace World
             return bluePrints;
         }
         
+        private bool OutOfBounds(Coord targetCoord)
+        {
+            var (x, y) = targetCoord;
+
+            return x >= Width || x < 0 || y >= Height || y < 0;
+        }
+        
         private void PlaceGridObject(IGameObject gridObject)
         {
             var placed = AddEntity(gridObject);
 
-            if (placed)
+            if (!placed)
             {
-                Debug.Log($"Placed object at {gridObject.Position.ToString()}");
-            }
-            else
-            {
-                Debug.Log($"Failed to place object at {gridObject.Position.ToString()}");
+                Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
             }
         }
         

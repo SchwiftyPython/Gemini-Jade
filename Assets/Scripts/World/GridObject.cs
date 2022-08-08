@@ -37,8 +37,10 @@ namespace World
             var mapDirection = bitMaskDirection.ToMapDirection();
 
             var targetCoord = Position + mapDirection;
+
+            var localMap = Object.FindObjectOfType<GridBuildingSystem>().LocalMap;
             
-            var neighbor = Object.FindObjectOfType<GridBuildingSystem>().LocalMap.GetGridObjectAt(targetCoord);
+            var neighbor = localMap.GetGridObjectAt(targetCoord);
             
             return neighbor != null && neighbor.IsWall();
         }

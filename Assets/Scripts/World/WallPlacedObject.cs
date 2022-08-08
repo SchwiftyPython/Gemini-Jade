@@ -24,8 +24,6 @@ namespace World
             bool transparent;
 
             placedObject.remainingWork = placedObjectType.workToMake;
-            
-            //todo find correct texture and update neighbor tiles or trigger grid changed if we go beyond neighbors
 
             if (placedObject.NeedsToBeMade)
             {
@@ -61,27 +59,13 @@ namespace World
 
         public void UpdateTexture()
         {
-            //todo check if blueprint or not
-            
             var tileIndex = GetTileIndex();
-            
-            Debug.Log($"Tile Index for wall: {tileIndex}");
-            
-            var buildablesRepo = FindObjectOfType<BuildablesRepo>();
 
-            if (NeedsToBeMade)
-            {
-                //todo get blueprint sprite
-                SpriteRenderer.sprite = buildablesRepo.GetWallSpriteAt(tileIndex);
-                
-                SpriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-            }
-            else
-            {
-                SpriteRenderer.sprite = buildablesRepo.GetWallSpriteAt(tileIndex);
-                
-                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            }
+            var buildablesRepo = FindObjectOfType<BuildablesRepo>();
+            
+            SpriteRenderer.sprite = buildablesRepo.GetWallSpriteAt(tileIndex);
+
+            SpriteRenderer.color = NeedsToBeMade ? BlueprintColor : BuiltColor;
         }
 
         public override void Make()
@@ -116,9 +100,9 @@ namespace World
             return GridBuildingSystem.CalculateTileIndex(east, west, north, south, northWest, northEast, southWest, southEast);
         }
         
-        private bool NeighborTo(BitMaskDirection direction)
+        private bool NeighborTo(BitMaskDirection bmDirection)
         {
-            return GridObjects.First().HasWallNeighborTo(direction);
+            return GridObjects.First().HasWallNeighborTo(bmDirection);
         }
     }
 }

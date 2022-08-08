@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/wall_ghost.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/wall_ghost.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/walls_packed_ordered.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/walls_packed_ordered.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/walls_packed_ordered.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/walls_packed_ordered.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/BuildablesRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/BuildablesRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTemplates.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTemplates/WallTest.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObjectTemplates/WallTest.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,20 +77,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.496614&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.496614",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe" />
@@ -206,7 +197,9 @@
       <workItem from="1658922409626" duration="3542000" />
       <workItem from="1658930826179" duration="6841000" />
       <workItem from="1659630215856" duration="10078000" />
-      <workItem from="1659699358719" duration="7546000" />
+      <workItem from="1659699358719" duration="7599000" />
+      <workItem from="1659960878945" duration="44000" />
+      <workItem from="1659961089145" duration="3699000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -509,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659641626340</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Bitmasking works. &#10;Need to do some cleanup next week.">
+      <created>1659711354765</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1659711354765</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +533,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Master Scheduler Asset&#10;Added intervals to health mod adder checks&#10;Added Injury.cs" />
     <MESSAGE value="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet." />
     <MESSAGE value="misc stuff" />
     <MESSAGE value="Some unity misc stuff" />
@@ -558,6 +557,7 @@
     <MESSAGE value="Started working on blueprint functionality" />
     <MESSAGE value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
     <MESSAGE value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
+    <MESSAGE value="Bitmasking works. &#10;Need to do some cleanup next week." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bitmasking works. &#10;Need to do some cleanup next week." />
   </component>
 </project>
