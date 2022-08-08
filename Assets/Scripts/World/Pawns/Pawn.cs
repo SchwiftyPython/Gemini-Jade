@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Species;
@@ -29,7 +28,7 @@ namespace World.Pawns
 
         public bool IsAnimal => !ToolUser && IsOrganic;
 
-        public Pawn(SpeciesTemplate speciesTemplate) : base()
+        public Pawn(SpeciesTemplate speciesTemplate) : base(MapLayer.Pawn, false, true, true)
         {
             species = speciesTemplate;
 

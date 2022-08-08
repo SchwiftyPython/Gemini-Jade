@@ -26,6 +26,7 @@ MonoBehaviour:
   description: 
   minTemp: 60
   maxTemp: 85
+  prefab: {fileID: 1050959741614290057, guid: 59de29fc1d7960c4aa29d36e15f64f69, type: 3}
   hasGenders: 1
   needsRest: 1
   bodyTemplate: {fileID: 11400000, guid: f0eff04e8928d384ab3aaae6f5cf27b5, type: 2}

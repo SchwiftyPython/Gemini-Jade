@@ -15,6 +15,8 @@ namespace Assets.Scripts.World.Pawns.Species
 
         //todo Tools
 
+        public GameObject prefab;
+
         public bool hasGenders = true;
 
         public bool needsRest = true;

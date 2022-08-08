@@ -4,12 +4,15 @@ using GoRogue;
 using GoRogue.GameFramework;
 using UnityEngine;
 using Utilities;
+using World.Pawns;
 
 namespace World
 {
     public class LocalMap : Map
     {
-        public LocalMap(int width, int height) : base(width, height, 1, Distance.CHEBYSHEV)
+        private List<Pawn> _pawns;
+        
+        public LocalMap(int width, int height) : base(width, height, 2, Distance.CHEBYSHEV)
         {
             Direction.YIncreasesUpward = true;
         }
@@ -47,6 +50,41 @@ namespace World
             {
                 UpdateNeighborWallTextures(placedObject.gridPositions.First().ToCoord());
             }
+        }
+
+        public List<Pawn> GetAllPawns()
+        {
+            return _pawns;
+        }
+        
+        public void PlacePawn(Pawn pawn, Coord gridPosition)
+        {
+            pawn.Position = gridPosition;
+            
+            PlaceGridObject(pawn);
+            
+            if(_pawns == null)
+            {
+                _pawns = new List<Pawn>();
+            }
+            
+            _pawns.Add(pawn);
+        }
+        
+        public void RemovePawn(Pawn pawn)
+        {
+            RemoveGridObject(pawn);
+            
+            _pawns.Remove(pawn);
+        }
+
+        public void PlacePawnAtEdge()
+        {
+            //todo pick position from map edges
+            
+            //todo if not blocked then place pawn
+            
+            //todo otherwise pick another edge
         }
 
         public List<PlacedObject> GetAllBlueprints()
@@ -97,6 +135,16 @@ namespace World
             if (!placed)
             {
                 Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
+            }
+        }
+        
+        private void RemoveGridObject(IGameObject gridObject)
+        {
+            var removed = RemoveEntity(gridObject);
+            
+            if (!removed)
+            {
+                Debug.LogError("Failed to remove object from local map!");
             }
         }
         

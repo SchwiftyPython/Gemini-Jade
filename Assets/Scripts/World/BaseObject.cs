@@ -51,16 +51,23 @@ namespace World
         {
             backingField = new GameObject(position, (int) layer, this, isStatic, isWalkable, isTransparent);
         }
-
-        protected BaseObject()
-        {
-        }
-
+        
         protected BaseObject(Vector3 position, MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent)
         {
             var coord = new Coord((int) position.x, (int) position.y);
             
             backingField = new GameObject(coord, (int) layer, this, isStatic, isWalkable, isTransparent);
+        }
+        
+        protected BaseObject(MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent)
+        {
+            var coord = new Coord();
+            
+            backingField = new GameObject(coord, (int) layer, this, isStatic, isWalkable, isTransparent);
+        }
+
+        protected BaseObject()
+        {
         }
 
         public void SetSpriteInstance(UnityEngine.GameObject instance)
