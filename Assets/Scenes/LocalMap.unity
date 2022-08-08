@@ -1402,6 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 11400000, guid: 478fb90bcc36e5347bc06cce11549a3c, type: 2}
+  testWallSpriteSheet: {fileID: 21300000, guid: ac1e24c54cc733346894eb08ffbf8547, type: 3}
 --- !u!1 &1130635558
 GameObject:
   m_ObjectHideFlags: 0

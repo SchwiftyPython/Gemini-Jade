@@ -6,6 +6,10 @@ namespace World
 {
     public class PlacedObject : MonoBehaviour
     {
+        public static readonly Color BlueprintColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+        
+        public static readonly Color BuiltColor = new Color(1f, 1f, 1f, 1f);
+        
         public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
@@ -25,7 +29,9 @@ namespace World
 
             if (placedObject.NeedsToBeMade)
             {
-                placedObject.spriteRenderer.sprite = placedObjectType.blueprintTexture;
+                placedObject.SpriteRenderer.sprite = placedObjectType.blueprintTexture;
+                
+                placedObject.SpriteRenderer.color = BlueprintColor;
 
                 walkable = true;
                 
@@ -34,6 +40,8 @@ namespace World
             else
             {
                 placedObject.spriteRenderer.sprite = placedObjectType.texture;
+                
+                placedObject.SpriteRenderer.color = BuiltColor;
 
                 walkable = placedObjectType.walkable;
                 
@@ -65,17 +73,17 @@ namespace World
             Right,
         }
         
-        [SerializeField] protected SpriteRenderer spriteRenderer;
+        [SerializeField] protected internal SpriteRenderer spriteRenderer;
 
-        protected PlacedObjectTemplate placedObjectType;
+        protected internal PlacedObjectTemplate placedObjectType;
 
-        protected List<Vector3> gridPositions;
+        protected internal List<Vector3> gridPositions;
         
         protected Dir direction;
 
         protected int remainingWork;
         
-        public List<GridObject> GridObjects { get; private set; }
+        public List<GridObject> GridObjects { get; internal set; }
         
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         
@@ -136,9 +144,13 @@ namespace World
             return gridPositionList;
         }
 
-        public void Make()
+        public virtual void Make()
         {
+            remainingWork = 0;
+            
             SpriteRenderer.sprite = placedObjectType.texture;
+            
+            SpriteRenderer.color = BuiltColor;
 
             foreach (var gridObject in GridObjects)
             {

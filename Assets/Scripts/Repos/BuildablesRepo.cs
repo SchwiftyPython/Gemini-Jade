@@ -1,6 +1,4 @@
-using GoRogue;
 using UnityEngine;
-using World;
 using World.TileTypes;
 
 namespace Repos
@@ -11,17 +9,58 @@ namespace Repos
     /// <remarks>Functions like a Singleton. Use FindObjectOfType&lt;BuildablesRepo&gt;() to get a reference.</remarks>
     public class BuildablesRepo : MonoBehaviour
     {
+        private const int NumWallSprites = 47;
+        
+        private const int Width = 32;
+
+        private const int Height = 32;
+
+        private const int NumPerRow = 8;
+        
         [SerializeField] private TileType wall;
-    
-        /// <summary>
-        /// Get a new Wall <see cref="Tile"/> at given position.
-        /// </summary>
-        /// <param name="position">Given position.</param>
-        /// <returns>A Ground <see cref="Tile"/> at given position.</returns>
-        /// <remarks>Just for testing out grid system. Might work if we pass in wall type as a param.</remarks>
-        public Tile WallTile(Coord position)
+
+        [SerializeField] private Sprite testWallSpriteSheet; //todo need a collection of these for each material
+
+        private Sprite[] _testWallSprites;
+
+        private void Start()
         {
-            return wall.NewTile(position);
+            LoadWallSprites();
+        }
+
+        public Sprite GetWallSpriteAt(int index)
+        {
+            return _testWallSprites[index];
+        }
+
+        private void LoadWallSprites()
+        {
+            _testWallSprites = new Sprite[NumWallSprites];
+
+            var colIndex = 0;
+
+            var rowIndex = 5;
+
+            for (var i = 0; i < NumWallSprites; i++)
+            {
+                if (colIndex >= NumPerRow)
+                {
+                    colIndex = 0;
+
+                    rowIndex--;
+                }
+
+                var x = colIndex * Width;
+
+                var y = rowIndex * Height;
+
+                var sprite = Sprite.Create(testWallSpriteSheet.texture, new Rect(x, y, Width, Height),
+                    new Vector2(0.0f, 0.0f), 32);
+
+                _testWallSprites[i] = sprite;
+
+                colIndex++;
+            }
         }
     }
 }

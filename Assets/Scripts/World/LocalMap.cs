@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using GoRogue;
 using GoRogue.GameFramework;
 using UnityEngine;
+using Utilities;
 
 namespace World
 {
@@ -11,14 +13,7 @@ namespace World
         {
             Direction.YIncreasesUpward = true;
         }
-        
-        public bool OutOfBounds(Coord targetCoord)
-        {
-            var (x, y) = targetCoord;
 
-            return x >= Width || x < 0 || y >= Height || y < 0;
-        }
-        
         public Tile GetTileAt(Coord position)
         {
             return OutOfBounds(position) ? null : GetTerrain<Tile>(position);
@@ -47,21 +42,10 @@ namespace World
             {
                 PlaceGridObject(gridObject);
             }
-        }
-        
-        public void PlaceGridObjectAt(Coord gridPosition, GridObject gridObject)
-        {
-            gridObject.Position = gridPosition;
 
-            var placed = AddEntity(gridObject);
-
-            if (placed)
+            if (placedObject.placedObjectType.isWall)
             {
-                Debug.Log($"Placed object at {gridPosition}");
-            }
-            else
-            {
-                Debug.Log($"Failed to place object at {gridPosition}");
+                UpdateNeighborWallTextures(placedObject.gridPositions.First().ToCoord());
             }
         }
 
@@ -99,17 +83,38 @@ namespace World
             return bluePrints;
         }
         
+        private bool OutOfBounds(Coord targetCoord)
+        {
+            var (x, y) = targetCoord;
+
+            return x >= Width || x < 0 || y >= Height || y < 0;
+        }
+        
         private void PlaceGridObject(IGameObject gridObject)
         {
             var placed = AddEntity(gridObject);
 
-            if (placed)
+            if (!placed)
             {
-                Debug.Log($"Placed object at {gridObject.Position.ToString()}");
+                Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
             }
-            else
+        }
+        
+        private void UpdateNeighborWallTextures(Coord coord)
+        {
+            foreach (var directionType in CollectionUtils.EnumToArray<Direction.Types>())
             {
-                Debug.Log($"Failed to place object at {gridObject.Position.ToString()}");
+                UpdateNeighborWallTexture(coord, Direction.ToDirection(directionType));
+            }
+        }
+
+        private void UpdateNeighborWallTexture(Coord coord, Direction direction)
+        {
+            var neighbor = GetGridObjectAt(coord + direction);
+            
+            if (neighbor != null && neighbor.PlacedObject.placedObjectType.isWall)
+            {
+                ((WallPlacedObject)neighbor.PlacedObject).UpdateTexture();
             }
         }
     }

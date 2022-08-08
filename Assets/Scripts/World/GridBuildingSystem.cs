@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UI.Grid;
 using UnityEngine;
@@ -10,7 +11,73 @@ namespace World
 {
     public class GridBuildingSystem : MonoBehaviour
     {
-        public event EventHandler OnSelectedChanged;
+        private static readonly Dictionary<int, int> BitMaskValueToIndex = new()
+        {
+            {0, 0},
+            {2, 1},
+            {16, 2},
+            {64, 3},
+            {8, 4},
+            {66, 5},
+            {24, 6},
+            {90, 7},
+            {10, 8},
+            {18, 9},
+            {80, 10},
+            {72, 11},
+            {11, 12},
+            {22, 13},
+            {208, 14},
+            {104, 15},
+            {31, 16},
+            {214, 17},
+            {248, 18},
+            {107, 19},
+            {95, 20},
+            {123, 21},
+            {250, 22},
+            {222, 23},
+            {26, 24},
+            {82, 25},
+            {88, 26},
+            {74, 27},
+            {223, 28},
+            {254, 29},
+            {251, 30},
+            {127, 31},
+            {216, 32},
+            {120, 33},
+            {27, 34},
+            {30, 35},
+            {219, 36},
+            {94, 37},
+            {126, 38},
+            {218, 39},
+            {91, 40},
+            {122, 41},
+            {255, 42},
+            {210, 43},
+            {86, 44},
+            {75, 45},
+            {106, 46}
+        };
+
+        public static int CalculateTileIndex(bool east, bool west, bool north, bool south, bool northWest,
+            bool northEast, bool southWest, bool southEast)
+        {
+            var direction = (east ? BitMaskDirection.East : 0) | (west ? BitMaskDirection.West : 0) |
+                            (north ? BitMaskDirection.North : 0) | (south ? BitMaskDirection.South : 0);
+
+            direction |= north && west && northWest ? BitMaskDirection.NorthWest : 0;
+
+            direction |= north && east && northEast ? BitMaskDirection.NorthEast : 0;
+
+            direction |= south && west && southWest ? BitMaskDirection.SouthWest : 0;
+
+            direction |= south && east && southEast ? BitMaskDirection.SouthEast : 0;
+
+            return BitMaskValueToIndex[(int) direction];
+        }
 
         public LocalMap LocalMap { get; private set; }
 
@@ -29,51 +96,65 @@ namespace World
         
         private void Update()
         {
-            if (_placingObject)
+            if (!_placingObject)
             {
-                var mousePosition = GetMouseGridSnappedPosition();
+                return;
+            }
 
-                var gridPositions = ghostObject.GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
+            var mousePosition = GetMouseGridSnappedPosition();
 
-                var canPlace = true;
+            var gridPositions = ghostObject.GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
 
-                foreach (var gridPosition in gridPositions)
+            var canPlace = true;
+
+            foreach (var gridPosition in gridPositions)
+            {
+                if (LocalMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
                 {
-                    if (!LocalMap.CanPlaceGridObjectAt(gridPosition.ToCoord()))
-                    {
-                        canPlace = false;
-                        break;
-                    }
+                    continue;
                 }
 
-                if (canPlace)
-                {
-                    ghostObject.ColorSpriteWhite();
+                canPlace = false;
+                break;
+            }
+
+            if (canPlace)
+            {
+                ghostObject.ColorSpriteWhite();
                     
-                    if (Mouse.current.leftButton.isPressed)
+                if (Mouse.current.leftButton.isPressed)
+                {
+                    PlacedObject placedObject;
+                        
+                    if (_selectedObjectType.isWall)
                     {
-                        var placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
+                        placedObject = WallPlacedObject.Create(mousePosition.ToVector2Int(), _dir,
                             _selectedObjectType);
-                    
-                        LocalMap.PlacePlacedObject(placedObject);
                     }
-                }
-                else
-                {
-                    ghostObject.ColorSpriteRed();
-                }
+                    else
+                    {
+                        placedObject = PlacedObject.Create(mousePosition.ToVector2Int(), _dir,
+                            _selectedObjectType);
+                    }
 
-                if (Keyboard.current.rKey.wasPressedThisFrame)
-                {
-                    _dir = GetNextDir();
+                    LocalMap.PlacePlacedObject(placedObject);
                 }
+            }
+            else
+            {
+                ghostObject.ColorSpriteRed();
+            }
 
-                if(Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
-                {
-                    DeselectObjectType();
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                _dir = GetNextDir();
+            }
+
+            if(Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                DeselectObjectType();
                     
-                    _placingObject = false;
-                }
+                _placingObject = false;
             }
         }
         
@@ -127,8 +208,8 @@ namespace World
             
             return Quaternion.Euler(0, 0, rotationAngle);
         }
-        
-        public PlacedObject.Dir GetNextDir()
+
+        private PlacedObject.Dir GetNextDir()
         {
             switch (_dir)
             {
@@ -139,8 +220,8 @@ namespace World
                 case PlacedObject.Dir.Right: return PlacedObject.Dir.Down;
             }
         }
-        
-        public Vector2Int GetRotationOffset()
+
+        private Vector2Int GetRotationOffset()
         {
             switch (_dir)
             {
