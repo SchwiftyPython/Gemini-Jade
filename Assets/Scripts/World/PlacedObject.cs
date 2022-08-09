@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 using World.Things.CraftableThings;
 
 namespace World
@@ -18,6 +19,8 @@ namespace World
                 gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
 
             var placedObject = placedObjectInstance.GetComponent<PlacedObject>();
+
+            placedObject.instance = placedObjectInstance;
             
             placedObject.placedObjectType = placedObjectType;
 
@@ -61,6 +64,11 @@ namespace World
 
                 placedObject.GridObjects.Add(gridObject);
             }
+            
+            if (!walkable )
+            {
+                UnityUtils.AddBoxColliderTo(placedObjectInstance.gameObject);
+            }
 
             return placedObject;
         }
@@ -72,6 +80,8 @@ namespace World
             Up,
             Right,
         }
+
+        protected Transform instance;
         
         [SerializeField] protected internal SpriteRenderer spriteRenderer;
 
@@ -157,6 +167,11 @@ namespace World
                 gridObject.IsWalkable = placedObjectType.walkable;
                 
                 gridObject.IsTransparent = placedObjectType.transparent;
+            }
+            
+            if (!placedObjectType.walkable)
+            {
+                UnityUtils.AddBoxColliderTo(instance.gameObject);
             }
         }
     }

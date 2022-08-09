@@ -36,6 +36,8 @@ namespace Assets.Scripts.World.Pawns.Species
         public FleshType fleshType = FleshType.Organic;
 
         public Intellect intellect;
+        
+        public float baseSpeed = 1f;
 
         public Pawn NewPawn()
         {

@@ -10,9 +10,11 @@ namespace World
 {
     public class LocalMap : Map
     {
+        private const int NumberOfEntityLayers = 2;
+        
         private List<Pawn> _pawns;
         
-        public LocalMap(int width, int height) : base(width, height, 2, Distance.CHEBYSHEV)
+        public LocalMap(int width, int height) : base(width, height, NumberOfEntityLayers, Distance.CHEBYSHEV)
         {
             Direction.YIncreasesUpward = true;
         }
@@ -63,10 +65,7 @@ namespace World
             
             PlaceGridObject(pawn);
             
-            if(_pawns == null)
-            {
-                _pawns = new List<Pawn>();
-            }
+            _pawns ??= new List<Pawn>();
             
             _pawns.Add(pawn);
         }
@@ -97,18 +96,13 @@ namespace World
                 {
                     var coord = new Coord(x, y);
                     
-                    var gridObject = GetGridObjectAt(coord);
+                    var gridObject = GetBlueprintAt(coord);
 
                     if (gridObject == null)
                     {
                         continue;
                     }
-
-                    if (!gridObject.IsBlueprint())
-                    {
-                        continue;
-                    }
-
+                    
                     if (bluePrints.Contains(gridObject.PlacedObject))
                     {
                         continue;
@@ -119,6 +113,18 @@ namespace World
             }
 
             return bluePrints;
+        }
+        
+        private GridObject GetBlueprintAt(Coord position)
+        {
+            var gridObject = GetGridObjectAt(position);
+
+            if (gridObject == null)
+            {
+                return null;
+            }
+
+            return gridObject.IsBlueprint() ? gridObject : null;
         }
         
         private bool OutOfBounds(Coord targetCoord)

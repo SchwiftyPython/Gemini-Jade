@@ -14,11 +14,6 @@ namespace World
 
         public Transform terrainHolder;
 
-        private void Start()
-        {
-            
-        }
-
         public void Build(LocalMap map)
         {
             Clear();
@@ -56,6 +51,8 @@ namespace World
             {
                 var pawnInstance = Instantiate(pawn.species.prefab, new Vector2(pawn.Position.X, pawn.Position.Y),
                     Quaternion.identity, pawnHolder);
+
+                UnityUtils.AddPathfindingTo(pawn, pawnInstance);
             }
         }
 
