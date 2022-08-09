@@ -1,3 +1,4 @@
+using GoRogue;
 using UnityEngine;
 using World.Pawns.Health.DamageWorkers;
 
@@ -17,6 +18,10 @@ namespace World.Things
 
         protected Thing(Vector3 position, MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent) : base(position,
             layer, isStatic, isWalkable, isTransparent)
+        {
+        }
+        
+        protected Thing(MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent) : base(layer, isStatic, isWalkable, isTransparent)
         {
         }
 

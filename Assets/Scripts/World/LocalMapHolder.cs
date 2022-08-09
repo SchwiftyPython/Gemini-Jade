@@ -1,4 +1,3 @@
-using Generators;
 using GoRogue;
 using GoRogue.GameFramework;
 using UnityEngine;
@@ -11,18 +10,17 @@ namespace World
     {
         public GameObject terrainSlotPrefab;
     
-        public Transform entityHolder;
+        public Transform pawnHolder;
 
-        private void Start()
-        {
-            
-        }
+        public Transform terrainHolder;
 
         public void Build(LocalMap map)
         {
             Clear();
             
             PlaceTiles(map);
+            
+            PlacePawns(map);
         }
 
         private void PlaceTiles(Map map)
@@ -36,7 +34,7 @@ namespace World
                     var tile = map.GetTerrain<Tile>(coord);
 
                     var tileInstance = Instantiate(terrainSlotPrefab, new Vector2(currentColumn, currentRow),
-                        Quaternion.identity, transform);
+                        Quaternion.identity, terrainHolder);
 
                     tileInstance.GetComponentInChildren<SpriteRenderer>().sprite = tile.Texture;
 
@@ -45,11 +43,24 @@ namespace World
             }
         }
 
+        private void PlacePawns(LocalMap map)
+        {
+            var pawns = map.GetAllPawns();
+
+            foreach (var pawn in pawns)
+            {
+                var pawnInstance = Instantiate(pawn.species.prefab, new Vector2(pawn.Position.X, pawn.Position.Y),
+                    Quaternion.identity, pawnHolder);
+
+                UnityUtils.AddPathfindingTo(pawn, pawnInstance);
+            }
+        }
+
         private void Clear()
         {
-            gameObject.DestroyAllChildren();
+            terrainHolder.gameObject.DestroyAllChildren();
             
-            entityHolder.gameObject.DestroyAllChildren();
+            pawnHolder.gameObject.DestroyAllChildren();
         }
     }
 }

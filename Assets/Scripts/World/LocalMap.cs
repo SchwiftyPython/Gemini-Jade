@@ -4,12 +4,17 @@ using GoRogue;
 using GoRogue.GameFramework;
 using UnityEngine;
 using Utilities;
+using World.Pawns;
 
 namespace World
 {
     public class LocalMap : Map
     {
-        public LocalMap(int width, int height) : base(width, height, 1, Distance.CHEBYSHEV)
+        private const int NumberOfEntityLayers = 2;
+        
+        private List<Pawn> _pawns;
+        
+        public LocalMap(int width, int height) : base(width, height, NumberOfEntityLayers, Distance.CHEBYSHEV)
         {
             Direction.YIncreasesUpward = true;
         }
@@ -49,6 +54,38 @@ namespace World
             }
         }
 
+        public List<Pawn> GetAllPawns()
+        {
+            return _pawns;
+        }
+        
+        public void PlacePawn(Pawn pawn, Coord gridPosition)
+        {
+            pawn.Position = gridPosition;
+            
+            PlaceGridObject(pawn);
+            
+            _pawns ??= new List<Pawn>();
+            
+            _pawns.Add(pawn);
+        }
+        
+        public void RemovePawn(Pawn pawn)
+        {
+            RemoveGridObject(pawn);
+            
+            _pawns.Remove(pawn);
+        }
+
+        public void PlacePawnAtEdge()
+        {
+            //todo pick position from map edges
+            
+            //todo if not blocked then place pawn
+            
+            //todo otherwise pick another edge
+        }
+
         public List<PlacedObject> GetAllBlueprints()
         {
             var bluePrints = new List<PlacedObject>();
@@ -59,18 +96,13 @@ namespace World
                 {
                     var coord = new Coord(x, y);
                     
-                    var gridObject = GetGridObjectAt(coord);
+                    var gridObject = GetBlueprintAt(coord);
 
                     if (gridObject == null)
                     {
                         continue;
                     }
-
-                    if (!gridObject.IsBlueprint())
-                    {
-                        continue;
-                    }
-
+                    
                     if (bluePrints.Contains(gridObject.PlacedObject))
                     {
                         continue;
@@ -81,6 +113,18 @@ namespace World
             }
 
             return bluePrints;
+        }
+        
+        private GridObject GetBlueprintAt(Coord position)
+        {
+            var gridObject = GetGridObjectAt(position);
+
+            if (gridObject == null)
+            {
+                return null;
+            }
+
+            return gridObject.IsBlueprint() ? gridObject : null;
         }
         
         private bool OutOfBounds(Coord targetCoord)
@@ -97,6 +141,16 @@ namespace World
             if (!placed)
             {
                 Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
+            }
+        }
+        
+        private void RemoveGridObject(IGameObject gridObject)
+        {
+            var removed = RemoveEntity(gridObject);
+            
+            if (!removed)
+            {
+                Debug.LogError("Failed to remove object from local map!");
             }
         }
         

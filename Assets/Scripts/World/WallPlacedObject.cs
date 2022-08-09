@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Repos;
 using UnityEngine;
+using Utilities;
 using World.Things.CraftableThings;
 
 namespace World
@@ -16,6 +17,8 @@ namespace World
                 gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
 
             var placedObject = placedObjectInstance.GetComponent<WallPlacedObject>();
+
+            placedObject.instance = placedObjectInstance;
             
             placedObject.placedObjectType = placedObjectType;
 
@@ -51,6 +54,11 @@ namespace World
 
                 placedObject.GridObjects.Add(gridObject);
             }
+
+            if (!walkable )
+            {
+                UnityUtils.AddBoxColliderTo(placedObjectInstance.gameObject);
+            }
             
             placedObject.UpdateTexture();
 
@@ -77,6 +85,11 @@ namespace World
             GridObjects.First().IsWalkable = placedObjectType.walkable;
             
             GridObjects.First().IsTransparent = placedObjectType.transparent;
+            
+            if (!placedObjectType.walkable)
+            {
+                UnityUtils.AddBoxColliderTo(instance.gameObject);
+            }
         }
 
         private int GetTileIndex()
