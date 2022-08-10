@@ -10,7 +10,7 @@ namespace World
 {
     public class LocalMap : Map
     {
-        private const int NumberOfEntityLayers = 2;
+        private const int NumberOfEntityLayers = 3;
         
         private List<Pawn> _pawns;
         

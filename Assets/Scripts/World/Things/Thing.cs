@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using GoRogue;
 using UnityEngine;
 using World.Pawns.Health.DamageWorkers;
@@ -7,6 +9,10 @@ namespace World.Things
     public class Thing : BaseObject
     {
         private int _hitPoints;
+        
+        protected Dictionary<Direction, Sprite> directionalSprites;
+        
+        protected Sprite spriteSheet;
         
         public ThingTemplate template;
         
@@ -24,6 +30,19 @@ namespace World.Things
         protected Thing(MapLayer layer, bool isStatic, bool isWalkable, bool isTransparent) : base(layer, isStatic, isWalkable, isTransparent)
         {
         }
+
+        protected Thing(ThingTemplate template) : base(template.MapLayer, template.isStatic, template.walkable, template.transparent)
+        {
+            this.template = template;
+            
+            spriteSheet = template.spriteSheet;
+            
+            PopulateSprites();
+            
+            //todo other template properties that need setting 
+            
+        }
+       
 
         protected Thing()
         {
@@ -115,6 +134,42 @@ namespace World.Things
             //todo stick into thing maker and ensure unique ids
 
             id = 0;
+        }
+        
+        public void UpdateSpriteFacing(Direction direction)
+        {
+            SpriteInstance.GetComponentInChildren<SpriteRenderer>().sprite = directionalSprites[direction];
+        }
+        
+        protected void PopulateSprites()
+        {
+            //for one sprite could just use same dictionary amd assign same sprite to all directions
+            //determine number of sprites depending on sprite sheet size?
+
+            directionalSprites = new Dictionary<Direction, Sprite>
+            {
+                {Direction.DOWN, null},
+                {Direction.UP, null},
+                {Direction.LEFT, null},
+                {Direction.RIGHT, null}
+            };
+            
+            const int Width = 32;
+            
+            const int Height = 32;
+
+            var colIndex = 0;
+
+            foreach (var direction in directionalSprites.Keys.ToArray())
+            {
+                var x = colIndex * Width;
+                
+                var sprite = Sprite.Create(spriteSheet.texture, new Rect(x, 0, Width, Height), new Vector2(0.0f, 0.0f), 32);
+                
+                directionalSprites[direction] = sprite;
+
+                colIndex++;
+            }
         }
     }
 }

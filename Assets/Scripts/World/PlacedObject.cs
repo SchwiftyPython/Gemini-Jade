@@ -42,7 +42,7 @@ namespace World
             }
             else
             {
-                placedObject.spriteRenderer.sprite = placedObjectType.texture;
+                placedObject.spriteRenderer.sprite = placedObjectType.builtTexture;
                 
                 placedObject.SpriteRenderer.color = BuiltColor;
 
@@ -158,7 +158,7 @@ namespace World
         {
             remainingWork = 0;
             
-            SpriteRenderer.sprite = placedObjectType.texture;
+            SpriteRenderer.sprite = placedObjectType.builtTexture;
             
             SpriteRenderer.color = BuiltColor;
 

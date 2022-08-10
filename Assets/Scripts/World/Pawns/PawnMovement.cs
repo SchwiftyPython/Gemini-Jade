@@ -93,6 +93,8 @@ namespace World.Pawns
             Position = pawn.Position;
             
             _speed = pawn.species.baseSpeed;
+
+            onChangeDirection += pawn.UpdateSpriteFacing;
             
             Reset();
         }

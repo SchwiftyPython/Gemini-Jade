@@ -6,6 +6,8 @@ namespace World.Things.CraftableThings
     public class PlacedObjectTemplate : CraftableTemplate
     {
         public Sprite blueprintTexture;
+        
+        public Sprite builtTexture;
 
         public int width = 1;
     

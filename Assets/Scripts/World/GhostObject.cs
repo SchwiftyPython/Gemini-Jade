@@ -71,7 +71,7 @@ namespace World
                 
             _placedObjectGhost.SpriteRenderer.sprite = NeedsToBeMade
                 ? objectType.blueprintTexture
-                : objectType.texture;
+                : objectType.builtTexture;
 
             _placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
                 

@@ -9,6 +9,8 @@ namespace World
 {
     public class Tile : BaseObject
     {
+        public Sprite Texture { get; }
+
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -58,7 +60,7 @@ namespace World
         {
             var tileType = objectType as TileType;
 
-            return tileType == null ? base.GetTextureFrom(objectType) : ChooseTexture(tileType);
+            return tileType == null ? Texture : ChooseTexture(tileType);
         }
 
         /// <summary>

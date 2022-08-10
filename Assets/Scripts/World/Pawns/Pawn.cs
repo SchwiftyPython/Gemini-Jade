@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Species;
+using GoRogue;
 using Time;
+using UnityEngine;
 using World.Pawns.Health;
 using World.Things;
 using Object = UnityEngine.Object;
@@ -10,6 +12,8 @@ namespace World.Pawns
 {
     public class Pawn : Thing
     {
+        private PawnMovement _movement;
+        
         public SpeciesTemplate species;
 
         private string _name;
@@ -28,7 +32,7 @@ namespace World.Pawns
 
         public bool IsAnimal => !ToolUser && IsOrganic;
 
-        public Pawn(SpeciesTemplate speciesTemplate) : base(MapLayer.Pawn, false, true, true)
+        public Pawn(SpeciesTemplate speciesTemplate) : base(speciesTemplate)
         {
             species = speciesTemplate;
 
@@ -89,6 +93,32 @@ namespace World.Pawns
             base.TickRare();
             
             //todo 
+        }
+
+        public void MoveTo(Coord position)
+        {
+            //todo could decouple this even more and fire as an event
+            
+            if (!spawned)
+            {
+                Debug.LogError($"Tried to move {this} to {position} but it's not spawned. ID: {id}");
+            }
+            else if (SpriteInstance == null)
+            {
+                Debug.LogError($"Tried to move {this} to {position} but it has no sprite. ID: {id}");
+            }
+
+            if (_movement == null)
+            {
+                _movement = SpriteInstance.GetComponent<PawnMovement>();
+            }
+
+            if (_movement == null)
+            {
+                Debug.LogError($"No PawnMovement component found on {SpriteInstance}. ID: {id}");
+            }
+            
+            _movement.MoveTo(position);
         }
     }
 }

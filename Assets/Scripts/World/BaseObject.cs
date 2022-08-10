@@ -42,8 +42,6 @@ namespace World
             add => backingField.Moved += value;
             remove => backingField.Moved -= value;
         }
-        
-        public Sprite Texture { get; set; }
 
         public UnityEngine.GameObject SpriteInstance { get; private set; }
 

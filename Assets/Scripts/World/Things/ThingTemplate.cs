@@ -4,7 +4,6 @@ using Assets.Scripts.World;
 using GoRogue.GameFramework;
 using Time.TickerTypes;
 using UnityEngine;
-using UnityEngine.Serialization;
 using World.Things.Parts;
 using World.Things.ThingCategories;
 
@@ -40,9 +39,10 @@ namespace World.Things
         //stats end 
 
         [SerializeField] private Transform prefab;
+        
         public Transform Prefab => prefab == null ? parent.Prefab : prefab;
 
-        public Sprite texture;
+        public Sprite spriteSheet;
 
         public bool destroyable = true;
 
@@ -63,6 +63,8 @@ namespace World.Things
         /// object collides.
         /// </summary>
         public bool walkable;
+
+        public bool isStatic;
 
         //todo components and component properties
 

@@ -75,6 +75,8 @@ namespace Utilities
             gameObject.GetComponent<PawnMovement>().Init(pawn);
 
             gameObject.AddComponent<SimpleSmoothModifier>();
+            
+            
         }
     }
 }

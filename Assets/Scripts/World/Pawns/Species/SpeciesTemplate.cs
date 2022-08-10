@@ -4,18 +4,17 @@ using UnityEngine;
 using World.Pawns;
 using World.Pawns.Health;
 using World.Pawns.Health.HealthModifierAdderSetTemplates;
+using World.Things;
 
 namespace Assets.Scripts.World.Pawns.Species
 {
     [CreateAssetMenu(menuName = "Templates/SpeciesTemplate")]
-    public class SpeciesTemplate : Template
+    public class SpeciesTemplate : ThingTemplate
     {
         public int minTemp;
         public int maxTemp;
 
         //todo Tools
-
-        public GameObject prefab;
 
         public bool hasGenders = true;
 
