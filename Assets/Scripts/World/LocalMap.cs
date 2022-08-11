@@ -23,6 +23,27 @@ namespace World
         {
             return OutOfBounds(position) ? null : GetTerrain<Tile>(position);
         }
+
+        public Tile GetRandomTile(bool needWalkable = false)
+        {
+            var coord = new Coord(Random.Range(0, Width), Random.Range(0, Height));
+            
+            var tile = GetTileAt(coord);
+            
+            if(!needWalkable)
+            {
+                return tile;
+            }
+
+            while (!tile.IsWalkable) //todo would be safer to get all walkable tiles from map
+            {
+                coord = new Coord(Random.Range(0, Width), Random.Range(0, Height));
+                
+                tile = GetTileAt(coord);
+            }
+
+            return tile;
+        }
         
         public GridObject GetGridObjectAt(Coord position)
         {

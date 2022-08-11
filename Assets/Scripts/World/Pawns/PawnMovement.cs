@@ -7,7 +7,7 @@ namespace World.Pawns
 {
     public class PawnMovement : MonoBehaviour
     {
-        private const float NextWaypointDistance = 3;
+        private const float NextWaypointDistance = 0.5f;
         
         private Seeker _seeker;
         
@@ -20,6 +20,8 @@ namespace World.Pawns
         private int _currentWaypoint;
         
         public System.Action<Direction> onChangeDirection;
+        
+        public System.Action onDestinationReached;
 
         public Coord Position { get; protected set; }
 
@@ -30,6 +32,8 @@ namespace World.Pawns
         public Path Path { get; private set; }
 
         public bool HasDestination => Path != null;
+        
+        public bool ReachedDestination => _reachedEndOfPath;
 
         private void Start () 
         {
@@ -62,6 +66,8 @@ namespace World.Pawns
                     else
                     {
                         _reachedEndOfPath = true;
+                        
+                        onDestinationReached?.Invoke();
                         break;
                     }
                 }
@@ -75,6 +81,10 @@ namespace World.Pawns
 
             var position = transform.position;
             
+            //todo doesn't quite follow on the path sometimes and also passes over walls
+            //which leads me to believe it's offset from the path a bit after these calculations
+            //maye do a debug.log comparison of the path position and the position assigned ot the pawn
+            
             var dir = (Path.vectorPath[_currentWaypoint] - position).normalized;
             
             var velocity = dir * (_speed * speedFactor);
@@ -84,6 +94,10 @@ namespace World.Pawns
             position += velocity * UnityEngine.Time.deltaTime;
             
             transform.position = position;
+            
+            Position = position.ToCoord();
+            
+            _pawn.Position = Position;
         }
 
         public void Init(Pawn pawn)

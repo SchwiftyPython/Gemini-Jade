@@ -32,6 +32,8 @@ public class Game : MonoBehaviour
 
         gridBuildingSystem.LocalMap.PlacePawn(testPawn, new Coord(25, 25));
         
+        tickController.SetTestPawn(testPawn);
+        
         var localMapHolder = FindObjectOfType<LocalMapHolder>();
             
         localMapHolder.Build(map);

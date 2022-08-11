@@ -4,6 +4,7 @@ using Assets.Scripts.World.Pawns.Species;
 using GoRogue;
 using Time;
 using UnityEngine;
+using World.Pawns.AI.Brains;
 using World.Pawns.Health;
 using World.Things;
 using Object = UnityEngine.Object;
@@ -14,9 +15,25 @@ namespace World.Pawns
     {
         private PawnMovement _movement;
         
+        public PawnMovement Movement
+        {
+            get
+            {
+                if (_movement == null)
+                {
+                    _movement = SpriteInstance.GetComponent<PawnMovement>();
+                }
+
+                return _movement;
+            }
+            private set => _movement = value;
+        }
+
         public SpeciesTemplate species;
 
         private string _name;
+
+        private Brain _brain;
 
         public Health.Health health;
 
@@ -39,6 +56,8 @@ namespace World.Pawns
             _name = "Testy McTestes";
 
             health = new Health.Health(this);
+
+            _brain = new Brain(this);
             
             GenerateId();
         }
@@ -77,6 +96,10 @@ namespace World.Pawns
             //todo bunch of trackers and whatnot ticking
 
             health.Tick();
+            
+            //testing brain
+            
+            _brain.Think();
 
             if (!Dead)
             {
@@ -95,7 +118,7 @@ namespace World.Pawns
             //todo 
         }
 
-        public void MoveTo(Coord position)
+        public void MoveToLocal(Coord position)
         {
             //todo could decouple this even more and fire as an event
             
@@ -108,17 +131,12 @@ namespace World.Pawns
                 Debug.LogError($"Tried to move {this} to {position} but it has no sprite. ID: {id}");
             }
 
-            if (_movement == null)
-            {
-                _movement = SpriteInstance.GetComponent<PawnMovement>();
-            }
-
-            if (_movement == null)
+            if (Movement == null)
             {
                 Debug.LogError($"No PawnMovement component found on {SpriteInstance}. ID: {id}");
             }
             
-            _movement.MoveTo(position);
+            Movement.MoveTo(position);
         }
     }
 }

@@ -2,32 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/pawn_test.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/pawn_test.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/pawn_test.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/pawn_test.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TickController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TickController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/Health.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Species/Human.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Species/Human.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Species/SpeciesTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Species/SpeciesTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/PlacedObjectTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/PlacedObjectTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +37,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/e4/c5082292/GridDisplayManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/0e/894fb681/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/3d/f55d0563/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/99/dfcc69f5/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/c4/6d02eb53/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/da/d21144ec/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
@@ -77,6 +65,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" root0="FORCE_HIGHLIGHTING" />
@@ -137,10 +126,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17876">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="17044">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17876" />
+      <option name="pid" value="17044" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -231,7 +220,8 @@
       <workItem from="1660043084906" duration="13823000" />
       <workItem from="1660128557001" duration="614000" />
       <workItem from="1660130338858" duration="4920000" />
-      <workItem from="1660138512373" duration="12428000" />
+      <workItem from="1660138512373" duration="12487000" />
+      <workItem from="1660218809970" duration="9978000" />
     </task>
     <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
       <created>1650554230040</created>
@@ -548,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659992131403</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI">
+      <created>1660160243245</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1660160243245</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +569,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="misc stuff" />
     <MESSAGE value="Some unity misc stuff" />
     <MESSAGE value="Added HealthModComp.cs&#10;Added HealthModCompProps.cs&#10;Added Comp SeverityPerDay.cs&#10;Added Comp Prop SeverityPerDay.cs&#10;Added Tend Duration" />
     <MESSAGE value="Added TendDuration.cs Health Mod Component Property&#10;&#10;Added Alert methods to HealthMod&#10;&#10;Started processing health mod components" />
@@ -597,6 +593,26 @@
     <MESSAGE value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
     <MESSAGE value="Bitmasking works. &#10;Need to do some cleanup next week." />
     <MESSAGE value="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs" />
+    <MESSAGE value="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs</url>
+          <line>115</line>
+          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\Pawns\PawnMovement.cs" initialLine="113" containingFunctionPresentation="method 'MoveTo'">
+            <startOffsets>
+              <option value="3053" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3118" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

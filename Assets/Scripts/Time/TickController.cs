@@ -19,7 +19,7 @@ namespace Time
 
         private Stopwatch _clock;
 
-        private Pawn _healthDebugPawn;
+        private Pawn _testPawn;
         
         //todo need collapsible header
         public TimeSpeed paused;
@@ -163,7 +163,7 @@ namespace Time
             
             //TESTING Health Debug
 
-            HealthDebug.OnPawnSelected += SetHealthDebugPawn;
+            HealthDebug.OnPawnSelected += SetTestPawn;
 
             //END TESTING Health Debug 
         }
@@ -189,7 +189,7 @@ namespace Time
             //todo Scenario tick
         
             //todo World Tick -- Pawns are ticked here. Bypassing for now to test health boi
-            _healthDebugPawn?.Tick();
+            _testPawn?.Tick();
         
             //todo Game End Tick
         
@@ -240,9 +240,9 @@ namespace Time
             _settleTick = _numTicks;
         }
 
-        public void SetHealthDebugPawn(Pawn pawn)
+        public void SetTestPawn(Pawn pawn)
         {
-            _healthDebugPawn = pawn;
+            _testPawn = pawn;
         }
 
         private TickList GetTickListFor(Thing thing)

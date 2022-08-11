@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using World.Pawns.AI.Brains;
 
@@ -11,7 +10,7 @@ namespace World.Pawns.AI.Goals
         
         public Brain brain;
 
-        public Pawn pawn;
+        public Pawn Pawn => brain.Pawn;
         
         public Goal(){}
         
@@ -39,7 +38,7 @@ namespace World.Pawns.AI.Goals
 
         public virtual void Push(Brain newBrain)
         {
-            if (brain == null)
+            if (newBrain == null)
             {
                 return;
             }
@@ -54,7 +53,7 @@ namespace World.Pawns.AI.Goals
             }
             catch(Exception e)
             {
-                Debug.LogError($@"Pawn: {pawn.id}, Number of Goals: {brain.Goals.Count}");
+                Debug.LogError($@"Pawn: {Pawn.id}, Number of Goals: {brain.Goals.Count}");
                 
                 Debug.LogError(e.InnerException);
             }
@@ -64,7 +63,15 @@ namespace World.Pawns.AI.Goals
 
         public void FailToParent()
         {
+            while(brain.Goals.Count > 0 && brain.Goals.Peek() != parentGoal)
+            {
+                brain.Goals.Pop();
+            }
             
+            if (brain.Goals.Count > 0)
+            {
+                brain.Goals.Peek().Failed();
+            }
         }
     }
 }

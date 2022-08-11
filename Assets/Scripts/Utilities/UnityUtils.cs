@@ -74,7 +74,17 @@ namespace Utilities
             
             gameObject.GetComponent<PawnMovement>().Init(pawn);
 
-            gameObject.AddComponent<SimpleSmoothModifier>();
+            // gameObject.AddComponent<SimpleSmoothModifier>();
+            //
+            // gameObject.GetComponent<SimpleSmoothModifier>().maxSegmentLength = 1;
+            //
+            // gameObject.GetComponent<SimpleSmoothModifier>().iterations = 5;
+            //
+            // gameObject.GetComponent<SimpleSmoothModifier>().strength = 0.25f;
+
+            gameObject.AddComponent<RaycastModifier>();
+
+            gameObject.GetComponent<RaycastModifier>().use2DPhysics = true;
             
             
         }

@@ -275,11 +275,7 @@ namespace World.Pawns.Health
                 }
             }
             
-            //todo testing remove
-
-            var healthDebug = Object.FindObjectOfType<HealthDebug>();
-            
-            healthDebug.HealthDebug_OnBodyChanged();
+            //todo trigger on body changed event
         }
 
         public void CheckForHealthStateChange(HealthMod healthMod)
