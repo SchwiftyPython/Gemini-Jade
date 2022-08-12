@@ -26,25 +26,20 @@ namespace World
 
         public Tile GetRandomTile(bool needWalkable = false)
         {
-            var coord = new Coord(Random.Range(0, Width), Random.Range(0, Height));
-            
-            var tile = GetTileAt(coord);
-            
-            if(!needWalkable)
+            List<Tile> tilePool;
+
+            if (needWalkable)
             {
-                return tile;
+                tilePool = GetAllWalkableTiles();
+            }
+            else
+            {
+                tilePool = GetAllTiles();
             }
 
-            while (!tile.IsWalkable) //todo would be safer to get all walkable tiles from map
-            {
-                coord = new Coord(Random.Range(0, Width), Random.Range(0, Height));
-                
-                tile = GetTileAt(coord);
-            }
-
-            return tile;
+            return tilePool[Random.Range(0, tilePool.Count)];
         }
-        
+
         public GridObject GetGridObjectAt(Coord position)
         {
             return OutOfBounds(position) ? null : GetEntity<GridObject>(position);
@@ -136,6 +131,28 @@ namespace World
             return bluePrints;
         }
         
+        public bool WalkableAt(Coord position)
+        {
+            var tile = GetTileAt(position);
+
+            if (!tile.IsWalkable)
+            {
+                return false;
+            }
+
+            var objects = GetObjects(position);
+
+            foreach (var iGameObject in objects)
+            {
+                if (!iGameObject.IsWalkable)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        
         private GridObject GetBlueprintAt(Coord position)
         {
             var gridObject = GetGridObjectAt(position);
@@ -191,6 +208,28 @@ namespace World
             {
                 ((WallPlacedObject)neighbor.PlacedObject).UpdateTexture();
             }
+        }
+
+        private List<Tile> GetAllWalkableTiles()
+        {
+            return GetAllTiles().Where(t => WalkableAt(t.Position)).ToList();
+        }
+        
+        private List<Tile> GetAllTiles()
+        {
+            var tiles = new List<Tile>();
+            
+            for (var x = 0; x < Width; x++)
+            {
+                for (var y = 0; y < Height; y++)
+                {
+                    var tile = GetTileAt(new Coord(x, y));
+                    
+                    tiles.Add(tile);
+                }
+            }
+            
+            return tiles;
         }
     }
 }

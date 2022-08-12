@@ -164,7 +164,7 @@ namespace World.Things
             {
                 var x = colIndex * Width;
                 
-                var sprite = Sprite.Create(spriteSheet.texture, new Rect(x, 0, Width, Height), new Vector2(0.0f, 0.0f), 32);
+                var sprite = Sprite.Create(spriteSheet.texture, new Rect(x, 0, Width, Height), new Vector2(0.5f, 0.5f), 32);
                 
                 directionalSprites[direction] = sprite;
 

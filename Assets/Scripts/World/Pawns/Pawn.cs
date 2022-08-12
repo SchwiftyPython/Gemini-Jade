@@ -125,16 +125,24 @@ namespace World.Pawns
             if (!spawned)
             {
                 Debug.LogError($"Tried to move {this} to {position} but it's not spawned. ID: {id}");
+                
+                return;
             }
-            else if (SpriteInstance == null)
+            
+            if (SpriteInstance == null)
             {
                 Debug.LogError($"Tried to move {this} to {position} but it has no sprite. ID: {id}");
+                
+                return;
             }
 
             if (Movement == null)
             {
                 Debug.LogError($"No PawnMovement component found on {SpriteInstance}. ID: {id}");
+                
+                return;
             }
+            
             
             Movement.MoveTo(position);
         }

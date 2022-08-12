@@ -25,7 +25,9 @@ namespace Utilities
         
         public static Coord ToCoord(this Vector3 position)
         {
-            return new Coord((int) position.x, (int) position.y);
+            var coord = new Coord(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
+
+            return coord;
         }
 
         public static Vector3 ToVector3(this Vector2Int position)
@@ -62,8 +64,6 @@ namespace Utilities
         public static void AddBoxColliderTo(GameObject gameObject)
         {
             gameObject.AddComponent<BoxCollider2D>();
-            
-            gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.5f, 0.5f);
         }
         
         public static void AddPathfindingTo(Pawn pawn, GameObject gameObject)
@@ -74,19 +74,21 @@ namespace Utilities
             
             gameObject.GetComponent<PawnMovement>().Init(pawn);
 
-            // gameObject.AddComponent<SimpleSmoothModifier>();
-            //
-            // gameObject.GetComponent<SimpleSmoothModifier>().maxSegmentLength = 1;
-            //
-            // gameObject.GetComponent<SimpleSmoothModifier>().iterations = 5;
-            //
-            // gameObject.GetComponent<SimpleSmoothModifier>().strength = 0.25f;
+            gameObject.AddComponent<SimpleSmoothModifier>();
+            
+            gameObject.GetComponent<SimpleSmoothModifier>().maxSegmentLength = 1;
+            
+            gameObject.GetComponent<SimpleSmoothModifier>().iterations = 5;
+            
+            gameObject.GetComponent<SimpleSmoothModifier>().strength = 0.05f;
 
             gameObject.AddComponent<RaycastModifier>();
 
             gameObject.GetComponent<RaycastModifier>().use2DPhysics = true;
-            
-            
+
+            gameObject.GetComponent<RaycastModifier>().thickRaycast = true;
+
+            gameObject.GetComponent<RaycastModifier>().thickRaycastRadius = 2;
         }
     }
 }

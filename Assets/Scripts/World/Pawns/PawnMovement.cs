@@ -1,3 +1,4 @@
+using System;
 using GoRogue;
 using Pathfinding;
 using UnityEngine;
@@ -7,7 +8,11 @@ namespace World.Pawns
 {
     public class PawnMovement : MonoBehaviour
     {
-        private const float NextWaypointDistance = 0.5f;
+        private const int MaxFailures = 5;
+        
+        private const float NextWaypointDistance = .02f;
+
+        private const float RepathRate = 0.5f;
         
         private Seeker _seeker;
         
@@ -19,11 +24,15 @@ namespace World.Pawns
 
         private int _currentWaypoint;
         
-        public System.Action<Direction> onChangeDirection;
-        
-        public System.Action onDestinationReached;
+        private float _lastRepath = float.NegativeInfinity;
 
-        public Coord Position { get; protected set; }
+        private int _numFailures;
+        
+        public Action<Direction> onChangeDirection;
+        
+        public Action onDestinationReached;
+        
+        public Action onDestinationUnreachable;
 
         public Coord Destination { get; private set; }
 
@@ -42,7 +51,7 @@ namespace World.Pawns
             _seeker.pathCallback += OnPathComplete;
         }
         
-        private void Update () 
+        private void LateUpdate () 
         {
             if (!HasDestination)
             {
@@ -77,35 +86,42 @@ namespace World.Pawns
                 }
             }
             
+            var waypoint = Path.vectorPath[_currentWaypoint];
+
+            if (!((LocalMap) _pawn.CurrentMap).WalkableAt(waypoint.ToCoord()))
+            {
+                Path = null;
+                
+                _reachedEndOfPath = true;
+                
+                Debug.Log($"Path invalid. Next waypoint not walkable in path {waypoint}");
+                
+                onDestinationUnreachable?.Invoke();
+
+                return;
+            }
+            
             var speedFactor = 1f; //todo calculate speed factor based on terrain movement speed
 
-            var position = transform.position;
-            
-            //todo doesn't quite follow on the path sometimes and also passes over walls
-            //which leads me to believe it's offset from the path a bit after these calculations
-            //maye do a debug.log comparison of the path position and the position assigned ot the pawn
-            
-            var dir = (Path.vectorPath[_currentWaypoint] - position).normalized;
+            var calculatedPosition = transform.position;
+
+            var dir = (Path.vectorPath[_currentWaypoint] - calculatedPosition).normalized;
             
             var velocity = dir * (_speed * speedFactor);
+
+            calculatedPosition += velocity * UnityEngine.Time.deltaTime;
             
-            UpdateFacing(Path.vectorPath[_currentWaypoint].ToCoord());
+            UpdateFacing(calculatedPosition.ToCoord());
+
+            transform.position = calculatedPosition;
             
-            position += velocity * UnityEngine.Time.deltaTime;
-            
-            transform.position = position;
-            
-            Position = position.ToCoord();
-            
-            _pawn.Position = Position;
+            _pawn.Position = calculatedPosition.ToCoord();
         }
 
         public void Init(Pawn pawn)
         {
             _pawn = pawn;
-            
-            Position = pawn.Position;
-            
+
             _speed = pawn.species.baseSpeed;
 
             onChangeDirection += pawn.UpdateSpriteFacing;
@@ -115,22 +131,51 @@ namespace World.Pawns
         
         public void MoveTo(Coord destination)
         {
+            if (!((LocalMap) _pawn.CurrentMap).WalkableAt(destination))
+            {
+                _reachedEndOfPath = true;
+                
+                Debug.Log($"Chosen Destination {destination} is not walkable");
+                
+                onDestinationUnreachable?.Invoke();
+                
+                return;
+            }
+            
+            if (UnityEngine.Time.time > _lastRepath + RepathRate)
+            {
+                if (_seeker.IsDone())
+                {
+                    _lastRepath = UnityEngine.Time.time;
+                }
+            }
+            
             Destination = destination;
             
-            _seeker.StartPath(Position.ToVector3(), Destination.ToVector3());
+            _seeker.StartPath(_pawn.Position.ToVector3(), Destination.ToVector3());
         }
 
         private void OnPathComplete (Path path) 
         {
-            if (!path.error)
+            if (!path.error && path.vectorPath.Count > 1)
             {
                 Path = path;
 
                 _currentWaypoint = 0;
+
+                _numFailures = 0;
+            }
+            else if(path.error)
+            {
+                onDestinationUnreachable?.Invoke();
+                
+                Debug.LogError($"Path error for pawn id {_pawn.id}: {path.error}");
             }
             else
             {
-                Debug.LogError($"Path error for pawn id {_pawn.id}: {path.error}");
+                onDestinationUnreachable?.Invoke();
+                
+                Debug.Log($"Destination {Destination} unreachable for pawn id {_pawn.id}");
             }
         }
 
@@ -138,23 +183,33 @@ namespace World.Pawns
         {
             var currentFacing = Facing;
             
-            var delta = target - Position;
+            var delta = target - _pawn.Position;
 
-            if (delta.X > 0)
+            var deltaXAbs = Math.Abs(delta.X);
+            
+            var deltaYAbs = Math.Abs(delta.Y);
+
+            if (deltaXAbs > deltaYAbs)
             {
-                Facing = Direction.RIGHT;
+                if (delta.X > 0)
+                {
+                    Facing = Direction.RIGHT;
+                }
+                else if (delta.X < 0)
+                {
+                    Facing = Direction.LEFT;
+                }
             }
-            else if (delta.X < 0)
+            else
             {
-                Facing = Direction.LEFT;
-            }
-            else if (delta.Y > 0)
-            {
-                Facing = Direction.UP;
-            }
-            else if (delta.Y < 0)
-            {
-                Facing = Direction.DOWN;
+                if (delta.Y > 0)
+                {
+                    Facing = Direction.UP;
+                }
+                else if (delta.Y < 0)
+                {
+                    Facing = Direction.DOWN;
+                }
             }
 
             if (currentFacing == Facing)
@@ -167,7 +222,7 @@ namespace World.Pawns
 
         private void Reset()
         {
-            Destination = Position;
+            Destination = _pawn.Position;
 
             Path = null;
         }

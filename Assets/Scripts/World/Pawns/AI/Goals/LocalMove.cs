@@ -17,6 +17,8 @@ namespace World.Pawns.AI.Goals
             _target = target;
             
             _movement.onDestinationReached += OnDestinationReached;
+            
+            _movement.onDestinationUnreachable += OnDestinationUnreachable;
         }
 
         public override bool Finished()
@@ -39,7 +41,18 @@ namespace World.Pawns.AI.Goals
         {
             _movement.onDestinationReached -= OnDestinationReached;
             
+            _movement.onDestinationUnreachable -= OnDestinationUnreachable;
+            
             _finished = true;
+        }
+        
+        private void OnDestinationUnreachable()
+        {
+            _movement.onDestinationReached -= OnDestinationReached;
+            
+            _movement.onDestinationUnreachable -= OnDestinationUnreachable;
+            
+            FailToParent();
         }
     }
 }

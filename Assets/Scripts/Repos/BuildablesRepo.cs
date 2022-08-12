@@ -55,7 +55,7 @@ namespace Repos
                 var y = rowIndex * Height;
 
                 var sprite = Sprite.Create(testWallSpriteSheet.texture, new Rect(x, y, Width, Height),
-                    new Vector2(0.0f, 0.0f), 32);
+                    new Vector2(0.5f, 0.5f), 32);
 
                 _testWallSprites[i] = sprite;
 

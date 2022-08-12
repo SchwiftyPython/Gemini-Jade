@@ -30,10 +30,10 @@ namespace World.Pawns.AI.Brains
             if (Goals.Count == 0)
             {
                 //todo bored goal
-                
-                //_goals.Push(new Goal());
-                
+
                 //testing LocalMove
+                
+                testGoalInProgress = false;
 
                 var target = ((LocalMap) Pawn.CurrentMap).GetRandomTile(true);
                 
