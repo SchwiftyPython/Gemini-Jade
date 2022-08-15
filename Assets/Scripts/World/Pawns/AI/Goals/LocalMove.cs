@@ -12,13 +12,11 @@ namespace World.Pawns.AI.Goals
 
         public LocalMove(PawnMovement movement, Coord target)
         {
+            _finished = false;
+
             _movement = movement;
             
             _target = target;
-            
-            _movement.onDestinationReached += OnDestinationReached;
-            
-            _movement.onDestinationUnreachable += OnDestinationUnreachable;
         }
 
         public override bool Finished()
@@ -28,11 +26,17 @@ namespace World.Pawns.AI.Goals
 
         public override void TakeAction()
         {
+            _inProgress = true;
+
             if (Pawn.IsImmobile())
             {
                 FailToParent();
                 return;
             }
+            
+            _movement.onDestinationReached += OnDestinationReached;
+            
+            _movement.onDestinationUnreachable += OnDestinationUnreachable;
             
             Pawn.MoveToLocal(_target);
         }
@@ -42,6 +46,8 @@ namespace World.Pawns.AI.Goals
             _movement.onDestinationReached -= OnDestinationReached;
             
             _movement.onDestinationUnreachable -= OnDestinationUnreachable;
+
+            _inProgress = false;
             
             _finished = true;
         }

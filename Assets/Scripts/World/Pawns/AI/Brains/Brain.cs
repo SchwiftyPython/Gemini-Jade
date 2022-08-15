@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using World.Pawns.AI.Goals;
 
 namespace World.Pawns.AI.Brains
@@ -7,7 +8,7 @@ namespace World.Pawns.AI.Brains
     {
         //todo brain types
 
-        private bool testGoalInProgress;
+        public bool testGoalInProgress;
 
         public Stack<Goal> Goals { get; private set; }
 
@@ -31,13 +32,13 @@ namespace World.Pawns.AI.Brains
             {
                 //todo bored goal
 
-                //testing LocalMove
+                //testing Wander
                 
                 testGoalInProgress = false;
-
-                var target = ((LocalMap) Pawn.CurrentMap).GetRandomTile(true);
                 
-                new LocalMove(Pawn.Movement, target.Position).Push(this);
+                Debug.Log("No goals, testing wandering...");
+
+               new Wander().Push(this);
             }
 
             while (Goals.Count > 0 && Goals.Peek().Finished())
@@ -49,17 +50,12 @@ namespace World.Pawns.AI.Brains
 
             if (Goals.Count > 0)
             {
-                //todo need to guard against taking action if goal is in progress
-                //This would likely be checked already in Pawn.Tick(). 
-
-                if (testGoalInProgress)
+                if (Goals.Peek().InProgress())
                 {
                     return;
                 }
-                
+
                 Goals.Peek().TakeAction();
-                
-                testGoalInProgress = true;
             }
         }
 

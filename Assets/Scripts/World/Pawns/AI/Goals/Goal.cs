@@ -6,6 +6,8 @@ namespace World.Pawns.AI.Goals
 {
     public class Goal
     {
+        protected bool _inProgress;
+        
         public Goal parentGoal;
         
         public Brain brain;
@@ -20,6 +22,11 @@ namespace World.Pawns.AI.Goals
         {
             return true;
         }
+
+        public virtual bool InProgress()
+        {
+            return _inProgress;
+        }
         
         public virtual void TakeAction(){}
 
@@ -33,7 +40,21 @@ namespace World.Pawns.AI.Goals
 
         public virtual void PushGoal(Goal goal)
         {
+            goal.Push(brain);
+        }
+
+        public virtual void PushChildGoal(Goal child)
+        {
+            child.parentGoal = this;
             
+            child.Push(brain);
+        }
+        
+        public virtual void PushChildGoal(Goal child, Goal parent)
+        {
+            child.parentGoal = parent;
+            
+            child.Push(brain);
         }
 
         public virtual void Push(Brain newBrain)

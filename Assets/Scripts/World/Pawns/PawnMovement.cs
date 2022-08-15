@@ -51,7 +51,7 @@ namespace World.Pawns
             _seeker.pathCallback += OnPathComplete;
         }
         
-        private void LateUpdate () 
+        private void Update () 
         {
             if (!HasDestination)
             {
@@ -62,7 +62,7 @@ namespace World.Pawns
 
             float distanceToWaypoint;
             
-            while (true)
+            while (!_reachedEndOfPath)
             {
                 distanceToWaypoint = Vector3.Distance(transform.position, Path.vectorPath[_currentWaypoint]);
 

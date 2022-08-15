@@ -89,6 +89,10 @@ namespace World.Pawns
             if (tickController.NumTicks % TickController.RareTickInterval == 0) 
             {
                 TickRare();
+                
+                //testing brain
+            
+                _brain.Think();
             }
             
             //todo check if not suspended
@@ -96,10 +100,6 @@ namespace World.Pawns
             //todo bunch of trackers and whatnot ticking
 
             health.Tick();
-            
-            //testing brain
-            
-            _brain.Think();
 
             if (!Dead)
             {

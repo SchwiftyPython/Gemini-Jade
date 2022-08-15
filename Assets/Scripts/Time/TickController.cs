@@ -106,7 +106,7 @@ namespace Time
 
         public bool ColonySettled => _settleTick > 0;
 
-        private void Update()
+        private void LateUpdate()
         {
             if (Paused)
             {
