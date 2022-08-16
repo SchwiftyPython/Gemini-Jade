@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Assets.Scripts.World.Pawns.Species;
 using UnityEngine;
 using World.Pawns;
+using World.Pawns.Skills;
 
 namespace Repos
 {
@@ -12,6 +14,8 @@ namespace Repos
         //Basically have faction templates store what species are valid and choose from that.
         //Can also just grab a random one from here
 
+        [SerializeField] private List<Skill> skills;
+
         public static Pawn CreatePawn(SpeciesTemplate template)
         {
             return template.NewPawn();
@@ -22,6 +26,11 @@ namespace Repos
             //just for testing and debug
             
             return humanTemplate;
+        }
+        
+        public List<Skill> GetSkills()
+        {
+            return skills;
         }
     }
 }

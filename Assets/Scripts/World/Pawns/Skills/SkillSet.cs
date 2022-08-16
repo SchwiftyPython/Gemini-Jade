@@ -1,0 +1,95 @@
+using System.Collections.Generic;
+using Repos;
+using Object = UnityEngine.Object;
+
+namespace World.Pawns.Skills
+{
+    public class SkillSet
+    {
+        private Pawn _pawn;
+
+        private Dictionary<Skill, int> _skills;
+        
+        private List<Skill> _enabledSkills;
+
+        public SkillSet(Pawn pawn)
+        {
+            _pawn = pawn;
+            
+            InitializeSkills();
+        }
+
+        public void GenerateBaseSkills()
+        {
+            //todo
+        }
+
+        public void EnableSkill(Skill skill)
+        {
+            if (_enabledSkills == null)
+            {
+                _enabledSkills = new List<Skill>();
+            }
+            
+            _enabledSkills.Add(skill);
+            
+            skill.onSkillNeeded += OnSkillNeeded;
+        }
+        
+        public void DisableSkill(Skill skill)
+        {
+            if (_enabledSkills == null)
+            {
+                return;
+            }
+
+            if (!_enabledSkills.Contains(skill))
+            {
+                return;
+            }
+
+            _enabledSkills.Remove(skill);
+            
+            skill.onSkillNeeded -= OnSkillNeeded;
+        }
+
+        private void InitializeSkills()
+        {
+            _skills = new Dictionary<Skill, int>();
+
+            var pawnRepo = Object.FindObjectOfType<PawnRepo>();
+            
+            var allSkills = pawnRepo.GetSkills();
+
+            foreach (var skill in allSkills)
+            {
+                _skills.Add(skill, 0);
+                
+                //todo only if initially enabled
+                //maybe initially enable skills that
+                //meet a minimum or are part of a background
+                
+                EnableSkill(skill);
+            }
+        }
+
+        private void OnSkillNeeded(Job job)
+        {
+            if (!_enabledSkills.Contains(job.SkillNeeded))
+            {
+                job.SkillNeeded.onSkillNeeded -= OnSkillNeeded;
+                
+                return;
+            }
+            
+            var skillLevel = _skills[job.SkillNeeded];
+            
+            if(job.SkillLevelNeeded > skillLevel)
+            {
+                return;
+            }
+
+            _pawn.AddJob(job);
+        }
+    }
+}

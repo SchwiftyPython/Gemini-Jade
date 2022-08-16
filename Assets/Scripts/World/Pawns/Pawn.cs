@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Assets.Scripts.World.Pawns;
 using Assets.Scripts.World.Pawns.Species;
@@ -5,7 +6,9 @@ using GoRogue;
 using Time;
 using UnityEngine;
 using World.Pawns.AI.Brains;
+using World.Pawns.AI.Goals;
 using World.Pawns.Health;
+using World.Pawns.Skills;
 using World.Things;
 using Object = UnityEngine.Object;
 
@@ -13,6 +16,8 @@ namespace World.Pawns
 {
     public class Pawn : Thing
     {
+        private SkillSet _skillSet;
+        
         private PawnMovement _movement;
         
         public PawnMovement Movement
@@ -56,6 +61,8 @@ namespace World.Pawns
             _name = "Testy McTestes";
 
             health = new Health.Health(this);
+            
+            _skillSet = new SkillSet(this);
 
             _brain = new Brain(this);
             
@@ -145,6 +152,20 @@ namespace World.Pawns
             
             
             Movement.MoveTo(position);
+        }
+
+        public void AddJob(Job job)
+        {
+            var goal = Activator.CreateInstance(job.SkillNeeded.goalClass) as JobGoal;
+            
+            if (goal == null)
+            {
+                return;
+            }
+            
+            goal.Job = job;
+            
+            _brain.AddGoal(goal);
         }
     }
 }
