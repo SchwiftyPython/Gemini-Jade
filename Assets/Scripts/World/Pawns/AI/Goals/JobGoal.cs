@@ -1,3 +1,5 @@
+using World.Pawns.Jobs;
+
 namespace World.Pawns.AI.Goals
 {
     public class JobGoal : Goal

@@ -173,6 +173,8 @@ namespace World
             {
                 UnityUtils.AddBoxColliderTo(instance.gameObject);
             }
+            
+            AstarPath.active.Scan();
         }
     }
 }

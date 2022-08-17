@@ -4,10 +4,12 @@ using Repos;
 using Time;
 using UnityEngine;
 using World;
-using World.Pawns;
+using World.Pawns.Jobs;
 
 public class Game : MonoBehaviour
 {
+    public JobGiver jobGiver = new JobGiver();
+    
     private void Awake()
     {
         var tickController = FindObjectOfType<TickController>();
@@ -28,12 +30,23 @@ public class Game : MonoBehaviour
 
         var pawnRepo = FindObjectOfType<PawnRepo>();
 
-        var testPawn = PawnRepo.CreatePawn(pawnRepo.GetHumanTemplate());
+        var numPawns = Random.Range(2, 6);
 
-        gridBuildingSystem.LocalMap.PlacePawn(testPawn, new Coord(25, 25));
+        for (int i = 0; i < numPawns; i++)
+        {
+            var testPawn = PawnRepo.CreatePawn(pawnRepo.GetHumanTemplate());
+            
+            var spawnPoint = map.GetRandomTile(true);
+
+            gridBuildingSystem.LocalMap.PlacePawn(testPawn, spawnPoint.Position);
         
-        tickController.SetTestPawn(testPawn);
-        
+            tickController.AddTestPawn(testPawn);
+            
+            jobGiver.RegisterPawn(testPawn); //probably move to pawn constructor
+            
+            jobGiver.RegisterMap(map); //probably move to map constructor
+        }
+
         var localMapHolder = FindObjectOfType<LocalMapHolder>();
             
         localMapHolder.Build(map);

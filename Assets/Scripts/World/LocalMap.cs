@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
@@ -5,6 +6,8 @@ using GoRogue.GameFramework;
 using UnityEngine;
 using Utilities;
 using World.Pawns;
+using World.Pawns.Jobs;
+using Random = UnityEngine.Random;
 
 namespace World
 {
@@ -13,7 +16,11 @@ namespace World
         private const int NumberOfEntityLayers = 3;
         
         private List<Pawn> _pawns;
+
+        public Action onMapChanged;
         
+        public Action<Job> onJobAdded;
+
         public LocalMap(int width, int height) : base(width, height, NumberOfEntityLayers, Distance.CHEBYSHEV)
         {
             Direction.YIncreasesUpward = true;
@@ -79,7 +86,12 @@ namespace World
         {
             pawn.Position = gridPosition;
             
-            PlaceGridObject(pawn);
+            var placed = AddEntity(pawn);
+
+            if (!placed)
+            {
+                Debug.LogError($"Failed to place pawn at {pawn.Position.ToString()}");
+            }
             
             _pawns ??= new List<Pawn>();
             
@@ -135,6 +147,11 @@ namespace World
         {
             var tile = GetTileAt(position);
 
+            if (tile == null)
+            {
+                return false;
+            }
+
             if (!tile.IsWalkable)
             {
                 return false;
@@ -172,7 +189,7 @@ namespace World
             return x >= Width || x < 0 || y >= Height || y < 0;
         }
         
-        private void PlaceGridObject(IGameObject gridObject)
+        private void PlaceGridObject(GridObject gridObject)
         {
             var placed = AddEntity(gridObject);
 
@@ -180,6 +197,24 @@ namespace World
             {
                 Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
             }
+            
+            AstarPath.active.Scan();
+            
+            //todo else notify map changed
+            
+            //todo if needs to be built, create a job and add to job giver -- could be part of map changed event
+            //have job giver sub to map changed event
+
+            if (!gridObject.IsBlueprint())
+            {
+                return;
+            }
+            
+            var placedObjectType = gridObject.PlacedObject.placedObjectType;
+
+            var job = new Job(gridObject.Position, placedObjectType.skill, placedObjectType.minSkillLevel);
+            
+            onJobAdded?.Invoke(job);
         }
         
         private void RemoveGridObject(IGameObject gridObject)
@@ -190,6 +225,8 @@ namespace World
             {
                 Debug.LogError("Failed to remove object from local map!");
             }
+            
+            AstarPath.active.Scan();
         }
         
         private void UpdateNeighborWallTextures(Coord coord)

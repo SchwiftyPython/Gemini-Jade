@@ -1964,6 +1964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humanTemplate: {fileID: 11400000, guid: b5321f236285ad4478548e1b1307d231, type: 2}
+  skills:
+  - {fileID: 11400000, guid: 477d27391c938c54795aca143920eead, type: 2}
 --- !u!1 &1737449127
 GameObject:
   m_ObjectHideFlags: 0

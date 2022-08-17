@@ -8,6 +8,7 @@ using UnityEngine;
 using World.Pawns.AI.Brains;
 using World.Pawns.AI.Goals;
 using World.Pawns.Health;
+using World.Pawns.Jobs;
 using World.Pawns.Skills;
 using World.Things;
 using Object = UnityEngine.Object;
@@ -53,6 +54,8 @@ namespace World.Pawns
         public bool ToolUser => species.intellect >= Intellect.ToolUser;
 
         public bool IsAnimal => !ToolUser && IsOrganic;
+
+        public Action<Job> onJobTaken;
 
         public Pawn(SpeciesTemplate speciesTemplate) : base(speciesTemplate)
         {
@@ -156,6 +159,13 @@ namespace World.Pawns
 
         public void AddJob(Job job)
         {
+            if (job.IsAssigned)
+            {
+                Debug.Log($"{job} is already assigned.");
+                
+                return;
+            }
+            
             var goal = Activator.CreateInstance(job.SkillNeeded.goalClass) as JobGoal;
             
             if (goal == null)
@@ -165,7 +175,9 @@ namespace World.Pawns
             
             goal.Job = job;
             
-            _brain.AddGoal(goal);
+            _brain.AddPriorityGoal(goal);
+            
+            onJobTaken?.Invoke(job);
         }
     }
 }

@@ -1,4 +1,3 @@
-using Assets.Scripts.World;
 using UnityEngine;
 using World.Pawns.Skills;
 

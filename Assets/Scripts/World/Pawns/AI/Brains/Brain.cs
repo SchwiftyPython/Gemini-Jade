@@ -68,5 +68,12 @@ namespace World.Pawns.AI.Brains
             
             Goals.Push(goal);
         }
+        
+        public void AddPriorityGoal(Goal goal)
+        {
+           Goals = new Stack<Goal>();
+
+           Goals.Push(goal);
+        }
     }
 }

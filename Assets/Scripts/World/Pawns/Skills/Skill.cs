@@ -1,6 +1,7 @@
 using System;
 using Assets.Scripts.World;
 using UnityEngine;
+using World.Pawns.Jobs;
 
 namespace World.Pawns.Skills
 {

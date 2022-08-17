@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Assets.Scripts.Utilities;
 using Time.TickerTypes;
@@ -19,7 +20,9 @@ namespace Time
 
         private Stopwatch _clock;
 
-        private Pawn _testPawn;
+        private List<Pawn> _testPawns;
+
+        private Game _game;
         
         //todo need collapsible header
         public TimeSpeed paused;
@@ -160,10 +163,14 @@ namespace Time
             normalTicks = new TickList(normalTick);
             rareTicks = new TickList(rareTick);
             longTicks = new TickList(longTick);
+
+            _game = FindObjectOfType<Game>();
+            
+            _testPawns = new List<Pawn>();
             
             //TESTING Health Debug
 
-            HealthDebug.OnPawnSelected += SetTestPawn;
+            HealthDebug.OnPawnSelected += AddTestPawn;
 
             //END TESTING Health Debug 
         }
@@ -182,14 +189,18 @@ namespace Time
             rareTicks.Tick();
             longTicks.Tick();
         
-            //todo they have a static Find class that basically does FindObjectOfType for everyone
+            _game.jobGiver.Tick();
         
             //todo Date Notifier Tick
         
             //todo Scenario tick
         
             //todo World Tick -- Pawns are ticked here. Bypassing for now to test health boi
-            _testPawn?.Tick();
+
+            foreach (var pawn in _testPawns.ToArray())
+            {
+                pawn.Tick();
+            }
         
             //todo Game End Tick
         
@@ -240,9 +251,14 @@ namespace Time
             _settleTick = _numTicks;
         }
 
-        public void SetTestPawn(Pawn pawn)
+        public void AddTestPawn(Pawn pawn)
         {
-            _testPawn = pawn;
+            if (_testPawns == null)
+            {
+                _testPawns = new List<Pawn>();
+            }
+            
+            _testPawns.Add(pawn);
         }
 
         private TickList GetTickListFor(Thing thing)

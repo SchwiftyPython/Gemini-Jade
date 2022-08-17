@@ -1,22 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using GoRogue;
-using UnityEngine;
-using World;
 using World.Pawns.Skills;
 
-public class Job
+namespace World.Pawns.Jobs
 {
-    private Coord _location;
-
-    public Skill SkillNeeded { get; }
-
-    public int SkillLevelNeeded { get; }
-    
-    //todo resources needed
-
-    public Job()
+    public class Job
     {
+        private Coord _location;
+
+        private Pawn _assignedPawn;
+
+        public Skill SkillNeeded { get; }
+
+        public int SkillLevelNeeded { get; }
         
+        public bool IsAssigned => _assignedPawn != null;
+    
+        //todo resources needed
+
+        public Job(Coord location, Skill skillNeeded, int skillLevelNeeded)
+        {
+            _location = location;
+            
+            SkillNeeded = skillNeeded;
+            
+            SkillLevelNeeded = skillLevelNeeded;
+        }
+        
+        public void AssignPawn(Pawn pawn)
+        {
+            _assignedPawn = pawn;
+        }
+        
+        public void UnAssignPawn()
+        {
+            _assignedPawn = null;
+        }
     }
 }

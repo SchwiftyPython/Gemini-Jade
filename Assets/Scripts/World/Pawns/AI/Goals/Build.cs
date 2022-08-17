@@ -14,7 +14,7 @@ namespace World.Pawns.AI.Goals
             // basically job subscribes to a stockpile event for that particular resource
         
             //todo if all resources are added, construct at some rate based on construction skill until work left is zero
-            //not sure how we'll do that. Either some sort of tick here or possibly a pawn build script similar to pawn movement
+            //placed object ca handle construction. Pawn stops at work site, placed object runs construction loop until work left is zero or pawn moves away from work site
         
         }
     }

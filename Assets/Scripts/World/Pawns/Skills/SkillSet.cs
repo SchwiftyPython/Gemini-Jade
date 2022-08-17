@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Repos;
+using World.Pawns.Jobs;
 using Object = UnityEngine.Object;
 
 namespace World.Pawns.Skills
@@ -32,6 +33,10 @@ namespace World.Pawns.Skills
             }
             
             _enabledSkills.Add(skill);
+            
+            //todo sub and unsub dependent on skill enabled and no current job
+            
+            //probably sub in Bored Goal and unsub when bored goal is finished or adding another goal
             
             skill.onSkillNeeded += OnSkillNeeded;
         }
