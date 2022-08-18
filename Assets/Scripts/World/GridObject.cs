@@ -46,5 +46,17 @@ namespace World
             
             return neighbor != null && neighbor.IsWall();
         }
+
+        public void FinishConstruction()
+        {
+            if (PlacedObject.placedObjectType.isWall)
+            {
+                ((WallPlacedObject)PlacedObject).FinishConstruction();
+            }
+            else
+            {
+                PlacedObject.FinishConstruction();
+            }
+        }
     }
 }

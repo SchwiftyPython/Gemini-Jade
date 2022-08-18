@@ -13,11 +13,11 @@ namespace Utilities
             {
                 if (blueprint.placedObjectType.isWall)
                 {
-                    ((WallPlacedObject)blueprint).Make();
+                    ((WallPlacedObject)blueprint).FinishConstruction();
                 }
                 else
                 {
-                    blueprint.Make();
+                    blueprint.FinishConstruction();
                 }
             }
         }

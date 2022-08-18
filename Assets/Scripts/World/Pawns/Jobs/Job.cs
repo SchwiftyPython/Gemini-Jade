@@ -5,7 +5,7 @@ namespace World.Pawns.Jobs
 {
     public class Job
     {
-        private Coord _location;
+        public Coord Location { get; }
 
         private Pawn _assignedPawn;
 
@@ -19,7 +19,7 @@ namespace World.Pawns.Jobs
 
         public Job(Coord location, Skill skillNeeded, int skillLevelNeeded)
         {
-            _location = location;
+            Location = location;
             
             SkillNeeded = skillNeeded;
             

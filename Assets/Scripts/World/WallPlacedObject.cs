@@ -76,7 +76,7 @@ namespace World
             SpriteRenderer.color = NeedsToBeMade ? BlueprintColor : BuiltColor;
         }
 
-        public override void Make()
+        public override void FinishConstruction()
         {
             remainingWork = 0;
             

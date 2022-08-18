@@ -169,8 +169,8 @@ namespace World
 
             return true;
         }
-        
-        private GridObject GetBlueprintAt(Coord position)
+
+        public GridObject GetBlueprintAt(Coord position)
         {
             var gridObject = GetGridObjectAt(position);
 

@@ -12,8 +12,11 @@ namespace World.Pawns.AI.Goals
         
         public Brain brain;
 
-        public Pawn Pawn => brain.Pawn;
-        
+        public Pawn Pawn
+        {
+            get => brain.Pawn;
+        }
+
         public Goal(){}
         
         public virtual void Create(){}

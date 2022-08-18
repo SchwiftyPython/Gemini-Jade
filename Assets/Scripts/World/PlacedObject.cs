@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Utilities;
 using World.Things.CraftableThings;
@@ -92,12 +93,44 @@ namespace World
         protected Dir direction;
 
         protected int remainingWork;
+
+        protected bool constructing;
+
+        protected float constructionSpeed;
+
+        protected float constructionTimer;
         
         public List<GridObject> GridObjects { get; internal set; }
         
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         
         public bool NeedsToBeMade => remainingWork > 0;
+
+        private void Update()
+        {
+            if (!constructing)
+            {
+                return;
+            }
+            
+            if(remainingWork <= 0)
+            {
+                constructing = false;
+                
+                GridObjects.First().FinishConstruction();
+            }
+
+            constructionTimer += UnityEngine.Time.deltaTime;
+
+            if (constructionTimer >= constructionSpeed)
+            {
+                constructionTimer -= constructionSpeed;
+                
+                remainingWork--;
+                
+                //todo progress bar of some kind
+            }
+        }
 
         public List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
         {
@@ -154,8 +187,10 @@ namespace World
             return gridPositionList;
         }
 
-        public virtual void Make()
+        public virtual void FinishConstruction()
         {
+            constructing = false;
+            
             remainingWork = 0;
             
             SpriteRenderer.sprite = placedObjectType.builtTexture;
@@ -175,6 +210,27 @@ namespace World
             }
             
             AstarPath.active.Scan();
+        }
+
+        public void Construct(float speed)
+        {
+            //todo we'll have to play with the numbers to figure out what speed will actually be
+            // especially since a lower value for speed would be faster
+            
+            //todo sub to assigned pawn movement or maybe pawn changing goal event to pause construction
+            
+            constructionSpeed = speed;
+
+            constructionTimer = 0;
+            
+            constructing = true;
+        }
+        
+        public void PauseConstruction()
+        {
+            constructing = false;
+            
+            //todo add to available jobs in job giver
         }
     }
 }

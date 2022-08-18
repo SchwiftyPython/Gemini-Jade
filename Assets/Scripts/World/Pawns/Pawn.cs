@@ -166,6 +166,8 @@ namespace World.Pawns
                 return;
             }
             
+            job.AssignPawn(this);
+            
             var goal = Activator.CreateInstance(job.SkillNeeded.goalClass) as JobGoal;
             
             if (goal == null)
@@ -174,7 +176,7 @@ namespace World.Pawns
             }
             
             goal.Job = job;
-            
+
             _brain.AddPriorityGoal(goal);
             
             onJobTaken?.Invoke(job);

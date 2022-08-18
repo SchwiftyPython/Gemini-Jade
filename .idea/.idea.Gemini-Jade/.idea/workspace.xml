@@ -3,19 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TickController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TickController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/JobGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/JobGoal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/Job.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/Job.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
@@ -33,6 +28,10 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/18/a4e641ab/GridManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -138,10 +137,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6964">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5472">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="6964" />
+      <option name="pid" value="5472" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -239,14 +238,8 @@
       <workItem from="1660560872783" duration="10704000" />
       <workItem from="1660653403838" duration="8078000" />
       <workItem from="1660731362875" duration="5416000" />
-      <workItem from="1660746104239" duration="5996000" />
-    </task>
-    <task id="LOCAL-00002" summary="Added Health Capacity Summary stuff to UI">
-      <created>1650902082147</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1650902082147</updated>
+      <workItem from="1660746104239" duration="6144000" />
+      <workItem from="1660819035713" duration="6904000" />
     </task>
     <task id="LOCAL-00003" summary="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs">
       <created>1651007702557</created>
@@ -584,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660671800129</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns.">
+      <created>1660757583455</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1660757583455</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +608,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added DamageInfo.cs&#10;Added DamageResult.cs&#10;Added DamageTemplate.cs&#10;Added DamageWorker.cs" />
     <MESSAGE value="Added various DamageTypes&#10;Added Cut DamageTemplate.cs&#10;Added Cut DamageWorker" />
     <MESSAGE value="Fleshed out DamageInfo.cs" />
     <MESSAGE value="Fleshed out DamageResult.cs and DamageWorker.cs" />
@@ -633,38 +632,7 @@
     <MESSAGE value="Pathfinding working fairly well.&#10;&#10;Can cancel an invalid path and choose a new destination." />
     <MESSAGE value="Added Wander.cs and got it working&#10;Started on defining pawn skills" />
     <MESSAGE value="Added SkillSet.cs&#10;Added Skill.cs&#10;Added Construction.asset Skill.cs&#10;Added JobGoal.cs&#10;Added Build.cs goal&#10;Added Job.cs&#10;Added JobGiver.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added SkillSet.cs&#10;Added Skill.cs&#10;Added Construction.asset Skill.cs&#10;Added JobGoal.cs&#10;Added Build.cs goal&#10;Added Job.cs&#10;Added JobGiver.cs" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs</url>
-          <line>40</line>
-          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\Pawns\Skills\SkillSet.cs" initialLine="40" containingFunctionPresentation="method 'EnableSkill'">
-            <startOffsets>
-              <option value="968" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1005" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs</url>
-          <line>67</line>
-          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\Pawns\Pawn.cs" initialLine="67" containingFunctionPresentation="constructor 'Pawn'">
-            <startOffsets>
-              <option value="1641" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1672" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns." />
+    <option name="LAST_COMMIT_MESSAGE" value="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns." />
   </component>
 </project>

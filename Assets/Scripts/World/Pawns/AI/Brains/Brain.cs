@@ -8,8 +8,6 @@ namespace World.Pawns.AI.Brains
     {
         //todo brain types
 
-        public bool testGoalInProgress;
-
         public Stack<Goal> Goals { get; private set; }
 
         public Pawn Pawn { get; }
@@ -33,9 +31,7 @@ namespace World.Pawns.AI.Brains
                 //todo bored goal
 
                 //testing Wander
-                
-                testGoalInProgress = false;
-                
+
                 Debug.Log("No goals, testing wandering...");
 
                new Wander().Push(this);
@@ -44,8 +40,6 @@ namespace World.Pawns.AI.Brains
             while (Goals.Count > 0 && Goals.Peek().Finished())
             {
                 Goals.Pop();
-                
-                testGoalInProgress = false;
             }
 
             if (Goals.Count > 0)
@@ -61,6 +55,11 @@ namespace World.Pawns.AI.Brains
 
         public void AddGoal(Goal goal)
         {
+            if (goal.brain == null)
+            {
+                goal.brain = this;
+            }
+            
             if (Goals == null)
             {
                 Goals = new Stack<Goal>();
@@ -68,12 +67,17 @@ namespace World.Pawns.AI.Brains
             
             Goals.Push(goal);
         }
-        
+
         public void AddPriorityGoal(Goal goal)
         {
-           Goals = new Stack<Goal>();
+            if (goal.brain == null)
+            {
+                goal.brain = this;
+            }
 
-           Goals.Push(goal);
+            Goals = new Stack<Goal>();
+
+            Goals.Push(goal);
         }
     }
 }
