@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Repos;
 using World.Pawns.Jobs;
 using Object = UnityEngine.Object;
@@ -64,7 +65,7 @@ namespace World.Pawns.Skills
 
             var pawnRepo = Object.FindObjectOfType<PawnRepo>();
             
-            var allSkills = pawnRepo.GetSkills();
+            var allSkills = pawnRepo.GetSkills().OrderBy(s => s.defaultPriority);
 
             foreach (var skill in allSkills)
             {
@@ -92,6 +93,20 @@ namespace World.Pawns.Skills
             if(job.SkillLevelNeeded > skillLevel)
             {
                 return;
+            }
+
+            if (_pawn.HasJobAssigned())
+            {
+                var currentJob = _pawn.GetCurrentJob();
+
+                var currentJobPriority = _skills.Keys.ToList().IndexOf(currentJob.SkillNeeded);
+                
+                var newJobPriority = _skills.Keys.ToList().IndexOf(job.SkillNeeded);
+
+                if (currentJobPriority <= newJobPriority)
+                {
+                    return;
+                }
             }
 
             _pawn.AddJob(job);

@@ -1,24 +1,35 @@
 using System.Collections.Generic;
+using System.Linq;
+using Repos;
+using UnityEngine;
+using World.Pawns.Skills;
 
 namespace World.Pawns.Jobs
 {
     public class JobGiver
     {
-        private List<Job> _availableJobs;
+        private Dictionary<Skill, List<Job>> _availableJobs;
+
+        //private List<Job> _availableJobs;
     
         public JobGiver()
         {
-            _availableJobs = new List<Job>();
+            InitializeAvailableJobs();
         }
 
         public void Tick()
         {
-            foreach (var job in _availableJobs.ToArray())
+            foreach (var skill in _availableJobs.Keys.ToArray())
             {
-                //todo assign pawn to job and have pawn check for an assigned pawn when taking job
-                //if this doesn't work then we'll have pawn's ask job giver for something
+                foreach (var job in _availableJobs[skill].ToArray())
+                {
+                    if (job.IsAssigned)
+                    {
+                        RemoveJob(job);
+                    }
             
-                job.SkillNeeded.onSkillNeeded?.Invoke(job);
+                    job.SkillNeeded.onSkillNeeded?.Invoke(job);
+                }
             }
         }
 
@@ -34,27 +45,59 @@ namespace World.Pawns.Jobs
         
         public void AddJob(Job job)
         {
-            if (_availableJobs.Contains(job))
+            if (JobAlreadyAdded(job))
             {
+                Debug.Log($"Job already add to available jobs. Job Location: {job.Location}");
+                
                 return;
             }
-            
-            _availableJobs.Add(job);
+
+            if (job.IsAssigned)
+            {
+                job.UnAssignPawn();
+            }
+
+            _availableJobs[job.SkillNeeded].Add(job);
         }
         
         public void RemoveJob(Job job)
         {
-            _availableJobs.Remove(job);
+            _availableJobs[job.SkillNeeded].Remove(job);
         }
         
         private void OnJobTaken(Job job)
         {
+            job.onPawnUnassigned += OnJobUnassigned;
+            
             RemoveJob(job);
         }
 
-        public void OnJobCancelled(Job job)
+        public void OnJobUnassigned(Job job)
         {
+            job.onPawnUnassigned -= OnJobUnassigned;
+            
+            Debug.Log($"Pawn unassigned, adding job to available jobs. Job Location: {job.Location}");
+            
             AddJob(job);
+        }
+
+        private void InitializeAvailableJobs()
+        {
+            _availableJobs = new Dictionary<Skill, List<Job>>();
+            
+            var pawnRepo = Object.FindObjectOfType<PawnRepo>();
+
+            var skills = pawnRepo.GetSkills().OrderBy(s => s.defaultPriority);
+
+            foreach (var skill in skills)
+            {
+                _availableJobs.Add(skill, new List<Job>());
+            }
+        }
+
+        private bool JobAlreadyAdded(Job job)
+        {
+            return _availableJobs.Keys.ToArray().Any(skill => _availableJobs[skill].Contains(job));
         }
     }
 }

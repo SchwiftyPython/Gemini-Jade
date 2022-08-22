@@ -3,17 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/Job.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/Job.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +35,10 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,6 +71,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/ed/82b538de/IMapViewExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9df56e6ea4c549bfbf2511342fd303949800/da/e02ea357/Tilemap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2a97e0383e8404c9fc0ae19d58f57f146a800/61/6f939d92/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2a97e0383e8404c9fc0ae19d58f57f146a800/97/c9b51c42/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -120,7 +133,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\User\source\repos\Gemini-Jade -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\User\source\repos\Gemini-Jade" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -137,10 +150,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5472">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7152">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="5472" />
+      <option name="pid" value="7152" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -239,14 +252,8 @@
       <workItem from="1660653403838" duration="8078000" />
       <workItem from="1660731362875" duration="5416000" />
       <workItem from="1660746104239" duration="6144000" />
-      <workItem from="1660819035713" duration="6904000" />
-    </task>
-    <task id="LOCAL-00003" summary="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs">
-      <created>1651007702557</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1651007702557</updated>
+      <workItem from="1660819035713" duration="7179000" />
+      <workItem from="1661169703579" duration="20894000" />
     </task>
     <task id="LOCAL-00004" summary="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function">
       <created>1651081849858</created>
@@ -584,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660757583455</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Pawns move to work site and build blueprint">
+      <created>1660842596387</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1660842596387</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +622,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added various DamageTypes&#10;Added Cut DamageTemplate.cs&#10;Added Cut DamageWorker" />
     <MESSAGE value="Fleshed out DamageInfo.cs" />
     <MESSAGE value="Fleshed out DamageResult.cs and DamageWorker.cs" />
     <MESSAGE value="Added BodyPartGroupRepo.cs&#10;Added more methods to DamageWorker.cs" />
@@ -633,6 +646,26 @@
     <MESSAGE value="Added Wander.cs and got it working&#10;Started on defining pawn skills" />
     <MESSAGE value="Added SkillSet.cs&#10;Added Skill.cs&#10;Added Construction.asset Skill.cs&#10;Added JobGoal.cs&#10;Added Build.cs goal&#10;Added Job.cs&#10;Added JobGiver.cs" />
     <MESSAGE value="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns." />
-    <option name="LAST_COMMIT_MESSAGE" value="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns." />
+    <MESSAGE value="Pawns move to work site and build blueprint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pawns move to work site and build blueprint" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs</url>
+          <line>29</line>
+          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\PlacedObject.cs" initialLine="29" containingFunctionPresentation="method 'Create'">
+            <startOffsets>
+              <option value="1040" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1087" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

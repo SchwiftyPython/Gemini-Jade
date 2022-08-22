@@ -1,8 +1,13 @@
+using GoRogue;
+using UnityEngine;
+
 namespace World.Pawns.AI.Goals
 {
     public class Build : JobGoal
     {
         private GridObject _blueprint;
+        
+        private Coord _workSpot;
         
         public Build()
         {
@@ -22,11 +27,38 @@ namespace World.Pawns.AI.Goals
             //todo if all resources are added, construct at some rate based on construction skill until work left is zero
             //placed object can handle construction. Pawn stops at work site, placed object runs construction loop until work left is zero or pawn moves away from work site
 
-            if (Pawn.Position != Job.Location)
+            if (Pawn.Position != _workSpot)
             {
-                //todo we want to move to an adjacent location. If not available suspend job until a walkable neighbor is available
+                //todo this works for one tile jobs, but for bigger blueprints we need to find adjacent tiles around whole object
+                // maybe loop through all grid objects and return walkable adjacent coords that are not part of the same placed object
+                //changing job location to list to make this easier
                 
-                var localMove = new LocalMove(Pawn.Movement, Job.Location);
+                
+                var walkablePositions = ((LocalMap) Pawn.CurrentMap).GetAdjacentWalkableLocations(Job.Location);
+
+                _workSpot = Coord.NONE;
+
+                foreach (var position in walkablePositions)
+                {
+                    if (Pawn.Movement.CanPathTo(position))
+                    {
+                        _workSpot = position;
+                        break;
+                    }
+                }
+
+                if (_workSpot == Coord.NONE)
+                {
+                    //todo suspend job until a walkable neighbor is available
+                    
+                    Debug.Log($"{Pawn.id} cannot path to {Job.Location}");
+                    
+                    Failed();
+                    
+                    return;
+                }
+                
+                var localMove = new LocalMove(Pawn.Movement, _workSpot);
                 
                 PushChildGoal(localMove);
 
@@ -35,15 +67,13 @@ namespace World.Pawns.AI.Goals
                 return;
             }
             
-            //todo figure out construction speed
+            Pawn.FaceToward(Job.Location);
 
-            _blueprint.PlacedObject.Construct(.2f);
+            _blueprint.PlacedObject.Construct(Job, Pawn,16); //todo testing 
         }
 
         public override void Failed()
         {
-            _blueprint.PlacedObject.PauseConstruction();
-            
             Job.UnAssignPawn();
             
             Pop();

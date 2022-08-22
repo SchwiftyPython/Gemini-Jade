@@ -8,13 +8,15 @@ using World.Pawns.Jobs;
 
 public class Game : MonoBehaviour
 {
-    public JobGiver jobGiver = new JobGiver();
+    public JobGiver jobGiver;
     
     private void Awake()
     {
         var tickController = FindObjectOfType<TickController>();
         
         tickController.Init();
+        
+        jobGiver = new JobGiver();
         
         //testing map gen
 

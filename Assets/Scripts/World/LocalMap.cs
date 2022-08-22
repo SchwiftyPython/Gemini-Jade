@@ -237,6 +237,13 @@ namespace World
             }
         }
 
+        private List<Coord> GetAllNeighbors(Coord coord)
+        {
+            var rule = AdjacencyRule.ToAdjacencyRule(AdjacencyRule.EIGHT_WAY.Type);
+
+            return rule.Neighbors(coord).ToList();
+        }
+
         private void UpdateNeighborWallTexture(Coord coord, Direction direction)
         {
             var neighbor = GetGridObjectAt(coord + direction);
@@ -267,6 +274,11 @@ namespace World
             }
             
             return tiles;
+        }
+
+        public IEnumerable<Coord> GetAdjacentWalkableLocations(Coord position)
+        {
+            return GetAllNeighbors(position).Where(WalkableAt).ToList();
         }
     }
 }

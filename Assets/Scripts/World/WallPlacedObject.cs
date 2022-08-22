@@ -22,6 +22,8 @@ namespace World
             
             placedObject.placedObjectType = placedObjectType;
 
+            placedObject.map = gridBuildingSystem.LocalMap;
+
             MapLayer layer;
             bool walkable;
             bool transparent;
@@ -79,6 +81,8 @@ namespace World
         public override void FinishConstruction()
         {
             remainingWork = 0;
+            
+            MovePawnsOutTheWay();
             
             UpdateTexture();
 

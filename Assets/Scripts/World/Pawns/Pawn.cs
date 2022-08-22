@@ -57,6 +57,8 @@ namespace World.Pawns
 
         public Action<Job> onJobTaken;
 
+        public Action onPawnMoved;
+
         public Pawn(SpeciesTemplate speciesTemplate) : base(speciesTemplate)
         {
             species = speciesTemplate;
@@ -130,8 +132,6 @@ namespace World.Pawns
 
         public void MoveToLocal(Coord position)
         {
-            //todo could decouple this even more and fire as an event
-            
             if (!spawned)
             {
                 Debug.LogError($"Tried to move {this} to {position} but it's not spawned. ID: {id}");
@@ -153,8 +153,18 @@ namespace World.Pawns
                 return;
             }
             
+            onPawnMoved?.Invoke();
+
+            var moveGoal = new LocalMove(Movement, position);
             
-            Movement.MoveTo(position);
+            _brain.AddPriorityGoal(moveGoal);
+            
+            //Movement.MoveTo(position);
+        }
+
+        public void FaceToward(Coord position)
+        {
+            Movement.UpdateFacing(position);
         }
 
         public void AddJob(Job job)
@@ -180,6 +190,23 @@ namespace World.Pawns
             _brain.AddPriorityGoal(goal);
             
             onJobTaken?.Invoke(job);
+        }
+
+        public bool HasJobAssigned()
+        {
+            return _brain.HasJobGoal();
+        }
+
+        public Job GetCurrentJob()
+        {
+            return _brain.GetCurrentJob();
+        }
+
+        public void CancelCurrentJob()
+        {
+            var job = _brain.GetCurrentJob();
+            
+            job.UnAssignPawn();
         }
     }
 }

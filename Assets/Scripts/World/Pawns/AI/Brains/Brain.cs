@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using World.Pawns.AI.Goals;
+using World.Pawns.Jobs;
 
 namespace World.Pawns.AI.Brains
 {
@@ -68,16 +70,35 @@ namespace World.Pawns.AI.Brains
             Goals.Push(goal);
         }
 
-        public void AddPriorityGoal(Goal goal)
+        public void AddPriorityGoal(Goal pGoal)
         {
-            if (goal.brain == null)
+            var jobGoals = Goals.Where(g => g is JobGoal);
+
+            foreach (var jobGoal in jobGoals)
             {
-                goal.brain = this;
+                ((JobGoal)jobGoal).Job.UnAssignPawn();
+            }
+            
+            if (pGoal.brain == null)
+            {
+                pGoal.brain = this;
             }
 
             Goals = new Stack<Goal>();
 
-            Goals.Push(goal);
+            Goals.Push(pGoal);
+        }
+
+        public bool HasJobGoal()
+        {
+            return Goals.Any(g => g is JobGoal);
+        }
+
+        public Job GetCurrentJob()
+        {
+            var jobGoal = Goals.SingleOrDefault(g => g is JobGoal);
+
+            return ((JobGoal) jobGoal)?.Job;
         }
     }
 }

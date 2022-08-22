@@ -38,7 +38,7 @@ namespace World.Pawns.AI.Goals
             
             _movement.onDestinationUnreachable += OnDestinationUnreachable;
             
-            Pawn.MoveToLocal(_target);
+            Pawn.Movement.MoveTo(_target);
         }
         
         private void OnDestinationReached()
@@ -57,8 +57,15 @@ namespace World.Pawns.AI.Goals
             _movement.onDestinationReached -= OnDestinationReached;
             
             _movement.onDestinationUnreachable -= OnDestinationUnreachable;
-            
-            FailToParent();
+
+            if (parentGoal == null)
+            {
+                Pop();
+            }
+            else
+            {
+                FailToParent();
+            }
         }
     }
 }

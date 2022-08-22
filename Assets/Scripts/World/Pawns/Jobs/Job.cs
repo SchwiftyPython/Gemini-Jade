@@ -1,3 +1,4 @@
+using System;
 using GoRogue;
 using World.Pawns.Skills;
 
@@ -5,9 +6,11 @@ namespace World.Pawns.Jobs
 {
     public class Job
     {
-        public Coord Location { get; }
+        public Coord Location { get; } //todo this could be a list
 
         private Pawn _assignedPawn;
+
+        public Action<Job> onPawnUnassigned;
 
         public Skill SkillNeeded { get; }
 
@@ -34,6 +37,8 @@ namespace World.Pawns.Jobs
         public void UnAssignPawn()
         {
             _assignedPawn = null;
+            
+            onPawnUnassigned?.Invoke(this);
         }
     }
 }

@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Utilities;
+using World.Pawns;
+using World.Pawns.Jobs;
 using World.Things.CraftableThings;
 
 namespace World
@@ -24,6 +26,8 @@ namespace World
             placedObject.instance = placedObjectInstance;
             
             placedObject.placedObjectType = placedObjectType;
+
+            placedObject.map = gridBuildingSystem.LocalMap;
 
             MapLayer layer;
             bool walkable;
@@ -91,6 +95,8 @@ namespace World
         protected internal List<Vector3> gridPositions;
         
         protected Dir direction;
+        
+        protected Job constructionJob;
 
         protected int remainingWork;
 
@@ -99,6 +105,10 @@ namespace World
         protected float constructionSpeed;
 
         protected float constructionTimer;
+
+        protected LocalMap map;
+
+        protected Pawn pawn;
         
         public List<GridObject> GridObjects { get; internal set; }
         
@@ -127,7 +137,7 @@ namespace World
                 constructionTimer -= constructionSpeed;
                 
                 remainingWork--;
-                
+
                 //todo progress bar of some kind
             }
         }
@@ -193,6 +203,8 @@ namespace World
             
             remainingWork = 0;
             
+            MovePawnsOutTheWay();
+            
             SpriteRenderer.sprite = placedObjectType.builtTexture;
             
             SpriteRenderer.color = BuiltColor;
@@ -203,7 +215,7 @@ namespace World
                 
                 gridObject.IsTransparent = placedObjectType.transparent;
             }
-            
+
             if (!placedObjectType.walkable)
             {
                 UnityUtils.AddBoxColliderTo(instance.gameObject);
@@ -212,25 +224,62 @@ namespace World
             AstarPath.active.Scan();
         }
 
-        public void Construct(float speed)
+        public void Construct(Job job, Pawn jobPawn, int skillLevel)
         {
-            //todo we'll have to play with the numbers to figure out what speed will actually be
-            // especially since a lower value for speed would be faster
+            constructionJob = job;
             
-            //todo sub to assigned pawn movement or maybe pawn changing goal event to pause construction
+            constructionJob.onPawnUnassigned += PauseConstruction;
+
+            pawn = jobPawn;
+
+            pawn.onPawnMoved += OnPawnMoved;
+
+            MovePawnsOutTheWay();
             
-            constructionSpeed = speed;
+            constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
 
             constructionTimer = 0;
             
             constructing = true;
         }
-        
-        public void PauseConstruction()
+
+        private void OnPawnMoved()
+        {
+            pawn.onPawnMoved -= OnPawnMoved;
+            
+            pawn.CancelCurrentJob();
+        }
+
+        public void PauseConstruction(Job job)
         {
             constructing = false;
             
-            //todo add to available jobs in job giver
+            constructionJob.onPawnUnassigned -= PauseConstruction;
+        }
+
+        protected void MovePawnsOutTheWay()
+        {
+            foreach (var gridObject in GridObjects)
+            {
+                foreach (var pawn in map.GetAllPawns())
+                {
+                    if (gridObject.Position == pawn.Position)
+                    {
+                        var pawnNeighbors = map.GetAdjacentWalkableLocations(pawn.Position);
+
+                        foreach (var neighbor in pawnNeighbors)
+                        {
+                            var nGridObject = map.GetGridObjectAt(neighbor);
+
+                            if (nGridObject == null || !GridObjects.Contains(nGridObject))
+                            {
+                                pawn.MoveToLocal(neighbor);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

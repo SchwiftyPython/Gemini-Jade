@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GoRogue;
 using Pathfinding;
 using UnityEngine;
@@ -96,6 +97,8 @@ namespace World.Pawns
                 
                 Debug.Log($"Path invalid. Next waypoint not walkable in path {waypoint}");
                 
+                
+                //todo if this is null maybe consider clearing goals as a fail-safe
                 onDestinationUnreachable?.Invoke();
 
                 return;
@@ -128,7 +131,16 @@ namespace World.Pawns
             
             Reset();
         }
-        
+
+        public bool CanPathTo(Coord destination)
+        {
+            var path = _seeker.StartPath(_pawn.Position.ToVector3(), destination.ToVector3());
+            
+            path.BlockUntilCalculated();
+
+            return !path.error && path.vectorPath.Count > 1;
+        }
+
         public void MoveTo(Coord destination)
         {
             if (!((LocalMap) _pawn.CurrentMap).WalkableAt(destination))
@@ -148,16 +160,16 @@ namespace World.Pawns
                 {
                     _lastRepath = UnityEngine.Time.time;
                 }
+                
+                Destination = destination;
+            
+                _seeker.StartPath(_pawn.Position.ToVector3(), Destination.ToVector3());
             }
-            
-            Destination = destination;
-            
-            _seeker.StartPath(_pawn.Position.ToVector3(), Destination.ToVector3());
         }
 
         private void OnPathComplete (Path path) 
         {
-            if (!path.error && path.vectorPath.Count > 1)
+            if (!path.error && path.vectorPath.Count > 0)
             {
                 Path = path;
 
@@ -179,7 +191,7 @@ namespace World.Pawns
             }
         }
 
-        private void UpdateFacing(Coord target)
+        public void UpdateFacing(Coord target)
         {
             var currentFacing = Facing;
             

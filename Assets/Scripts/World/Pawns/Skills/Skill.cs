@@ -16,5 +16,7 @@ namespace World.Pawns.Skills
         public Type goalClass;
 
         public string verb;
+
+        public int defaultPriority;
     }
 }
