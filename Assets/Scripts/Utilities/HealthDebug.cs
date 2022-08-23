@@ -5,40 +5,78 @@ using Assets.Scripts.World.Pawns.Species;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 using World.Pawns;
+using World.Pawns.Health.DamageTemplates;
+using World.Pawns.Health.DamageWorkers;
 using World.Pawns.Health.HealthFunctions;
 using World.Pawns.Health.HealthModifiers;
+using World.Things;
 
 namespace Assets.Scripts.Utilities
 {
+    /// <summary>
+    /// The health debug class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class HealthDebug : MonoBehaviour
     {
+        /// <summary>
+        /// The current pawn
+        /// </summary>
         private Pawn _currentPawn;
 
+        /// <summary>
+        /// The body parts dict
+        /// </summary>
         private Dictionary<string, BodyPart> _bodyPartsDict;
 
         //todo move these to a more central location -- probably some ui handler 
+        /// <summary>
+        /// The select pawn
+        /// </summary>
         public delegate void SelectPawn(Pawn pawn);
         public static event SelectPawn OnPawnSelected;
 
+        /// <summary>
+        /// The body changed
+        /// </summary>
         public delegate void BodyChanged();
         public static event BodyChanged OnBodyChanged;
 
+        /// <summary>
+        /// The human template
+        /// </summary>
         public SpeciesTemplate humanTemplate;
 
+        /// <summary>
+        /// The remove body part template
+        /// </summary>
         public HealthModTemplate removeBodyPartTemplate;
+        /// <summary>
+        /// The cut body part template
+        /// </summary>
         public HealthModTemplate cutBodyPartTemplate;
 
+        /// <summary>
+        /// The body parts dropdown
+        /// </summary>
         public Dropdown bodyPartsDropdown;
 
         //todo add health mods to call or we can assign health mods directly to buttons and not worry about it here
 
+        /// <summary>
+        /// Starts this instance
+        /// </summary>
         private void Start()
         {
             OnPawnSelected += HealthDebug_OnPawnSelected;
             OnBodyChanged += HealthDebug_OnBodyChanged;
         }
 
+        /// <summary>
+        /// Creates the pawn
+        /// </summary>
         public void CreatePawn()
         {
             var pawn = humanTemplate.NewPawn();
@@ -46,11 +84,17 @@ namespace Assets.Scripts.Utilities
             OnPawnSelected?.Invoke(pawn);
         }
 
+        /// <summary>
+        /// Notifies the body changed
+        /// </summary>
         public static void NotifyBodyChanged()
         {
             OnBodyChanged?.Invoke();
         }
 
+        /// <summary>
+        /// Removes the body part
+        /// </summary>
         public void RemoveBodyPart()
         {
             var partName = bodyPartsDropdown.options[bodyPartsDropdown.value].text;
@@ -88,41 +132,67 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
-        public void CutBodyPart()
+        /// <summary>
+        /// Cuts the pawn
+        /// </summary>
+        public void CutPawn()
         {
-            var partName = bodyPartsDropdown.options[bodyPartsDropdown.value].text;
+            var damageTemplateRepo = FindObjectOfType<DamageTemplateRepo>();
 
-            if (string.IsNullOrEmpty(partName))
-            {
-                Debug.LogError("Can't cut body part! No part selected!");
-                return;
-            }
-
-            if (!_bodyPartsDict.ContainsKey(partName))
-            {
-                Debug.LogError($"Can't cut {partName}! Doesn't exist in Body Parts Dictionary!");
-                return;
-            }
-
-            //todo make some equivalent to Damage Worker class and Add Injury Subclass or method
-
-            var partToCut = _bodyPartsDict[partName];
-
-            if (_currentPawn.health.BodyPartIsMissing(partToCut))
-            {
-                Debug.LogError($"Can't cut {partName}! Body Part is already missing!");
-                return;
-            }
-
-            var cutPartMod = HealthModMaker.MakeHealthMod(cutBodyPartTemplate, _currentPawn, partToCut);
+            var cutTemplate = damageTemplateRepo.cutDamageTemplate;
             
-            _currentPawn.health.AddHealthMod(cutPartMod, partToCut);
+            //todo weapon/source of damage
+
+            var damageAmount = cutTemplate.baseDamage;
             
+            damageAmount = (int) Random.Range(damageAmount * .04f, damageAmount * 1.6f);
+
+            var attacker = humanTemplate.NewPawn();
+
+            var damageInfo = new DamageInfo(cutTemplate, damageAmount, cutTemplate.baseArmorPen, null, attacker, _currentPawn);
+
+            var healthUtils = FindObjectOfType<HealthUtils>();
+            
+            damageInfo.SetBodyArea(healthUtils.heightUndefined, healthUtils.outside);
+            
+            var damageResult = _currentPawn.TakeDamage(damageInfo);
+
+            Debug.Log($"Successfully cut pawn!");
+            
+            Debug.Log(damageResult.ToString());
+
             OnBodyChanged?.Invoke();
             
             PopulateBodyPartDropdown();
         }
 
+        /// <summary>
+        /// Attacks the with weapon
+        /// </summary>
+        public void AttackWithWeapon()
+        {
+            //todo have a weapon select dropdown
+            
+            var knifeTemplate = FindObjectOfType<ThingTemplateRepo>().knifeTemplateTest;
+            
+            var knife = knifeTemplate.MakeThing();
+
+            var parts = knife.template.Parts;
+            
+            var partToUse = parts[Random.Range(0, parts.Count)];
+
+            var partAction = partToUse.action;
+
+            partAction.target = _currentPawn;
+
+            var success = partAction.TryAction();
+            
+            Debug.Log($"Attempt to attack with {knifeTemplate.label} {partToUse.label}: {success}");
+        }
+
+        /// <summary>
+        /// Populates the body part dropdown
+        /// </summary>
         private void PopulateBodyPartDropdown()
         {
             bodyPartsDropdown.ClearOptions();
@@ -150,6 +220,9 @@ namespace Assets.Scripts.Utilities
             bodyPartsDropdown.AddOptions(_bodyPartsDict.Keys.ToList());
         }
 
+        /// <summary>
+        /// Draws the health summary
+        /// </summary>
         private void DrawHealthSummary()
         {
             var healthSummary = Object.FindObjectOfType<HealthSummary>();
@@ -170,6 +243,10 @@ namespace Assets.Scripts.Utilities
             healthSummary.Draw(functionPercentages);
         }
 
+        /// <summary>
+        /// Healths the debug on pawn selected using the specified pawn
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
         private void HealthDebug_OnPawnSelected(Pawn pawn)
         {
             _currentPawn = pawn;
@@ -177,6 +254,9 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
+        /// <summary>
+        /// Healths the debug on body changed
+        /// </summary>
         public void HealthDebug_OnBodyChanged()
         {
             DrawHealthSummary();

@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Grid
+  - PlacementGrid
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 2723678987
+    locked: 0
+  - name: Objects
+    uniqueID: 1758507959
+    locked: 0
+  - name: Pawns
+    uniqueID: 1476326677
+    locked: 0
+  - name: GhostObject
+    uniqueID: 4105481117
     locked: 0

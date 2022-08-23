@@ -7,8 +7,21 @@ using World.Pawns.Health.HealthModifiers;
 
 namespace Utilities
 {
+   /// <summary>
+   /// The health mod adder utils class
+   /// </summary>
    public static class HealthModAdderUtils
    {
+      /// <summary>
+      /// Describes whether try apply
+      /// </summary>
+      /// <param name="pawn">The pawn</param>
+      /// <param name="healthModTemplate">The health mod template</param>
+      /// <param name="affectedParts">The affected parts</param>
+      /// <param name="affectsAnyLivePart">The affects any live part</param>
+      /// <param name="numPartsToAffect">The num parts to affect</param>
+      /// <param name="outAddedHealthMods">The out added health mods</param>
+      /// <returns>The bool</returns>
       public static bool TryApply(Pawn pawn, HealthModTemplate healthModTemplate, List<BodyPartTemplate> affectedParts,
          bool affectsAnyLivePart = false, int numPartsToAffect = 1, List<HealthMod> outAddedHealthMods = null)
       {

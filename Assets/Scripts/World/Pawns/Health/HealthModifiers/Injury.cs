@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace World.Pawns.Health.HealthModifiers
 {
+    /// <summary>
+    /// The injury class
+    /// </summary>
+    /// <seealso cref="HealthMod"/>
     public class Injury : HealthMod
     {
         //todo permanent injury color
@@ -10,6 +14,9 @@ namespace World.Pawns.Health.HealthModifiers
         
         //todo all the override label stuff
 
+        /// <summary>
+        /// Gets the value of the summary health percent impact
+        /// </summary>
         public override float SummaryHealthPercentImpact
         {
             get
@@ -23,6 +30,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the pain offset
+        /// </summary>
         public override float PainOffset
         {
             get
@@ -40,6 +50,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the bleed rate
+        /// </summary>
         public override float BleedRate
         {
             get
@@ -72,6 +85,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the duration ticks to stop bleeding
+        /// </summary>
         private int DurationTicksToStopBleeding
         {
             get
@@ -84,8 +100,14 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the bleeding stopped due to duration
+        /// </summary>
         private bool BleedingStoppedDueToDuration => durationTicks >= DurationTicksToStopBleeding;
 
+        /// <summary>
+        /// Ticks this instance
+        /// </summary>
         public override void Tick()
         {
             var bleedingStoppedDueToDurationPre = BleedingStoppedDueToDuration;
@@ -104,6 +126,11 @@ namespace World.Pawns.Health.HealthModifiers
         
         //todo override heal
 
+        /// <summary>
+        /// Describes whether this instance try merge with
+        /// </summary>
+        /// <param name="otherHealthMod">The other health mod</param>
+        /// <returns>The bool</returns>
         public override bool TryMergeWith(HealthMod otherHealthMod)
         {
             if (otherHealthMod is not Injury otherInjury) 
@@ -129,6 +156,9 @@ namespace World.Pawns.Health.HealthModifiers
             return base.TryMergeWith(otherHealthMod);
         }
 
+        /// <summary>
+        /// Posts the remove
+        /// </summary>
         public override void PostRemove()
         {
             base.PostRemove();

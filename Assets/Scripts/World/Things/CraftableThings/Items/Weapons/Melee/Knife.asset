@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d095336e3f280b34692ce6b4959cb828, type: 3}
+  m_Name: Knife
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: thingClass
+      Entry: 6
+      Data: 
+  templateName: Knife
+  label: knife
+  description: A tool or weapon used for cutting, usually consisting of a metal blade
+    and a handle.
+  parent: {fileID: 11400000, guid: cbaaf19e7ebd6f84187ae9150a6451be, type: 2}
+  _category: {fileID: 0}
+  _layer: 0
+  _tickerType: {fileID: 0}
+  _stackLimit: -1
+  _maxHitPoints: -1
+  _flammability: -1
+  _beauty: -2147483648
+  _mass: -1
+  _parts:
+  - {fileID: 11400000, guid: 6825f7be38034244d9fcf37ed3519f75, type: 2}
+  - {fileID: 11400000, guid: 71c76050dec64594f979901c77ebf4e0, type: 2}
+  - {fileID: 11400000, guid: 7dcdf88c8399f974bad55567f0424309, type: 2}
+  destroyable: 1
+  rotatable: 1
+  useHitPoints: 1
+  selectable: 1

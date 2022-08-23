@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbc60a73a1fbc545bbb5dd6040f3179, type: 3}
+  m_Name: Wall
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: thingClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Things.CraftableThings.Buildings.Building, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  templateName: Wall
+  label: wall
+  description: Your standard wall.
+  parent: {fileID: 11400000, guid: 4f1102d8b7a3455499158d210233b9a7, type: 2}
+  _category: {fileID: 11400000, guid: bf44c11f405b00d40a7ff7c99a96e516, type: 2}
+  _layer: 3
+  _tickerType: {fileID: 0}
+  _stackLimit: -1
+  _maxHitPoints: 450
+  _flammability: 1
+  _beauty: -2147483648
+  _mass: -1
+  _parts: []
+  prefab: {fileID: 674682465395995725, guid: adb5b5e46db546f41b5ae7c89980b99e, type: 3}
+  spriteSheet: {fileID: 0}
+  destroyable: 1
+  rotatable: 0
+  useHitPoints: 1
+  selectable: 1
+  transparent: 0
+  walkable: 0
+  isStatic: 0
+  workToMake: 100
+  skill: {fileID: 11400000, guid: 477d27391c938c54795aca143920eead, type: 2}
+  minSkillLevel: 0
+  blueprintTexture: {fileID: 21300000, guid: 95fbc9bec8460d644ac3d5af440f5f3a, type: 3}
+  builtTexture: {fileID: 0}
+  width: 1
+  height: 1
+  isWall: 1

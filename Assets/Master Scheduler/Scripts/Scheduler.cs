@@ -1,7 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+
+/// <summary>
+
+/// The queue spot delegate
+
+/// </summary>
 
 public delegate void QueueSpotDelegate();
 
@@ -65,6 +71,9 @@ public class Scheduler : MonoBehaviour
     /// is the queue running ? Internal flag.
     /// </summary>
     private bool bIsRunning = false;
+    /// <summary>
+    /// The current index
+    /// </summary>
     private int CurrentIndex = 0;
 
     /// <summary>
@@ -199,6 +208,10 @@ public class Scheduler : MonoBehaviour
         else bDestroyOnEmpty = true;
     }
 
+    /// <summary>
+    /// Processes the queue routine
+    /// </summary>
+    /// <returns>The enumerator</returns>
     IEnumerator ProcessQueueRoutine()
     {
         while (true)

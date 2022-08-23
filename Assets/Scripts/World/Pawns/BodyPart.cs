@@ -8,40 +8,85 @@ using Assets.Scripts.World.Pawns.BodyTemplates;
 
 namespace Assets.Scripts.World.Pawns
 {
+    /// <summary>
+    /// The body part class
+    /// </summary>
     public class BodyPart
     {
+        /// <summary>
+        /// The body
+        /// </summary>
         private BodyTemplate _body;
 
+        /// <summary>
+        /// The template
+        /// </summary>
         public BodyPartTemplate template;
 
+        /// <summary>
+        /// The custom label
+        /// </summary>
         private string _customLabel;
 
+        /// <summary>
+        /// The children
+        /// </summary>
         private List<BodyPart> _children;
 
-        private BodyPartHeight.BodyPartHeight _height;
+        /// <summary>
+        /// The height
+        /// </summary>
+        public BodyPartHeight.BodyPartHeight height;
 
+        /// <summary>
+        /// The depth
+        /// </summary>
         public BodyPartDepth.BodyPartDepth depth;
 
+        /// <summary>
+        /// The coverage
+        /// </summary>
         public float coverage;
 
+        /// <summary>
+        /// The groups
+        /// </summary>
         private List<BodyPartGroupTemplate> _groups;
 
+        /// <summary>
+        /// The parent
+        /// </summary>
         public BodyPart parent;
 
+        /// <summary>
+        /// Gets the value of the is core part
+        /// </summary>
         public bool IsCorePart => parent == null;
 
+        /// <summary>
+        /// Gets the value of the label
+        /// </summary>
         public string Label => string.IsNullOrWhiteSpace(_customLabel) ? template.label : _customLabel;
 
+        /// <summary>
+        /// Gets the value of the label capitalized
+        /// </summary>
         public string LabelCapitalized => string.IsNullOrWhiteSpace(_customLabel)
             ? template.LabelCap
             : _customLabel.CapitalizeFirst();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BodyPart"/> class
+        /// </summary>
+        /// <param name="body">The body</param>
+        /// <param name="part">The part</param>
+        /// <param name="parent">The parent</param>
         public BodyPart(BodyTemplate body, BodyTemplate.Part part, BodyPart parent = null)
         {
             _body = body;
             template = part.self;
             _customLabel = part.customLabel;
-            _height = part.height;
+            height = part.height;
            depth = part.depth;
            coverage = part.coverage;
            _groups = new List<BodyPartGroupTemplate>(part.groups);
@@ -62,11 +107,19 @@ namespace Assets.Scripts.World.Pawns
            }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BodyPart"/> class
+        /// </summary>
         public BodyPart()
         {
             _customLabel = "Whole Body";
         }
 
+        /// <summary>
+        /// Describes whether this instance is in group
+        /// </summary>
+        /// <param name="group">The group</param>
+        /// <returns>The bool</returns>
         public bool IsInGroup(BodyPartGroupTemplate group)
         {
             foreach (var g in _groups)
@@ -80,24 +133,10 @@ namespace Assets.Scripts.World.Pawns
             return false;
         }
 
-        /*public bool IsMissing()
-        {
-            if (_healthMods == null || _healthMods.Count < 1)
-            {
-                return false;
-            }
-
-            foreach (var mod in _healthMods)
-            {
-                if (mod is MissingBodyPart)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }*/
-
+        /// <summary>
+        /// Gets the all children
+        /// </summary>
+        /// <returns>The all children</returns>
         public List<BodyPart> GetAllChildren()
         {
             var allChildren = new List<BodyPart>();
@@ -112,6 +151,11 @@ namespace Assets.Scripts.World.Pawns
             return allChildren;
         }
 
+        /// <summary>
+        /// Gets the child parts using the specified tag
+        /// </summary>
+        /// <param name="tag">The tag</param>
+        /// <returns>An enumerable of body part</returns>
         public IEnumerable<BodyPart> GetChildParts(BodyPartTagTemplate tag)
         {
             if (template.tags.Contains(tag))
@@ -130,6 +174,10 @@ namespace Assets.Scripts.World.Pawns
             }
         }
 
+        /// <summary>
+        /// Gets the direct child parts
+        /// </summary>
+        /// <returns>An enumerable of body part</returns>
         public IEnumerable<BodyPart> GetDirectChildParts()
         {
             var i = 0;
@@ -141,16 +189,30 @@ namespace Assets.Scripts.World.Pawns
             }
         }
 
+        /// <summary>
+        /// Describes whether this instance has child parts
+        /// </summary>
+        /// <param name="tag">The tag</param>
+        /// <returns>The bool</returns>
         public bool HasChildParts(BodyPartTagTemplate tag)
         {
             return GetChildParts(tag).Any();
         }
 
+        /// <summary>
+        /// Describes whether this instance has child parts
+        /// </summary>
+        /// <returns>The bool</returns>
         public bool HasChildParts()
         {
             return _children != null && _children.Any();
         }
 
+        /// <summary>
+        /// Gets the connected parts using the specified tag
+        /// </summary>
+        /// <param name="tag">The tag</param>
+        /// <returns>An enumerable of body part</returns>
         public IEnumerable<BodyPart> GetConnectedParts(BodyPartTagTemplate tag)
         {
             var bodyPart = this;

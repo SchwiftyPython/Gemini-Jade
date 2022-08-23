@@ -1,7 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="" />
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere.">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Behaviors/AIDestinationSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Behaviors/AIDestinationSetter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Behaviors/Patrol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Behaviors/Patrol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AIBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AIBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AILerp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AILerp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AIPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/AIPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/Seeker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/Seeker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/TurnBasedAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AI/TurnBasedAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarMath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarMath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/AstarPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/GraphUpdateScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/GraphUpdateScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/GraphUpdateShape.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/GraphUpdateShape.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AnimationLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AnimationLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ArrayPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ArrayPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AstarDebugger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AstarDebugger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AutoRepathPolicy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/AutoRepathPolicy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/BinaryHeap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/BinaryHeap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/Draw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/Draw.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/GraphEditorBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/GraphEditorBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/GraphModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/GraphModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/GraphUpdateProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/GraphUpdateProcessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/HierarchicalGraph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/HierarchicalGraph.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/Int3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/Int3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ListPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ListPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/MovementUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/MovementUtilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/NodeLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/NodeLink.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/NodeLink2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/NodeLink2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/NodeLink3.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/NodeLink3.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathInterpolator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathInterpolator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathProcessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathReturnQueue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/PathReturnQueue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ThreadControlQueue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/ThreadControlQueue.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/WindowsStoreCompatibility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/WindowsStoreCompatibility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/WorkItemProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Misc/WorkItemProcessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Nodes/GraphNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Nodes/GraphNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Path.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Path.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/PathHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/PathHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Serialization/JsonSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Serialization/JsonSerializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Serialization/TinyJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/Serialization/TinyJson.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/astarclasses.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Core/astarclasses.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AIBaseEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AIBaseEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AILerpEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AILerpEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AnimationLinkEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AnimationLinkEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AstarPathEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AstarPathEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AstarUpdateChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AstarUpdateChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AstarUpdateWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/AstarUpdateWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/CustomGraphEditorAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/CustomGraphEditorAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/GraphEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/GraphEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/GridGeneratorEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/GridGeneratorEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/NavMeshGeneratorEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/NavMeshGeneratorEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/PointGeneratorEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphEditors/PointGeneratorEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphUpdateSceneEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/GraphUpdateSceneEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/Legacy/LegacyAIPathEditor2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/Legacy/LegacyAIPathEditor2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/Legacy/LegacyEditorHelper2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/Legacy/LegacyEditorHelper2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/ModifierEditors/RaycastModifierEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/ModifierEditors/RaycastModifierEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/ModifierEditors/SmoothModifierEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/ModifierEditors/SmoothModifierEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/ProceduralGridMoverEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/ProceduralGridMoverEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/SeekerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Editor/SeekerEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/Example12_Procedural/ProceduralWorld.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/Example12_Procedural/ProceduralWorld.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/AstarSmoothFollow2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/AstarSmoothFollow2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/DoorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/DoorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/MineBotAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/MineBotAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/ObjectPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/ObjectPlacer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/SnapToNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/SnapToNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/TargetMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/ExampleScenes/ExampleScripts/TargetMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Base.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Base.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/GridGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/GridGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NavMeshGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NavMeshGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NavmeshBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NavmeshBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/GridNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/GridNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/GridNodeBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/GridNodeBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/PointNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/PointNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/TriangleMeshNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/NodeClasses/TriangleMeshNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/PointGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/PointGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/BBTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/BBTree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/EuclideanEmbedding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/EuclideanEmbedding.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/GraphTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/GraphTransform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/GridLookup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/GridLookup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/NavmeshTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/NavmeshTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/ObjImporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/ObjImporter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/PointKDTree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Generators/Utilities/PointKDTree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Legacy/LegacyAIPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Legacy/LegacyAIPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Legacy/MiscLegacy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Legacy/MiscLegacy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/AlternativePath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/AlternativePath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/FunnelModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/FunnelModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/Modifiers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/Modifiers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/RaycastModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/RaycastModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/SimpleSmoothModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/SimpleSmoothModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/StartEndModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Modifiers/StartEndModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Navmesh/NavmeshUpdates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Navmesh/NavmeshUpdates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Navmesh/RelevantGraphSurface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Navmesh/RelevantGraphSurface.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EditorBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EditorBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EditorGUIx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EditorGUIx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EnumFlagDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/Editor/EnumFlagDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/UniqueComponentAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/UniqueComponentAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/VersionedMonoBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/PackageTools/VersionedMonoBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Pathfinders/ABPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Pathfinders/ABPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/TurnBased/BlockManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/TurnBased/BlockManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/TurnBased/SingleNodeBlocker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/TurnBased/SingleNodeBlocker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/AstarParallel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/AstarParallel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/AstarProfiler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/AstarProfiler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/DotNetReplacements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/DotNetReplacements.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/DynamicGridObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/DynamicGridObstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/Funnel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/Funnel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/GraphGizmoHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/GraphGizmoHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/PathUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/PathUtilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/ProceduralGridMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/ProceduralGridMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/ProfileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/ProfileHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/RetainedGizmos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/RetainedGizmos.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/UnityReferenceHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AstarPathfindingProject/Utilities/UnityReferenceHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/Explosions/scripts/Car.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/Explosions/scripts/Car.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/Explosions/scripts/CarSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/Explosions/scripts/CarSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/FollowPath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/FollowPath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/FollowerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/FollowerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/MovingTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/MovingTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Examples/PathFollow/scripts/Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Scripts/QueueHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Scripts/QueueHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Master Scheduler/Scripts/Scheduler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Master Scheduler/Scripts/Scheduler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/EnsureOdinInspectorDefine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/EnsureOdinInspectorDefine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/FixBrokenUnityObjectWrapperDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/FixBrokenUnityObjectWrapperDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/SyncListDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/SyncListDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/SyncVarAttributeDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/SyncVarAttributeDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/Vector2IntMinMaxAttributeDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/Vector2IntMinMaxAttributeDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/VectorIntDrawers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/VectorIntDrawers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/VectorIntPropertyResolvers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/VectorIntPropertyResolvers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/SerializedNetworkBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/SerializedNetworkBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/VectorIntFormatters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/VectorIntFormatters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/BuildablesRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/BuildablesRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/PawnRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/PawnRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/TerrainRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/TerrainRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TickController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TickController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TickList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TickList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TickerTypes/TickerType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TickerTypes/TickerType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TimeChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TimeChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Time/TimeSpeeds/TimeSpeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Time/TimeSpeeds/TimeSpeed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BodyPartList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BodyPartList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BodyPartStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BodyPartStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HealthFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HealthFunction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HealthModUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HealthModUi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HealthSummary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HealthSummary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/DebugCommands.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HashUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HashUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthDebug.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthFunctionUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthFunctionUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModAdderUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModAdderUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HealthUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/TextUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/TextUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BitMaskDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BitMaskDirection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Bored.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Bored.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/JobGoal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/JobGoal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Wander.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Wander.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/Action.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartDepth/BodyPartDepth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartDepth/BodyPartDepth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartGroupTemplates/BodyPartGroupRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartGroupTemplates/BodyPartGroupRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartGroupTemplates/BodyPartGroupTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartGroupTemplates/BodyPartGroupTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartHeight/BodyPartHeight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartHeight/BodyPartHeight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTags/BodyPartTagRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTags/BodyPartTagRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTags/BodyPartTagTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTags/BodyPartTagTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTemplates/BodyPartTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyPartTemplates/BodyPartTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyTemplates/BodyTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/BodyTemplates/BodyTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplateRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplateRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/BluntWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/BluntWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/CutWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/CutWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/StabWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/StabWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/FleshType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/FleshType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/FunctionsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/FunctionsHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/HealthFunctionRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/HealthFunctionRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/HealthFunctionTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/HealthFunctionTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/BloodFiltrationWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/BloodFiltrationWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/BloodPumpingWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/BloodPumpingWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/BreathingWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/BreathingWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/ConsciousnessWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/ConsciousnessWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/EatingWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/EatingWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/HealthFunctionWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/HealthFunctionWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/HearingWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/HearingWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/ManipulationWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/ManipulationWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/MetabolismWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/MetabolismWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/MovingWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/MovingWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/SightWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/SightWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/TalkingWorker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthFunctions/Workers/TalkingWorker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierAdderSetTemplates/HealthModAdderSetTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierAdderSetTemplates/HealthModAdderSetTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierAdders/BloodLoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierAdders/BloodLoss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierAdders/HealthModAdder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierAdders/HealthModAdder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/GetsPermanent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/GetsPermanent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/GetsPermanent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/GetsPermanent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/HealthModCompProps.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/HealthModCompProps.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/SeverityPerDay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/SeverityPerDay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/TendDuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/TendDuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/SeverityPerDay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/SeverityPerDay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/TendDuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/TendDuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthMod.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthMod.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModMaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModStage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/HealthModTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Injury.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/Injury.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/MissingBodyPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifiers/MissingBodyPart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/PainLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/PainLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Intellect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Intellect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/Job.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/Job.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Species/SpeciesTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Species/SpeciesTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Template.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Template.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/CraftableTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/CraftableTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/PlacedObjectTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/PlacedObjectTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/ThingCategoryTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/ThingCategoryTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplateRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplateRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,22 +264,74 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Body-Sim" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/18/a4e641ab/GridManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/a8/eba8f6db/PlacementGrid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/e4/c5082292/GridDisplayManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e18c5a6594041c9844bfd0b6618ee4a10fc00/ed/9d0f444f/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/0e/894fb681/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/3d/f55d0563/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/99/dfcc69f5/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/c4/6d02eb53/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/d8/4107f672/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40205bb2cb25478a9cb0f5e54cf11441157400/da/d21144ec/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/17/6b10f0ea/Activator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/67/de6ac37e/Thread.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/7c/8e59ce22/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/83/4b07b7ff/Environment.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/cb/b09eb692/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6073cf49ed704e958b8a66d540dea94846a800/d4/fd566f3e/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/73/06a309e9/AdvancedSpatialMap`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/85/4206a9cf/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/a4/8ba7a675/Coord.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/b0/16cf7462/Map.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/b8/cdc89675/ArrayMap`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/db/5239244a/Map.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/e5/d1a31275/AdvancedLayeredSpatialMap`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/ed/82b538de/IMapViewExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/UI/BodyPartList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9df56e6ea4c549bfbf2511342fd303949800/da/e02ea357/Tilemap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2a97e0383e8404c9fc0ae19d58f57f146a800/61/6f939d92/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c2a97e0383e8404c9fc0ae19d58f57f146a800/97/c9b51c42/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/BitMaskDirection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/JobGoal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTemplates/DamageTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageTypes/DamageType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/BluntWorker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthAdjustments.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModComp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/HealthModCompProps.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/SeverityPerDay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/HealthModCompProperties/TendDuration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/HealthModifierComponents/SeverityPerDay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/PainLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -38,23 +344,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.496614&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.496614",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.externalTools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.2f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.8f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\User\source\repos\Gemini-Jade -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\User\source\repos\Gemini-Jade" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -116,34 +422,66 @@
       <workItem from="1653568894609" duration="10119000" />
       <workItem from="1653911315118" duration="6666000" />
       <workItem from="1653999980649" duration="8651000" />
-    </task>
-    <task id="LOCAL-00001" summary="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing">
-      <created>1650554230040</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1650554230040</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Added Health Capacity Summary stuff to UI">
-      <created>1650902082147</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1650902082147</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs">
-      <created>1651007702557</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1651007702557</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function">
-      <created>1651081849858</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1651081849858</updated>
+      <workItem from="1654016833797" duration="7474000" />
+      <workItem from="1654027496726" duration="61000" />
+      <workItem from="1654082987578" duration="4903000" />
+      <workItem from="1654167013348" duration="11672000" />
+      <workItem from="1655209245341" duration="1781000" />
+      <workItem from="1655215791804" duration="4371000" />
+      <workItem from="1655302538319" duration="9035000" />
+      <workItem from="1655391618843" duration="2742000" />
+      <workItem from="1655398026503" duration="664000" />
+      <workItem from="1655466237767" duration="2497000" />
+      <workItem from="1655742255024" duration="4202000" />
+      <workItem from="1655814124352" duration="4300000" />
+      <workItem from="1655898100525" duration="8863000" />
+      <workItem from="1655987484688" duration="7411000" />
+      <workItem from="1656330363380" duration="1855000" />
+      <workItem from="1656344579961" duration="8279000" />
+      <workItem from="1656412723070" duration="10378000" />
+      <workItem from="1656513164994" duration="10742000" />
+      <workItem from="1656586045747" duration="1933000" />
+      <workItem from="1656597552439" duration="54000" />
+      <workItem from="1656597634899" duration="1631000" />
+      <workItem from="1656675565877" duration="605000" />
+      <workItem from="1656932162205" duration="5735000" />
+      <workItem from="1657018652645" duration="2351000" />
+      <workItem from="1657105601095" duration="4422000" />
+      <workItem from="1657115123150" duration="642000" />
+      <workItem from="1657116208442" duration="8260000" />
+      <workItem from="1657199246265" duration="4918000" />
+      <workItem from="1657534390965" duration="4333000" />
+      <workItem from="1657722326419" duration="1590000" />
+      <workItem from="1657798448922" duration="14911000" />
+      <workItem from="1657891028382" duration="1976000" />
+      <workItem from="1658147517397" duration="1203000" />
+      <workItem from="1658232201481" duration="596000" />
+      <workItem from="1658312674437" duration="7894000" />
+      <workItem from="1658488495657" duration="15105000" />
+      <workItem from="1658575747817" duration="9389000" />
+      <workItem from="1658660588497" duration="10681000" />
+      <workItem from="1658745611674" duration="11210000" />
+      <workItem from="1658831891476" duration="4374000" />
+      <workItem from="1658922409626" duration="3542000" />
+      <workItem from="1658930826179" duration="6841000" />
+      <workItem from="1659630215856" duration="10078000" />
+      <workItem from="1659699358719" duration="7599000" />
+      <workItem from="1659960878945" duration="44000" />
+      <workItem from="1659961089145" duration="3699000" />
+      <workItem from="1660043084906" duration="13823000" />
+      <workItem from="1660128557001" duration="614000" />
+      <workItem from="1660130338858" duration="4920000" />
+      <workItem from="1660138512373" duration="12487000" />
+      <workItem from="1660218809970" duration="10326000" />
+      <workItem from="1660300147322" duration="15347000" />
+      <workItem from="1660330897681" duration="3138000" />
+      <workItem from="1660560872783" duration="10704000" />
+      <workItem from="1660653403838" duration="8078000" />
+      <workItem from="1660731362875" duration="5416000" />
+      <workItem from="1660746104239" duration="6144000" />
+      <workItem from="1660819035713" duration="7179000" />
+      <workItem from="1661169703579" duration="21003000" />
+      <workItem from="1661250906156" duration="7682000" />
     </task>
     <task id="LOCAL-00005" summary="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think">
       <created>1651175173474</created>
@@ -264,7 +602,231 @@
       <option name="project" value="LOCAL" />
       <updated>1654016447519</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="misc stuff">
+      <created>1654016901895</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1654016901895</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Some unity misc stuff">
+      <created>1654017046776</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1654017046776</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added HealthModComp.cs&#10;Added HealthModCompProps.cs&#10;Added Comp SeverityPerDay.cs&#10;Added Comp Prop SeverityPerDay.cs&#10;Added Tend Duration">
+      <created>1654027464042</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1654027464042</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added TendDuration.cs Health Mod Component Property&#10;&#10;Added Alert methods to HealthMod&#10;&#10;Started processing health mod components">
+      <created>1654186405356</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1654186405356</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added more methods to HealthModCollection.cs">
+      <created>1655224402992</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1655224402992</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added GetsPermanent.cs Comp and Comp Prop&#10;Added HealthAdjustments.cs&#10;Added PainLevel.cs">
+      <created>1655319491367</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1655319491367</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added DamageInfo.cs&#10;Added DamageResult.cs&#10;Added DamageTemplate.cs&#10;Added DamageWorker.cs">
+      <created>1655746686938</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1655746686938</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added various DamageTypes&#10;Added Cut DamageTemplate.cs&#10;Added Cut DamageWorker">
+      <created>1655835251831</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1655835251831</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fleshed out DamageInfo.cs">
+      <created>1655915342419</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1655915342419</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Fleshed out DamageResult.cs and DamageWorker.cs">
+      <created>1656003042299</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1656003042299</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added BodyPartGroupRepo.cs&#10;Added more methods to DamageWorker.cs">
+      <created>1656355492499</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1656355492499</updated>
+    </task>
+    <task id="LOCAL-00033" summary="AddInjury methods and added override to CutWorker.cs">
+      <created>1656428876695</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1656428876695</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay">
+      <created>1656527606377</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1656527606377</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Added Knife">
+      <created>1657035306294</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1657035306294</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Added basic implementation of Action.cs">
+      <created>1657109425882</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1657109425882</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset">
+      <created>1657126706415</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1657126706415</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Adding new grid system.">
+      <created>1658515102929</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1658515102929</updated>
+    </task>
+    <task id="LOCAL-00039" summary="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid.">
+      <created>1658586163133</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1658586163133</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Can place 1 x 1 grid objects&#10;Can rotate 1 x 1 grid objects">
+      <created>1658682019532</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1658682019532</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Started working on blueprint functionality">
+      <created>1658849445968</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1658849445968</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished.">
+      <created>1658939595087</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1658939595087</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls">
+      <created>1659641626340</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1659641626340</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Bitmasking works. &#10;Need to do some cleanup next week.">
+      <created>1659711354765</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1659711354765</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs">
+      <created>1659992131403</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1659992131403</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI">
+      <created>1660160243245</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1660160243245</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Pawn wanders around okay&#10;Pathfinding a little janky. Pawn seems offset from the path a bit, but for the most part moves around walls okay.">
+      <created>1660258952964</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1660258952964</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Pathfinding working fairly well.&#10;&#10;Can cancel an invalid path and choose a new destination.">
+      <created>1660335696728</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1660335696728</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Added Wander.cs and got it working&#10;Started on defining pawn skills">
+      <created>1660585558231</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1660585558231</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Added SkillSet.cs&#10;Added Skill.cs&#10;Added Construction.asset Skill.cs&#10;Added JobGoal.cs&#10;Added Build.cs goal&#10;Added Job.cs&#10;Added JobGiver.cs">
+      <created>1660671800129</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1660671800129</updated>
+    </task>
+    <task id="LOCAL-00051" summary="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns.">
+      <created>1660757583455</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1660757583455</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Pawns move to work site and build blueprint">
+      <created>1660842596387</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1660842596387</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Added skill priorities&#10;Checked for pawns when constructing and finishing constructing&#10;Had local move check for parent when failing">
+      <created>1661200664473</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1661200664473</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,27 +850,31 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Trying out Rider&#10;Updated some namespaces&#10;Body parts list only shows highest parent that is missing" />
-    <MESSAGE value="Added Health Capacity Summary stuff to UI" />
-    <MESSAGE value="Added Addressable Assets&#10;Added Handlers and Workers for Health Function &#10;Added Consciousness Health Function &#10;Added FleshType.cs&#10;Added Intellect.cs&#10;Added HealthFunctionTemplate.cs" />
-    <MESSAGE value="Added BloodPumping health function&#10;Added repos for body parts tags and health functions&#10;Added ConsciousnessWorker.cs&#10;Added Consciousness health function" />
-    <MESSAGE value="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think" />
-    <MESSAGE value="We get some values back for blood filtration, breathing, and consciousness when removing body parts.&#10;So far nothing wacky." />
-    <MESSAGE value="Added Eating.asset&#10;Added Sight.asset&#10;Added Hearing.asset&#10;Added Moving.asset&#10;Added workers for each asset added.&#10;Sight and Hearing work okay.&#10;Eating and moving return 0% every refresh." />
-    <MESSAGE value="Added the rest of the Function Workers and Function Assets&#10;Everything seems to be working okay&#10;Need to cache functions as they are calculated to prevent recalculations" />
-    <MESSAGE value="Added TimeSpeeds&#10;Added TickController.cs" />
-    <MESSAGE value="Added TickList.cs&#10;Added Thing.cs&#10;Added methods to TickController.cs" />
-    <MESSAGE value="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace" />
-    <MESSAGE value="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods" />
-    <MESSAGE value="Added stages to health mods" />
-    <MESSAGE value="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs" />
-    <MESSAGE value="Added BloodLoss.cs&#10;Added methods to get current bleed rate and calculate stage of health mod based on severity" />
-    <MESSAGE value="Finished up adjusting severity of health mods&#10;Finished BloodLoss.cs&#10;Added AddHealthMod and RemoveHealthMod methods to Health.cs" />
-    <MESSAGE value="Added HashUtils.cs&#10;Added HealthModAdderSetTemplate.cs&#10;Added Organic HealthModifierAdderSetTemplate&#10;Looks like Remove BodyPart is broken now." />
-    <MESSAGE value="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss." />
-    <MESSAGE value="Finished conversion to HealthModCollection.cs&#10;Blood loss shows up under Whole Body as intended, but not when an injury first happens. Probably need to trigger event somewhere." />
-    <MESSAGE value="Added Master Scheduler Asset&#10;Added intervals to health mod adder checks&#10;Added Injury.cs" />
-    <MESSAGE value="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet." />
+    <MESSAGE value="Added BodyPartGroupRepo.cs&#10;Added more methods to DamageWorker.cs" />
+    <MESSAGE value="AddInjury methods and added override to CutWorker.cs" />
+    <MESSAGE value="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay" />
+    <MESSAGE value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
+    <MESSAGE value="Added Knife" />
+    <MESSAGE value="Added basic implementation of Action.cs" />
+    <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
+    <MESSAGE value="Adding new grid system." />
+    <MESSAGE value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
+    <MESSAGE value="Can place 1 x 1 grid objects&#10;Can rotate 1 x 1 grid objects" />
+    <MESSAGE value="Started working on blueprint functionality" />
+    <MESSAGE value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
+    <MESSAGE value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
+    <MESSAGE value="Bitmasking works. &#10;Need to do some cleanup next week." />
+    <MESSAGE value="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs" />
+    <MESSAGE value="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI" />
+    <MESSAGE value="Pawn wanders around okay.&#10;Pathfinding mostly working, but pawn seems offset from the path a bit." />
+    <MESSAGE value="Pawn wanders around okay&#10;Pathfinding a little janky. Pawn seems offset from the path a bit, but for the most part moves around walls okay." />
+    <MESSAGE value="Pathfinding working fairly well.&#10;&#10;Can cancel an invalid path and choose a new destination." />
+    <MESSAGE value="Added Wander.cs and got it working&#10;Started on defining pawn skills" />
+    <MESSAGE value="Added SkillSet.cs&#10;Added Skill.cs&#10;Added Construction.asset Skill.cs&#10;Added JobGoal.cs&#10;Added Build.cs goal&#10;Added Job.cs&#10;Added JobGiver.cs" />
+    <MESSAGE value="JobGiver.cs can give jobs to pawns based on skills needed and bored pawns." />
+    <MESSAGE value="Pawns move to work site and build blueprint" />
+    <MESSAGE value="Added skill priorities&#10;Checked for pawns when constructing and finishing constructing&#10;Had local move check for parent when failing" />
+    <MESSAGE value="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere." />
+    <option name="LAST_COMMIT_MESSAGE" value="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere." />
   </component>
 </project>

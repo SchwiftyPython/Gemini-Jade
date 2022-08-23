@@ -34,7 +34,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a5d473ade45c24048af5e1ba0e8112cf, type: 2}
     - {fileID: 11400000, guid: d0980e055ae699e4c99d8fdef890801e, type: 2}
     - {fileID: 11400000, guid: a9cddeabf2d5d9f43beee39e303c2715, type: 2}
-    - {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
     - {fileID: 11400000, guid: 89f2d54dd0e466c4aa087d0487e3322d, type: 2}
     - {fileID: 11400000, guid: 51e474b1bfbd4114e8cb67b63c149afe, type: 2}
     - {fileID: 11400000, guid: 051d82e35c5e4944ca48dbf356497f78, type: 2}
@@ -42,6 +41,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0cc49591d5711de4c824d6c51ea9abee, type: 2}
     - {fileID: 11400000, guid: 3f2ed49f9639e2b4cb9ae473a66303f8, type: 2}
     - {fileID: 11400000, guid: 655c31c3ac41ac647acab471d3c18524, type: 2}
+    - {fileID: 11400000, guid: 36e1457e315c8c14181d6537c75d2232, type: 2}
     - {fileID: 11400000, guid: d511529a67f472e44814dc375b43585c, type: 2}
     - {fileID: 11400000, guid: 31293ce6330c6c148b415e19c44174dc, type: 2}
     - {fileID: 11400000, guid: 31bf15964bb7f6847aa95c1bb8edff34, type: 2}
@@ -616,7 +616,7 @@ MonoBehaviour:
       Data: 17
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 14|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -626,7 +626,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 19
+      Data: 18
     - Name: 
       Entry: 13
       Data: 
@@ -648,7 +648,7 @@ MonoBehaviour:
       Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
     - Name: self
       Entry: 10
-      Data: 20
+      Data: 19
     - Name: selfTabLabel
       Entry: 1
       Data: Head
@@ -660,7 +660,7 @@ MonoBehaviour:
       Data: 17
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 16|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -670,10 +670,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 10
-      Data: 22
+      Data: 21
     - Name: 
       Entry: 13
       Data: 
@@ -695,7 +695,7 @@ MonoBehaviour:
       Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
     - Name: self
       Entry: 10
-      Data: 23
+      Data: 22
     - Name: selfTabLabel
       Entry: 1
       Data: Skull
@@ -717,13 +717,13 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 10
-      Data: 24
+      Data: 23
+    - Name: 
+      Entry: 10
+      Data: 20
     - Name: 
       Entry: 10
       Data: 21
-    - Name: 
-      Entry: 10
-      Data: 22
     - Name: 
       Entry: 13
       Data: 
@@ -745,7 +745,7 @@ MonoBehaviour:
       Data: Assets.Scripts.World.Pawns.BodyTemplates.BodyTemplate+Part, Assembly-CSharp
     - Name: self
       Entry: 10
-      Data: 25
+      Data: 24
     - Name: selfTabLabel
       Entry: 1
       Data: Brain
@@ -757,7 +757,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 20|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -767,13 +767,13 @@ MonoBehaviour:
       Data: 3
     - Name: 
       Entry: 10
-      Data: 24
+      Data: 23
+    - Name: 
+      Entry: 10
+      Data: 20
     - Name: 
       Entry: 10
       Data: 21
-    - Name: 
-      Entry: 10
-      Data: 22
     - Name: 
       Entry: 13
       Data: 
@@ -815,7 +815,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 21|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -825,10 +825,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 10
-      Data: 24
+      Data: 23
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -861,7 +861,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 22|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -871,10 +871,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 10
-      Data: 24
+      Data: 23
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -907,7 +907,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 23|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -917,10 +917,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 10
-      Data: 22
+      Data: 21
     - Name: 
       Entry: 13
       Data: 
@@ -953,7 +953,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 24|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -963,10 +963,10 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 10
-      Data: 22
+      Data: 21
     - Name: 
       Entry: 13
       Data: 
@@ -999,7 +999,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 25|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1009,7 +1009,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -1042,7 +1042,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 26|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1055,7 +1055,7 @@ MonoBehaviour:
       Data: 30
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -1099,7 +1099,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 21
+      Data: 20
     - Name: 
       Entry: 13
       Data: 
@@ -1159,7 +1159,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 29|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1256,7 +1256,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 33|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1386,7 +1386,7 @@ MonoBehaviour:
       Data: 9
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 37|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1430,7 +1430,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 39|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1476,7 +1476,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 40|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1522,7 +1522,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 41|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1571,7 +1571,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 42|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1617,7 +1617,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 43|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1690,7 +1690,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 44|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1777,7 +1777,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 47|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1907,7 +1907,7 @@ MonoBehaviour:
       Data: 9
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 51|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1951,7 +1951,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 53|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -1997,7 +1997,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 54|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2043,7 +2043,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 55|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2092,7 +2092,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 56|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2138,7 +2138,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 57|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2211,7 +2211,7 @@ MonoBehaviour:
       Data: 9
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 58|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2254,7 +2254,7 @@ MonoBehaviour:
       Data: 9
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 59|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2384,7 +2384,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 63|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2428,7 +2428,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 65|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2471,7 +2471,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 66|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2514,7 +2514,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 67|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2557,7 +2557,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 68|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2600,7 +2600,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 2
     - Name: groups
       Entry: 7
       Data: 69|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2661,7 +2661,7 @@ MonoBehaviour:
       Data: 9
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 70|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2791,7 +2791,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 74|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2835,7 +2835,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 76|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2878,7 +2878,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 77|MS.Internal.Xml.XPath.ClonableStack`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2921,7 +2921,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 78|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -2964,7 +2964,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 79|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,
@@ -3007,7 +3007,7 @@ MonoBehaviour:
       Data: 5
     - Name: depth
       Entry: 10
-      Data: 18
+      Data: 25
     - Name: groups
       Entry: 7
       Data: 80|System.Collections.Generic.List`1[[Assets.Scripts.World.Pawns.BodyPartGroupTemplates.BodyPartGroupTemplate,

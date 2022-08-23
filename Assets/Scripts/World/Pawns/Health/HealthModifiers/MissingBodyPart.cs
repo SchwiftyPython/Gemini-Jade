@@ -4,8 +4,15 @@ using Utilities;
 
 namespace World.Pawns.Health.HealthModifiers
 {
+    /// <summary>
+    /// The missing body part class
+    /// </summary>
+    /// <seealso cref="HealthMod"/>
     public class MissingBodyPart : HealthMod
     {
+        /// <summary>
+        /// Gets the value of the summary health percent impact
+        /// </summary>
         public override float SummaryHealthPercentImpact
         {
             get
@@ -24,8 +31,14 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the should remove
+        /// </summary>
         public override bool ShouldRemove => false;
 
+        /// <summary>
+        /// Gets the value of the label base
+        /// </summary>
         public override string LabelBase
         {
             get
@@ -34,13 +47,16 @@ namespace World.Pawns.Health.HealthModifiers
 
                 if (Part.depth == healthUtils.inside)
                 {
-                    return healthUtils.GetGeneralDestroyedPartLabel(Part, part.template.solid);
+                    return healthUtils.GetGeneralDestroyedPartLabel(Part, Part.template.solid);
                 }
 
                 return "Missing"; //todo label from injury source. Like explosion would say "shredded", sword "cutoff", etc.
             }
         }
 
+        /// <summary>
+        /// Gets the value of the bleed rate
+        /// </summary>
         public override float BleedRate
         {
             get
@@ -54,6 +70,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the pain offset
+        /// </summary>
         public override float PainOffset
         {
             get
@@ -67,16 +86,22 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the parent missing
+        /// </summary>
         public bool ParentMissing => pawn.health.BodyPartIsMissing(Part.parent);
 
+        /// <summary>
+        /// Posts the add
+        /// </summary>
         public override void PostAdd()
         {
-            if (!part.HasChildParts())
+            if (!Part.HasChildParts())
             {
                 return;
             }
 
-            foreach (var child in part.GetAllChildren())
+            foreach (var child in Part.GetAllChildren())
             {
                 var missingPartMod = HealthModMaker.MakeHealthMod(template, pawn, child);
 

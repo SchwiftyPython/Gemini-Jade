@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d095336e3f280b34692ce6b4959cb828, type: 3}
+  m_Name: Weapon
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: thingClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Things.Thing, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  templateName: Weapon
+  label: 
+  description: 
+  parent: {fileID: 0}
+  _category: {fileID: 11400000, guid: 1c619ceabe736a140a7a9011e91cdf27, type: 2}
+  _layer: 1
+  _tickerType: {fileID: 0}
+  _stackLimit: 1
+  _maxHitPoints: 100
+  _flammability: 1
+  _beauty: -3
+  _mass: -1
+  _parts: []
+  destroyable: 1
+  rotatable: 1
+  useHitPoints: 1
+  selectable: 1
