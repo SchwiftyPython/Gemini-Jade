@@ -13,15 +13,30 @@ namespace Pathfinding {
 	using Thread = System.Threading.Thread;
 #endif
 
+	/// <summary>
+	/// The path processor class
+	/// </summary>
 	public class PathProcessor {
 		public event System.Action<Path> OnPathPreSearch;
 		public event System.Action<Path> OnPathPostSearch;
 		public event System.Action OnQueueUnblocked;
 
+		/// <summary>
+		/// The queue
+		/// </summary>
 		internal readonly ThreadControlQueue queue;
+		/// <summary>
+		/// The astar
+		/// </summary>
 		readonly AstarPath astar;
+		/// <summary>
+		/// The return queue
+		/// </summary>
 		readonly PathReturnQueue returnQueue;
 
+		/// <summary>
+		/// The path handlers
+		/// </summary>
 		readonly PathHandler[] pathHandlers;
 
 		/// <summary>References to each of the pathfinding threads</summary>
@@ -50,7 +65,13 @@ namespace Pathfinding {
 		/// </summary>
 		readonly Stack<int> nodeIndexPool = new Stack<int>();
 
+		/// <summary>
+		/// The list
+		/// </summary>
 		readonly List<int> locks = new List<int>();
+		/// <summary>
+		/// The next lock id
+		/// </summary>
 		int nextLockID = 0;
 
 #if UNITY_2017_3_OR_NEWER
@@ -77,6 +98,15 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PathProcessor"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
+		/// <param name="returnQueue">The return queue</param>
+		/// <param name="processors">The processors</param>
+		/// <param name="multithreaded">The multithreaded</param>
+		/// <exception cref="System.Exception">Only a single non-multithreaded processor is allowed</exception>
+		/// <exception cref="System.ArgumentOutOfRangeException">processors</exception>
 		internal PathProcessor (AstarPath astar, PathReturnQueue returnQueue, int processors, bool multithreaded) {
 			this.astar = astar;
 			this.returnQueue = returnQueue;
@@ -123,9 +153,20 @@ namespace Pathfinding {
 
 		/// <summary>Prevents pathfinding from running while held</summary>
 		public struct GraphUpdateLock {
+			/// <summary>
+			/// The path processor
+			/// </summary>
 			PathProcessor pathProcessor;
+			/// <summary>
+			/// The id
+			/// </summary>
 			int id;
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="GraphUpdateLock"/> class
+			/// </summary>
+			/// <param name="pathProcessor">The path processor</param>
+			/// <param name="block">The block</param>
 			public GraphUpdateLock (PathProcessor pathProcessor, bool block) {
 				this.pathProcessor = pathProcessor;
 				id = pathProcessor.Lock(block);
@@ -147,6 +188,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Locks the block
+		/// </summary>
+		/// <param name="block">The block</param>
+		/// <returns>The next lock id</returns>
 		int Lock (bool block) {
 			queue.Block();
 
@@ -165,6 +211,11 @@ namespace Pathfinding {
 			return nextLockID;
 		}
 
+		/// <summary>
+		/// Unlocks the id
+		/// </summary>
+		/// <param name="id">The id</param>
+		/// <exception cref="System.ArgumentException">This lock has already been released</exception>
 		void Unlock (int id) {
 			if (!locks.Remove(id)) {
 				throw new System.ArgumentException("This lock has already been released");
@@ -191,6 +242,9 @@ namespace Pathfinding {
 			return new GraphUpdateLock(this, block);
 		}
 
+		/// <summary>
+		/// Ticks the non multithreaded
+		/// </summary>
 		public void TickNonMultithreaded () {
 			// Process paths
 			if (threadCoroutine != null) {

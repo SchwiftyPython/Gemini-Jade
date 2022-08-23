@@ -37,6 +37,9 @@ namespace Pathfinding {
 		/// </summary>
 		const bool SortGScores = true;
 
+		/// <summary>
+		/// The not in heap
+		/// </summary>
 		public const ushort NotInHeap = 0xFFFF;
 
 		/// <summary>Internal backing array for the heap</summary>
@@ -51,9 +54,20 @@ namespace Pathfinding {
 
 		/// <summary>Item in the heap</summary>
 		private struct Tuple {
+			/// <summary>
+			/// The node
+			/// </summary>
 			public PathNode node;
+			/// <summary>
+			/// The 
+			/// </summary>
 			public uint F;
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="Tuple"/> class
+			/// </summary>
+			/// <param name="f">The </param>
+			/// <param name="node">The node</param>
 			public Tuple (uint f, PathNode node) {
 				this.F = f;
 				this.node = node;
@@ -93,10 +107,20 @@ namespace Pathfinding {
 			numberOfItems = 0;
 		}
 
+		/// <summary>
+		/// Gets the node using the specified i
+		/// </summary>
+		/// <param name="i">The </param>
+		/// <returns>The path node</returns>
 		internal PathNode GetNode (int i) {
 			return heap[i].node;
 		}
 
+		/// <summary>
+		/// Sets the f using the specified i
+		/// </summary>
+		/// <param name="i">The </param>
+		/// <param name="f">The </param>
 		internal void SetF (int i, uint f) {
 			heap[i].F = f;
 		}
@@ -147,6 +171,11 @@ namespace Pathfinding {
 			numberOfItems++;
 		}
 
+		/// <summary>
+		/// Decreases the key using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="index">The index</param>
 		void DecreaseKey (Tuple node, ushort index) {
 			// This is where 'obj' is in the binary heap logically speaking
 			// (for performance reasons we don't actually store it there until
@@ -265,6 +294,11 @@ namespace Pathfinding {
 			return returnItem;
 		}
 
+		/// <summary>
+		/// Validates this instance
+		/// </summary>
+		/// <exception cref="System.Exception"></exception>
+		/// <exception cref="System.Exception">Invalid heap index</exception>
 		void Validate () {
 			for (int i = 1; i < numberOfItems; i++) {
 				int parentIndex = (i-1)/D;

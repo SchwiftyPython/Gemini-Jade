@@ -7,14 +7,32 @@ namespace Pathfinding {
 	[CustomEditor(typeof(GraphUpdateScene))]
 	[CanEditMultipleObjects]
 	public class GraphUpdateSceneEditor : EditorBase {
+		/// <summary>
+		/// The selected point
+		/// </summary>
 		int selectedPoint = -1;
 
+		/// <summary>
+		/// The point gizmos radius
+		/// </summary>
 		const float pointGizmosRadius = 0.09F;
+		/// <summary>
+		/// The color
+		/// </summary>
 		static Color PointColor = new Color(1, 0.36F, 0, 0.6F);
+		/// <summary>
+		/// The color
+		/// </summary>
 		static Color PointSelectedColor = new Color(1, 0.24F, 0, 1.0F);
 
+		/// <summary>
+		/// The scripts
+		/// </summary>
 		GraphUpdateScene[] scripts;
 
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			// Find all properties
 			var points = FindProperty("points");
@@ -104,6 +122,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the points field
+		/// </summary>
 		void DrawPointsField () {
 			EditorGUI.BeginChangeCheck();
 			PropertyField("points");
@@ -116,6 +137,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the physics field
+		/// </summary>
 		void DrawPhysicsField () {
 			if (PropertyField("updatePhysics", "Update Physics", "Perform similar calculations on the nodes as during scan.\n" +
 				"Grid Graphs will update the position of the nodes and also check walkability using collision.\nSee online documentation for more info.")) {
@@ -125,6 +149,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the convex field
+		/// </summary>
 		void DrawConvexField () {
 			EditorGUI.BeginChangeCheck();
 			PropertyField("convex");
@@ -137,6 +164,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the walkable field
+		/// </summary>
 		void DrawWalkableField () {
 			if (PropertyField("modifyWalkability")) {
 				EditorGUI.indentLevel++;
@@ -145,6 +175,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the penalty field
+		/// </summary>
 		void DrawPenaltyField () {
 			PropertyField("penaltyDelta", "Penalty Delta");
 
@@ -154,6 +187,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the tag field
+		/// </summary>
 		void DrawTagField () {
 			if (PropertyField("modifyTag")) {
 				var tagValue = FindProperty("setTag");
@@ -172,6 +208,13 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Spheres the cap using the specified control id
+		/// </summary>
+		/// <param name="controlID">The control id</param>
+		/// <param name="position">The position</param>
+		/// <param name="rotation">The rotation</param>
+		/// <param name="size">The size</param>
 		static void SphereCap (int controlID, Vector3 position, Quaternion rotation, float size) {
 #if UNITY_5_5_OR_NEWER
 			Handles.SphereHandleCap(controlID, position, rotation, size, Event.current.type);
@@ -180,6 +223,9 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Ons the scene gui
+		/// </summary>
 		public void OnSceneGUI () {
 			var script = target as GraphUpdateScene;
 

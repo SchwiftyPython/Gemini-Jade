@@ -10,6 +10,15 @@ namespace Pathfinding {
 	/// \ingroup utils
 	/// </summary>
 	public static class AstarSplines {
+		/// <summary>
+		/// Catmulls the rom using the specified previous
+		/// </summary>
+		/// <param name="previous">The previous</param>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <param name="next">The next</param>
+		/// <param name="elapsedTime">The elapsed time</param>
+		/// <returns>The vector</returns>
 		public static Vector3 CatmullRom (Vector3 previous, Vector3 start, Vector3 end, Vector3 next, float elapsedTime) {
 			// References used:
 			// p.266 GemsV1
@@ -967,6 +976,12 @@ namespace Pathfinding {
 		/* Clamp magnitude along the X and Z axes.
 		 * The y component will not be changed.
 		 */
+		/// <summary>
+		/// Clamps the magnitude xz using the specified v
+		/// </summary>
+		/// <param name="v">The </param>
+		/// <param name="maxMagnitude">The max magnitude</param>
+		/// <returns>The </returns>
 		public static Vector3 ClampMagnitudeXZ (Vector3 v, float maxMagnitude) {
 			float squaredMagnitudeXZ = v.x*v.x + v.z*v.z;
 
@@ -979,6 +994,11 @@ namespace Pathfinding {
 		}
 
 		/* Magnitude in the XZ plane */
+		/// <summary>
+		/// Magnitudes the xz using the specified v
+		/// </summary>
+		/// <param name="v">The </param>
+		/// <returns>The float</returns>
 		public static float MagnitudeXZ (Vector3 v) {
 			return Mathf.Sqrt(v.x*v.x + v.z*v.z);
 		}

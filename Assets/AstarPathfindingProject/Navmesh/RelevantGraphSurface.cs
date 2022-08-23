@@ -11,34 +11,67 @@ namespace Pathfinding {
 	[AddComponentMenu("Pathfinding/Navmesh/RelevantGraphSurface")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_relevant_graph_surface.php")]
 	public class RelevantGraphSurface : VersionedMonoBehaviour {
+		/// <summary>
+		/// The root
+		/// </summary>
 		private static RelevantGraphSurface root;
 
+		/// <summary>
+		/// The max range
+		/// </summary>
 		public float maxRange = 1;
 
+		/// <summary>
+		/// The prev
+		/// </summary>
 		private RelevantGraphSurface prev;
+		/// <summary>
+		/// The next
+		/// </summary>
 		private RelevantGraphSurface next;
+		/// <summary>
+		/// The position
+		/// </summary>
 		private Vector3 position;
 
+		/// <summary>
+		/// Gets the value of the position
+		/// </summary>
 		public Vector3 Position {
 			get { return position; }
 		}
 
+		/// <summary>
+		/// Gets the value of the next
+		/// </summary>
 		public RelevantGraphSurface Next {
 			get { return next; }
 		}
 
+		/// <summary>
+		/// Gets the value of the prev
+		/// </summary>
 		public RelevantGraphSurface Prev {
 			get { return prev; }
 		}
 
+		/// <summary>
+		/// Gets the value of the root
+		/// </summary>
 		public static RelevantGraphSurface Root {
 			get { return root; }
 		}
 
+		/// <summary>
+		/// Updates the position
+		/// </summary>
 		public void UpdatePosition () {
 			position = transform.position;
 		}
 
+		/// <summary>
+		/// Ons the enable
+		/// </summary>
 		void OnEnable () {
 			UpdatePosition();
 			if (root == null) {
@@ -50,6 +83,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		void OnDisable () {
 			if (root == this) {
 				root = next;
@@ -72,6 +108,9 @@ namespace Pathfinding {
 			while (c != null) { c.UpdatePosition(); c = c.Next; }
 		}
 
+		/// <summary>
+		/// Finds the all graph surfaces
+		/// </summary>
 		public static void FindAllGraphSurfaces () {
 			var srf = GameObject.FindObjectsOfType(typeof(RelevantGraphSurface)) as RelevantGraphSurface[];
 
@@ -81,11 +120,17 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		public void OnDrawGizmos () {
 			Gizmos.color = new Color(57/255f, 211/255f, 46/255f, 0.4f);
 			Gizmos.DrawLine(transform.position - Vector3.up*maxRange, transform.position + Vector3.up*maxRange);
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos selected
+		/// </summary>
 		public void OnDrawGizmosSelected () {
 			Gizmos.color = new Color(57/255f, 211/255f, 46/255f);
 			Gizmos.DrawLine(transform.position - Vector3.up*maxRange, transform.position + Vector3.up*maxRange);

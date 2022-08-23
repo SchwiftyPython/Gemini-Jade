@@ -3,16 +3,32 @@ using UnityEngine;
 
 namespace World.Pawns.AI.Goals
 {
+    /// <summary>
+    /// The build class
+    /// </summary>
+    /// <seealso cref="JobGoal"/>
     public class Build : JobGoal
     {
+        /// <summary>
+        /// The blueprint
+        /// </summary>
         private GridObject _blueprint;
         
+        /// <summary>
+        /// The work spot
+        /// </summary>
         private Coord _workSpot;
         
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Build"/> class
+        /// </summary>
         public Build()
         {
         }
 
+        /// <summary>
+        /// Takes the action
+        /// </summary>
         public override void TakeAction()
         {
             _inProgress = true;
@@ -72,6 +88,9 @@ namespace World.Pawns.AI.Goals
             _blueprint.PlacedObject.Construct(Job, Pawn,16); //todo testing 
         }
 
+        /// <summary>
+        /// Faileds this instance
+        /// </summary>
         public override void Failed()
         {
             Job.UnAssignPawn();
@@ -79,6 +98,10 @@ namespace World.Pawns.AI.Goals
             Pop();
         }
 
+        /// <summary>
+        /// Describes whether this instance finished
+        /// </summary>
+        /// <returns>The bool</returns>
         public override bool Finished()
         {
             if (_blueprint == null)

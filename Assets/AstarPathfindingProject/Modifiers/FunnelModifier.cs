@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Pathfinding.Util;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The funnel modifier class
+	/// </summary>
+	/// <seealso cref="MonoModifier"/>
 	[AddComponentMenu("Pathfinding/Modifiers/Funnel")]
 	[System.Serializable]
 	/// <summary>
@@ -53,8 +57,15 @@ namespace Pathfinding {
 		}
 #endif
 
+		/// <summary>
+		/// Gets the value of the order
+		/// </summary>
 		public override int Order { get { return 10; } }
 
+		/// <summary>
+		/// Applies the p
+		/// </summary>
+		/// <param name="p">The </param>
 		public override void Apply (Path p) {
 			if (p.path == null || p.path.Count == 0 || p.vectorPath == null || p.vectorPath.Count == 0) {
 				return;

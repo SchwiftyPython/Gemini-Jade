@@ -3,8 +3,17 @@ using UnityEngine;
 namespace Pathfinding {
 	/// <summary>Holds a coordinate in integers</summary>
 	public struct Int3 : System.IEquatable<Int3> {
+		/// <summary>
+		/// The 
+		/// </summary>
 		public int x;
+		/// <summary>
+		/// The 
+		/// </summary>
 		public int y;
+		/// <summary>
+		/// The 
+		/// </summary>
 		public int z;
 
 		//These should be set to the same value (only PrecisionFactor should be 1 divided by Precision)
@@ -23,14 +32,27 @@ namespace Pathfinding {
 		/// <summary>1 divided by <see cref="Precision"/></summary>
 		public const float PrecisionFactor = 0.001F;
 
+		/// <summary>
+		/// Gets the value of the zero
+		/// </summary>
 		public static Int3 zero { get { return new Int3(); } }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Int3"/> class
+		/// </summary>
+		/// <param name="position">The position</param>
 		public Int3 (Vector3 position) {
 			x = (int)System.Math.Round(position.x*FloatPrecision);
 			y = (int)System.Math.Round(position.y*FloatPrecision);
 			z = (int)System.Math.Round(position.z*FloatPrecision);
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Int3"/> class
+		/// </summary>
+		/// <param name="_x">The </param>
+		/// <param name="_y">The </param>
+		/// <param name="_z">The </param>
 		public Int3 (int _x, int _y, int _z) {
 			x = _x;
 			y = _y;
@@ -113,6 +135,9 @@ namespace Pathfinding {
 			return lhs;
 		}
 
+		/// <summary>
+		/// The value
+		/// </summary>
 		public int this[int i] {
 			get {
 				return i == 0 ? x : (i == 1 ? y : z);
@@ -132,6 +157,12 @@ namespace Pathfinding {
 			return (float)System.Math.Acos(cos);
 		}
 
+		/// <summary>
+		/// Dots the lhs
+		/// </summary>
+		/// <param name="lhs">The lhs</param>
+		/// <param name="rhs">The rhs</param>
+		/// <returns>The int</returns>
 		public static int Dot (Int3 lhs, Int3 rhs) {
 			return
 				lhs.x * rhs.x +
@@ -139,6 +170,12 @@ namespace Pathfinding {
 				lhs.z * rhs.z;
 		}
 
+		/// <summary>
+		/// Dots the long using the specified lhs
+		/// </summary>
+		/// <param name="lhs">The lhs</param>
+		/// <param name="rhs">The rhs</param>
+		/// <returns>The long</returns>
 		public static long DotLong (Int3 lhs, Int3 rhs) {
 			return
 				(long)lhs.x * (long)rhs.x +
@@ -212,6 +249,11 @@ namespace Pathfinding {
 			return "( "+x+", "+y+", "+z+")";
 		}
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="obj">The obj</param>
+		/// <returns>The bool</returns>
 		public override bool Equals (System.Object obj) {
 			if (obj == null) return false;
 
@@ -224,12 +266,21 @@ namespace Pathfinding {
 
 		#region IEquatable implementation
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="other">The other</param>
+		/// <returns>The bool</returns>
 		public bool Equals (Int3 other) {
 			return x == other.x && y == other.y && z == other.z;
 		}
 
 		#endregion
 
+		/// <summary>
+		/// Gets the hash code
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int GetHashCode () {
 			return x*73856093 ^ y*19349663 ^ z*83492791;
 		}
@@ -237,14 +288,28 @@ namespace Pathfinding {
 
 	/// <summary>Two Dimensional Integer Coordinate Pair</summary>
 	public struct Int2 : System.IEquatable<Int2> {
+		/// <summary>
+		/// The 
+		/// </summary>
 		public int x;
+		/// <summary>
+		/// The 
+		/// </summary>
 		public int y;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Int2"/> class
+		/// </summary>
+		/// <param name="x">The </param>
+		/// <param name="y">The </param>
 		public Int2 (int x, int y) {
 			this.x = x;
 			this.y = y;
 		}
 
+		/// <summary>
+		/// Gets the value of the sqr magnitude long
+		/// </summary>
 		public long sqrMagnitudeLong {
 			get {
 				return (long)x*(long)x+(long)y*(long)y;
@@ -272,6 +337,11 @@ namespace Pathfinding {
 			return (long)a.x*(long)b.x + (long)a.y*(long)b.y;
 		}
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <returns>The bool</returns>
 		public override bool Equals (System.Object o) {
 			if (o == null) return false;
 			var rhs = (Int2)o;
@@ -281,32 +351,67 @@ namespace Pathfinding {
 
 		#region IEquatable implementation
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="other">The other</param>
+		/// <returns>The bool</returns>
 		public bool Equals (Int2 other) {
 			return x == other.x && y == other.y;
 		}
 
 		#endregion
 
+		/// <summary>
+		/// Gets the hash code
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int GetHashCode () {
 			return x*49157+y*98317;
 		}
 
+		/// <summary>
+		/// Mins the a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <returns>The int</returns>
 		public static Int2 Min (Int2 a, Int2 b) {
 			return new Int2(System.Math.Min(a.x, b.x), System.Math.Min(a.y, b.y));
 		}
 
+		/// <summary>
+		/// Maxes the a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <returns>The int</returns>
 		public static Int2 Max (Int2 a, Int2 b) {
 			return new Int2(System.Math.Max(a.x, b.x), System.Math.Max(a.y, b.y));
 		}
 
+		/// <summary>
+		/// Creates the int 3 xz using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <returns>The int</returns>
 		public static Int2 FromInt3XZ (Int3 o) {
 			return new Int2(o.x, o.z);
 		}
 
+		/// <summary>
+		/// Returns the int 3 xz using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <returns>The int</returns>
 		public static Int3 ToInt3XZ (Int2 o) {
 			return new Int3(o.x, 0, o.y);
 		}
 
+		/// <summary>
+		/// Returns the string
+		/// </summary>
+		/// <returns>The string</returns>
 		public override string ToString () {
 			return "("+x+", " +y+")";
 		}

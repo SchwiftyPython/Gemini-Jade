@@ -6,10 +6,24 @@ using UnityEngine;
 using World;
 using World.Pawns.Jobs;
 
+/// <summary>
+
+/// The game class
+
+/// </summary>
+
+/// <seealso cref="MonoBehaviour"/>
+
 public class Game : MonoBehaviour
 {
+    /// <summary>
+    /// The job giver
+    /// </summary>
     public JobGiver jobGiver;
     
+    /// <summary>
+    /// Awakes this instance
+    /// </summary>
     private void Awake()
     {
         var tickController = FindObjectOfType<TickController>();

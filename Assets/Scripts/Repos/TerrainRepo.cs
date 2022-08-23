@@ -11,6 +11,9 @@ namespace Repos
     /// <remarks>Functions like a Singleton. Use FindObjectOfType&lt;TerrainRepo&gt;() to get a reference.</remarks>
     public class TerrainRepo : MonoBehaviour
     {
+        /// <summary>
+        /// The ground
+        /// </summary>
         [SerializeField] private TileType ground;
         
         /// <summary>

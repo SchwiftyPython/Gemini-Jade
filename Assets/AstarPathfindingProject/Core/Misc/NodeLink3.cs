@@ -4,13 +4,39 @@ using System.Collections.Generic;
 namespace Pathfinding {
 	using Pathfinding.Util;
 
+	/// <summary>
+	/// The node link node class
+	/// </summary>
+	/// <seealso cref="PointNode"/>
 	public class NodeLink3Node : PointNode {
+		/// <summary>
+		/// The link
+		/// </summary>
 		public NodeLink3 link;
+		/// <summary>
+		/// The portal
+		/// </summary>
 		public Vector3 portalA;
+		/// <summary>
+		/// The portal
+		/// </summary>
 		public Vector3 portalB;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NodeLink3Node"/> class
+		/// </summary>
+		/// <param name="active">The active</param>
 		public NodeLink3Node (AstarPath active) : base(active) {}
 
+		/// <summary>
+		/// Describes whether this instance get portal
+		/// </summary>
+		/// <param name="other">The other</param>
+		/// <param name="left">The left</param>
+		/// <param name="right">The right</param>
+		/// <param name="backwards">The backwards</param>
+		/// <exception cref="System.Exception"></exception>
+		/// <returns>The bool</returns>
 		public override bool GetPortal (GraphNode other, List<Vector3> left, List<Vector3> right, bool backwards) {
 			if (this.connections.Length < 2) return false;
 
@@ -24,6 +50,12 @@ namespace Pathfinding {
 			return true;
 		}
 
+		/// <summary>
+		/// Gets the other using the specified a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <exception cref="System.Exception"></exception>
+		/// <returns>The graph node</returns>
 		public GraphNode GetOther (GraphNode a) {
 			if (this.connections.Length < 2) return null;
 			if (this.connections.Length != 2) throw new System.Exception("Invalid NodeLink3Node. Expected 2 connections, found " + this.connections.Length);
@@ -31,6 +63,11 @@ namespace Pathfinding {
 			return a == connections[0].node ? (connections[1].node as NodeLink3Node).GetOtherInternal(this) : (connections[0].node as NodeLink3Node).GetOtherInternal(this);
 		}
 
+		/// <summary>
+		/// Gets the other internal using the specified a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <returns>The graph node</returns>
 		GraphNode GetOtherInternal (GraphNode a) {
 			if (this.connections.Length < 2) return null;
 			return a == connections[0].node ? connections[1].node : connections[0].node;
@@ -44,7 +81,15 @@ namespace Pathfinding {
 	[AddComponentMenu("Pathfinding/Link3")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_node_link3.php")]
 	public class NodeLink3 : GraphModifier {
+		/// <summary>
+		/// The node link
+		/// </summary>
 		protected static Dictionary<GraphNode, NodeLink3> reference = new Dictionary<GraphNode, NodeLink3>();
+		/// <summary>
+		/// Gets the node link using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <returns>The </returns>
 		public static NodeLink3 GetNodeLink (GraphNode node) {
 			NodeLink3 v;
 
@@ -65,28 +110,58 @@ namespace Pathfinding {
 		/// <summary>Make a one-way connection</summary>
 		public bool oneWay = false;
 
+		/// <summary>
+		/// Gets the value of the start transform
+		/// </summary>
 		public Transform StartTransform {
 			get { return transform; }
 		}
 
+		/// <summary>
+		/// Gets the value of the end transform
+		/// </summary>
 		public Transform EndTransform {
 			get { return end; }
 		}
 
+		/// <summary>
+		/// The start node
+		/// </summary>
 		NodeLink3Node startNode;
+		/// <summary>
+		/// The end node
+		/// </summary>
 		NodeLink3Node endNode;
+		/// <summary>
+		/// The connected node
+		/// </summary>
 		MeshNode connectedNode1, connectedNode2;
+		/// <summary>
+		/// The clamped
+		/// </summary>
 		Vector3 clamped1, clamped2;
+		/// <summary>
+		/// The post scan called
+		/// </summary>
 		bool postScanCalled = false;
 
+		/// <summary>
+		/// Gets the value of the start node
+		/// </summary>
 		public GraphNode StartNode {
 			get { return startNode; }
 		}
 
+		/// <summary>
+		/// Gets the value of the end node
+		/// </summary>
 		public GraphNode EndNode {
 			get { return endNode; }
 		}
 
+		/// <summary>
+		/// Ons the post scan
+		/// </summary>
 		public override void OnPostScan () {
 			if (AstarPath.active.isScanning) {
 				InternalOnPostScan();
@@ -98,6 +173,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Internals the on post scan
+		/// </summary>
 		public void InternalOnPostScan () {
 #if !ASTAR_NO_POINT_GRAPH
 			if (AstarPath.active.data.pointGraph == null) {
@@ -127,6 +205,9 @@ namespace Pathfinding {
 			Apply(true);
 		}
 
+		/// <summary>
+		/// Ons the graphs post update
+		/// </summary>
 		public override void OnGraphsPostUpdate () {
 			if (!AstarPath.active.isScanning) {
 				if (connectedNode1 != null && connectedNode1.Destroyed) {
@@ -145,6 +226,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the enable
+		/// </summary>
 		protected override void OnEnable () {
 			base.OnEnable();
 
@@ -155,6 +239,9 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		protected override void OnDisable () {
 			base.OnDisable();
 
@@ -177,11 +264,18 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Removes the connections using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
 		void RemoveConnections (GraphNode node) {
 			//TODO, might be better to replace connection
 			node.ClearConnections(true);
 		}
 
+		/// <summary>
+		/// Contexts the apply force
+		/// </summary>
 		[ContextMenu("Recalculate neighbours")]
 		void ContextApplyForce () {
 			if (Application.isPlaying) {
@@ -189,6 +283,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Applies the force new check
+		/// </summary>
+		/// <param name="forceNewCheck">The force new check</param>
 		public void Apply (bool forceNewCheck) {
 			//TODO
 			//This function assumes that connections from the n1,n2 nodes never need to be removed in the future (e.g because the nodes move or something)
@@ -279,17 +377,33 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		private readonly static Color GizmosColor = new Color(206.0f/255.0f, 136.0f/255.0f, 48.0f/255.0f, 0.5f);
+		/// <summary>
+		/// The color
+		/// </summary>
 		private readonly static Color GizmosColorSelected = new Color(235.0f/255.0f, 123.0f/255.0f, 32.0f/255.0f, 1.0f);
 
+		/// <summary>
+		/// Ons the draw gizmos selected
+		/// </summary>
 		public virtual void OnDrawGizmosSelected () {
 			OnDrawGizmos(true);
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		public void OnDrawGizmos () {
 			OnDrawGizmos(false);
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos using the specified selected
+		/// </summary>
+		/// <param name="selected">The selected</param>
 		public void OnDrawGizmos (bool selected) {
 			Color col = selected ? GizmosColorSelected : GizmosColor;
 

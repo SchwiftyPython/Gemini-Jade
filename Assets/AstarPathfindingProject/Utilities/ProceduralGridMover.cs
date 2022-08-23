@@ -67,6 +67,13 @@ namespace Pathfinding {
 		[HideInInspector]
 		public int graphIndex;
 
+		/// <summary>
+		/// Starts this instance
+		/// </summary>
+		/// <exception cref="System.Exception"></exception>
+		/// <exception cref="System.Exception"></exception>
+		/// <exception cref="System.Exception">Graph index should not be negative</exception>
+		/// <exception cref="System.Exception">There is no AstarPath object in the scene</exception>
 		void Start () {
 			if (AstarPath.active == null) throw new System.Exception("There is no AstarPath object in the scene");
 

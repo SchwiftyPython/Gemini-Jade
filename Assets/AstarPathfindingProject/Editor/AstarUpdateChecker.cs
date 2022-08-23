@@ -18,16 +18,31 @@ namespace Pathfinding {
 		static WWW updateCheckDownload;
 #endif
 
+		/// <summary>
+		/// The last update check
+		/// </summary>
 		static System.DateTime _lastUpdateCheck;
+		/// <summary>
+		/// The last update check read
+		/// </summary>
 		static bool _lastUpdateCheckRead;
 
+		/// <summary>
+		/// The latest version
+		/// </summary>
 		static System.Version _latestVersion;
 
+		/// <summary>
+		/// The latest beta version
+		/// </summary>
 		static System.Version _latestBetaVersion;
 
 		/// <summary>Description of the latest update of the A* Pathfinding Project</summary>
 		static string _latestVersionDescription;
 
+		/// <summary>
+		/// The has parsed server message
+		/// </summary>
 		static bool hasParsedServerMessage;
 
 		/// <summary>Number of days between update checks</summary>
@@ -106,6 +121,9 @@ namespace Pathfinding {
 			{ "URL:homepage", "http://arongranberg.com/astar/" }
 		};
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarUpdateChecker"/> class
+		/// </summary>
 		static AstarUpdateChecker() {
 			// Add a callback so that we can parse the message when it has been downloaded
 			EditorApplication.update += UpdateCheckLoop;
@@ -113,6 +131,9 @@ namespace Pathfinding {
 		}
 
 
+		/// <summary>
+		/// Refreshes the server message
+		/// </summary>
 		static void RefreshServerMessage () {
 			if (!hasParsedServerMessage) {
 				var serverMessage = EditorPrefs.GetString("AstarServerMessage");
@@ -124,6 +145,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the url using the specified tag
+		/// </summary>
+		/// <param name="tag">The tag</param>
+		/// <returns>The string</returns>
 		public static string GetURL (string tag) {
 			RefreshServerMessage();
 			string url;
@@ -188,6 +214,9 @@ namespace Pathfinding {
 			return updateCheckDownload != null || minutesUntilUpdate < 10;
 		}
 
+		/// <summary>
+		/// Downloads the version info
+		/// </summary>
 		static void DownloadVersionInfo () {
 			var script = AstarPath.active != null ? AstarPath.active : GameObject.FindObjectOfType(typeof(AstarPath)) as AstarPath;
 
@@ -235,6 +264,10 @@ namespace Pathfinding {
 			ShowUpdateWindowIfRelevant();
 		}
 
+		/// <summary>
+		/// Parses the server message using the specified result
+		/// </summary>
+		/// <param name="result">The result</param>
 		static void ParseServerMessage (string result) {
 			if (string.IsNullOrEmpty(result)) {
 				return;
@@ -274,6 +307,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Shows the update window if relevant
+		/// </summary>
 		static void ShowUpdateWindowIfRelevant () {
 #if !ASTAR_ATAVISM
 			try {

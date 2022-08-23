@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The alternative path class
+	/// </summary>
+	/// <seealso cref="MonoModifier"/>
 	[AddComponentMenu("Pathfinding/Modifiers/Alternative Path")]
 	[System.Serializable]
 	/// <summary>
@@ -24,6 +28,9 @@ namespace Pathfinding {
 		}
 #endif
 
+		/// <summary>
+		/// Gets the value of the order
+		/// </summary>
 		public override int Order { get { return 10; } }
 
 		/// <summary>How much penalty (weight) to apply to nodes</summary>
@@ -41,23 +48,39 @@ namespace Pathfinding {
 		/// <summary>A random object</summary>
 		readonly System.Random rnd = new System.Random();
 
+		/// <summary>
+		/// The destroyed
+		/// </summary>
 		bool destroyed;
 
+		/// <summary>
+		/// Applies the p
+		/// </summary>
+		/// <param name="p">The </param>
 		public override void Apply (Path p) {
 			if (this == null) return;
 
 			ApplyNow(p.path);
 		}
 
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		protected void OnDestroy () {
 			destroyed = true;
 			ClearOnDestroy();
 		}
 
+		/// <summary>
+		/// Clears the on destroy
+		/// </summary>
 		void ClearOnDestroy () {
 			InversePrevious();
 		}
 
+		/// <summary>
+		/// Inverses the previous
+		/// </summary>
 		void InversePrevious () {
 			// Remove previous penalty
 			if (prevNodes != null) {
@@ -76,6 +99,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Applies the now using the specified nodes
+		/// </summary>
+		/// <param name="nodes">The nodes</param>
 		void ApplyNow (List<GraphNode> nodes) {
 			InversePrevious();
 			prevNodes.Clear();

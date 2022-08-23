@@ -47,6 +47,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// The start int point
+		/// </summary>
 		public Int3 startIntPoint; /// <summary>< Start point in integer coordinates</summary>
 
 		/// <summary>
@@ -98,6 +101,12 @@ namespace Pathfinding {
 			return p;
 		}
 
+		/// <summary>
+		/// Setup the start
+		/// </summary>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <param name="callbackDelegate">The callback delegate</param>
 		protected void Setup (Vector3 start, Vector3 end, OnPathDelegate callbackDelegate) {
 			callback = callbackDelegate;
 			UpdateStartEnd(start, end);
@@ -176,6 +185,13 @@ namespace Pathfinding {
 			hTarget = (Int3)end;
 		}
 
+		/// <summary>
+		/// Gets the connection special cost using the specified a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <param name="currentCost">The current cost</param>
+		/// <returns>The current cost</returns>
 		public override uint GetConnectionSpecialCost (GraphNode a, GraphNode b, uint currentCost) {
 			if (startNode != null && endNode != null) {
 				if (a == startNode) {
@@ -472,6 +488,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes this instance
+		/// </summary>
 		protected override void Initialize () {
 			// Mark nodes to enable special connection costs for start and end nodes
 			// See GetConnectionSpecialCost
@@ -512,6 +531,9 @@ namespace Pathfinding {
 			currentR = pathHandler.heap.Remove();
 		}
 
+		/// <summary>
+		/// Cleanups this instance
+		/// </summary>
 		protected override void Cleanup () {
 			// TODO: Set flag1 = false as well?
 			if (startNode != null) {
@@ -544,6 +566,10 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Completes the partial using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
 		void CompletePartial (PathNode node) {
 			CompleteState = PathCompleteState.Partial;
 			endNode = node.node;

@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 namespace Pathfinding.Util {
+	/// <summary>
+	/// The movement utilities class
+	/// </summary>
 	public static class MovementUtilities {
 		/// <summary>
 		/// Clamps the velocity to the max speed and optionally the forwards direction.

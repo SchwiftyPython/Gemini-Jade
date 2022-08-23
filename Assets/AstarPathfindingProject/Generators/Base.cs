@@ -13,13 +13,42 @@ namespace Pathfinding {
 	/// Hiding the internal methods cleans up the documentation and IntelliSense suggestions.
 	/// </summary>
 	public interface IGraphInternals {
+		/// <summary>
+		/// Gets or sets the value of the serialized editor settings
+		/// </summary>
 		string SerializedEditorSettings { get; set; }
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		void OnDestroy();
+		/// <summary>
+		/// Destroys the all nodes
+		/// </summary>
 		void DestroyAllNodes();
+		/// <summary>
+		/// Scans the internal
+		/// </summary>
+		/// <returns>An enumerable of progress</returns>
 		IEnumerable<Progress> ScanInternal();
+		/// <summary>
+		/// Serializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void SerializeExtraInfo(GraphSerializationContext ctx);
+		/// <summary>
+		/// Deserializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void DeserializeExtraInfo(GraphSerializationContext ctx);
+		/// <summary>
+		/// Posts the deserialization using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void PostDeserialization(GraphSerializationContext ctx);
+		/// <summary>
+		/// Deserializes the settings compatibility using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void DeserializeSettingsCompatibility(GraphSerializationContext ctx);
 	}
 
@@ -367,6 +396,10 @@ namespace Pathfinding {
 			if (active.showUnwalkableNodes) DrawUnwalkableNodes(active.unwalkableNodeDebugSize);
 		}
 
+		/// <summary>
+		/// Draws the unwalkable nodes using the specified size
+		/// </summary>
+		/// <param name="size">The size</param>
 		protected void DrawUnwalkableNodes (float size) {
 			Gizmos.color = AstarColor.UnwalkableNode;
 			GetNodes(node => {
@@ -375,13 +408,42 @@ namespace Pathfinding {
 		}
 
 		#region IGraphInternals implementation
+		/// <summary>
+		/// Gets or sets the value of the serialized editor settings
+		/// </summary>
 		string IGraphInternals.SerializedEditorSettings { get { return serializedEditorSettings; } set { serializedEditorSettings = value; } }
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		void IGraphInternals.OnDestroy () { OnDestroy(); }
+		/// <summary>
+		/// Destroys the all nodes
+		/// </summary>
 		void IGraphInternals.DestroyAllNodes () { DestroyAllNodes(); }
+		/// <summary>
+		/// Scans the internal
+		/// </summary>
+		/// <returns>An enumerable of progress</returns>
 		IEnumerable<Progress> IGraphInternals.ScanInternal () { return ScanInternal(); }
+		/// <summary>
+		/// Serializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void IGraphInternals.SerializeExtraInfo (GraphSerializationContext ctx) { SerializeExtraInfo(ctx); }
+		/// <summary>
+		/// Deserializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void IGraphInternals.DeserializeExtraInfo (GraphSerializationContext ctx) { DeserializeExtraInfo(ctx); }
+		/// <summary>
+		/// Posts the deserialization using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void IGraphInternals.PostDeserialization (GraphSerializationContext ctx) { PostDeserialization(ctx); }
+		/// <summary>
+		/// Deserializes the settings compatibility using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		void IGraphInternals.DeserializeSettingsCompatibility (GraphSerializationContext ctx) { DeserializeSettingsCompatibility(ctx); }
 
 		#endregion
@@ -657,6 +719,10 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Deserializes the settings compatibility using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public void DeserializeSettingsCompatibility (GraphSerializationContext ctx) {
 			type = (ColliderType)ctx.reader.ReadInt32();
 			diameter = ctx.reader.ReadSingle();
@@ -692,6 +758,9 @@ namespace Pathfinding {
 
 	/// <summary>Determines collision check ray direction</summary>
 	public enum RayDirection {
+		/// <summary>
+		/// The up ray direction
+		/// </summary>
 		Up,     /// <summary>< Casts the ray from the bottom upwards</summary>
 		Down,   /// <summary>< Casts the ray from the top downwards</summary>
 		Both    /// <summary>< Casts two rays in both directions</summary>

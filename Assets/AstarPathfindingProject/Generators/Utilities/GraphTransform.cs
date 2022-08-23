@@ -11,14 +11,41 @@ namespace Pathfinding.Util {
 	/// See: <see cref="Pathfinding.Util.GraphTransform"/>
 	/// </summary>
 	public interface IMovementPlane {
+		/// <summary>
+		/// Returns the plane using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The vector</returns>
 		Vector2 ToPlane(Vector3 p);
+		/// <summary>
+		/// Returns the plane using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <param name="elevation">The elevation</param>
+		/// <returns>The vector</returns>
 		Vector2 ToPlane(Vector3 p, out float elevation);
+		/// <summary>
+		/// Returns the world using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <param name="elevation">The elevation</param>
+		/// <returns>The vector</returns>
 		Vector3 ToWorld(Vector2 p, float elevation = 0);
 	}
 
 	/// <summary>Generic 3D coordinate transformation</summary>
 	public interface ITransform {
+		/// <summary>
+		/// Transforms the position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <returns>The vector</returns>
 		Vector3 Transform(Vector3 position);
+		/// <summary>
+		/// Inverses the transform using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <returns>The vector</returns>
 		Vector3 InverseTransform(Vector3 position);
 	}
 
@@ -33,19 +60,53 @@ namespace Pathfinding.Util {
 		/// <summary>True if this transform is a pure translation without any scaling or rotation</summary>
 		public readonly bool onlyTranslational;
 
+		/// <summary>
+		/// The is xy
+		/// </summary>
 		readonly bool isXY;
+		/// <summary>
+		/// The is xz
+		/// </summary>
 		readonly bool isXZ;
 
+		/// <summary>
+		/// The matrix
+		/// </summary>
 		readonly Matrix4x4 matrix;
+		/// <summary>
+		/// The inverse matrix
+		/// </summary>
 		readonly Matrix4x4 inverseMatrix;
+		/// <summary>
+		/// The up
+		/// </summary>
 		readonly Vector3 up;
+		/// <summary>
+		/// The translation
+		/// </summary>
 		readonly Vector3 translation;
+		/// <summary>
+		/// The 3translation
+		/// </summary>
 		readonly Int3 i3translation;
+		/// <summary>
+		/// The rotation
+		/// </summary>
 		readonly Quaternion rotation;
+		/// <summary>
+		/// The inverse rotation
+		/// </summary>
 		readonly Quaternion inverseRotation;
 
+		/// <summary>
+		/// The identity
+		/// </summary>
 		public static readonly GraphTransform identityTransform = new GraphTransform(Matrix4x4.identity);
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GraphTransform"/> class
+		/// </summary>
+		/// <param name="matrix">The matrix</param>
 		public GraphTransform (Matrix4x4 matrix) {
 			this.matrix = matrix;
 			inverseMatrix = matrix.inverse;
@@ -67,24 +128,48 @@ namespace Pathfinding.Util {
 			isXZ = rotation == Quaternion.Euler(0, 0, 0);
 		}
 
+		/// <summary>
+		/// Worlds the up at graph position using the specified point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <returns>The up</returns>
 		public Vector3 WorldUpAtGraphPosition (Vector3 point) {
 			return up;
 		}
 
+		/// <summary>
+		/// Describes whether matrix is translational
+		/// </summary>
+		/// <param name="matrix">The matrix</param>
+		/// <returns>The bool</returns>
 		static bool MatrixIsTranslational (Matrix4x4 matrix) {
 			return matrix.GetColumn(0) == new Vector4(1, 0, 0, 0) && matrix.GetColumn(1) == new Vector4(0, 1, 0, 0) && matrix.GetColumn(2) == new Vector4(0, 0, 1, 0) && matrix.m33 == 1;
 		}
 
+		/// <summary>
+		/// Transforms the point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <returns>The vector</returns>
 		public Vector3 Transform (Vector3 point) {
 			if (onlyTranslational) return point + translation;
 			return matrix.MultiplyPoint3x4(point);
 		}
 
+		/// <summary>
+		/// Transforms the vector using the specified point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <returns>The vector</returns>
 		public Vector3 TransformVector (Vector3 point) {
 			if (onlyTranslational) return point;
 			return matrix.MultiplyVector(point);
 		}
 
+		/// <summary>
+		/// Transforms the arr
+		/// </summary>
+		/// <param name="arr">The arr</param>
 		public void Transform (Int3[] arr) {
 			if (onlyTranslational) {
 				for (int i = arr.Length - 1; i >= 0; i--) arr[i] += i3translation;
@@ -93,6 +178,10 @@ namespace Pathfinding.Util {
 			}
 		}
 
+		/// <summary>
+		/// Transforms the arr
+		/// </summary>
+		/// <param name="arr">The arr</param>
 		public void Transform (Vector3[] arr) {
 			if (onlyTranslational) {
 				for (int i = arr.Length - 1; i >= 0; i--) arr[i] += translation;
@@ -101,16 +190,30 @@ namespace Pathfinding.Util {
 			}
 		}
 
+		/// <summary>
+		/// Inverses the transform using the specified point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <returns>The vector</returns>
 		public Vector3 InverseTransform (Vector3 point) {
 			if (onlyTranslational) return point - translation;
 			return inverseMatrix.MultiplyPoint3x4(point);
 		}
 
+		/// <summary>
+		/// Inverses the transform using the specified point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <returns>The int</returns>
 		public Int3 InverseTransform (Int3 point) {
 			if (onlyTranslational) return point - i3translation;
 			return (Int3)inverseMatrix.MultiplyPoint3x4((Vector3)point);
 		}
 
+		/// <summary>
+		/// Inverses the transform using the specified arr
+		/// </summary>
+		/// <param name="arr">The arr</param>
 		public void InverseTransform (Int3[] arr) {
 			for (int i = arr.Length - 1; i >= 0; i--) arr[i] = (Int3)inverseMatrix.MultiplyPoint3x4((Vector3)arr[i]);
 		}
@@ -123,6 +226,11 @@ namespace Pathfinding.Util {
 			return new GraphTransform(lhs * rhs.matrix);
 		}
 
+		/// <summary>
+		/// Transforms the bounds
+		/// </summary>
+		/// <param name="bounds">The bounds</param>
+		/// <returns>The bounds</returns>
 		public Bounds Transform (Bounds bounds) {
 			if (onlyTranslational) return new Bounds(bounds.center + translation, bounds.size);
 
@@ -147,6 +255,11 @@ namespace Pathfinding.Util {
 			return new Bounds((min+max)*0.5f, max - min);
 		}
 
+		/// <summary>
+		/// Inverses the transform using the specified bounds
+		/// </summary>
+		/// <param name="bounds">The bounds</param>
+		/// <returns>The bounds</returns>
 		public Bounds InverseTransform (Bounds bounds) {
 			if (onlyTranslational) return new Bounds(bounds.center - translation, bounds.size);
 

@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="SerializedNetworkBehaviour.cs" company="Sirenix IVS">
 // Copyright (c) Sirenix IVS. All rights reserved.
 // </copyright>
@@ -20,17 +20,29 @@ namespace Sirenix.OdinInspector
     [ShowOdinSerializedPropertiesInInspector]
     public abstract class SerializedNetworkBehaviour : NetworkBehaviour, ISerializationCallbackReceiver, ISupportsPrefabSerialization
     {
+        /// <summary>
+        /// The serialization data
+        /// </summary>
         [SerializeField, HideInInspector]
         private SerializationData serializationData;
 
+        /// <summary>
+        /// Gets or sets the value of the serialization data
+        /// </summary>
         SerializationData ISupportsPrefabSerialization.SerializationData { get { return this.serializationData; } set { this.serializationData = value; } }
 
+        /// <summary>
+        /// Ons the after deserialize
+        /// </summary>
         void ISerializationCallbackReceiver.OnAfterDeserialize()
         {
             UnitySerializationUtility.DeserializeUnityObject(this, ref this.serializationData);
             this.OnAfterDeserialize();
         }
 
+        /// <summary>
+        /// Ons the before serialize
+        /// </summary>
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
             UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);

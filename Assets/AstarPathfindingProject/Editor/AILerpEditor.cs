@@ -2,9 +2,16 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The ai lerp editor class
+	/// </summary>
+	/// <seealso cref="BaseAIEditor"/>
 	[CustomEditor(typeof(AILerp), true)]
 	[CanEditMultipleObjects]
 	public class AILerpEditor : BaseAIEditor {
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			Section("Pathfinding");
 			AutoRepathInspector();

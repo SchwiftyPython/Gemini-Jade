@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,12 +8,24 @@ using System.Collections.Generic;
 /// </summary>
 public class FollowerManager : MonoBehaviour
 {
+    /// <summary>
+    /// The follow path
+    /// </summary>
     [HideInInspector]
     public List<FollowPath> Followers = new List<FollowPath>();
+    /// <summary>
+    /// The tmp vec
+    /// </summary>
     Vector3 TmpVec;
 
+    /// <summary>
+    /// The instance
+    /// </summary>
     private static FollowerManager instance;
 
+    /// <summary>
+    /// Gets the value of the instance
+    /// </summary>
     public static FollowerManager Instance
     {
         get
@@ -29,12 +41,18 @@ public class FollowerManager : MonoBehaviour
     }
 
     // Use this for initialization
+    /// <summary>
+    /// Starts this instance
+    /// </summary>
     void Start()
     {
 
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Updates this instance
+    /// </summary>
     void Update()
     {
         for(int i = 0; i < Followers.Count; i++)

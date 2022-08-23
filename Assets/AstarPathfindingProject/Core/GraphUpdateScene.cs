@@ -1,6 +1,10 @@
 using UnityEngine;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The graph update scene class
+	/// </summary>
+	/// <seealso cref="GraphModifier"/>
 	[AddComponentMenu("Pathfinding/GraphUpdateScene")]
 	/// <summary>
 	/// Helper class for easily updating graphs.
@@ -118,6 +122,9 @@ namespace Pathfinding {
 		/// </summary>
 		private bool firstApplied;
 
+		/// <summary>
+		/// The serialized version
+		/// </summary>
 		[SerializeField]
 		private int serializedVersion = 0;
 
@@ -142,6 +149,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the post scan
+		/// </summary>
 		public override void OnPostScan () {
 			if (applyOnScan) Apply();
 		}
@@ -386,6 +396,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
 		protected override void Awake () {
 			if (serializedVersion == 0) {
 				// Use the old behavior if some points are already set

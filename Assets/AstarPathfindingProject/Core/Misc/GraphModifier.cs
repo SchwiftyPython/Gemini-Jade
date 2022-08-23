@@ -15,7 +15,13 @@ namespace Pathfinding {
 		/// <summary>All active graph modifiers</summary>
 		private static GraphModifier root;
 
+		/// <summary>
+		/// The prev
+		/// </summary>
 		private GraphModifier prev;
+		/// <summary>
+		/// The next
+		/// </summary>
 		private GraphModifier next;
 
 		/// <summary>Unique persistent ID for this component, used for serialization</summary>
@@ -26,6 +32,11 @@ namespace Pathfinding {
 		/// <summary>Maps persistent IDs to the component that uses it</summary>
 		protected static Dictionary<ulong, GraphModifier> usedIDs = new Dictionary<ulong, GraphModifier>();
 
+		/// <summary>
+		/// Gets the modifiers of type
+		/// </summary>
+		/// <typeparam name="T">The </typeparam>
+		/// <returns>The result</returns>
 		protected static List<T> GetModifiersOfType<T>() where T : GraphModifier {
 			var current = root;
 			var result = new List<T>();
@@ -38,6 +49,9 @@ namespace Pathfinding {
 			return result;
 		}
 
+		/// <summary>
+		/// Finds the all modifiers
+		/// </summary>
 		public static void FindAllModifiers () {
 			var allModifiers = FindObjectsOfType(typeof(GraphModifier)) as GraphModifier[];
 
@@ -48,11 +62,29 @@ namespace Pathfinding {
 
 		/// <summary>GraphModifier event type</summary>
 		public enum EventType {
+			/// <summary>
+			/// The post scan event type
+			/// </summary>
 			PostScan = 1 << 0,
+			/// <summary>
+			/// The pre scan event type
+			/// </summary>
 			PreScan = 1 << 1,
+			/// <summary>
+			/// The late post scan event type
+			/// </summary>
 			LatePostScan = 1 << 2,
+			/// <summary>
+			/// The pre update event type
+			/// </summary>
 			PreUpdate = 1 << 3,
+			/// <summary>
+			/// The post update event type
+			/// </summary>
 			PostUpdate = 1 << 4,
+			/// <summary>
+			/// The post cache load event type
+			/// </summary>
 			PostCacheLoad = 1 << 5
 		}
 
@@ -97,11 +129,17 @@ namespace Pathfinding {
 			RemoveFromLinkedList();
 		}
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
 		protected override void Awake () {
 			base.Awake();
 			ConfigureUniqueID();
 		}
 
+		/// <summary>
+		/// Configures the unique id
+		/// </summary>
 		void ConfigureUniqueID () {
 			// Check if any other object is using the same uniqueID
 			// In that case this object may have been duplicated
@@ -114,6 +152,9 @@ namespace Pathfinding {
 			usedIDs[uniqueID] = this;
 		}
 
+		/// <summary>
+		/// Adds the to linked list
+		/// </summary>
 		void AddToLinkedList () {
 			if (root == null) {
 				root = this;
@@ -124,6 +165,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Removes the from linked list
+		/// </summary>
 		void RemoveFromLinkedList () {
 			if (root == this) {
 				root = next;
@@ -136,6 +180,9 @@ namespace Pathfinding {
 			next = null;
 		}
 
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		protected virtual void OnDestroy () {
 			usedIDs.Remove(uniqueID);
 		}
@@ -191,6 +238,9 @@ namespace Pathfinding {
 		/// </summary>
 		public virtual void OnGraphsPostUpdate () {}
 
+		/// <summary>
+		/// Resets this instance
+		/// </summary>
 		protected override void Reset () {
 			base.Reset();
 			// Create a new random 64 bit value (62 bit actually because we skip negative numbers, but that's still enough by a huge margin)

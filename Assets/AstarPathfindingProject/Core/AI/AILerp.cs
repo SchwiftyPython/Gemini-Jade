@@ -148,6 +148,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets the value of the destination
+		/// </summary>
 		public Vector3 destination { get; set; }
 
 		/// <summary>
@@ -240,6 +243,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the value of the desired velocity
+		/// </summary>
 		Vector3 IAstarAI.desiredVelocity {
 			get {
 				// The AILerp script sets the position every frame. It does not take into account physics
@@ -305,6 +311,9 @@ namespace Pathfinding {
 		/// The speed is equal to movement direction.
 		/// </summary>
 		protected Vector3 previousMovementOrigin;
+		/// <summary>
+		/// The previous movement direction
+		/// </summary>
 		protected Vector3 previousMovementDirection;
 
 		/// <summary>
@@ -313,6 +322,9 @@ namespace Pathfinding {
 		/// </summary>
 		protected float pathSwitchInterpolationTime = 0;
 
+		/// <summary>
+		/// The path interpolator
+		/// </summary>
 		protected PathInterpolator interpolator = new PathInterpolator();
 
 
@@ -323,23 +335,38 @@ namespace Pathfinding {
 		/// </summary>
 		bool startHasRun = false;
 
+		/// <summary>
+		/// The simulated position
+		/// </summary>
 		Vector3 previousPosition1, previousPosition2, simulatedPosition;
+		/// <summary>
+		/// The simulated rotation
+		/// </summary>
 		Quaternion simulatedRotation;
 
 		/// <summary>Required for serialization backward compatibility</summary>
 		[UnityEngine.Serialization.FormerlySerializedAs("target")][SerializeField][HideInInspector]
 		Transform targetCompatibility;
 
+		/// <summary>
+		/// The na
+		/// </summary>
 		[SerializeField]
 		[HideInInspector]
 		[UnityEngine.Serialization.FormerlySerializedAs("repathRate")]
 		float repathRateCompatibility = float.NaN;
 
+		/// <summary>
+		/// The can search compability
+		/// </summary>
 		[SerializeField]
 		[HideInInspector]
 		[UnityEngine.Serialization.FormerlySerializedAs("canSearch")]
 		bool canSearchCompability = false;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AILerp"/> class
+		/// </summary>
 		protected AILerp () {
 			// Note that this needs to be set here in the constructor and not in e.g Awake
 			// because it is possible that other code runs and sets the destination property
@@ -384,6 +411,9 @@ namespace Pathfinding {
 			Init();
 		}
 
+		/// <summary>
+		/// Inits this instance
+		/// </summary>
 		void Init () {
 			if (startHasRun) {
 				// The Teleport call will make sure some variables are properly initialized (like #prevPosition1 and #prevPosition2)
@@ -393,6 +423,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		public void OnDisable () {
 			ClearPath();
 			// Make sure we no longer receive callbacks when paths complete
@@ -416,6 +449,11 @@ namespace Pathfinding {
 			buffer[0] = position;
 		}
 
+		/// <summary>
+		/// Teleports the position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="clearPath">The clear path</param>
 		public void Teleport (Vector3 position, bool clearPath = true) {
 			if (clearPath) ClearPath();
 			simulatedPosition = previousPosition1 = previousPosition2 = position;
@@ -575,6 +613,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Configures the path switch interpolation
+		/// </summary>
 		protected virtual void ConfigurePathSwitchInterpolation () {
 			bool reachedEndOfPreviousPath = interpolator.valid && interpolator.remainingDistance < 0.0001f;
 
@@ -589,6 +630,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the feet position
+		/// </summary>
+		/// <returns>The position</returns>
 		public virtual Vector3 GetFeetPosition () {
 			return position;
 		}
@@ -607,6 +652,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Updates this instance
+		/// </summary>
 		protected virtual void Update () {
 			if (shouldRecalculatePath) SearchPath();
 			if (canMove) {
@@ -639,6 +687,12 @@ namespace Pathfinding {
 			if (updateRotation) tr.rotation = nextRotation;
 		}
 
+		/// <summary>
+		/// Simulates the rotation towards using the specified direction
+		/// </summary>
+		/// <param name="direction">The direction</param>
+		/// <param name="deltaTime">The delta time</param>
+		/// <returns>The simulated rotation</returns>
 		Quaternion SimulateRotationTowards (Vector3 direction, float deltaTime) {
 			// Rotate unless we are really close to the target
 			if (direction != Vector3.zero) {
@@ -681,6 +735,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the upgrade serialized data using the specified version
+		/// </summary>
+		/// <param name="version">The version</param>
+		/// <param name="unityThread">The unity thread</param>
+		/// <returns>The int</returns>
 		protected override int OnUpgradeSerializedData (int version, bool unityThread) {
 			#pragma warning disable 618
 			if (unityThread && targetCompatibility != null) target = targetCompatibility;
@@ -693,6 +753,9 @@ namespace Pathfinding {
 			return 4;
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		public virtual void OnDrawGizmos () {
 			tr = transform;
 			autoRepath.DrawGizmos((IAstarAI)this);

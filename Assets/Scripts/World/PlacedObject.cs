@@ -8,12 +8,29 @@ using World.Things.CraftableThings;
 
 namespace World
 {
+    /// <summary>
+    /// The placed object class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class PlacedObject : MonoBehaviour
     {
-        public static readonly Color BlueprintColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+        /// <summary>
+        /// The blueprint color
+        /// </summary>
+        protected static readonly Color BlueprintColor = new(0.5f, 0.5f, 0.5f, 0.5f);
+
+        /// <summary>
+        /// The built color
+        /// </summary>
+        protected static readonly Color BuiltColor = new(1f, 1f, 1f, 1f);
         
-        public static readonly Color BuiltColor = new Color(1f, 1f, 1f, 1f);
-        
+        /// <summary>
+        /// Creates the origin
+        /// </summary>
+        /// <param name="origin">The origin</param>
+        /// <param name="direction">The direction</param>
+        /// <param name="placedObjectType">The placed object type</param>
+        /// <returns>The placed object</returns>
         public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
@@ -78,63 +95,126 @@ namespace World
             return placedObject;
         }
 
+        /// <summary>
+        /// The dir enum
+        /// </summary>
         public enum Dir 
         {
+            /// <summary>
+            /// The down dir
+            /// </summary>
             Down,
+            /// <summary>
+            /// The left dir
+            /// </summary>
             Left,
+            /// <summary>
+            /// The up dir
+            /// </summary>
             Up,
+            /// <summary>
+            /// The right dir
+            /// </summary>
             Right,
         }
 
+        /// <summary>
+        /// The instance
+        /// </summary>
         protected Transform instance;
         
+        /// <summary>
+        /// The sprite renderer
+        /// </summary>
         [SerializeField] protected internal SpriteRenderer spriteRenderer;
 
+        /// <summary>
+        /// The placed object type
+        /// </summary>
         protected internal PlacedObjectTemplate placedObjectType;
 
+        /// <summary>
+        /// The grid positions
+        /// </summary>
         protected internal List<Vector3> gridPositions;
         
+        /// <summary>
+        /// The direction
+        /// </summary>
         protected Dir direction;
-        
-        protected Job constructionJob;
 
+        /// <summary>
+        /// The construction job
+        /// </summary>
+        private Job _constructionJob;
+
+        /// <summary>
+        /// The remaining work
+        /// </summary>
         protected int remainingWork;
 
-        protected bool constructing;
+        /// <summary>
+        /// The constructing
+        /// </summary>
+        private bool _constructing;
 
-        protected float constructionSpeed;
+        /// <summary>
+        /// The construction speed
+        /// </summary>
+        private float _constructionSpeed;
 
-        protected float constructionTimer;
+        /// <summary>
+        /// The construction timer
+        /// </summary>
+        private float _constructionTimer;
 
+        /// <summary>
+        /// The map
+        /// </summary>
         protected LocalMap map;
 
-        protected Pawn pawn;
+        /// <summary>
+        /// The pawn
+        /// </summary>
+        private Pawn _pawn;
         
+        /// <summary>
+        /// Gets or sets the value of the grid objects
+        /// </summary>
         public List<GridObject> GridObjects { get; internal set; }
         
+        /// <summary>
+        /// Gets the value of the sprite renderer
+        /// </summary>
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         
+        /// <summary>
+        /// Gets the value of the needs to be made
+        /// </summary>
         public bool NeedsToBeMade => remainingWork > 0;
 
+        /// <summary>
+        /// Updates this instance
+        /// </summary>
         private void Update()
         {
-            if (!constructing)
+            if (!_constructing)
             {
                 return;
             }
             
             if(remainingWork <= 0)
             {
-                constructing = false;
+                _constructing = false;
                 
                 GridObjects.First().FinishConstruction();
             }
 
-            constructionTimer += UnityEngine.Time.deltaTime;
+            _constructionTimer += UnityEngine.Time.deltaTime;
 
-            if (constructionTimer >= constructionSpeed)
+            if (_constructionTimer >= _constructionSpeed)
             {
-                constructionTimer -= constructionSpeed;
+                _constructionTimer -= _constructionSpeed;
                 
                 remainingWork--;
 
@@ -142,7 +222,13 @@ namespace World
             }
         }
 
-        public List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
+        /// <summary>
+        /// Gets the grid positions using the specified origin
+        /// </summary>
+        /// <param name="origin">The origin</param>
+        /// <param name="dir">The dir</param>
+        /// <returns>The grid position list</returns>
+        protected List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
         {
             var gridPositionList = new List<Vector3>();
             
@@ -197,9 +283,12 @@ namespace World
             return gridPositionList;
         }
 
+        /// <summary>
+        /// Finishes the construction
+        /// </summary>
         public virtual void FinishConstruction()
         {
-            constructing = false;
+            _constructing = false;
             
             remainingWork = 0;
             
@@ -216,70 +305,100 @@ namespace World
                 gridObject.IsTransparent = placedObjectType.transparent;
             }
 
-            if (!placedObjectType.walkable)
+            if (placedObjectType.walkable)
             {
-                UnityUtils.AddBoxColliderTo(instance.gameObject);
+                return;
             }
-            
+
+            UnityUtils.AddBoxColliderTo(instance.gameObject);
+                
             AstarPath.active.Scan();
         }
 
+        /// <summary>
+        /// Constructs the job
+        /// </summary>
+        /// <param name="job">The job</param>
+        /// <param name="jobPawn">The job pawn</param>
+        /// <param name="skillLevel">The skill level</param>
         public void Construct(Job job, Pawn jobPawn, int skillLevel)
         {
-            constructionJob = job;
+            _constructionJob = job;
             
-            constructionJob.onPawnUnassigned += PauseConstruction;
+            _constructionJob.onPawnUnassigned += PauseConstruction;
 
-            pawn = jobPawn;
+            _pawn = jobPawn;
 
-            pawn.onPawnMoved += OnPawnMoved;
+            _pawn.onPawnMoved += OnPawnMoved;
 
             MovePawnsOutTheWay();
             
-            constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
+            _constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
 
-            constructionTimer = 0;
+            _constructionTimer = 0;
             
-            constructing = true;
+            _constructing = true;
         }
 
+        /// <summary>
+        /// Ons the pawn moved
+        /// </summary>
         private void OnPawnMoved()
         {
-            pawn.onPawnMoved -= OnPawnMoved;
+            _pawn.onPawnMoved -= OnPawnMoved;
             
-            pawn.CancelCurrentJob();
+            _pawn.CancelCurrentJob();
         }
 
-        public void PauseConstruction(Job job)
+        /// <summary>
+        /// Pauses the construction using the specified job
+        /// </summary>
+        /// <param name="job">The job</param>
+        private void PauseConstruction(Job job)
         {
-            constructing = false;
+            _constructing = false;
             
-            constructionJob.onPawnUnassigned -= PauseConstruction;
+            _constructionJob.onPawnUnassigned -= PauseConstruction;
         }
 
+        /// <summary>
+        /// Moves the pawns out the way
+        /// </summary>
         protected void MovePawnsOutTheWay()
         {
             foreach (var gridObject in GridObjects)
             {
-                foreach (var pawn in map.GetAllPawns())
+                foreach (var mapPawn in map.GetAllPawns())
                 {
-                    if (gridObject.Position == pawn.Position)
+                    if (gridObject.Position != mapPawn.Position)
                     {
-                        var pawnNeighbors = map.GetAdjacentWalkableLocations(pawn.Position);
+                        continue;
+                    }
 
-                        foreach (var neighbor in pawnNeighbors)
+                    var pawnNeighbors = map.GetAdjacentWalkableLocations(mapPawn.Position);
+
+                    foreach (var neighbor in pawnNeighbors)
+                    {
+                        var nGridObject = map.GetGridObjectAt(neighbor);
+
+                        if (nGridObject == null)
                         {
-                            var nGridObject = map.GetGridObjectAt(neighbor);
-
-                            if (nGridObject == null || !GridObjects.Contains(nGridObject))
-                            {
-                                pawn.MoveToLocal(neighbor);
-                                break;
-                            }
+                            mapPawn.MoveToLocal(neighbor);
+                            break;
                         }
+
+                        if (GridObjects.Contains(nGridObject))
+                        {
+                            continue;
+                        }
+
+                        mapPawn.MoveToLocal(neighbor);
+                        break;
                     }
                 }
             }
+            
+            //todo might need to hail mary move somewhere if they get to this point. Not an issue yet.
         }
     }
 }

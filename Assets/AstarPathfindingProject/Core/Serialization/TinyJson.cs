@@ -8,8 +8,16 @@ using WinRTLegacy;
 #endif
 
 namespace Pathfinding.Serialization {
+	/// <summary>
+	/// The json member attribute class
+	/// </summary>
+	/// <seealso cref="System.Attribute"/>
 	public class JsonMemberAttribute : System.Attribute {
 	}
+	/// <summary>
+	/// The json opt in attribute class
+	/// </summary>
+	/// <seealso cref="System.Attribute"/>
 	public class JsonOptInAttribute : System.Attribute {
 	}
 
@@ -19,18 +27,35 @@ namespace Pathfinding.Serialization {
 	/// well enough.
 	/// </summary>
 	public class TinyJsonSerializer {
+		/// <summary>
+		/// The string builder
+		/// </summary>
 		System.Text.StringBuilder output = new System.Text.StringBuilder();
 
+		/// <summary>
+		/// The action
+		/// </summary>
 		Dictionary<Type, Action<System.Object> > serializers = new Dictionary<Type, Action<object> >();
 
+		/// <summary>
+		/// The invariant culture
+		/// </summary>
 		static readonly System.Globalization.CultureInfo invariantCulture = System.Globalization.CultureInfo.InvariantCulture;
 
+		/// <summary>
+		/// Serializes the obj
+		/// </summary>
+		/// <param name="obj">The obj</param>
+		/// <param name="output">The output</param>
 		public static void Serialize (System.Object obj, System.Text.StringBuilder output) {
 			new TinyJsonSerializer() {
 				output = output
 			}.Serialize(obj);
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TinyJsonSerializer"/> class
+		/// </summary>
 		TinyJsonSerializer () {
 			serializers[typeof(float)] = v => output.Append(((float)v).ToString("R", invariantCulture));
 			serializers[typeof(bool)] = v => output.Append((bool)v ? "true" : "false");
@@ -42,6 +67,10 @@ namespace Pathfinding.Serialization {
 			serializers[typeof(LayerMask)] = v => output.AppendFormat("{{ \"value\": {0} }}", ((int)(LayerMask)v).ToString());
 		}
 
+		/// <summary>
+		/// Serializes the obj
+		/// </summary>
+		/// <param name="obj">The obj</param>
 		void Serialize (System.Object obj) {
 			if (obj == null) {
 				output.Append("null");
@@ -111,10 +140,19 @@ namespace Pathfinding.Serialization {
 			}
 		}
 
+		/// <summary>
+		/// Quoteds the field using the specified name
+		/// </summary>
+		/// <param name="name">The name</param>
+		/// <param name="contents">The contents</param>
 		void QuotedField (string name, string contents) {
 			output.AppendFormat("\"{0}\": \"{1}\"", name, contents);
 		}
 
+		/// <summary>
+		/// Serializes the unity object using the specified obj
+		/// </summary>
+		/// <param name="obj">The obj</param>
 		void SerializeUnityObject (UnityEngine.Object obj) {
 			// Note that a unityengine can be destroyed as well
 			if (obj == null) {
@@ -167,9 +205,18 @@ namespace Pathfinding.Serialization {
 	/// well enough. Not much validation of the input is done.
 	/// </summary>
 	public class TinyJsonDeserializer {
+		/// <summary>
+		/// The reader
+		/// </summary>
 		System.IO.TextReader reader;
+		/// <summary>
+		/// The context root
+		/// </summary>
 		GameObject contextRoot;
 
+		/// <summary>
+		/// The invariant info
+		/// </summary>
 		static readonly System.Globalization.NumberFormatInfo numberFormat = System.Globalization.NumberFormatInfo.InvariantInfo;
 
 		/// <summary>
@@ -284,6 +331,10 @@ namespace Pathfinding.Serialization {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the unity object
+		/// </summary>
+		/// <returns>The result</returns>
 		UnityEngine.Object DeserializeUnityObject () {
 			Eat("{");
 			var result = DeserializeUnityObjectInner();
@@ -291,6 +342,13 @@ namespace Pathfinding.Serialization {
 			return result;
 		}
 
+		/// <summary>
+		/// Deserializes the unity object inner
+		/// </summary>
+		/// <exception cref="Exception">Expected 'GUID' field</exception>
+		/// <exception cref="Exception">Expected 'Name' field</exception>
+		/// <exception cref="Exception">Expected 'Type' field</exception>
+		/// <returns>The unity engine object</returns>
 		UnityEngine.Object DeserializeUnityObjectInner () {
 			// Ignore InstanceID field (compatibility only)
 			var fieldName = EatField();
@@ -371,11 +429,19 @@ namespace Pathfinding.Serialization {
 			return null;
 		}
 
+		/// <summary>
+		/// Eats the whitespace
+		/// </summary>
 		void EatWhitespace () {
 			while (char.IsWhiteSpace((char)reader.Peek()))
 				reader.Read();
 		}
 
+		/// <summary>
+		/// Eats the s
+		/// </summary>
+		/// <param name="s">The </param>
+		/// <exception cref="Exception"></exception>
 		void Eat (string s) {
 			EatWhitespace();
 			for (int i = 0; i < s.Length; i++) {
@@ -386,7 +452,17 @@ namespace Pathfinding.Serialization {
 			}
 		}
 
+		/// <summary>
+		/// The string builder
+		/// </summary>
 		System.Text.StringBuilder builder = new System.Text.StringBuilder();
+		/// <summary>
+		/// Eats the until using the specified c
+		/// </summary>
+		/// <param name="c">The </param>
+		/// <param name="inString">The in string</param>
+		/// <exception cref="Exception">Unexpected EOF</exception>
+		/// <returns>The string</returns>
 		string EatUntil (string c, bool inString) {
 			builder.Length = 0;
 			bool escape = false;
@@ -414,6 +490,11 @@ namespace Pathfinding.Serialization {
 			return builder.ToString();
 		}
 
+		/// <summary>
+		/// Describes whether this instance try eat
+		/// </summary>
+		/// <param name="c">The </param>
+		/// <returns>The bool</returns>
 		bool TryEat (char c) {
 			EatWhitespace();
 			if ((char)reader.Peek() == c) {
@@ -423,6 +504,10 @@ namespace Pathfinding.Serialization {
 			return false;
 		}
 
+		/// <summary>
+		/// Eats the field
+		/// </summary>
+		/// <returns>The result</returns>
 		string EatField () {
 			var result = EatUntil("\",}]", TryEat('"'));
 
@@ -432,6 +517,10 @@ namespace Pathfinding.Serialization {
 			return result;
 		}
 
+		/// <summary>
+		/// Skips the field data
+		/// </summary>
+		/// <exception cref="System.Exception">Should not reach this part</exception>
 		void SkipFieldData () {
 			var indent = 0;
 

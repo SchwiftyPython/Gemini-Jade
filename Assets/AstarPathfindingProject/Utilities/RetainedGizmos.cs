@@ -41,11 +41,27 @@ namespace Pathfinding.Util {
 	public class RetainedGizmos {
 		/// <summary>Combines hashes into a single hash value</summary>
 		public struct Hasher {
+			/// <summary>
+			/// The hash
+			/// </summary>
 			ulong hash;
+			/// <summary>
+			/// The include path search info
+			/// </summary>
 			bool includePathSearchInfo;
+			/// <summary>
+			/// The include area info
+			/// </summary>
 			bool includeAreaInfo;
+			/// <summary>
+			/// The debug data
+			/// </summary>
 			PathHandler debugData;
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="Hasher"/> class
+			/// </summary>
+			/// <param name="active">The active</param>
 			public Hasher (AstarPath active) {
 				hash = 0;
 				this.debugData = active.debugPathData;
@@ -57,10 +73,18 @@ namespace Pathfinding.Util {
 				AddHash(AstarColor.ColorHash());
 			}
 
+			/// <summary>
+			/// Adds the hash using the specified hash
+			/// </summary>
+			/// <param name="hash">The hash</param>
 			public void AddHash (int hash) {
 				this.hash = (1572869UL * this.hash) ^ (ulong)hash;
 			}
 
+			/// <summary>
+			/// Hashes the node using the specified node
+			/// </summary>
+			/// <param name="node">The node</param>
 			public void HashNode (GraphNode node) {
 				AddHash(node.GetGizmoHashCode());
 				if (includeAreaInfo) AddHash((int)node.Area);
@@ -73,6 +97,9 @@ namespace Pathfinding.Util {
 				}
 			}
 
+			/// <summary>
+			/// Gets the value of the hash
+			/// </summary>
 			public ulong Hash {
 				get {
 					return hash;
@@ -82,10 +109,26 @@ namespace Pathfinding.Util {
 
 		/// <summary>Helper for drawing gizmos</summary>
 		public class Builder : IAstarPooledObject {
+			/// <summary>
+			/// The vector
+			/// </summary>
 			List<Vector3> lines = new List<Vector3>();
+			/// <summary>
+			/// The color 32
+			/// </summary>
 			List<Color32> lineColors = new List<Color32>();
+			/// <summary>
+			/// The mesh
+			/// </summary>
 			List<Mesh> meshes = new List<Mesh>();
 
+			/// <summary>
+			/// Draws the mesh using the specified gizmos
+			/// </summary>
+			/// <param name="gizmos">The gizmos</param>
+			/// <param name="vertices">The vertices</param>
+			/// <param name="triangles">The triangles</param>
+			/// <param name="colors">The colors</param>
 			public void DrawMesh (RetainedGizmos gizmos, Vector3[] vertices, List<int> triangles, Color[] colors) {
 				var mesh = gizmos.GetMesh();
 
@@ -120,6 +163,12 @@ namespace Pathfinding.Util {
 				DrawLine(tr.Transform(new Vector3(min.x, min.y, max.z)), tr.Transform(new Vector3(min.x, max.y, max.z)), color);
 			}
 
+			/// <summary>
+			/// Draws the line using the specified start
+			/// </summary>
+			/// <param name="start">The start</param>
+			/// <param name="end">The end</param>
+			/// <param name="color">The color</param>
 			public void DrawLine (Vector3 start, Vector3 end, Color color) {
 				lines.Add(start);
 				lines.Add(end);
@@ -128,11 +177,21 @@ namespace Pathfinding.Util {
 				lineColors.Add(col32);
 			}
 
+			/// <summary>
+			/// Submits the gizmos
+			/// </summary>
+			/// <param name="gizmos">The gizmos</param>
+			/// <param name="hasher">The hasher</param>
 			public void Submit (RetainedGizmos gizmos, Hasher hasher) {
 				SubmitLines(gizmos, hasher.Hash);
 				SubmitMeshes(gizmos, hasher.Hash);
 			}
 
+			/// <summary>
+			/// Submits the meshes using the specified gizmos
+			/// </summary>
+			/// <param name="gizmos">The gizmos</param>
+			/// <param name="hash">The hash</param>
 			void SubmitMeshes (RetainedGizmos gizmos, ulong hash) {
 				for (int i = 0; i < meshes.Count; i++) {
 					gizmos.meshes.Add(new MeshWithHash { hash = hash, mesh = meshes[i], lines = false });
@@ -140,6 +199,11 @@ namespace Pathfinding.Util {
 				}
 			}
 
+			/// <summary>
+			/// Submits the lines using the specified gizmos
+			/// </summary>
+			/// <param name="gizmos">The gizmos</param>
+			/// <param name="hash">The hash</param>
 			void SubmitLines (RetainedGizmos gizmos, ulong hash) {
 				// Unity only supports 65535 vertices per mesh. 65532 used because MaxLineEndPointsPerBatch needs to be even.
 				const int MaxLineEndPointsPerBatch = 65532/2;
@@ -223,6 +287,9 @@ namespace Pathfinding.Util {
 				}
 			}
 
+			/// <summary>
+			/// Ons the enter pool
+			/// </summary>
 			void IAstarPooledObject.OnEnterPool () {
 				lines.Clear();
 				lineColors.Clear();
@@ -230,17 +297,46 @@ namespace Pathfinding.Util {
 			}
 		}
 
+		/// <summary>
+		/// The mesh with hash
+		/// </summary>
 		struct MeshWithHash {
+			/// <summary>
+			/// The hash
+			/// </summary>
 			public ulong hash;
+			/// <summary>
+			/// The mesh
+			/// </summary>
 			public Mesh mesh;
+			/// <summary>
+			/// The lines
+			/// </summary>
 			public bool lines;
 		}
 
+		/// <summary>
+		/// The mesh with hash
+		/// </summary>
 		List<MeshWithHash> meshes = new List<MeshWithHash>();
+		/// <summary>
+		/// The hash set
+		/// </summary>
 		HashSet<ulong> usedHashes = new HashSet<ulong>();
+		/// <summary>
+		/// The hash set
+		/// </summary>
 		HashSet<ulong> existingHashes = new HashSet<ulong>();
+		/// <summary>
+		/// The mesh
+		/// </summary>
 		Stack<Mesh> cachedMeshes = new Stack<Mesh>();
 
+		/// <summary>
+		/// Gets the single frame gizmo helper using the specified active
+		/// </summary>
+		/// <param name="active">The active</param>
+		/// <returns>The graph gizmo helper</returns>
 		public GraphGizmoHelper GetSingleFrameGizmoHelper (AstarPath active) {
 			var uniqHash = new RetainedGizmos.Hasher();
 
@@ -249,6 +345,12 @@ namespace Pathfinding.Util {
 			return GetGizmoHelper(active, uniqHash);
 		}
 
+		/// <summary>
+		/// Gets the gizmo helper using the specified active
+		/// </summary>
+		/// <param name="active">The active</param>
+		/// <param name="hasher">The hasher</param>
+		/// <returns>The helper</returns>
 		public GraphGizmoHelper GetGizmoHelper (AstarPath active, Hasher hasher) {
 			var helper = ObjectPool<GraphGizmoHelper>.Claim();
 
@@ -256,11 +358,19 @@ namespace Pathfinding.Util {
 			return helper;
 		}
 
+		/// <summary>
+		/// Pools the mesh using the specified mesh
+		/// </summary>
+		/// <param name="mesh">The mesh</param>
 		void PoolMesh (Mesh mesh) {
 			mesh.Clear();
 			cachedMeshes.Push(mesh);
 		}
 
+		/// <summary>
+		/// Gets the mesh
+		/// </summary>
+		/// <returns>The mesh</returns>
 		Mesh GetMesh () {
 			if (cachedMeshes.Count > 0) {
 				return cachedMeshes.Pop();
@@ -351,6 +461,10 @@ namespace Pathfinding.Util {
 			UnityEngine.Assertions.Assert.IsTrue(meshes.Count == 0);
 		}
 
+		/// <summary>
+		/// Removes the unused meshes using the specified mesh list
+		/// </summary>
+		/// <param name="meshList">The mesh list</param>
 		void RemoveUnusedMeshes (List<MeshWithHash> meshList) {
 			// Walk the array with two pointers
 			// i pointing to the entry that should be filled with something

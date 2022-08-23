@@ -2,13 +2,24 @@ using UnityEngine;
 using UnityEditor;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The point graph editor class
+	/// </summary>
+	/// <seealso cref="GraphEditor"/>
 	[CustomGraphEditor(typeof(PointGraph), "Point Graph")]
 	public class PointGraphEditor : GraphEditor {
+		/// <summary>
+		/// The gui content
+		/// </summary>
 		static readonly GUIContent[] nearestNodeDistanceModeLabels = {
 			new GUIContent("Node"),
 			new GUIContent("Connection (pro version only)"),
 		};
 
+		/// <summary>
+		/// Ons the inspector gui using the specified target
+		/// </summary>
+		/// <param name="target">The target</param>
 		public override void OnInspectorGUI (NavGraph target) {
 			var graph = target as PointGraph;
 

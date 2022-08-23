@@ -14,38 +14,87 @@ using Random = UnityEngine.Random;
 
 namespace World.Pawns.Health
 {
+    /// <summary>
+    /// The health class
+    /// </summary>
     public class Health
     {
+        /// <summary>
+        /// The tick interval
+        /// </summary>
         private const int TickInterval = 1000; //all of the intervals are in HealthTuning. Different intervals for vomit, death, health mod update.
         
+        /// <summary>
+        /// The pawn
+        /// </summary>
         private Pawn _pawn;
 
+        /// <summary>
+        /// The mobile
+        /// </summary>
         private HealthState _healthState = HealthState.Mobile;
 
+        /// <summary>
+        /// The health mod collection
+        /// </summary>
         private HealthModCollection _healthModCollection;
 
+        /// <summary>
+        /// The functions
+        /// </summary>
         private FunctionsHandler _functions;
 
+        /// <summary>
+        /// The functions repo
+        /// </summary>
         private HealthFunctionRepo _functionsRepo;
 
         //todo health summary calculator
 
+        /// <summary>
+        /// The body
+        /// </summary>
         private List<BodyPart> _body;
 
+        /// <summary>
+        /// The interval check counter
+        /// </summary>
         private int _intervalCheckCounter;
 
+        /// <summary>
+        /// Gets the value of the state
+        /// </summary>
         public HealthState State => _healthState;
 
+        /// <summary>
+        /// Gets the value of the downed
+        /// </summary>
         public bool Downed => _healthState == HealthState.Down;
 
+        /// <summary>
+        /// Gets the value of the dead
+        /// </summary>
         public bool Dead => _healthState == HealthState.Dead;
 
+        /// <summary>
+        /// The max lethal damage
+        /// </summary>
         public float maxLethalDamage = 150f;
 
+        /// <summary>
+        /// The pain shock threshold
+        /// </summary>
         public float painShockThreshold = 0.8f; //todo define in pawn's stats
 
+        /// <summary>
+        /// Gets the value of the can wake up
+        /// </summary>
         public bool CanWakeUp => _functions.CanWakeUp;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Health"/> class
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
         public Health(Pawn pawn)
         {
             _pawn = pawn;
@@ -63,16 +112,29 @@ namespace World.Pawns.Health
             //todo set all the other properties
         }
 
+        /// <summary>
+        /// Gets the body
+        /// </summary>
+        /// <returns>The body</returns>
         public List<BodyPart> GetBody()
         {
             return _body;
         }
 
+        /// <summary>
+        /// Gets the existing parts
+        /// </summary>
+        /// <returns>A list of body part</returns>
         public List<BodyPart> GetExistingParts()
         {
             return _healthModCollection.GetExistingParts();
         }
 
+        /// <summary>
+        /// Gets the body parts with tag using the specified tag
+        /// </summary>
+        /// <param name="tag">The tag</param>
+        /// <returns>The tagged parts</returns>
         public List<BodyPart> GetBodyPartsWithTag(BodyPartTagTemplate tag)
         {
             var taggedParts = new List<BodyPart>();
@@ -88,11 +150,20 @@ namespace World.Pawns.Health
             return taggedParts;
         }
 
+        /// <summary>
+        /// Describes whether this instance has parts with tag
+        /// </summary>
+        /// <param name="tag">The tag</param>
+        /// <returns>The bool</returns>
         public bool HasPartsWithTag(BodyPartTagTemplate tag)
         {
             return _pawn.species.bodyTemplate.HasPartsWithTag(tag);
         }
         
+        /// <summary>
+        /// Gets the core body part
+        /// </summary>
+        /// <returns>The body part</returns>
         public BodyPart GetCoreBodyPart()
         {
             foreach (var bodyPart in _body)
@@ -106,21 +177,42 @@ namespace World.Pawns.Health
             return null;
         }
         
+        /// <summary>
+        /// Gets the random body part
+        /// </summary>
+        /// <returns>The body part</returns>
         public BodyPart GetRandomBodyPart()
         {
             return _healthModCollection.GetRandomExistingPart();
         }
         
+        /// <summary>
+        /// Gets the random body part using the specified height
+        /// </summary>
+        /// <param name="height">The height</param>
+        /// <param name="depth">The depth</param>
+        /// <param name="parent">The parent</param>
+        /// <returns>The body part</returns>
         public BodyPart GetRandomBodyPart(BodyPartHeight height, BodyPartDepth depth, BodyPart parent = null)
         {
             return _healthModCollection.GetRandomExistingPart(height, depth, parent);
         }
 
+        /// <summary>
+        /// Gets the level using the specified function
+        /// </summary>
+        /// <param name="function">The function</param>
+        /// <returns>The float</returns>
         public float GetLevel(HealthFunctionTemplate function)
         {
             return _functions.GetLevel(function, GetHealthMods());
         }
 
+        /// <summary>
+        /// Adds the health mod using the specified health mod to add
+        /// </summary>
+        /// <param name="healthModToAdd">The health mod to add</param>
+        /// <param name="bodyPart">The body part</param>
         public void AddHealthMod(HealthMod healthModToAdd, BodyPart bodyPart = null)
         {
             _healthModCollection.AddHealthMod(healthModToAdd, bodyPart);
@@ -141,6 +233,10 @@ namespace World.Pawns.Health
             }
         }
 
+        /// <summary>
+        /// Removes the health mod using the specified health mod
+        /// </summary>
+        /// <param name="healthMod">The health mod</param>
         public void RemoveHealthMod(HealthMod healthMod)
         {
             _healthModCollection.RemoveHealthMod(healthMod);
@@ -148,51 +244,99 @@ namespace World.Pawns.Health
             CheckForHealthStateChange(null);
         }
 
+        /// <summary>
+        /// Gets the health mods
+        /// </summary>
+        /// <returns>A list of health mod</returns>
         public List<HealthMod> GetHealthMods()
         {
             return _healthModCollection.healthMods;
         }
 
+        /// <summary>
+        /// Gets the first health mod of using the specified health mod template
+        /// </summary>
+        /// <param name="healthModTemplate">The health mod template</param>
+        /// <param name="mustBeVisible">The must be visible</param>
+        /// <returns>The health mod</returns>
         public HealthMod GetFirstHealthModOf(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
         {
             return _healthModCollection.GetFirstHealthModOf(healthModTemplate, mustBeVisible);
         }
 
+        /// <summary>
+        /// Describes whether this instance body part is missing
+        /// </summary>
+        /// <param name="part">The part</param>
+        /// <returns>The bool</returns>
         public bool BodyPartIsMissing(BodyPart part)
         {
             return _healthModCollection.BodyPartIsMissing(part);
         }
 
+        /// <summary>
+        /// Describes whether this instance has health mod
+        /// </summary>
+        /// <param name="healthModTemplate">The health mod template</param>
+        /// <param name="bodyPart">The body part</param>
+        /// <param name="mustBeVisible">The must be visible</param>
+        /// <returns>The bool</returns>
         public bool HasHealthMod(HealthModTemplate healthModTemplate, BodyPart bodyPart, bool mustBeVisible = false)
         {
             return _healthModCollection.HasHealthMod(healthModTemplate, bodyPart, mustBeVisible);
         }
 
+        /// <summary>
+        /// Describes whether this instance has health mod
+        /// </summary>
+        /// <param name="healthModTemplate">The health mod template</param>
+        /// <param name="mustBeVisible">The must be visible</param>
+        /// <returns>The bool</returns>
         public bool HasHealthMod(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
         {
             return _healthModCollection.HasHealthMod(healthModTemplate, mustBeVisible);
         }
         
+        /// <summary>
+        /// Gets the part health using the specified body part
+        /// </summary>
+        /// <param name="bodyPart">The body part</param>
+        /// <returns>The float</returns>
         public float GetPartHealth(BodyPart bodyPart)
         {
             return _healthModCollection.GetBodyPartHealth(bodyPart);
         }
 
+        /// <summary>
+        /// Gets the function values
+        /// </summary>
+        /// <returns>A dictionary of health function template and float</returns>
         public IDictionary<HealthFunctionTemplate, float> GetFunctionValues()
         {
             return _functions.GetFunctionLevels();
         }
 
+        /// <summary>
+        /// Gets the pain total
+        /// </summary>
+        /// <returns>The float</returns>
         public float GetPainTotal()
         {
             return _healthModCollection.TotalPain;
         }
 
+        /// <summary>
+        /// Gets the bleed rate total
+        /// </summary>
+        /// <returns>The float</returns>
         public float GetBleedRateTotal()
         {
             return _healthModCollection.TotalBleedRate;
         }
 
+        /// <summary>
+        /// Ticks this instance
+        /// </summary>
         public void Tick()
         {
             if (Dead)
@@ -253,6 +397,9 @@ namespace World.Pawns.Health
             }
         }
 
+        /// <summary>
+        /// Processes the health mod adders
+        /// </summary>
         public void ProcessHealthModAdders()
         {
             var healthModAdderSets = _pawn.species.healthModAdderSets;
@@ -278,6 +425,10 @@ namespace World.Pawns.Health
             //todo trigger on body changed event
         }
 
+        /// <summary>
+        /// Checks the for health state change using the specified health mod
+        /// </summary>
+        /// <param name="healthMod">The health mod</param>
         public void CheckForHealthStateChange(HealthMod healthMod)
         {
             if (Dead)
@@ -311,6 +462,9 @@ namespace World.Pawns.Health
             }
         }
         
+        /// <summary>
+        /// Kills the pawn
+        /// </summary>
         public void KillPawn()
         {
             if (Dead)
@@ -321,6 +475,10 @@ namespace World.Pawns.Health
             _healthState = HealthState.Dead;
         }
 
+        /// <summary>
+        /// Describes whether this instance should be downed
+        /// </summary>
+        /// <returns>The bool</returns>
         private bool ShouldBeDowned()
         {
             if (_functions.CanWakeUp) //todo !InPainShock
@@ -331,6 +489,10 @@ namespace World.Pawns.Health
             return true;
         }
 
+        /// <summary>
+        /// Describes whether this instance should be dead
+        /// </summary>
+        /// <returns>The bool</returns>
         private bool ShouldBeDead()
         {
             if (Dead)
@@ -361,6 +523,10 @@ namespace World.Pawns.Health
             return ShouldBeDeadFromLethalDamage();
         }
 
+        /// <summary>
+        /// Describes whether this instance should be dead from critical function
+        /// </summary>
+        /// <returns>The bool</returns>
         private bool ShouldBeDeadFromCriticalFunction()
         {
             var allHealthFunctions = _functionsRepo.GetAllHealthFunctions();
@@ -377,6 +543,10 @@ namespace World.Pawns.Health
             return false;
         }
 
+        /// <summary>
+        /// Describes whether this instance should be dead from lethal damage
+        /// </summary>
+        /// <returns>The bool</returns>
         private bool ShouldBeDeadFromLethalDamage()
         {
             //todo add up severity of all injury health mods
@@ -386,6 +556,9 @@ namespace World.Pawns.Health
             return false;
         }
 
+        /// <summary>
+        /// Downs the pawn
+        /// </summary>
         private void DownPawn()
         {
             if (Downed)
@@ -400,6 +573,9 @@ namespace World.Pawns.Health
             //todo checks damage info for an instigator then notifies pawn downed
         }
 
+        /// <summary>
+        /// Uns the down pawn
+        /// </summary>
         private void UnDownPawn()
         {
             if (!Downed)
@@ -414,6 +590,9 @@ namespace World.Pawns.Health
             //todo if spawned end current job as unable to complete. Guessing current job is bed rest or something 
         }
 
+        /// <summary>
+        /// Builds the body
+        /// </summary>
         private void BuildBody()
         {
             var corePartInfo = _pawn.species.bodyTemplate.parts.SingleOrDefault(p =>

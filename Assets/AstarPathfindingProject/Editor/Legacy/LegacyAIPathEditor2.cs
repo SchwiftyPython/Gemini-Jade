@@ -1,9 +1,16 @@
 using UnityEditor;
 
 namespace Pathfinding.Legacy {
+	/// <summary>
+	/// The legacy ai path editor class
+	/// </summary>
+	/// <seealso cref="BaseAIEditor"/>
 	[CustomEditor(typeof(LegacyAIPath))]
 	[CanEditMultipleObjects]
 	public class LegacyAIPathEditor : BaseAIEditor {
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			base.Inspector();
 			var gravity = FindProperty("gravity");

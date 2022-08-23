@@ -39,12 +39,21 @@ namespace Pathfinding {
 
 		/// <summary>Flag 1 is at bit 28</summary>
 		private const int Flag1Offset = 28;
+		/// <summary>
+		/// The flag offset
+		/// </summary>
 		private const uint Flag1Mask = (uint)(1 << Flag1Offset);
 
 		/// <summary>Flag 2 is at bit 29</summary>
 		private const int Flag2Offset = 29;
+		/// <summary>
+		/// The flag offset
+		/// </summary>
 		private const uint Flag2Mask = (uint)(1 << Flag2Offset);
 
+		/// <summary>
+		/// Gets or sets the value of the cost
+		/// </summary>
 		public uint cost {
 			get {
 				return flags & CostMask;
@@ -99,6 +108,10 @@ namespace Pathfinding {
 		/// <summary>F score. H score + G score</summary>
 		public uint F { get { return g+h; } }
 
+		/// <summary>
+		/// Updates the g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
 		public void UpdateG (Path path) {
 #if ASTAR_NO_TRAVERSAL_COST
 			g = parent.g + cost;
@@ -116,7 +129,13 @@ namespace Pathfinding {
 		/// </summary>
 		private ushort pathID;
 
+		/// <summary>
+		/// The thread id
+		/// </summary>
 		public readonly int threadID;
+		/// <summary>
+		/// The total thread count
+		/// </summary>
 		public readonly int totalThreadCount;
 
 		/// <summary>
@@ -137,11 +156,20 @@ namespace Pathfinding {
 		/// </summary>
 		public readonly System.Text.StringBuilder DebugStringBuilder = new System.Text.StringBuilder();
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PathHandler"/> class
+		/// </summary>
+		/// <param name="threadID">The thread id</param>
+		/// <param name="totalThreadCount">The total thread count</param>
 		public PathHandler (int threadID, int totalThreadCount) {
 			this.threadID = threadID;
 			this.totalThreadCount = totalThreadCount;
 		}
 
+		/// <summary>
+		/// Initializes the for path using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
 		public void InitializeForPath (Path p) {
 			pathID = p.pathID;
 			heap.Clear();
@@ -183,6 +211,11 @@ namespace Pathfinding {
 			nodes[ind].node = node;
 		}
 
+		/// <summary>
+		/// Gets the path node using the specified node index
+		/// </summary>
+		/// <param name="nodeIndex">The node index</param>
+		/// <returns>The path node</returns>
 		public PathNode GetPathNode (int nodeIndex) {
 			return nodes[nodeIndex];
 		}

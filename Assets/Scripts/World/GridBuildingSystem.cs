@@ -7,8 +7,15 @@ using World.Things.CraftableThings;
 
 namespace World
 {
+    /// <summary>
+    /// The grid building system class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class GridBuildingSystem : MonoBehaviour
     {
+        /// <summary>
+        /// The bit mask value to index
+        /// </summary>
         private static readonly Dictionary<int, int> BitMaskValueToIndex = new()
         {
             {0, 0},
@@ -60,6 +67,18 @@ namespace World
             {106, 46}
         };
 
+        /// <summary>
+        /// Calculates the tile index using the specified east
+        /// </summary>
+        /// <param name="east">The east</param>
+        /// <param name="west">The west</param>
+        /// <param name="north">The north</param>
+        /// <param name="south">The south</param>
+        /// <param name="northWest">The north west</param>
+        /// <param name="northEast">The north east</param>
+        /// <param name="southWest">The south west</param>
+        /// <param name="southEast">The south east</param>
+        /// <returns>The int</returns>
         public static int CalculateTileIndex(bool east, bool west, bool north, bool south, bool northWest,
             bool northEast, bool southWest, bool southEast)
         {
@@ -77,21 +96,42 @@ namespace World
             return BitMaskValueToIndex[(int) direction];
         }
 
+        /// <summary>
+        /// Gets or sets the value of the local map
+        /// </summary>
         public LocalMap LocalMap { get; private set; }
 
+        /// <summary>
+        /// The selected object type
+        /// </summary>
         private PlacedObjectTemplate _selectedObjectType;
         
+        /// <summary>
+        /// The ghost object
+        /// </summary>
         [SerializeField] private GhostObject ghostObject;
 
+        /// <summary>
+        /// The dir
+        /// </summary>
         private PlacedObject.Dir _dir;
 
+        /// <summary>
+        /// The placing object
+        /// </summary>
         private bool _placingObject;
 
+        /// <summary>
+        /// Awakes this instance
+        /// </summary>
         private void Awake()
         {
             SelectGridObjectButton.OnObjectSelected += OnObjectSelected;
         }
         
+        /// <summary>
+        /// Updates this instance
+        /// </summary>
         private void Update()
         {
             if (!_placingObject)
@@ -156,6 +196,10 @@ namespace World
             }
         }
         
+        /// <summary>
+        /// Gets the mouse world snapped position
+        /// </summary>
+        /// <returns>The snapped position</returns>
         public Vector3 GetMouseWorldSnappedPosition()
         {
             var mousePosition = MouseUtils.GetMouseWorldPosition();
@@ -170,6 +214,10 @@ namespace World
 
         }
 
+        /// <summary>
+        /// Gets the mouse grid snapped position
+        /// </summary>
+        /// <returns>The snapped position</returns>
         public Vector3 GetMouseGridSnappedPosition()
         {
             var mousePosition = MouseUtils.GetMouseWorldPosition();
@@ -179,11 +227,19 @@ namespace World
             return snappedPosition;
         }
         
+        /// <summary>
+        /// Sets the local map using the specified local map
+        /// </summary>
+        /// <param name="localMap">The local map</param>
         public void SetLocalMap(LocalMap localMap)
         {
             LocalMap = localMap;
         }
         
+        /// <summary>
+        /// Gets the object rotation
+        /// </summary>
+        /// <returns>The quaternion</returns>
         public Quaternion GetObjectRotation()
         {
             int rotationAngle;
@@ -207,6 +263,10 @@ namespace World
             return Quaternion.Euler(0, 0, rotationAngle);
         }
 
+        /// <summary>
+        /// Gets the next dir
+        /// </summary>
+        /// <returns>The placed object dir</returns>
         private PlacedObject.Dir GetNextDir()
         {
             switch (_dir)
@@ -219,6 +279,10 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Gets the rotation offset
+        /// </summary>
+        /// <returns>The vector int</returns>
         private Vector2Int GetRotationOffset()
         {
             switch (_dir)
@@ -234,6 +298,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Deselects the object type
+        /// </summary>
         private void DeselectObjectType()
         {
             _selectedObjectType = null;
@@ -241,6 +308,10 @@ namespace World
             ghostObject.Hide();
         }
 
+        /// <summary>
+        /// Ons the object selected using the specified object type
+        /// </summary>
+        /// <param name="objectType">The object type</param>
         private void OnObjectSelected(PlacedObjectTemplate objectType)
         {
             if (objectType == null)

@@ -3,15 +3,34 @@ using UnityEditor;
 using System.Collections.Generic;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The seeker editor class
+	/// </summary>
+	/// <seealso cref="EditorBase"/>
 	[CustomEditor(typeof(Seeker))]
 	[CanEditMultipleObjects]
 	public class SeekerEditor : EditorBase {
+		/// <summary>
+		/// The tag penalties open
+		/// </summary>
 		static bool tagPenaltiesOpen;
+		/// <summary>
+		/// The seeker
+		/// </summary>
 		static List<Seeker> scripts = new List<Seeker>();
 
+		/// <summary>
+		/// The gui content
+		/// </summary>
 		GUIContent[] exactnessLabels = new [] { new GUIContent("Node Center (Snap To Node)"), new GUIContent("Original"), new GUIContent("Interpolate (deprecated)"), new GUIContent("Closest On Node Surface"), new GUIContent("Node Connection") };
+		/// <summary>
+		/// The graph labels
+		/// </summary>
 		string[] graphLabels = new string[32];
 
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			base.Inspector();
 

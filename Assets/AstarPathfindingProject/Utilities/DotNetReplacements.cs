@@ -4,13 +4,29 @@ namespace Pathfinding.Util {
 	/// Version: Since 3.6.4 this struct works properly on platforms with different endianness such as Wii U.
 	/// </summary>
 	public struct Guid {
+		/// <summary>
+		/// The hex
+		/// </summary>
 		const string hex = "0123456789ABCDEF";
 
+		/// <summary>
+		/// The guid
+		/// </summary>
 		public static readonly Guid zero = new Guid(new byte[16]);
+		/// <summary>
+		/// The to string
+		/// </summary>
 		public static readonly string zeroString = new Guid(new byte[16]).ToString();
 
+		/// <summary>
+		/// The 
+		/// </summary>
 		readonly ulong _a, _b;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Guid"/> class
+		/// </summary>
+		/// <param name="bytes">The bytes</param>
 		public Guid (byte[] bytes) {
 			// Pack 128 bits into 2 longs
 			ulong a = ((ulong)bytes[0] << 8*0) |
@@ -36,6 +52,15 @@ namespace Pathfinding.Util {
 			_b = System.BitConverter.IsLittleEndian ? b : SwapEndianness(b);
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Guid"/> class
+		/// </summary>
+		/// <param name="str">The str</param>
+		/// <exception cref="System.FormatException"></exception>
+		/// <exception cref="System.FormatException"></exception>
+		/// <exception cref="System.FormatException">Invalid Guid format</exception>
+		/// <exception cref="System.FormatException">Invalid Guid format. String too short</exception>
+		/// <exception cref="System.FormatException">Invalid Guid format. String too short</exception>
 		public Guid (string str) {
 			_a = 0;
 			_b = 0;
@@ -85,6 +110,11 @@ namespace Pathfinding.Util {
 			}
 		}
 
+		/// <summary>
+		/// Parses the input
+		/// </summary>
+		/// <param name="input">The input</param>
+		/// <returns>The guid</returns>
 		public static Guid Parse (string input) {
 			return new Guid(input);
 		}
@@ -103,6 +133,10 @@ namespace Pathfinding.Util {
 			return b1 << 56 | b2 << 48 | b3 << 40 | b4 << 32 | b5 << 24 | b6 << 16 | b7 << 8 | b8 << 0;
 		}
 
+		/// <summary>
+		/// Returns the byte array
+		/// </summary>
+		/// <returns>The bytes</returns>
 		public byte[] ToByteArray () {
 			var bytes = new byte[16];
 
@@ -116,8 +150,15 @@ namespace Pathfinding.Util {
 			return bytes;
 		}
 
+		/// <summary>
+		/// The random
+		/// </summary>
 		private static System.Random random = new System.Random();
 
+		/// <summary>
+		/// News the guid
+		/// </summary>
+		/// <returns>The guid</returns>
 		public static Guid NewGuid () {
 			var bytes = new byte[16];
 
@@ -133,6 +174,11 @@ namespace Pathfinding.Util {
 			return lhs._a != rhs._a || lhs._b != rhs._b;
 		}
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="_rhs">The rhs</param>
+		/// <returns>The bool</returns>
 		public override bool Equals (System.Object _rhs) {
 			if (!(_rhs is Guid)) return false;
 
@@ -141,14 +187,25 @@ namespace Pathfinding.Util {
 			return _a == rhs._a && _b == rhs._b;
 		}
 
+		/// <summary>
+		/// Gets the hash code
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int GetHashCode () {
 			ulong ab = _a ^ _b;
 
 			return (int)(ab >> 32) ^ (int)ab;
 		}
 
+		/// <summary>
+		/// The text
+		/// </summary>
 		private static System.Text.StringBuilder text;
 
+		/// <summary>
+		/// Returns the string
+		/// </summary>
+		/// <returns>The string</returns>
 		public override string ToString () {
 			if (text == null) {
 				text = new System.Text.StringBuilder();

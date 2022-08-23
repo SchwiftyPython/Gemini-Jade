@@ -3,16 +3,38 @@ using UnityEngine;
 namespace Pathfinding.Util {
 	/// <summary>Helper methods for drawing gizmos and debug lines</summary>
 	public class Draw {
+		/// <summary>
+		/// The gizmos
+		/// </summary>
 		public static readonly Draw Debug = new Draw { gizmos = false };
+		/// <summary>
+		/// The gizmos
+		/// </summary>
 		public static readonly Draw Gizmos = new Draw { gizmos = true };
 
+		/// <summary>
+		/// The gizmos
+		/// </summary>
 		bool gizmos;
+		/// <summary>
+		/// The identity
+		/// </summary>
 		Matrix4x4 matrix = Matrix4x4.identity;
 
+		/// <summary>
+		/// Sets the color using the specified color
+		/// </summary>
+		/// <param name="color">The color</param>
 		void SetColor (Color color) {
 			if (gizmos && UnityEngine.Gizmos.color != color) UnityEngine.Gizmos.color = color;
 		}
 
+		/// <summary>
+		/// Polylines the points
+		/// </summary>
+		/// <param name="points">The points</param>
+		/// <param name="color">The color</param>
+		/// <param name="cycle">The cycle</param>
 		public void Polyline (System.Collections.Generic.List<Vector3> points, Color color, bool cycle = false) {
 			for (int i = 0; i < points.Count - 1; i++) {
 				Line(points[i], points[i+1], color);
@@ -20,12 +42,26 @@ namespace Pathfinding.Util {
 			if (cycle && points.Count > 1) Line(points[points.Count - 1], points[0], color);
 		}
 
+		/// <summary>
+		/// Lines the a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <param name="color">The color</param>
 		public void Line (Vector3 a, Vector3 b, Color color) {
 			SetColor(color);
 			if (gizmos) UnityEngine.Gizmos.DrawLine(matrix.MultiplyPoint3x4(a), matrix.MultiplyPoint3x4(b));
 			else UnityEngine.Debug.DrawLine(matrix.MultiplyPoint3x4(a), matrix.MultiplyPoint3x4(b), color);
 		}
 
+		/// <summary>
+		/// Circles the xz using the specified center
+		/// </summary>
+		/// <param name="center">The center</param>
+		/// <param name="radius">The radius</param>
+		/// <param name="color">The color</param>
+		/// <param name="startAngle">The start angle</param>
+		/// <param name="endAngle">The end angle</param>
 		public void CircleXZ (Vector3 center, float radius, Color color, float startAngle = 0f, float endAngle = 2*Mathf.PI) {
 			int steps = 40;
 
@@ -42,6 +78,14 @@ namespace Pathfinding.Util {
 			}
 		}
 
+		/// <summary>
+		/// Cylinders the position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="up">The up</param>
+		/// <param name="height">The height</param>
+		/// <param name="radius">The radius</param>
+		/// <param name="color">The color</param>
 		public void Cylinder (Vector3 position, Vector3 up, float height, float radius, Color color) {
 			var tangent = Vector3.Cross(up, Vector3.one).normalized;
 
@@ -59,12 +103,24 @@ namespace Pathfinding.Util {
 			matrix = Matrix4x4.identity;
 		}
 
+		/// <summary>
+		/// Crosses the xz using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="color">The color</param>
+		/// <param name="size">The size</param>
 		public void CrossXZ (Vector3 position, Color color, float size = 1) {
 			size *= 0.5f;
 			Line(position - Vector3.right*size, position + Vector3.right*size, color);
 			Line(position - Vector3.forward*size, position + Vector3.forward*size, color);
 		}
 
+		/// <summary>
+		/// Beziers the a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <param name="color">The color</param>
 		public void Bezier (Vector3 a, Vector3 b, Color color) {
 			Vector3 dir = b - a;
 

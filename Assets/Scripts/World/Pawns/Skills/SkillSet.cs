@@ -6,14 +6,30 @@ using Object = UnityEngine.Object;
 
 namespace World.Pawns.Skills
 {
+    /// <summary>
+    /// The skill set class
+    /// </summary>
     public class SkillSet
     {
+        /// <summary>
+        /// The pawn
+        /// </summary>
         private Pawn _pawn;
 
+        /// <summary>
+        /// The skills
+        /// </summary>
         private Dictionary<Skill, int> _skills;
         
+        /// <summary>
+        /// The enabled skills
+        /// </summary>
         private List<Skill> _enabledSkills;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SkillSet"/> class
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
         public SkillSet(Pawn pawn)
         {
             _pawn = pawn;
@@ -21,11 +37,18 @@ namespace World.Pawns.Skills
             InitializeSkills();
         }
 
+        /// <summary>
+        /// Generates the base skills
+        /// </summary>
         public void GenerateBaseSkills()
         {
             //todo
         }
 
+        /// <summary>
+        /// Enables the skill using the specified skill
+        /// </summary>
+        /// <param name="skill">The skill</param>
         public void EnableSkill(Skill skill)
         {
             if (_enabledSkills == null)
@@ -42,6 +65,10 @@ namespace World.Pawns.Skills
             skill.onSkillNeeded += OnSkillNeeded;
         }
         
+        /// <summary>
+        /// Disables the skill using the specified skill
+        /// </summary>
+        /// <param name="skill">The skill</param>
         public void DisableSkill(Skill skill)
         {
             if (_enabledSkills == null)
@@ -59,6 +86,9 @@ namespace World.Pawns.Skills
             skill.onSkillNeeded -= OnSkillNeeded;
         }
 
+        /// <summary>
+        /// Initializes the skills
+        /// </summary>
         private void InitializeSkills()
         {
             _skills = new Dictionary<Skill, int>();
@@ -79,6 +109,10 @@ namespace World.Pawns.Skills
             }
         }
 
+        /// <summary>
+        /// Ons the skill needed using the specified job
+        /// </summary>
+        /// <param name="job">The job</param>
         private void OnSkillNeeded(Job job)
         {
             if (!_enabledSkills.Contains(job.SkillNeeded))

@@ -7,7 +7,13 @@ using System;
 using System.Collections.Generic;
 
 namespace Pathfinding.Util {
+	/// <summary>
+	/// The astar pooled object interface
+	/// </summary>
 	public interface IAstarPooledObject {
+		/// <summary>
+		/// Ons the enter pool
+		/// </summary>
 		void OnEnterPool();
 	}
 
@@ -28,10 +34,18 @@ namespace Pathfinding.Util {
 	/// See: ObjectPoolSimple
 	/// </summary>
 	public static class ObjectPool<T> where T : class, IAstarPooledObject, new(){
+		/// <summary>
+		/// Claims
+		/// </summary>
+		/// <returns>The</returns>
 		public static T Claim () {
 			return ObjectPoolSimple<T>.Claim();
 		}
 
+		/// <summary>
+		/// Releases the obj
+		/// </summary>
+		/// <param name="obj">The obj</param>
 		public static void Release (ref T obj) {
 			obj.OnEnterPool();
 			ObjectPoolSimple<T>.Release(ref obj);
@@ -59,6 +73,9 @@ namespace Pathfinding.Util {
 		static List<T> pool = new List<T>();
 
 #if !ASTAR_NO_POOLING
+		/// <summary>
+		/// The 
+		/// </summary>
 		static readonly HashSet<T> inPool = new HashSet<T>();
 #endif
 

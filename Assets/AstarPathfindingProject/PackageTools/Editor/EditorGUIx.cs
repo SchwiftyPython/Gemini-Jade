@@ -5,13 +5,23 @@ using UnityEditor;
 namespace Pathfinding {
 	/// <summary>Simple GUI utility functions</summary>
 	public static class GUIUtilityx {
+		/// <summary>
+		/// The color
+		/// </summary>
 		static Stack<Color> colors = new Stack<Color>();
 
+		/// <summary>
+		/// Pushes the tint using the specified tint
+		/// </summary>
+		/// <param name="tint">The tint</param>
 		public static void PushTint (Color tint) {
 			colors.Push(GUI.color);
 			GUI.color *= tint;
 		}
 
+		/// <summary>
+		/// Pops the tint
+		/// </summary>
 		public static void PopTint () {
 			GUI.color = colors.Pop();
 		}
@@ -27,12 +37,33 @@ namespace Pathfinding {
 	/// - End
 	/// </summary>
 	public class FadeArea {
+		/// <summary>
+		/// The last rect
+		/// </summary>
 		Rect lastRect;
+		/// <summary>
+		/// The value
+		/// </summary>
 		float value;
+		/// <summary>
+		/// The last update
+		/// </summary>
 		float lastUpdate;
+		/// <summary>
+		/// The label style
+		/// </summary>
 		GUIStyle labelStyle;
+		/// <summary>
+		/// The area style
+		/// </summary>
 		GUIStyle areaStyle;
+		/// <summary>
+		/// The visible
+		/// </summary>
 		bool visible;
+		/// <summary>
+		/// The editor
+		/// </summary>
 		Editor editor;
 
 		/// <summary>
@@ -43,8 +74,18 @@ namespace Pathfinding {
 
 		/// <summary>Animate dropdowns when they open and close</summary>
 		public static bool fancyEffects;
+		/// <summary>
+		/// The animation speed
+		/// </summary>
 		const float animationSpeed = 100f;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="FadeArea"/> class
+		/// </summary>
+		/// <param name="open">The open</param>
+		/// <param name="editor">The editor</param>
+		/// <param name="areaStyle">The area style</param>
+		/// <param name="labelStyle">The label style</param>
 		public FadeArea (bool open, Editor editor, GUIStyle areaStyle, GUIStyle labelStyle = null) {
 			this.areaStyle = areaStyle;
 			this.labelStyle = labelStyle;
@@ -53,6 +94,9 @@ namespace Pathfinding {
 			value = open ? 1 : 0;
 		}
 
+		/// <summary>
+		/// Ticks this instance
+		/// </summary>
 		void Tick () {
 			if (Event.current.type == EventType.Repaint) {
 				float deltaTime = Time.realtimeSinceStartup-lastUpdate;
@@ -84,6 +128,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Begins this instance
+		/// </summary>
 		public void Begin () {
 			if (areaStyle != null) {
 				lastRect = EditorGUILayout.BeginVertical(areaStyle);
@@ -92,14 +139,27 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Headers the label using the specified label
+		/// </summary>
+		/// <param name="label">The label</param>
 		public void HeaderLabel (string label) {
 			GUILayout.Label(label, labelStyle);
 		}
 
+		/// <summary>
+		/// Headers the label
+		/// </summary>
+		/// <param name="label">The label</param>
 		public void Header (string label) {
 			Header(label, ref open);
 		}
 
+		/// <summary>
+		/// Headers the label
+		/// </summary>
+		/// <param name="label">The label</param>
+		/// <param name="open">The open</param>
 		public void Header (string label, ref bool open) {
 			if (GUILayout.Button(label, labelStyle)) {
 				open = !open;
@@ -113,6 +173,10 @@ namespace Pathfinding {
 			return Mathf.Lerp(start, end, value * value * (3.0f - 2.0f * value));
 		}
 
+		/// <summary>
+		/// Describes whether this instance begin fade
+		/// </summary>
+		/// <returns>The visible</returns>
 		public bool BeginFade () {
 			var hermite = Hermite(0, 1, value);
 
@@ -128,6 +192,9 @@ namespace Pathfinding {
 			return visible;
 		}
 
+		/// <summary>
+		/// Ends this instance
+		/// </summary>
 		public void End () {
 			EditorGUILayout.EndVertical();
 
@@ -143,7 +210,13 @@ namespace Pathfinding {
 	}
 	/// <summary>Handles fading effects and also some custom GUI functions such as LayerMaskField</summary>
 	public static class EditorGUILayoutx {
+		/// <summary>
+		/// The dictionary
+		/// </summary>
 		static Dictionary<int, string[]> layerNames = new Dictionary<int, string[]>();
+		/// <summary>
+		/// The last update tick
+		/// </summary>
 		static long lastUpdateTick;
 
 		/// <summary>
@@ -158,6 +231,13 @@ namespace Pathfinding {
 		/// </summary>
 		static double timeLastUpdatedTagNames;
 
+		/// <summary>
+		/// Tags the field using the specified label
+		/// </summary>
+		/// <param name="label">The label</param>
+		/// <param name="value">The value</param>
+		/// <param name="editCallback">The edit callback</param>
+		/// <returns>The value</returns>
 		public static int TagField (string label, int value, System.Action editCallback) {
 			// Make sure the tagNamesAndEditTagsButton is relatively up to date
 			if (tagNamesAndEditTagsButton == null || EditorApplication.timeSinceStartup - timeLastUpdatedTagNames > 1) {
@@ -183,6 +263,14 @@ namespace Pathfinding {
 			return value;
 		}
 
+		/// <summary>
+		/// Describes whether unity tag mask list
+		/// </summary>
+		/// <param name="label">The label</param>
+		/// <param name="foldout">The foldout</param>
+		/// <param name="tagMask">The tag mask</param>
+		/// <exception cref="System.ArgumentNullException">tagMask</exception>
+		/// <returns>The bool</returns>
 		public static bool UnityTagMaskList (GUIContent label, bool foldout, List<string> tagMask) {
 			if (tagMask == null) throw new System.ArgumentNullException("tagMask");
 			if (EditorGUILayout.Foldout(foldout, label)) {

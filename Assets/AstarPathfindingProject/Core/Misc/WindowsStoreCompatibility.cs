@@ -9,7 +9,15 @@ using TP = System.Type;
 #endif
 
 namespace Pathfinding.WindowsStore {
+	/// <summary>
+	/// The windows store compatibility class
+	/// </summary>
 	public static class WindowsStoreCompatibility {
+		/// <summary>
+		/// Gets the type from info using the specified type
+		/// </summary>
+		/// <param name="type">The type</param>
+		/// <returns>The type</returns>
 		public static System.Type GetTypeFromInfo (TP type) {
 #if NETFX_CORE
 			return type.AsType();
@@ -18,6 +26,11 @@ namespace Pathfinding.WindowsStore {
 #endif
 		}
 
+		/// <summary>
+		/// Gets the type info using the specified type
+		/// </summary>
+		/// <param name="type">The type</param>
+		/// <returns>The type</returns>
 		public static TP GetTypeInfo (System.Type type) {
 #if NETFX_CORE
 			return type.GetTypeInfo();

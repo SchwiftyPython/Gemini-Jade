@@ -250,6 +250,9 @@ namespace Pathfinding {
 			interpolator.GetRemainingPath(buffer);
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		protected override void OnDisable () {
 			base.OnDisable();
 
@@ -331,6 +334,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Clears the path
+		/// </summary>
 		protected override void ClearPath () {
 			CancelCurrentPathRequest();
 			if (path != null) path.Release(this);
@@ -402,6 +408,11 @@ namespace Pathfinding {
 			CalculateNextRotation(slowdown, out nextRotation);
 		}
 
+		/// <summary>
+		/// Calculates the next rotation using the specified slowdown
+		/// </summary>
+		/// <param name="slowdown">The slowdown</param>
+		/// <param name="nextRotation">The next rotation</param>
 		protected virtual void CalculateNextRotation (float slowdown, out Quaternion nextRotation) {
 			if (lastDeltaTime > 0.00001f && enableRotation) {
 				Vector2 desiredRotationDirection;
@@ -417,7 +428,16 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// The default
+		/// </summary>
 		static NNConstraint cachedNNConstraint = NNConstraint.Default;
+		/// <summary>
+		/// Clamps the to navmesh using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="positionChanged">The position changed</param>
+		/// <returns>The position</returns>
 		protected override Vector3 ClampToNavmesh (Vector3 position, out bool positionChanged) {
 			if (constrainInsideGraph) {
 				cachedNNConstraint.tags = seeker.traversableTags;
@@ -482,6 +502,12 @@ namespace Pathfinding {
 		}
 #endif
 
+		/// <summary>
+		/// Ons the upgrade serialized data using the specified version
+		/// </summary>
+		/// <param name="version">The version</param>
+		/// <param name="unityThread">The unity thread</param>
+		/// <returns>The int</returns>
 		protected override int OnUpgradeSerializedData (int version, bool unityThread) {
 			// Approximately convert from a damping value to a degrees per second value.
 			if (version < 1) rotationSpeed *= 90;

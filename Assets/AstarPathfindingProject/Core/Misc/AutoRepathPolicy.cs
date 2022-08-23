@@ -58,7 +58,13 @@ namespace Pathfinding {
 		/// <summary>If true the sensitivity will be visualized as a circle in the scene view when the game is playing</summary>
 		public bool visualizeSensitivity = false;
 
+		/// <summary>
+		/// The positive infinity
+		/// </summary>
 		Vector3 lastDestination = new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
+		/// <summary>
+		/// The negative infinity
+		/// </summary>
 		float lastRepathTime = float.NegativeInfinity;
 
 		/// <summary>True if the path should be recalculated according to the policy</summary>
@@ -90,6 +96,10 @@ namespace Pathfinding {
 			lastDestination = destination;
 		}
 
+		/// <summary>
+		/// Draws the gizmos using the specified ai
+		/// </summary>
+		/// <param name="ai">The ai</param>
 		public void DrawGizmos (IAstarAI ai) {
 			if (visualizeSensitivity && !float.IsPositiveInfinity(lastDestination.x)) {
 				float r = Mathf.Sqrt(Mathf.Max((ai.position - lastDestination).sqrMagnitude, ai.radius*ai.radius)/(sensitivity*sensitivity));

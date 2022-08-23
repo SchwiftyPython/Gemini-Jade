@@ -8,16 +8,43 @@ namespace Pathfinding {
 	[CustomEditor(typeof(VersionedMonoBehaviour), true)]
 	[CanEditMultipleObjects]
 	public class EditorBase : Editor {
+		/// <summary>
+		/// The cached tooltips
+		/// </summary>
 		static System.Collections.Generic.Dictionary<string, string> cachedTooltips;
+		/// <summary>
+		/// The cached ur ls
+		/// </summary>
 		static System.Collections.Generic.Dictionary<string, string> cachedURLs;
+		/// <summary>
+		/// The serialized property
+		/// </summary>
 		Dictionary<string, SerializedProperty> props = new Dictionary<string, SerializedProperty>();
+		/// <summary>
+		/// The dictionary
+		/// </summary>
 		Dictionary<string, string> localTooltips = new Dictionary<string, string>();
 
+		/// <summary>
+		/// The gui content
+		/// </summary>
 		static GUIContent content = new GUIContent();
+		/// <summary>
+		/// The gui content
+		/// </summary>
 		static GUIContent showInDocContent = new GUIContent("Show in online documentation", "");
+		/// <summary>
+		/// The gui layout option
+		/// </summary>
 		static GUILayoutOption[] noOptions = new GUILayoutOption[0];
+		/// <summary>
+		/// The get documentation url
+		/// </summary>
 		public static System.Func<string> getDocumentationURL;
 
+		/// <summary>
+		/// Loads the meta
+		/// </summary>
 		static void LoadMeta () {
 			if (cachedTooltips == null) {
 				var filePath = EditorResourceHelper.editorAssets + "/tooltips.tsv";
@@ -32,6 +59,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Finds the url using the specified type
+		/// </summary>
+		/// <param name="type">The type</param>
+		/// <param name="path">The path</param>
+		/// <returns>The string</returns>
 		static string FindURL (System.Type type, string path) {
 			// Find the correct type if the path was not an immediate member of #type
 			while (true) {
@@ -58,6 +91,11 @@ namespace Pathfinding {
 			return null;
 		}
 
+		/// <summary>
+		/// Finds the url using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The url</returns>
 		static string FindURL (string path) {
 			LoadMeta();
 			string url;
@@ -65,6 +103,11 @@ namespace Pathfinding {
 			return url;
 		}
 
+		/// <summary>
+		/// Finds the tooltip using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The tooltip</returns>
 		static string FindTooltip (string path) {
 			LoadMeta();
 
@@ -73,6 +116,11 @@ namespace Pathfinding {
 			return tooltip;
 		}
 
+		/// <summary>
+		/// Finds the local tooltip using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The result</returns>
 		string FindLocalTooltip (string path) {
 			string result;
 
@@ -83,10 +131,16 @@ namespace Pathfinding {
 			return result;
 		}
 
+		/// <summary>
+		/// Ons the enable
+		/// </summary>
 		protected virtual void OnEnable () {
 			foreach (var target in targets) if (target != null) (target as IVersionedMonoBehaviourInternal).UpgradeFromUnityThread();
 		}
 
+		/// <summary>
+		/// Ons the inspector gui
+		/// </summary>
 		public sealed override void OnInspectorGUI () {
 			EditorGUI.indentLevel = 0;
 			serializedObject.Update();
@@ -110,6 +164,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected virtual void Inspector () {
 			// Basically the same as DrawDefaultInspector, but with tooltips
 			bool enterChildren = true;
@@ -119,35 +176,83 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Finds the property using the specified name
+		/// </summary>
+		/// <param name="name">The name</param>
+		/// <exception cref="System.ArgumentException"></exception>
+		/// <returns>The res</returns>
 		protected SerializedProperty FindProperty (string name) {
 			if (!props.TryGetValue(name, out SerializedProperty res)) res = props[name] = serializedObject.FindProperty(name);
 			if (res == null) throw new System.ArgumentException(name);
 			return res;
 		}
 
+		/// <summary>
+		/// Sections the label
+		/// </summary>
+		/// <param name="label">The label</param>
 		protected void Section (string label) {
 			EditorGUILayout.Separator();
 			EditorGUILayout.LabelField(label, EditorStyles.boldLabel);
 		}
 
+		/// <summary>
+		/// Floats the field using the specified property path
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
+		/// <param name="label">The label</param>
+		/// <param name="tooltip">The tooltip</param>
+		/// <param name="min">The min</param>
+		/// <param name="max">The max</param>
 		protected void FloatField (string propertyPath, string label = null, string tooltip = null, float min = float.NegativeInfinity, float max = float.PositiveInfinity) {
 			PropertyField(propertyPath, label, tooltip);
 			Clamp(propertyPath, min, max);
 		}
 
+		/// <summary>
+		/// Floats the field using the specified prop
+		/// </summary>
+		/// <param name="prop">The prop</param>
+		/// <param name="label">The label</param>
+		/// <param name="tooltip">The tooltip</param>
+		/// <param name="min">The min</param>
+		/// <param name="max">The max</param>
 		protected void FloatField (SerializedProperty prop, string label = null, string tooltip = null, float min = float.NegativeInfinity, float max = float.PositiveInfinity) {
 			PropertyField(prop, label, tooltip);
 			Clamp(prop, min, max);
 		}
 
+		/// <summary>
+		/// Describes whether this instance property field
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
+		/// <param name="label">The label</param>
+		/// <param name="tooltip">The tooltip</param>
+		/// <returns>The bool</returns>
 		protected bool PropertyField (string propertyPath, string label = null, string tooltip = null) {
 			return PropertyField(FindProperty(propertyPath), label, tooltip, propertyPath);
 		}
 
+		/// <summary>
+		/// Describes whether this instance property field
+		/// </summary>
+		/// <param name="prop">The prop</param>
+		/// <param name="label">The label</param>
+		/// <param name="tooltip">The tooltip</param>
+		/// <returns>The bool</returns>
 		protected bool PropertyField (SerializedProperty prop, string label = null, string tooltip = null) {
 			return PropertyField(prop, label, tooltip, prop.propertyPath);
 		}
 
+		/// <summary>
+		/// Describes whether this instance property field
+		/// </summary>
+		/// <param name="prop">The prop</param>
+		/// <param name="label">The label</param>
+		/// <param name="tooltip">The tooltip</param>
+		/// <param name="propertyPath">The property path</param>
+		/// <returns>The bool</returns>
 		bool PropertyField (SerializedProperty prop, string label, string tooltip, string propertyPath) {
 			content.text = label ?? prop.displayName;
 			content.tooltip = tooltip ?? FindTooltip(propertyPath);
@@ -158,6 +263,10 @@ namespace Pathfinding {
 			return prop.propertyType == SerializedPropertyType.Boolean ? !prop.hasMultipleDifferentValues && prop.boolValue : true;
 		}
 
+		/// <summary>
+		/// Describes whether this instance is context click
+		/// </summary>
+		/// <returns>The bool</returns>
 		bool IsContextClick () {
 			// Capturing context clicks turned out to be a bad idea.
 			// It prevents things like reverting to prefab values and other nice things.
@@ -165,6 +274,10 @@ namespace Pathfinding {
 			// return Event.current.type == EventType.ContextClick;
 		}
 
+		/// <summary>
+		/// Captures the context click using the specified property path
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
 		void CaptureContextClick (string propertyPath) {
 			var url = FindURL(target.GetType(), propertyPath);
 
@@ -176,6 +289,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Popups the property path
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
+		/// <param name="options">The options</param>
+		/// <param name="label">The label</param>
 		protected void Popup (string propertyPath, GUIContent[] options, string label = null) {
 			var prop = FindProperty(propertyPath);
 
@@ -193,6 +312,12 @@ namespace Pathfinding {
 			if (contextClick && GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition)) CaptureContextClick(propertyPath);
 		}
 
+		/// <summary>
+		/// Masks the property path
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
+		/// <param name="options">The options</param>
+		/// <param name="label">The label</param>
 		protected void Mask (string propertyPath, string[] options, string label = null) {
 			var prop = FindProperty(propertyPath);
 
@@ -209,6 +334,12 @@ namespace Pathfinding {
 			if (contextClick && GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition)) CaptureContextClick(propertyPath);
 		}
 
+		/// <summary>
+		/// Ints the slider using the specified property path
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
+		/// <param name="left">The left</param>
+		/// <param name="right">The right</param>
 		protected void IntSlider (string propertyPath, int left, int right) {
 			var contextClick = IsContextClick();
 			var prop = FindProperty(propertyPath);
@@ -219,6 +350,12 @@ namespace Pathfinding {
 			if (contextClick && Event.current.type == EventType.Used) CaptureContextClick(propertyPath);
 		}
 
+		/// <summary>
+		/// Sliders the property path
+		/// </summary>
+		/// <param name="propertyPath">The property path</param>
+		/// <param name="left">The left</param>
+		/// <param name="right">The right</param>
 		protected void Slider (string propertyPath, float left, float right) {
 			var contextClick = IsContextClick();
 			var prop = FindProperty(propertyPath);
@@ -229,14 +366,32 @@ namespace Pathfinding {
 			if (contextClick && Event.current.type == EventType.Used) CaptureContextClick(propertyPath);
 		}
 
+		/// <summary>
+		/// Clamps the prop
+		/// </summary>
+		/// <param name="prop">The prop</param>
+		/// <param name="min">The min</param>
+		/// <param name="max">The max</param>
 		protected void Clamp (SerializedProperty prop, float min, float max = float.PositiveInfinity) {
 			if (!prop.hasMultipleDifferentValues) prop.floatValue = Mathf.Clamp(prop.floatValue, min, max);
 		}
 
+		/// <summary>
+		/// Clamps the name
+		/// </summary>
+		/// <param name="name">The name</param>
+		/// <param name="min">The min</param>
+		/// <param name="max">The max</param>
 		protected void Clamp (string name, float min, float max = float.PositiveInfinity) {
 			Clamp(FindProperty(name), min, max);
 		}
 
+		/// <summary>
+		/// Clamps the int using the specified name
+		/// </summary>
+		/// <param name="name">The name</param>
+		/// <param name="min">The min</param>
+		/// <param name="max">The max</param>
 		protected void ClampInt (string name, int min, int max = int.MaxValue) {
 			var prop = FindProperty(name);
 

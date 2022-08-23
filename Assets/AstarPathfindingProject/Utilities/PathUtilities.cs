@@ -150,7 +150,13 @@ namespace Pathfinding {
 			return reachable;
 		}
 
+		/// <summary>
+		/// The bfs queue
+		/// </summary>
 		static Queue<GraphNode> BFSQueue;
+		/// <summary>
+		/// The bfs map
+		/// </summary>
 		static Dictionary<GraphNode, int> BFSMap;
 
 		/// <summary>

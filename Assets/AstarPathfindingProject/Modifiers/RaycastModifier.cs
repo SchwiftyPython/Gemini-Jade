@@ -46,6 +46,9 @@ namespace Pathfinding {
 		}
 #endif
 
+		/// <summary>
+		/// Gets the value of the order
+		/// </summary>
 		public override int Order { get { return 40; } }
 
 		/// <summary>Use Physics.Raycast to simplify the path</summary>
@@ -99,6 +102,9 @@ namespace Pathfinding {
 		[Tooltip("When using the high quality mode the script will try harder to find a shorter path. This is significantly slower than the greedy low quality approach.")]
 		public Quality quality = Quality.Medium;
 
+		/// <summary>
+		/// The quality enum
+		/// </summary>
 		public enum Quality {
 			/// <summary>One iteration using a greedy algorithm</summary>
 			Low,
@@ -110,28 +116,67 @@ namespace Pathfinding {
 			Highest
 		}
 
+		/// <summary>
+		/// The iterations by quality
+		/// </summary>
 		static readonly int[] iterationsByQuality = new [] { 1, 2, 1, 3 };
+		/// <summary>
+		/// The vector
+		/// </summary>
 		static List<Vector3> buffer = new List<Vector3>();
+		/// <summary>
+		/// The dp costs
+		/// </summary>
 		static float[] DPCosts = new float[16];
+		/// <summary>
+		/// The dp parents
+		/// </summary>
 		static int[] DPParents = new int[16];
 
+		/// <summary>
+		/// The filter
+		/// </summary>
 		Filter cachedFilter = new Filter();
 
+		/// <summary>
+		/// The none
+		/// </summary>
 		NNConstraint cachedNNConstraint = NNConstraint.None;
 
+		/// <summary>
+		/// The filter class
+		/// </summary>
 		class Filter {
+			/// <summary>
+			/// The path
+			/// </summary>
 			public Path path;
+			/// <summary>
+			/// The cached delegate
+			/// </summary>
 			public readonly System.Func<GraphNode, bool> cachedDelegate;
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="Filter"/> class
+			/// </summary>
 			public Filter() {
 				cachedDelegate = this.CanTraverse;
 			}
 
+			/// <summary>
+			/// Describes whether this instance can traverse
+			/// </summary>
+			/// <param name="node">The node</param>
+			/// <returns>The bool</returns>
 			bool CanTraverse (GraphNode node) {
 				return path.CanTraverse(node);
 			}
 		}
 
+		/// <summary>
+		/// Applies the p
+		/// </summary>
+		/// <param name="p">The </param>
 		public override void Apply (Path p) {
 			if (!useRaycasting && !useGraphRaycasting) return;
 
@@ -167,6 +212,14 @@ namespace Pathfinding {
 			p.vectorPath = points;
 		}
 
+		/// <summary>
+		/// Applies the greedy using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <param name="points">The points</param>
+		/// <param name="filter">The filter</param>
+		/// <param name="nnConstraint">The nn constraint</param>
+		/// <returns>The points</returns>
 		List<Vector3> ApplyGreedy (Path p, List<Vector3> points, System.Func<GraphNode, bool> filter, NNConstraint nnConstraint) {
 			bool canBeOriginalNodes = points.Count == p.path.Count;
 			int startIndex = 0;
@@ -211,6 +264,14 @@ namespace Pathfinding {
 			return points;
 		}
 
+		/// <summary>
+		/// Applies the dp using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <param name="points">The points</param>
+		/// <param name="filter">The filter</param>
+		/// <param name="nnConstraint">The nn constraint</param>
+		/// <returns>The points</returns>
 		List<Vector3> ApplyDP (Path p, List<Vector3> points, System.Func<GraphNode, bool> filter, NNConstraint nnConstraint) {
 			if (DPCosts.Length < points.Count) {
 				DPCosts = new float[points.Count];

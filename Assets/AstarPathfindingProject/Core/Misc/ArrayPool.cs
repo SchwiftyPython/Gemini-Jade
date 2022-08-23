@@ -39,6 +39,9 @@ namespace Pathfinding.Util {
 		/// The arrays in each bucket have lengths of 2^i
 		/// </summary>
 		static readonly Stack<T[]>[] pool = new Stack<T[]>[31];
+		/// <summary>
+		/// The maximum exact array length
+		/// </summary>
 		static readonly Stack<T[]>[] exactPool = new Stack<T[]>[MaximumExactArrayLength+1];
 #if !ASTAR_OPTIMIZE_POOLING
 		static readonly HashSet<T[]> inPool = new HashSet<T[]>();

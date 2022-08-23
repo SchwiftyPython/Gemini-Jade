@@ -4,6 +4,10 @@ using UnityEngine;
 using System.Text;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The astar debugger class
+	/// </summary>
+	/// <seealso cref="VersionedMonoBehaviour"/>
 	[AddComponentMenu("Pathfinding/Pathfinding Debugger")]
 	[ExecuteInEditMode]
 	/// <summary>
@@ -36,16 +40,40 @@ namespace Pathfinding {
 	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_astar_debugger.php")]
 	public class AstarDebugger : VersionedMonoBehaviour {
+		/// <summary>
+		/// The offset
+		/// </summary>
 		public int yOffset = 5;
 
+		/// <summary>
+		/// The show
+		/// </summary>
 		public bool show = true;
+		/// <summary>
+		/// The show in editor
+		/// </summary>
 		public bool showInEditor = false;
 
+		/// <summary>
+		/// The show fps
+		/// </summary>
 		public bool showFPS = false;
+		/// <summary>
+		/// The show path profile
+		/// </summary>
 		public bool showPathProfile = false;
+		/// <summary>
+		/// The show mem profile
+		/// </summary>
 		public bool showMemProfile = false;
+		/// <summary>
+		/// The show graph
+		/// </summary>
 		public bool showGraph = false;
 
+		/// <summary>
+		/// The graph buffer size
+		/// </summary>
 		public int graphBufferSize = 200;
 
 		/// <summary>
@@ -53,44 +81,128 @@ namespace Pathfinding {
 		/// A monospaced font is the best
 		/// </summary>
 		public Font font = null;
+		/// <summary>
+		/// The font size
+		/// </summary>
 		public int fontSize = 12;
 
+		/// <summary>
+		/// The string builder
+		/// </summary>
 		StringBuilder text = new StringBuilder();
+		/// <summary>
+		/// The cached text
+		/// </summary>
 		string cachedText;
+		/// <summary>
+		/// The last update
+		/// </summary>
 		float lastUpdate = -999;
 
+		/// <summary>
+		/// The graph
+		/// </summary>
 		private GraphPoint[] graph;
 
+		/// <summary>
+		/// The graph point
+		/// </summary>
 		struct GraphPoint {
+			/// <summary>
+			/// The memory
+			/// </summary>
 			public float fps, memory;
+			/// <summary>
+			/// The collect event
+			/// </summary>
 			public bool collectEvent;
 		}
 
+		/// <summary>
+		/// The delayed delta time
+		/// </summary>
 		private float delayedDeltaTime = 1;
+		/// <summary>
+		/// The last collect
+		/// </summary>
 		private float lastCollect = 0;
+		/// <summary>
+		/// The last collect num
+		/// </summary>
 		private float lastCollectNum = 0;
+		/// <summary>
+		/// The delta
+		/// </summary>
 		private float delta = 0;
+		/// <summary>
+		/// The last delta time
+		/// </summary>
 		private float lastDeltaTime = 0;
+		/// <summary>
+		/// The alloc rate
+		/// </summary>
 		private int allocRate = 0;
+		/// <summary>
+		/// The last alloc memory
+		/// </summary>
 		private int lastAllocMemory = 0;
+		/// <summary>
+		/// The last alloc set
+		/// </summary>
 		private float lastAllocSet = -9999;
+		/// <summary>
+		/// The alloc mem
+		/// </summary>
 		private int allocMem = 0;
+		/// <summary>
+		/// The collect alloc
+		/// </summary>
 		private int collectAlloc = 0;
+		/// <summary>
+		/// The peak alloc
+		/// </summary>
 		private int peakAlloc = 0;
 
+		/// <summary>
+		/// The fps drop counter size
+		/// </summary>
 		private int fpsDropCounterSize = 200;
+		/// <summary>
+		/// The fps drops
+		/// </summary>
 		private float[] fpsDrops;
 
+		/// <summary>
+		/// The box rect
+		/// </summary>
 		private Rect boxRect;
 
+		/// <summary>
+		/// The style
+		/// </summary>
 		private GUIStyle style;
 
+		/// <summary>
+		/// The cam
+		/// </summary>
 		private Camera cam;
 
+		/// <summary>
+		/// The graph width
+		/// </summary>
 		float graphWidth = 100;
+		/// <summary>
+		/// The graph height
+		/// </summary>
 		float graphHeight = 100;
+		/// <summary>
+		/// The graph offset
+		/// </summary>
 		float graphOffset = 50;
 
+		/// <summary>
+		/// Starts this instance
+		/// </summary>
 		public void Start () {
 			useGUILayout = false;
 
@@ -110,23 +222,54 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// The max vec pool
+		/// </summary>
 		int maxVecPool = 0;
+		/// <summary>
+		/// The max node pool
+		/// </summary>
 		int maxNodePool = 0;
 
+		/// <summary>
+		/// The ab path
+		/// </summary>
 		PathTypeDebug[] debugTypes = new PathTypeDebug[] {
 			new PathTypeDebug("ABPath", () => PathPool.GetSize(typeof(ABPath)), () => PathPool.GetTotalCreated(typeof(ABPath)))
 		};
 
+		/// <summary>
+		/// The path type debug
+		/// </summary>
 		struct PathTypeDebug {
+			/// <summary>
+			/// The name
+			/// </summary>
 			string name;
+			/// <summary>
+			/// The get size
+			/// </summary>
 			System.Func<int> getSize;
+			/// <summary>
+			/// The get total created
+			/// </summary>
 			System.Func<int> getTotalCreated;
+			/// <summary>
+			/// Initializes a new instance of the <see cref="PathTypeDebug"/> class
+			/// </summary>
+			/// <param name="name">The name</param>
+			/// <param name="getSize">The get size</param>
+			/// <param name="getTotalCreated">The get total created</param>
 			public PathTypeDebug (string name, System.Func<int> getSize, System.Func<int> getTotalCreated) {
 				this.name = name;
 				this.getSize = getSize;
 				this.getTotalCreated = getTotalCreated;
 			}
 
+			/// <summary>
+			/// Prints the text
+			/// </summary>
+			/// <param name="text">The text</param>
 			public void Print (StringBuilder text) {
 				int totCreated = getTotalCreated();
 
@@ -136,6 +279,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Lates the update
+		/// </summary>
 		public void LateUpdate () {
 			if (!show || (!Application.isPlaying && !showInEditor)) return;
 
@@ -201,10 +347,23 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Draws the graph line using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="m">The </param>
+		/// <param name="x1">The </param>
+		/// <param name="x2">The </param>
+		/// <param name="y1">The </param>
+		/// <param name="y2">The </param>
+		/// <param name="color">The color</param>
 		void DrawGraphLine (int index, Matrix4x4 m, float x1, float x2, float y1, float y2, Color color) {
 			Debug.DrawLine(cam.ScreenToWorldPoint(m.MultiplyPoint3x4(new Vector3(x1, y1))), cam.ScreenToWorldPoint(m.MultiplyPoint3x4(new Vector3(x2, y2))), color);
 		}
 
+		/// <summary>
+		/// Ons the gui
+		/// </summary>
 		public void OnGUI () {
 			if (!show || (!Application.isPlaying && !showInEditor)) return;
 

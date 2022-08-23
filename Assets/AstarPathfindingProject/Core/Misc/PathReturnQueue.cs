@@ -5,6 +5,9 @@ using UnityEngine.Profiling;
 #endif
 
 namespace Pathfinding {
+	/// <summary>
+	/// The path return queue class
+	/// </summary>
 	class PathReturnQueue {
 		/// <summary>
 		/// Holds all paths which are waiting to be flagged as completed.
@@ -18,10 +21,18 @@ namespace Pathfinding {
 		/// </summary>
 		System.Object pathsClaimedSilentlyBy;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PathReturnQueue"/> class
+		/// </summary>
+		/// <param name="pathsClaimedSilentlyBy">The paths claimed silently by</param>
 		public PathReturnQueue (System.Object pathsClaimedSilentlyBy) {
 			this.pathsClaimedSilentlyBy = pathsClaimedSilentlyBy;
 		}
 
+		/// <summary>
+		/// Enqueues the path
+		/// </summary>
+		/// <param name="path">The path</param>
 		public void Enqueue (Path path) {
 			lock (pathReturnQueue) {
 				pathReturnQueue.Enqueue(path);

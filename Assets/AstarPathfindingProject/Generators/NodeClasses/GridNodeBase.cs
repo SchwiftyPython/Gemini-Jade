@@ -4,16 +4,38 @@ using Pathfinding.Serialization;
 namespace Pathfinding {
 	/// <summary>Base class for GridNode and LevelGridNode</summary>
 	public abstract class GridNodeBase : GraphNode {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GridNodeBase"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		protected GridNodeBase (AstarPath astar) : base(astar) {
 		}
 
+		/// <summary>
+		/// The grid flags walkable erosion offset
+		/// </summary>
 		const int GridFlagsWalkableErosionOffset = 8;
+		/// <summary>
+		/// The grid flags walkable erosion offset
+		/// </summary>
 		const int GridFlagsWalkableErosionMask = 1 << GridFlagsWalkableErosionOffset;
 
+		/// <summary>
+		/// The grid flags walkable tmp offset
+		/// </summary>
 		const int GridFlagsWalkableTmpOffset = 9;
+		/// <summary>
+		/// The grid flags walkable tmp offset
+		/// </summary>
 		const int GridFlagsWalkableTmpMask = 1 << GridFlagsWalkableTmpOffset;
 
+		/// <summary>
+		/// The node in grid index layer offset
+		/// </summary>
 		protected const int NodeInGridIndexLayerOffset = 24;
+		/// <summary>
+		/// The node in grid index mask
+		/// </summary>
 		protected const int NodeInGridIndexMask = 0xFFFFFF;
 
 		/// <summary>
@@ -21,6 +43,9 @@ namespace Pathfinding {
 		/// See: NodeInGridIndex
 		/// </summary>
 		protected int nodeInGridIndex;
+		/// <summary>
+		/// The grid flags
+		/// </summary>
 		protected ushort gridFlags;
 
 #if !ASTAR_GRID_NO_CUSTOM_CONNECTIONS
@@ -107,12 +132,20 @@ namespace Pathfinding {
 		/// </summary>
 		public abstract bool HasConnectionsToAllEightNeighbours { get; }
 
+		/// <summary>
+		/// Surfaces the area
+		/// </summary>
+		/// <returns>The float</returns>
 		public override float SurfaceArea () {
 			GridGraph gg = GridNode.GetGridGraph(GraphIndex);
 
 			return gg.nodeSize*gg.nodeSize;
 		}
 
+		/// <summary>
+		/// Randoms the point on surface
+		/// </summary>
+		/// <returns>The vector</returns>
 		public override Vector3 RandomPointOnSurface () {
 			GridGraph gg = GridNode.GetGridGraph(GraphIndex);
 
@@ -121,6 +154,10 @@ namespace Pathfinding {
 			return gg.transform.Transform(graphSpacePosition + new Vector3(Random.value - 0.5f, 0, Random.value - 0.5f));
 		}
 
+		/// <summary>
+		/// Gets the gizmo hash code
+		/// </summary>
+		/// <returns>The hash</returns>
 		public override int GetGizmoHashCode () {
 			var hash = base.GetGizmoHashCode();
 
@@ -160,6 +197,11 @@ namespace Pathfinding {
 		/// </summary>
 		public abstract GridNodeBase GetNeighbourAlongDirection(int direction);
 
+		/// <summary>
+		/// Describes whether this instance contains connection
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <returns>The bool</returns>
 		public override bool ContainsConnection (GraphNode node) {
 #if !ASTAR_GRID_NO_CUSTOM_CONNECTIONS
 			if (connections != null) {
@@ -201,14 +243,28 @@ namespace Pathfinding {
 			AstarPath.active.hierarchicalGraph.AddDirtyNode(this);
 		}
 
+		/// <summary>
+		/// Clears the connections using the specified also reverse
+		/// </summary>
+		/// <param name="alsoReverse">The also reverse</param>
 		public override void ClearConnections (bool alsoReverse) {
 			ClearCustomConnections(alsoReverse);
 		}
 
+		/// <summary>
+		/// Gets the connections using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetConnections (System.Action<GraphNode> action) {
 			if (connections != null) for (int i = 0; i < connections.Length; i++) action(connections[i].node);
 		}
 
+		/// <summary>
+		/// Updates the recursive g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void UpdateRecursiveG (Path path, PathNode pathNode, PathHandler handler) {
 			ushort pid = handler.PathID;
 
@@ -219,6 +275,12 @@ namespace Pathfinding {
 				}
 		}
 
+		/// <summary>
+		/// Opens the path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void Open (Path path, PathNode pathNode, PathHandler handler) {
 			ushort pid = handler.PathID;
 
@@ -327,6 +389,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Serializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void SerializeReferences (GraphSerializationContext ctx) {
 			// TODO: Deduplicate code
 			if (connections == null) {
@@ -340,6 +406,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void DeserializeReferences (GraphSerializationContext ctx) {
 			// Grid nodes didn't serialize references before 3.8.3
 			if (ctx.meta.version < AstarSerializer.V3_8_3)

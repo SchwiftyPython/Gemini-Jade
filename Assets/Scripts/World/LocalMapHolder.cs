@@ -6,16 +6,36 @@ using GameObject = UnityEngine.GameObject;
 
 namespace World
 {
+    /// <summary>
+    /// The local map holder class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class LocalMapHolder : MonoBehaviour
     {
+        /// <summary>
+        /// The local map
+        /// </summary>
         private LocalMap _localMap;
         
+        /// <summary>
+        /// The terrain slot prefab
+        /// </summary>
         public GameObject terrainSlotPrefab;
     
+        /// <summary>
+        /// The pawn holder
+        /// </summary>
         public Transform pawnHolder;
 
+        /// <summary>
+        /// The terrain holder
+        /// </summary>
         public Transform terrainHolder;
 
+        /// <summary>
+        /// Builds the map
+        /// </summary>
+        /// <param name="map">The map</param>
         public void Build(LocalMap map)
         {
             Clear();
@@ -27,6 +47,9 @@ namespace World
             PlacePawns();
         }
 
+        /// <summary>
+        /// Places the tiles
+        /// </summary>
         private void PlaceTiles()
         {
             for (var currentColumn = 0; currentColumn < _localMap.Width; currentColumn++)
@@ -47,6 +70,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Places the pawns
+        /// </summary>
         private void PlacePawns()
         {
             var pawns = _localMap.GetAllPawns();
@@ -66,6 +92,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Clears this instance
+        /// </summary>
         private void Clear()
         {
             terrainHolder.gameObject.DestroyAllChildren();

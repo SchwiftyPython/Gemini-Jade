@@ -130,24 +130,52 @@ namespace Pathfinding {
 			Connection,
 		}
 
+		/// <summary>
+		/// Counts the nodes
+		/// </summary>
+		/// <returns>The node count</returns>
 		public override int CountNodes () {
 			return nodeCount;
 		}
 
+		/// <summary>
+		/// Gets the nodes using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetNodes (System.Action<GraphNode> action) {
 			if (nodes == null) return;
 			var count = nodeCount;
 			for (int i = 0; i < count; i++) action(nodes[i]);
 		}
 
+		/// <summary>
+		/// Gets the nearest using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="hint">The hint</param>
+		/// <returns>The nn info internal</returns>
 		public override NNInfoInternal GetNearest (Vector3 position, NNConstraint constraint, GraphNode hint) {
 			return GetNearestInternal(position, constraint, true);
 		}
 
+		/// <summary>
+		/// Gets the nearest force using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <returns>The nn info internal</returns>
 		public override NNInfoInternal GetNearestForce (Vector3 position, NNConstraint constraint) {
 			return GetNearestInternal(position, constraint, false);
 		}
 
+		/// <summary>
+		/// Gets the nearest internal using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="fastCheck">The fast check</param>
+		/// <returns>The nn info</returns>
 		NNInfoInternal GetNearestInternal (Vector3 position, NNConstraint constraint, bool fastCheck) {
 			if (nodes == null) return new NNInfoInternal();
 			var iposition = (Int3)position;
@@ -181,6 +209,12 @@ namespace Pathfinding {
 			return nnInfo;
 		}
 
+		/// <summary>
+		/// Finds the closest connection point using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="position">The position</param>
+		/// <returns>The result</returns>
 		NNInfoInternal FindClosestConnectionPoint (PointNode node, Vector3 position) {
 			var closestConnectionPoint = (Vector3)node.position;
 			var conns = node.connections;
@@ -316,6 +350,10 @@ namespace Pathfinding {
 		public void RebuildConnectionDistanceLookup () {
 		}
 
+		/// <summary>
+		/// Adds the to lookup using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
 		void AddToLookup (PointNode node) {
 			// A* Pathfinding Project Pro Only
 		}
@@ -334,6 +372,11 @@ namespace Pathfinding {
 			// A* Pathfinding Project Pro Only
 		}
 
+		/// <summary>
+		/// Creates the nodes using the specified count
+		/// </summary>
+		/// <param name="count">The count</param>
+		/// <returns>The nodes</returns>
 		protected virtual PointNode[] CreateNodes (int count) {
 			var nodes = new PointNode[count];
 
@@ -341,6 +384,10 @@ namespace Pathfinding {
 			return nodes;
 		}
 
+		/// <summary>
+		/// Scans the internal
+		/// </summary>
+		/// <returns>An enumerable of progress</returns>
 		protected override IEnumerable<Progress> ScanInternal () {
 			yield return new Progress(0, "Searching for GameObjects");
 
@@ -528,15 +575,27 @@ namespace Pathfinding {
 		}
 #endif
 
+		/// <summary>
+		/// Posts the deserialization using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void PostDeserialization (GraphSerializationContext ctx) {
 			RebuildNodeLookup();
 		}
 
+		/// <summary>
+		/// Relocates the nodes using the specified delta matrix
+		/// </summary>
+		/// <param name="deltaMatrix">The delta matrix</param>
 		public override void RelocateNodes (Matrix4x4 deltaMatrix) {
 			base.RelocateNodes(deltaMatrix);
 			RebuildNodeLookup();
 		}
 
+		/// <summary>
+		/// Deserializes the settings compatibility using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void DeserializeSettingsCompatibility (GraphSerializationContext ctx) {
 			base.DeserializeSettingsCompatibility(ctx);
 
@@ -553,6 +612,10 @@ namespace Pathfinding {
 			mask = (LayerMask)ctx.reader.ReadInt32();
 		}
 
+		/// <summary>
+		/// Serializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void SerializeExtraInfo (GraphSerializationContext ctx) {
 			// Serialize node data
 
@@ -570,6 +633,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void DeserializeExtraInfo (GraphSerializationContext ctx) {
 			int count = ctx.reader.ReadInt32();
 

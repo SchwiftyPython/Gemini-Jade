@@ -3,13 +3,38 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The astar update window class
+	/// </summary>
+	/// <seealso cref="EditorWindow"/>
 	public class AstarUpdateWindow : EditorWindow {
+		/// <summary>
+		/// The large style
+		/// </summary>
 		static GUIStyle largeStyle;
+		/// <summary>
+		/// The normal style
+		/// </summary>
 		static GUIStyle normalStyle;
+		/// <summary>
+		/// The version
+		/// </summary>
 		Version version;
+		/// <summary>
+		/// The summary
+		/// </summary>
 		string summary;
+		/// <summary>
+		/// The set reminder
+		/// </summary>
 		bool setReminder;
 
+		/// <summary>
+		/// Inits the version
+		/// </summary>
+		/// <param name="version">The version</param>
+		/// <param name="summary">The summary</param>
+		/// <returns>The window</returns>
 		public static AstarUpdateWindow Init (Version version, string summary) {
 			// Get existing open window or if none, make a new one:
 			AstarUpdateWindow window = EditorWindow.GetWindow<AstarUpdateWindow>(true, "", true);
@@ -25,6 +50,9 @@ namespace Pathfinding {
 			return window;
 		}
 
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		public void OnDestroy () {
 			if (version != null && !setReminder) {
 				Debug.Log("Closed window, reminding again tomorrow");
@@ -33,6 +61,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the gui
+		/// </summary>
 		void OnGUI () {
 			if (largeStyle == null) {
 				largeStyle = new GUIStyle(EditorStyles.largeLabel);

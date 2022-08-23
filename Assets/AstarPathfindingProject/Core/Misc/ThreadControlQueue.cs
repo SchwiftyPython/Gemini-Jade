@@ -3,16 +3,35 @@ using System.Threading;
 namespace Pathfinding {
 	/// <summary>Queue of paths to be processed by the system</summary>
 	class ThreadControlQueue {
+		/// <summary>
+		/// The queue termination exception class
+		/// </summary>
+		/// <seealso cref="System.Exception"/>
 		public class QueueTerminationException : System.Exception {
 		}
 
+		/// <summary>
+		/// The head
+		/// </summary>
 		Path head;
+		/// <summary>
+		/// The tail
+		/// </summary>
 		Path tail;
 
+		/// <summary>
+		/// The object
+		/// </summary>
 		readonly System.Object lockObj = new System.Object();
 
+		/// <summary>
+		/// The num receivers
+		/// </summary>
 		readonly int numReceivers;
 
+		/// <summary>
+		/// The blocked
+		/// </summary>
 		bool blocked;
 
 		/// <summary>
@@ -33,6 +52,9 @@ namespace Pathfinding {
 		/// </summary>
 		bool terminate;
 
+		/// <summary>
+		/// The manual reset event
+		/// </summary>
 		ManualResetEvent block = new ManualResetEvent(true);
 
 		/// <summary>
@@ -146,6 +168,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Starvings this instance
+		/// </summary>
 		void Starving () {
 			starving = true;
 			block.Reset();

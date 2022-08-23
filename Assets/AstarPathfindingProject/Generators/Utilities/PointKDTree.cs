@@ -11,17 +11,41 @@ namespace Pathfinding {
 	/// </summary>
 	public class PointKDTree {
 		// TODO: Make constant
+		/// <summary>
+		/// The leaf size
+		/// </summary>
 		public const int LeafSize = 10;
+		/// <summary>
+		/// The leaf size
+		/// </summary>
 		public const int LeafArraySize = LeafSize*2 + 1;
 
+		/// <summary>
+		/// The node
+		/// </summary>
 		Node[] tree = new Node[16];
 
+		/// <summary>
+		/// The num nodes
+		/// </summary>
 		int numNodes = 0;
 
+		/// <summary>
+		/// The graph node
+		/// </summary>
 		readonly List<GraphNode> largeList = new List<GraphNode>();
+		/// <summary>
+		/// The graph node
+		/// </summary>
 		readonly Stack<GraphNode[]> arrayCache = new Stack<GraphNode[]>();
+		/// <summary>
+		/// The compare
+		/// </summary>
 		static readonly IComparer<GraphNode>[] comparers = new IComparer<GraphNode>[] { new CompareX(), new CompareY(), new CompareZ() };
 
+		/// <summary>
+		/// The node
+		/// </summary>
 		struct Node {
 			/// <summary>Nodes in this leaf node (null if not a leaf node)</summary>
 			public GraphNode[] data;
@@ -34,18 +58,51 @@ namespace Pathfinding {
 		}
 
 		// Pretty ugly with one class for each axis, but it has been verified to make the tree around 5% faster
+		/// <summary>
+		/// The compare class
+		/// </summary>
+		/// <seealso cref="IComparer{GraphNode}"/>
 		class CompareX : IComparer<GraphNode> {
+			/// <summary>
+			/// Compares the lhs
+			/// </summary>
+			/// <param name="lhs">The lhs</param>
+			/// <param name="rhs">The rhs</param>
+			/// <returns>The int</returns>
 			public int Compare (GraphNode lhs, GraphNode rhs) { return lhs.position.x.CompareTo(rhs.position.x); }
 		}
 
+		/// <summary>
+		/// The compare class
+		/// </summary>
+		/// <seealso cref="IComparer{GraphNode}"/>
 		class CompareY : IComparer<GraphNode> {
+			/// <summary>
+			/// Compares the lhs
+			/// </summary>
+			/// <param name="lhs">The lhs</param>
+			/// <param name="rhs">The rhs</param>
+			/// <returns>The int</returns>
 			public int Compare (GraphNode lhs, GraphNode rhs) { return lhs.position.y.CompareTo(rhs.position.y); }
 		}
 
+		/// <summary>
+		/// The compare class
+		/// </summary>
+		/// <seealso cref="IComparer{GraphNode}"/>
 		class CompareZ : IComparer<GraphNode> {
+			/// <summary>
+			/// Compares the lhs
+			/// </summary>
+			/// <param name="lhs">The lhs</param>
+			/// <param name="rhs">The rhs</param>
+			/// <returns>The int</returns>
 			public int Compare (GraphNode lhs, GraphNode rhs) { return lhs.position.z.CompareTo(rhs.position.z); }
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PointKDTree"/> class
+		/// </summary>
 		public PointKDTree() {
 			tree[1] = new Node { data = GetOrCreateList() };
 		}
@@ -74,15 +131,29 @@ namespace Pathfinding {
 			Build(1, new List<GraphNode>(nodes), start, end);
 		}
 
+		/// <summary>
+		/// Gets the or create list
+		/// </summary>
+		/// <returns>The graph node array</returns>
 		GraphNode[] GetOrCreateList () {
 			// Note, the lists will never become larger than this initial capacity, so possibly they should be replaced by arrays
 			return arrayCache.Count > 0 ? arrayCache.Pop() : new GraphNode[LeafArraySize];
 		}
 
+		/// <summary>
+		/// Sizes the index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <returns>The int</returns>
 		int Size (int index) {
 			return tree[index].data != null ? tree[index].count : Size(2 * index) + Size(2 * index + 1);
 		}
 
+		/// <summary>
+		/// Collects the and clear using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="buffer">The buffer</param>
 		void CollectAndClear (int index, List<GraphNode> buffer) {
 			var nodes = tree[index].data;
 			var count = tree[index].count;
@@ -100,6 +171,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Maxes the allowed size using the specified num nodes
+		/// </summary>
+		/// <param name="numNodes">The num nodes</param>
+		/// <param name="depth">The depth</param>
+		/// <returns>The int</returns>
 		static int MaxAllowedSize (int numNodes, int depth) {
 			// Allow a node to be 2.5 times as full as it should ideally be
 			// but do not allow it to contain more than 3/4ths of the total number of nodes
@@ -108,12 +185,20 @@ namespace Pathfinding {
 			return System.Math.Min(((5 * numNodes) / 2) >> depth, (3 * numNodes) / 4);
 		}
 
+		/// <summary>
+		/// Rebalances the index
+		/// </summary>
+		/// <param name="index">The index</param>
 		void Rebalance (int index) {
 			CollectAndClear(index, largeList);
 			Build(index, largeList, 0, largeList.Count);
 			largeList.ClearFast();
 		}
 
+		/// <summary>
+		/// Ensures the size using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
 		void EnsureSize (int index) {
 			if (index >= tree.Length) {
 				var newLeaves = new Node[System.Math.Max(index + 1, tree.Length*2)];
@@ -122,6 +207,13 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Builds the index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="nodes">The nodes</param>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
 		void Build (int index, List<GraphNode> nodes, int start, int end) {
 			EnsureSize(index);
 			if (end - start <= LeafSize) {
@@ -149,6 +241,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Adds the point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <param name="index">The index</param>
+		/// <param name="depth">The depth</param>
 		void Add (GraphNode point, int index, int depth = 0) {
 			// Move down in the tree until the leaf node is found that this point is inside of
 			while (tree[index].data == null) {
@@ -183,6 +281,14 @@ namespace Pathfinding {
 			return best;
 		}
 
+		/// <summary>
+		/// Gets the nearest internal using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="point">The point</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="best">The best</param>
+		/// <param name="bestSqrDist">The best sqr dist</param>
 		void GetNearestInternal (int index, Int3 point, NNConstraint constraint, ref GraphNode best, ref long bestSqrDist) {
 			var data = tree[index].data;
 
@@ -223,6 +329,15 @@ namespace Pathfinding {
 			return best;
 		}
 
+		/// <summary>
+		/// Gets the nearest connection internal using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="point">The point</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="best">The best</param>
+		/// <param name="bestSqrDist">The best sqr dist</param>
+		/// <param name="distanceThresholdOffset">The distance threshold offset</param>
 		void GetNearestConnectionInternal (int index, Int3 point, NNConstraint constraint, ref GraphNode best, ref long bestSqrDist, long distanceThresholdOffset) {
 			var data = tree[index].data;
 
@@ -282,6 +397,13 @@ namespace Pathfinding {
 			GetInRangeInternal(1, point, sqrRadius, buffer);
 		}
 
+		/// <summary>
+		/// Gets the in range internal using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="point">The point</param>
+		/// <param name="sqrRadius">The sqr radius</param>
+		/// <param name="buffer">The buffer</param>
 		void GetInRangeInternal (int index, Int3 point, long sqrRadius, List<GraphNode> buffer) {
 			var data = tree[index].data;
 

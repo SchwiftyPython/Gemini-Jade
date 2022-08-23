@@ -3,18 +3,40 @@ using Utilities;
 
 namespace World.Pawns.Health.HealthModifierComponents
 {
+    /// <summary>
+    /// The gets permanent class
+    /// </summary>
+    /// <seealso cref="HealthModComp"/>
     public class GetsPermanent : HealthModComp
     {
+        /// <summary>
+        /// The default perm damage threshold
+        /// </summary>
         private const float DefaultPermDamageThreshold = 9999f;
 
+        /// <summary>
+        /// The pain level
+        /// </summary>
         private PainLevel _painLevel;
         
+        /// <summary>
+        /// The default perm damage threshold
+        /// </summary>
         public float permDamageThreshold = DefaultPermDamageThreshold;
 
+        /// <summary>
+        /// The is permanent
+        /// </summary>
         public bool isPermanent;
 
+        /// <summary>
+        /// Gets the value of the props
+        /// </summary>
         public HealthModCompProperties.GetsPermanent Props => (HealthModCompProperties.GetsPermanent) props;
 
+        /// <summary>
+        /// Gets or sets the value of the is permanent
+        /// </summary>
         public bool IsPermanent
         {
             get => isPermanent;
@@ -39,10 +61,20 @@ namespace World.Pawns.Health.HealthModifierComponents
             }
         }
 
+        /// <summary>
+        /// Gets the value of the pain level
+        /// </summary>
         public PainLevel PainLevel => _painLevel;
 
+        /// <summary>
+        /// Gets the value of the pain modifier
+        /// </summary>
         public float PainModifier => (float) _painLevel;
 
+        /// <summary>
+        /// Sets the pain level using the specified level
+        /// </summary>
+        /// <param name="level">The level</param>
         public void SetPainLevel(PainLevel level)
         {
             _painLevel = level;
@@ -50,6 +82,9 @@ namespace World.Pawns.Health.HealthModifierComponents
             Pawn?.health.CheckForHealthStateChange(parent);
         }
 
+        /// <summary>
+        /// Pres the finalize injury
+        /// </summary>
         public void PreFinalizeInjury()
         {
             //todo check for added parts
@@ -78,6 +113,10 @@ namespace World.Pawns.Health.HealthModifierComponents
             }
         }
 
+        /// <summary>
+        /// Posts the injury heal using the specified amount
+        /// </summary>
+        /// <param name="amount">The amount</param>
         public override void PostInjuryHeal(float amount)
         {
             if (permDamageThreshold >= DefaultPermDamageThreshold)
@@ -105,6 +144,10 @@ namespace World.Pawns.Health.HealthModifierComponents
             }
         }
         
+        /// <summary>
+        /// Debugs the string
+        /// </summary>
+        /// <returns>The string</returns>
         public override string DebugString()
         {
             return $"IsPermanent: {IsPermanent}\npermDamageThreshold: {permDamageThreshold}\npainLevel: {PainLevel}";

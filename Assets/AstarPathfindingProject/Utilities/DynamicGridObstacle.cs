@@ -55,9 +55,18 @@ namespace Pathfinding {
 		/// <summary>True if the collider was enabled last time the graphs were updated</summary>
 		bool prevEnabled;
 
+		/// <summary>
+		/// The last check time
+		/// </summary>
 		float lastCheckTime = -9999;
+		/// <summary>
+		/// The graph update object
+		/// </summary>
 		Queue<GraphUpdateObject> pendingGraphUpdates = new Queue<GraphUpdateObject>();
 
+		/// <summary>
+		/// Gets the value of the bounds
+		/// </summary>
 		Bounds bounds {
 			get {
 				if (coll != null) {
@@ -72,12 +81,19 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the value of the collider enabled
+		/// </summary>
 		bool colliderEnabled {
 			get {
 				return coll != null ? coll.enabled : coll2D.enabled;
 			}
 		}
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
+		/// <exception cref="System.Exception"></exception>
 		protected override void Awake () {
 			base.Awake();
 
@@ -94,6 +110,9 @@ namespace Pathfinding {
 			prevEnabled = false;
 		}
 
+		/// <summary>
+		/// Ons the post scan
+		/// </summary>
 		public override void OnPostScan () {
 			// Make sure we find the collider
 			// AstarPath.Awake may run before Awake on this component
@@ -104,6 +123,9 @@ namespace Pathfinding {
 			if (coll != null) prevEnabled = colliderEnabled;
 		}
 
+		/// <summary>
+		/// Updates this instance
+		/// </summary>
 		void Update () {
 			if (!Application.isPlaying) return;
 

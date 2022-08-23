@@ -13,7 +13,13 @@ namespace Pathfinding {
 	public class Funnel {
 		/// <summary>Funnel in which the path to the target will be</summary>
 		public struct FunnelPortals {
+			/// <summary>
+			/// The left
+			/// </summary>
 			public List<Vector3> left;
+			/// <summary>
+			/// The right
+			/// </summary>
 			public List<Vector3> right;
 		}
 
@@ -28,10 +34,23 @@ namespace Pathfinding {
 			public int startIndex;
 			/// <summary>Index of the last node in this part</summary>
 			public int endIndex;
+			/// <summary>
+			/// The end point
+			/// </summary>
 			public Vector3 startPoint, endPoint;
+			/// <summary>
+			/// The is link
+			/// </summary>
 			public bool isLink;
 		}
 
+		/// <summary>
+		/// Splits the into parts using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <exception cref="System.Exception"></exception>
+		/// <exception cref="System.Exception">Unsupported node type or null node</exception>
+		/// <returns>The result</returns>
 		public static List<PathPart> SplitIntoParts (Path path) {
 			var nodes = path.path;
 
@@ -108,6 +127,13 @@ namespace Pathfinding {
 			return result;
 		}
 
+		/// <summary>
+		/// Constructs the funnel portals using the specified nodes
+		/// </summary>
+		/// <param name="nodes">The nodes</param>
+		/// <param name="part">The part</param>
+		/// <exception cref="System.ArgumentOutOfRangeException"></exception>
+		/// <returns>The funnel portals</returns>
 		public static FunnelPortals ConstructFunnelPortals (List<GraphNode> nodes, PathPart part) {
 			if (nodes == null || nodes.Count == 0) {
 				return new FunnelPortals { left = ListPool<Vector3>.Claim(0), right = ListPool<Vector3>.Claim(0) };
@@ -145,6 +171,11 @@ namespace Pathfinding {
 			return new FunnelPortals { left = left, right = right };
 		}
 
+		/// <summary>
+		/// Shrinks the portals using the specified portals
+		/// </summary>
+		/// <param name="portals">The portals</param>
+		/// <param name="shrink">The shrink</param>
 		public static void ShrinkPortals (FunnelPortals portals, float shrink) {
 			if (shrink <= 0.00001f) return;
 
@@ -161,6 +192,16 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Describes whether unwrap helper
+		/// </summary>
+		/// <param name="portalStart">The portal start</param>
+		/// <param name="portalEnd">The portal end</param>
+		/// <param name="prevPoint">The prev point</param>
+		/// <param name="nextPoint">The next point</param>
+		/// <param name="mRot">The rot</param>
+		/// <param name="mOffset">The offset</param>
+		/// <returns>The bool</returns>
 		static bool UnwrapHelper (Vector3 portalStart, Vector3 portalEnd, Vector3 prevPoint, Vector3 nextPoint, ref Quaternion mRot, ref Vector3 mOffset) {
 			// Skip the point if it was on the rotation axis
 			if (VectorMath.IsColinear(portalStart, portalEnd, nextPoint)) {
@@ -260,10 +301,20 @@ namespace Pathfinding {
 			return startIndex;
 		}
 
+		/// <summary>
+		/// Returns the xz using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The vector</returns>
 		protected static Vector2 ToXZ (Vector3 p) {
 			return new Vector2(p.x, p.z);
 		}
 
+		/// <summary>
+		/// Creates the xz using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The vector</returns>
 		protected static Vector3 FromXZ (Vector2 p) {
 			return new Vector3(p.x, 0, p.y);
 		}

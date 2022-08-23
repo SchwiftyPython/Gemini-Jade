@@ -29,11 +29,23 @@ namespace Pathfinding.Examples {
 		/// </summary>
 		public GameObject endOfPathEffect;
 
+		/// <summary>
+		/// The is at destination
+		/// </summary>
 		bool isAtDestination;
 
+		/// <summary>
+		/// The ai
+		/// </summary>
 		IAstarAI ai;
+		/// <summary>
+		/// The tr
+		/// </summary>
 		Transform tr;
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
 		protected override void Awake () {
 			base.Awake();
 			ai = GetComponent<IAstarAI>();
@@ -56,6 +68,9 @@ namespace Pathfinding.Examples {
 			}
 		}
 
+		/// <summary>
+		/// Updates this instance
+		/// </summary>
 		protected void Update () {
 			if (ai.reachedEndOfPath) {
 				if (!isAtDestination) OnTargetReached();

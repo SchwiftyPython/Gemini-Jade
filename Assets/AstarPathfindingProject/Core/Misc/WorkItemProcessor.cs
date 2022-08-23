@@ -60,6 +60,10 @@ namespace Pathfinding {
 		/// </summary>
 		public System.Func<IWorkItemContext, bool, bool> updateWithContext;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarWorkItem"/> class
+		/// </summary>
+		/// <param name="update">The update</param>
 		public AstarWorkItem (System.Func<bool, bool> update) {
 			this.init = null;
 			this.initWithContext = null;
@@ -67,6 +71,10 @@ namespace Pathfinding {
 			this.update = update;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarWorkItem"/> class
+		/// </summary>
+		/// <param name="update">The update</param>
 		public AstarWorkItem (System.Func<IWorkItemContext, bool, bool> update) {
 			this.init = null;
 			this.initWithContext = null;
@@ -74,6 +82,11 @@ namespace Pathfinding {
 			this.update = null;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarWorkItem"/> class
+		/// </summary>
+		/// <param name="init">The init</param>
+		/// <param name="update">The update</param>
 		public AstarWorkItem (System.Action init, System.Func<bool, bool> update = null) {
 			this.init = init;
 			this.initWithContext = null;
@@ -81,6 +94,11 @@ namespace Pathfinding {
 			this.updateWithContext = null;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarWorkItem"/> class
+		/// </summary>
+		/// <param name="init">The init</param>
+		/// <param name="update">The update</param>
 		public AstarWorkItem (System.Action<IWorkItemContext> init, System.Func<IWorkItemContext, bool, bool> update = null) {
 			this.init = null;
 			this.initWithContext = init;
@@ -135,11 +153,21 @@ namespace Pathfinding {
 		void SetGraphDirty(NavGraph graph);
 	}
 
+	/// <summary>
+	/// The work item processor class
+	/// </summary>
+	/// <seealso cref="IWorkItemContext"/>
 	class WorkItemProcessor : IWorkItemContext {
 		/// <summary>Used to prevent waiting for work items to complete inside other work items as that will cause the program to hang</summary>
 		public bool workItemsInProgressRightNow { get; private set; }
 
+		/// <summary>
+		/// The astar
+		/// </summary>
 		readonly AstarPath astar;
+		/// <summary>
+		/// The astar work item
+		/// </summary>
 		readonly IndexedQueue<AstarWorkItem> workItems = new IndexedQueue<AstarWorkItem>();
 
 		/// <summary>True if any work items are queued right now</summary>
@@ -153,6 +181,9 @@ namespace Pathfinding {
 		/// </summary>
 		bool queuedWorkItemFloodFill = false;
 
+		/// <summary>
+		/// The any graphs dirty
+		/// </summary>
 		bool anyGraphsDirty = true;
 
 		/// <summary>
@@ -166,9 +197,18 @@ namespace Pathfinding {
 
 		/// <summary>Similar to Queue<T> but allows random access</summary>
 		class IndexedQueue<T> {
+			/// <summary>
+			/// The 
+			/// </summary>
 			T[] buffer = new T[4];
+			/// <summary>
+			/// The start
+			/// </summary>
 			int start;
 
+			/// <summary>
+			/// The value
+			/// </summary>
 			public T this[int index] {
 				get {
 					if (index < 0 || index >= Count) throw new System.IndexOutOfRangeException();
@@ -180,8 +220,15 @@ namespace Pathfinding {
 				}
 			}
 
+			/// <summary>
+			/// Gets or sets the value of the count
+			/// </summary>
 			public int Count { get; private set; }
 
+			/// <summary>
+			/// Enqueues the item
+			/// </summary>
+			/// <param name="item">The item</param>
 			public void Enqueue (T item) {
 				if (Count == buffer.Length) {
 					var newBuffer = new T[buffer.Length*2];
@@ -196,6 +243,11 @@ namespace Pathfinding {
 				Count++;
 			}
 
+			/// <summary>
+			/// Dequeues this instance
+			/// </summary>
+			/// <exception cref="System.InvalidOperationException"></exception>
+			/// <returns>The item</returns>
 			public T Dequeue () {
 				if (Count == 0) throw new System.InvalidOperationException();
 				var item = buffer[start];
@@ -219,6 +271,10 @@ namespace Pathfinding {
 			queuedWorkItemFloodFill = true;
 		}
 
+		/// <summary>
+		/// Sets the graph dirty using the specified graph
+		/// </summary>
+		/// <param name="graph">The graph</param>
 		void IWorkItemContext.SetGraphDirty (NavGraph graph) {
 			anyGraphsDirty = true;
 		}
@@ -232,10 +288,17 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="WorkItemProcessor"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		public WorkItemProcessor (AstarPath astar) {
 			this.astar = astar;
 		}
 
+		/// <summary>
+		/// Ons the flood fill
+		/// </summary>
 		public void OnFloodFill () {
 			queuedWorkItemFloodFill = false;
 		}

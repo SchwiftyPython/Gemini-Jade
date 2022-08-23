@@ -24,9 +24,18 @@ namespace Pathfinding {
 		/// <summary>Current target index</summary>
 		int index;
 
+		/// <summary>
+		/// The agent
+		/// </summary>
 		IAstarAI agent;
+		/// <summary>
+		/// The positive infinity
+		/// </summary>
 		float switchTime = float.PositiveInfinity;
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
 		protected override void Awake () {
 			base.Awake();
 			agent = GetComponent<IAstarAI>();

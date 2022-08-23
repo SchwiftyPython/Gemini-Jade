@@ -7,8 +7,15 @@ using Random = UnityEngine.Random;
 
 namespace World
 {
+    /// <summary>
+    /// The tile class
+    /// </summary>
+    /// <seealso cref="BaseObject"/>
     public class Tile : BaseObject
     {
+        /// <summary>
+        /// Gets the value of the texture
+        /// </summary>
         public Sprite Texture { get; }
 
         /// <summary>
@@ -28,6 +35,11 @@ namespace World
             Texture = ChooseTexture(tileType);
         }
 
+        /// <summary>
+        /// Gets the adjacent tile by direction using the specified direction
+        /// </summary>
+        /// <param name="direction">The direction</param>
+        /// <returns>The tile</returns>
         public Tile GetAdjacentTileByDirection(Direction direction)
         {
             var neighbors = AdjacencyRule.EIGHT_WAY.NeighborsClockwise(Position, direction);
@@ -35,6 +47,10 @@ namespace World
             return ((LocalMap)CurrentMap).GetTileAt(neighbors.First());
         }
 
+        /// <summary>
+        /// Gets the adjacent tiles
+        /// </summary>
+        /// <returns>The tiles</returns>
         public List<Tile> GetAdjacentTiles()
         {
             var neighbors = AdjacencyRule.EIGHT_WAY.NeighborsClockwise(Position);
@@ -56,6 +72,11 @@ namespace World
             return tiles;
         }
 
+        /// <summary>
+        /// Gets the texture from using the specified object type
+        /// </summary>
+        /// <param name="objectType">The object type</param>
+        /// <returns>The sprite</returns>
         protected override Sprite GetTextureFrom(ScriptableObject objectType)
         {
             var tileType = objectType as TileType;

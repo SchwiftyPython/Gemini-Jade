@@ -5,7 +5,14 @@ namespace Pathfinding {
 	using Pathfinding.Util;
 	using Pathfinding.Serialization;
 
+	/// <summary>
+	/// The navmesh interface
+	/// </summary>
 	public interface INavmesh {
+		/// <summary>
+		/// Gets the nodes using the specified del
+		/// </summary>
+		/// <param name="del">The del</param>
 		void GetNodes(System.Action<GraphNode> del);
 	}
 
@@ -73,20 +80,32 @@ namespace Pathfinding {
 		[JsonMember]
 		Vector3 cachedSourceMeshBoundsMin;
 
+		/// <summary>
+		/// Gets the value of the recalculate normals
+		/// </summary>
 		protected override bool RecalculateNormals { get { return recalculateNormals; } }
 
+		/// <summary>
+		/// Gets the value of the tile world size x
+		/// </summary>
 		public override float TileWorldSizeX {
 			get {
 				return forcedBoundsSize.x;
 			}
 		}
 
+		/// <summary>
+		/// Gets the value of the tile world size z
+		/// </summary>
 		public override float TileWorldSizeZ {
 			get {
 				return forcedBoundsSize.z;
 			}
 		}
 
+		/// <summary>
+		/// Gets the value of the max tile connection edge distance
+		/// </summary>
 		protected override float MaxTileConnectionEdgeDistance {
 			get {
 				// Tiles are not supported, so this is irrelevant
@@ -94,21 +113,47 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Calculates the transform
+		/// </summary>
+		/// <returns>The graph transform</returns>
 		public override GraphTransform CalculateTransform () {
 			return new GraphTransform(Matrix4x4.TRS(offset, Quaternion.Euler(rotation), Vector3.one) * Matrix4x4.TRS(sourceMesh != null ? sourceMesh.bounds.min * scale : cachedSourceMeshBoundsMin * scale, Quaternion.identity, Vector3.one));
 		}
 
+		/// <summary>
+		/// Cans the update using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <returns>The graph update threading</returns>
 		GraphUpdateThreading IUpdatableGraph.CanUpdateAsync (GraphUpdateObject o) {
 			return GraphUpdateThreading.UnityThread;
 		}
 
+		/// <summary>
+		/// Updates the area init using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
 		void IUpdatableGraph.UpdateAreaInit (GraphUpdateObject o) {}
+		/// <summary>
+		/// Updates the area post using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
 		void IUpdatableGraph.UpdateAreaPost (GraphUpdateObject o) {}
 
+		/// <summary>
+		/// Updates the area using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
 		void IUpdatableGraph.UpdateArea (GraphUpdateObject o) {
 			UpdateArea(o, this);
 		}
 
+		/// <summary>
+		/// Updates the area using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <param name="graph">The graph</param>
 		public static void UpdateArea (GraphUpdateObject o, INavmeshHolder graph) {
 			Bounds bounds = graph.transform.InverseTransform(o.bounds);
 
@@ -217,6 +262,10 @@ namespace Pathfinding {
 			while (scan.MoveNext()) {}
 		}
 
+		/// <summary>
+		/// Scans the internal
+		/// </summary>
+		/// <returns>An enumerable of progress</returns>
 		protected override IEnumerable<Progress> ScanInternal () {
 			cachedSourceMeshBoundsMin = sourceMesh != null ? sourceMesh.bounds.min : Vector3.zero;
 			transform = CalculateTransform();
@@ -259,6 +308,10 @@ namespace Pathfinding {
 			if (OnRecalculatedTiles != null) OnRecalculatedTiles(tiles.Clone() as NavmeshTile[]);
 		}
 
+		/// <summary>
+		/// Deserializes the settings compatibility using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void DeserializeSettingsCompatibility (GraphSerializationContext ctx) {
 			base.DeserializeSettingsCompatibility(ctx);
 

@@ -1,28 +1,69 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+
+/// <summary>
+
+/// The follow path class
+
+/// </summary>
+
+/// <seealso cref="MonoBehaviour"/>
 
 public class FollowPath : MonoBehaviour
 {
+    /// <summary>
+    /// The target
+    /// </summary>
     public Transform target;
+    /// <summary>
+    /// The speed
+    /// </summary>
     public float speed;
 
     //If true, the scheduler will be used
+    /// <summary>
+    /// The use queue
+    /// </summary>
     public bool bUseQueue = true;
 
     
 
+    /// <summary>
+    /// The path
+    /// </summary>
     UnityEngine.AI.NavMeshPath Path;
+    /// <summary>
+    /// The self transform
+    /// </summary>
     [HideInInspector]
     public Transform SelfTransform;
+    /// <summary>
+    /// The new position
+    /// </summary>
     Vector3 NewPosition;
+    /// <summary>
+    /// The zero
+    /// </summary>
     [HideInInspector]
     public Vector3 velocity = Vector3.zero;
+    /// <summary>
+    /// The noise vector
+    /// </summary>
     Vector3 NoiseVector;
+    /// <summary>
+    /// The zero
+    /// </summary>
     Vector3 tmpVec = Vector3.zero;
+    /// <summary>
+    /// The path result
+    /// </summary>
     bool pathResult = false;
     
 
     // Use this for initialization
+    /// <summary>
+    /// Starts this instance
+    /// </summary>
     void Start()
     {
         SelfTransform = GetComponent<Transform>();
@@ -55,6 +96,9 @@ public class FollowPath : MonoBehaviour
     //}
 
     // Does same work as Update() but is called from FollowerManager
+    /// <summary>
+    /// Updates the velocity
+    /// </summary>
     public void UpdateVelocity()
     {
         if (!bUseQueue)
@@ -63,6 +107,9 @@ public class FollowPath : MonoBehaviour
         SelfTransform.position += velocity;
     }
     //updates the path to the target
+    /// <summary>
+    /// Updates the path
+    /// </summary>
     void UpdatePath()
     {
         //Get path to target and calculate velocity toward it
@@ -84,6 +131,9 @@ public class FollowPath : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Joins the queue
+    /// </summary>
     void JoinQueue()
     {
         //If Pathing queue exists, join it

@@ -9,30 +9,62 @@ namespace Repos
     /// <remarks>Functions like a Singleton. Use FindObjectOfType&lt;BuildablesRepo&gt;() to get a reference.</remarks>
     public class BuildablesRepo : MonoBehaviour
     {
+        /// <summary>
+        /// The num wall sprites
+        /// </summary>
         private const int NumWallSprites = 47;
         
+        /// <summary>
+        /// The width
+        /// </summary>
         private const int Width = 32;
 
+        /// <summary>
+        /// The height
+        /// </summary>
         private const int Height = 32;
 
+        /// <summary>
+        /// The num per row
+        /// </summary>
         private const int NumPerRow = 8;
         
+        /// <summary>
+        /// The wall
+        /// </summary>
         [SerializeField] private TileType wall;
 
+        /// <summary>
+        /// The test wall sprite sheet
+        /// </summary>
         [SerializeField] private Sprite testWallSpriteSheet; //todo need a collection of these for each material
 
+        /// <summary>
+        /// The test wall sprites
+        /// </summary>
         private Sprite[] _testWallSprites;
 
+        /// <summary>
+        /// Starts this instance
+        /// </summary>
         private void Start()
         {
             LoadWallSprites();
         }
 
+        /// <summary>
+        /// Gets the wall sprite at using the specified index
+        /// </summary>
+        /// <param name="index">The index</param>
+        /// <returns>The sprite</returns>
         public Sprite GetWallSpriteAt(int index)
         {
             return _testWallSprites[index];
         }
 
+        /// <summary>
+        /// Loads the wall sprites
+        /// </summary>
         private void LoadWallSprites()
         {
             _testWallSprites = new Sprite[NumWallSprites];

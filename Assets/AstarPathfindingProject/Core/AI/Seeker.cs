@@ -146,12 +146,24 @@ namespace Pathfinding {
 		/// <summary>Internal list of all modifiers</summary>
 		readonly List<IPathModifier> modifiers = new List<IPathModifier>();
 
+		/// <summary>
+		/// The modifier pass enum
+		/// </summary>
 		public enum ModifierPass {
+			/// <summary>
+			/// The pre process modifier pass
+			/// </summary>
 			PreProcess,
 			// An obsolete item occupied index 1 previously
+			/// <summary>
+			/// The post process modifier pass
+			/// </summary>
 			PostProcess = 2,
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Seeker"/> class
+		/// </summary>
 		public Seeker () {
 			onPathDelegate = OnPathComplete;
 		}
@@ -495,6 +507,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the upgrade serialized data using the specified version
+		/// </summary>
+		/// <param name="version">The version</param>
+		/// <param name="unityThread">The unity thread</param>
+		/// <returns>The int</returns>
 		protected override int OnUpgradeSerializedData (int version, bool unityThread) {
 			if (graphMaskCompatibility != -1) {
 				Debug.Log("Loaded " + graphMaskCompatibility + " " + graphMask.value);

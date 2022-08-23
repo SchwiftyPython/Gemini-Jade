@@ -2,6 +2,10 @@ namespace Pathfinding {
 	using Pathfinding.Util;
 	using UnityEngine;
 
+	/// <summary>
+	/// The navmesh tile class
+	/// </summary>
+	/// <seealso cref="INavmeshHolder"/>
 	public class NavmeshTile : INavmeshHolder {
 		/// <summary>Tile triangles</summary>
 		public int[] tris;
@@ -39,15 +43,29 @@ namespace Pathfinding {
 		/// <summary>Temporary flag used for batching</summary>
 		public bool flag;
 
+		/// <summary>
+		/// The graph
+		/// </summary>
 		public NavmeshBase graph;
 
 		#region INavmeshHolder implementation
 
+		/// <summary>
+		/// Gets the tile coordinates using the specified tile index
+		/// </summary>
+		/// <param name="tileIndex">The tile index</param>
+		/// <param name="x">The </param>
+		/// <param name="z">The </param>
 		public void GetTileCoordinates (int tileIndex, out int x, out int z) {
 			x = this.x;
 			z = this.z;
 		}
 
+		/// <summary>
+		/// Gets the vertex array index using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <returns>The int</returns>
 		public int GetVertexArrayIndex (int index) {
 			return index & NavmeshBase.VertexIndexMask;
 		}
@@ -59,6 +77,11 @@ namespace Pathfinding {
 			return verts[idx];
 		}
 
+		/// <summary>
+		/// Gets the vertex in graph space using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <returns>The int</returns>
 		public Int3 GetVertexInGraphSpace (int index) {
 			return vertsInGraphSpace[index & NavmeshBase.VertexIndexMask];
 		}
@@ -68,6 +91,10 @@ namespace Pathfinding {
 
 		#endregion
 
+		/// <summary>
+		/// Gets the nodes using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public void GetNodes (System.Action<GraphNode> action) {
 			if (nodes == null) return;
 			for (int i = 0; i < nodes.Length; i++) action(nodes[i]);
