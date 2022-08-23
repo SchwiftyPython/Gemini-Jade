@@ -28,6 +28,9 @@ namespace Pathfinding.Examples {
 			}
 		}
 
+		/// <summary>
+		/// Places the object
+		/// </summary>
 		public void PlaceObject () {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
@@ -48,6 +51,10 @@ namespace Pathfinding.Examples {
 			}
 		}
 
+		/// <summary>
+		/// Removes the object
+		/// </summary>
+		/// <returns>The enumerator</returns>
 		public IEnumerator RemoveObject () {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;

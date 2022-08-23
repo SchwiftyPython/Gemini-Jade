@@ -13,12 +13,27 @@ namespace Pathfinding {
 	public class BBTree : IAstarPooledObject {
 		/// <summary>Holds all tree nodes</summary>
 		BBTreeBox[] tree = null;
+		/// <summary>
+		/// The node lookup
+		/// </summary>
 		TriangleMeshNode[] nodeLookup = null;
+		/// <summary>
+		/// The count
+		/// </summary>
 		int count;
+		/// <summary>
+		/// The leaf nodes
+		/// </summary>
 		int leafNodes;
 
+		/// <summary>
+		/// The maximum leaf size
+		/// </summary>
 		const int MaximumLeafSize = 4;
 
+		/// <summary>
+		/// Gets the value of the size
+		/// </summary>
 		public Rect Size {
 			get {
 				if (count == 0) {
@@ -47,10 +62,17 @@ namespace Pathfinding {
 			nodeLookup = ArrayPool<TriangleMeshNode>.Claim(0);
 		}
 
+		/// <summary>
+		/// Ons the enter pool
+		/// </summary>
 		void IAstarPooledObject.OnEnterPool () {
 			Clear();
 		}
 
+		/// <summary>
+		/// Ensures the capacity using the specified c
+		/// </summary>
+		/// <param name="c">The </param>
 		void EnsureCapacity (int c) {
 			if (c > tree.Length) {
 				var newArr = ArrayPool<BBTreeBox>.Claim(c);
@@ -60,6 +82,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ensures the node capacity using the specified c
+		/// </summary>
+		/// <param name="c">The </param>
 		void EnsureNodeCapacity (int c) {
 			if (c > nodeLookup.Length) {
 				var newArr = ArrayPool<TriangleMeshNode>.Claim(c);
@@ -69,6 +95,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the box using the specified rect
+		/// </summary>
+		/// <param name="rect">The rect</param>
+		/// <returns>The int</returns>
 		int GetBox (IntRect rect) {
 			if (count >= tree.Length) EnsureCapacity(count+1);
 
@@ -120,6 +151,15 @@ namespace Pathfinding {
 			ArrayPool<IntRect>.Release(ref nodeBounds);
 		}
 
+		/// <summary>
+		/// Splits the by x using the specified nodes
+		/// </summary>
+		/// <param name="nodes">The nodes</param>
+		/// <param name="permutation">The permutation</param>
+		/// <param name="from">The from</param>
+		/// <param name="to">The to</param>
+		/// <param name="divider">The divider</param>
+		/// <returns>The mx</returns>
 		static int SplitByX (TriangleMeshNode[] nodes, int[] permutation, int from, int to, int divider) {
 			int mx = to;
 
@@ -136,6 +176,15 @@ namespace Pathfinding {
 			return mx;
 		}
 
+		/// <summary>
+		/// Splits the by z using the specified nodes
+		/// </summary>
+		/// <param name="nodes">The nodes</param>
+		/// <param name="permutation">The permutation</param>
+		/// <param name="from">The from</param>
+		/// <param name="to">The to</param>
+		/// <param name="divider">The divider</param>
+		/// <returns>The mx</returns>
 		static int SplitByZ (TriangleMeshNode[] nodes, int[] permutation, int from, int to, int divider) {
 			int mx = to;
 
@@ -152,6 +201,16 @@ namespace Pathfinding {
 			return mx;
 		}
 
+		/// <summary>
+		/// Rebuilds the from internal using the specified nodes
+		/// </summary>
+		/// <param name="nodes">The nodes</param>
+		/// <param name="permutation">The permutation</param>
+		/// <param name="nodeBounds">The node bounds</param>
+		/// <param name="from">The from</param>
+		/// <param name="to">The to</param>
+		/// <param name="odd">The odd</param>
+		/// <returns>The box</returns>
 		int RebuildFromInternal (TriangleMeshNode[] nodes, int[] permutation, IntRect[] nodeBounds, int from, int to, bool odd) {
 			var rect = NodeBounds(permutation, nodeBounds, from, to);
 			int box = GetBox(rect);
@@ -225,6 +284,10 @@ namespace Pathfinding {
 			return rect;
 		}
 
+		/// <summary>
+		/// Draws the debug rect using the specified rect
+		/// </summary>
+		/// <param name="rect">The rect</param>
 		[System.Diagnostics.Conditional("ASTARDEBUG")]
 		static void DrawDebugRect (IntRect rect) {
 			Debug.DrawLine(new Vector3(rect.xmin, 0, rect.ymin), new Vector3(rect.xmax, 0, rect.ymin), Color.white);
@@ -233,6 +296,12 @@ namespace Pathfinding {
 			Debug.DrawLine(new Vector3(rect.xmax, 0, rect.ymin), new Vector3(rect.xmax, 0, rect.ymax), Color.white);
 		}
 
+		/// <summary>
+		/// Draws the debug node using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="yoffset">The yoffset</param>
+		/// <param name="color">The color</param>
 		[System.Diagnostics.Conditional("ASTARDEBUG")]
 		static void DrawDebugNode (TriangleMeshNode node, float yoffset, Color color) {
 			Debug.DrawLine((Vector3)node.GetVertex(1) + Vector3.up*yoffset, (Vector3)node.GetVertex(2) + Vector3.up*yoffset, color);
@@ -279,6 +348,14 @@ namespace Pathfinding {
 			return previous;
 		}
 
+		/// <summary>
+		/// Searches the box closest xz using the specified boxi
+		/// </summary>
+		/// <param name="boxi">The boxi</param>
+		/// <param name="p">The </param>
+		/// <param name="closestSqrDist">The closest sqr dist</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="nnInfo">The nn info</param>
 		void SearchBoxClosestXZ (int boxi, Vector3 p, ref float closestSqrDist, NNConstraint constraint, ref NNInfoInternal nnInfo) {
 			BBTreeBox box = tree[boxi];
 
@@ -348,6 +425,14 @@ namespace Pathfinding {
 			return previous;
 		}
 
+		/// <summary>
+		/// Searches the box closest using the specified boxi
+		/// </summary>
+		/// <param name="boxi">The boxi</param>
+		/// <param name="p">The </param>
+		/// <param name="closestSqrDist">The closest sqr dist</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="nnInfo">The nn info</param>
 		void SearchBoxClosest (int boxi, Vector3 p, ref float closestSqrDist, NNConstraint constraint, ref NNInfoInternal nnInfo) {
 			BBTreeBox box = tree[boxi];
 
@@ -414,6 +499,13 @@ namespace Pathfinding {
 			return count != 0 && tree[0].Contains(p) ? SearchBoxInside(0, p, constraint) : null;
 		}
 
+		/// <summary>
+		/// Searches the box inside using the specified boxi
+		/// </summary>
+		/// <param name="boxi">The boxi</param>
+		/// <param name="p">The </param>
+		/// <param name="constraint">The constraint</param>
+		/// <returns>The triangle mesh node</returns>
 		TriangleMeshNode SearchBoxInside (int boxi, Vector3 p, NNConstraint constraint) {
 			BBTreeBox box = tree[boxi];
 
@@ -449,30 +541,59 @@ namespace Pathfinding {
 			return null;
 		}
 
+		/// <summary>
+		/// The bb tree box
+		/// </summary>
 		struct BBTreeBox {
+			/// <summary>
+			/// The rect
+			/// </summary>
 			public IntRect rect;
 
+			/// <summary>
+			/// The node offset
+			/// </summary>
 			public int nodeOffset;
+			/// <summary>
+			/// The right
+			/// </summary>
 			public int left, right;
 
+			/// <summary>
+			/// Gets the value of the is leaf
+			/// </summary>
 			public bool IsLeaf {
 				get {
 					return nodeOffset >= 0;
 				}
 			}
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="BBTreeBox"/> class
+			/// </summary>
+			/// <param name="rect">The rect</param>
 			public BBTreeBox (IntRect rect) {
 				nodeOffset = -1;
 				this.rect = rect;
 				left = right = -1;
 			}
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="BBTreeBox"/> class
+			/// </summary>
+			/// <param name="nodeOffset">The node offset</param>
+			/// <param name="rect">The rect</param>
 			public BBTreeBox (int nodeOffset, IntRect rect) {
 				this.nodeOffset = nodeOffset;
 				this.rect = rect;
 				left = right = -1;
 			}
 
+			/// <summary>
+			/// Describes whether this instance contains
+			/// </summary>
+			/// <param name="point">The point</param>
+			/// <returns>The bool</returns>
 			public bool Contains (Vector3 point) {
 				var pi = (Int3)point;
 
@@ -480,12 +601,20 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		public void OnDrawGizmos () {
 			Gizmos.color = new Color(1, 1, 1, 0.5F);
 			if (count == 0) return;
 			OnDrawGizmos(0, 0);
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos using the specified boxi
+		/// </summary>
+		/// <param name="boxi">The boxi</param>
+		/// <param name="depth">The depth</param>
 		void OnDrawGizmos (int boxi, int depth) {
 			BBTreeBox box = tree[boxi];
 
@@ -507,6 +636,13 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Describes whether node intersects circle
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="p">The </param>
+		/// <param name="radius">The radius</param>
+		/// <returns>The bool</returns>
 		static bool NodeIntersectsCircle (TriangleMeshNode node, Vector3 p, float radius) {
 			if (float.IsPositiveInfinity(radius)) return true;
 

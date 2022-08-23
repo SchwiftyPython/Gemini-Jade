@@ -33,14 +33,23 @@ namespace Pathfinding {
 		/// <summary>Delete existing connection instead of adding one</summary>
 		public bool deleteConnection = false;
 
+		/// <summary>
+		/// Gets the value of the start
+		/// </summary>
 		public Transform Start {
 			get { return transform; }
 		}
 
+		/// <summary>
+		/// Gets the value of the end
+		/// </summary>
 		public Transform End {
 			get { return end; }
 		}
 
+		/// <summary>
+		/// Ons the post scan
+		/// </summary>
 		public override void OnPostScan () {
 			if (AstarPath.active.isScanning) {
 				InternalOnPostScan();
@@ -52,10 +61,16 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Internals the on post scan
+		/// </summary>
 		public void InternalOnPostScan () {
 			Apply();
 		}
 
+		/// <summary>
+		/// Ons the graphs post update
+		/// </summary>
 		public override void OnGraphsPostUpdate () {
 			if (!AstarPath.active.isScanning) {
 				AstarPath.active.AddWorkItem(new AstarWorkItem(force => {
@@ -65,6 +80,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Applies this instance
+		/// </summary>
 		public virtual void Apply () {
 			if (Start == null || End == null || AstarPath.active == null) return;
 
@@ -87,6 +105,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		public void OnDrawGizmos () {
 			if (Start == null || End == null) return;
 

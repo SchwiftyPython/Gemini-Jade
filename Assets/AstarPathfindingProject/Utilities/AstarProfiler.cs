@@ -10,25 +10,62 @@ using UnityEngine.Profiling;
 #endif
 
 namespace Pathfinding {
+	/// <summary>
+	/// The astar profiler class
+	/// </summary>
 	public class AstarProfiler {
+		/// <summary>
+		/// The profile point class
+		/// </summary>
 		public class ProfilePoint {
 			//public DateTime lastRecorded;
 			//public TimeSpan totalTime;
+			/// <summary>
+			/// The stopwatch
+			/// </summary>
 			public System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+			/// <summary>
+			/// The total calls
+			/// </summary>
 			public int totalCalls;
+			/// <summary>
+			/// The tmp bytes
+			/// </summary>
 			public long tmpBytes;
+			/// <summary>
+			/// The total bytes
+			/// </summary>
 			public long totalBytes;
 		}
 
+		/// <summary>
+		/// The profile point
+		/// </summary>
 		static readonly Dictionary<string, ProfilePoint> profiles = new Dictionary<string, ProfilePoint>();
+		/// <summary>
+		/// The utc now
+		/// </summary>
 		static DateTime startTime = DateTime.UtcNow;
 
+		/// <summary>
+		/// The fast profiles
+		/// </summary>
 		public static ProfilePoint[] fastProfiles;
+		/// <summary>
+		/// The fast profile names
+		/// </summary>
 		public static string[] fastProfileNames;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarProfiler"/> class
+		/// </summary>
 		private AstarProfiler() {
 		}
 
+		/// <summary>
+		/// Initializes the fast profile using the specified profile names
+		/// </summary>
+		/// <param name="profileNames">The profile names</param>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void InitializeFastProfile (string[] profileNames) {
 			fastProfileNames = new string[profileNames.Length+2];
@@ -39,12 +76,20 @@ namespace Pathfinding {
 			for (int i = 0; i < fastProfiles.Length; i++) fastProfiles[i] = new ProfilePoint();
 		}
 
+		/// <summary>
+		/// Starts the fast profile using the specified tag
+		/// </summary>
+		/// <param name="tag">The tag</param>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void StartFastProfile (int tag) {
 			//profiles.TryGetValue(tag, out point);
 			fastProfiles[tag].watch.Start();//lastRecorded = DateTime.UtcNow;
 		}
 
+		/// <summary>
+		/// Ends the fast profile using the specified tag
+		/// </summary>
+		/// <param name="tag">The tag</param>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void EndFastProfile (int tag) {
 			/*if (!profiles.ContainsKey(tag))
@@ -61,11 +106,18 @@ namespace Pathfinding {
 			//fastProfiles[tag] = point;
 		}
 
+		/// <summary>
+		/// Ends the profile
+		/// </summary>
 		[System.Diagnostics.Conditional("ASTAR_UNITY_PRO_PROFILER")]
 		public static void EndProfile () {
 			Profiler.EndSample();
 		}
 
+		/// <summary>
+		/// Starts the profile using the specified tag
+		/// </summary>
+		/// <param name="tag">The tag</param>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void StartProfile (string tag) {
 #if ASTAR_UNITY_PRO_PROFILER
@@ -86,6 +138,10 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Ends the profile using the specified tag
+		/// </summary>
+		/// <param name="tag">The tag</param>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void EndProfile (string tag) {
 #if !ASTAR_UNITY_PRO_PROFILER
@@ -107,6 +163,9 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Resets
+		/// </summary>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void Reset () {
 			profiles.Clear();
@@ -119,6 +178,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Prints the fast results
+		/// </summary>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void PrintFastResults () {
 			if (fastProfiles == null)
@@ -172,6 +234,9 @@ namespace Pathfinding {
 			Debug.Log(output.ToString());
 		}
 
+		/// <summary>
+		/// Prints the results
+		/// </summary>
 		[System.Diagnostics.Conditional("ProfileAstar")]
 		public static void PrintResults () {
 			TimeSpan endTime = DateTime.UtcNow - startTime;

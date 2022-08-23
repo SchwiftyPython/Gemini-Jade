@@ -4,11 +4,26 @@ using System.Collections.Generic;
 namespace Pathfinding.Util {
 	/// <summary>Interpolates along a sequence of points</summary>
 	public class PathInterpolator {
+		/// <summary>
+		/// The path
+		/// </summary>
 		List<Vector3> path;
 
+		/// <summary>
+		/// The distance to segment start
+		/// </summary>
 		float distanceToSegmentStart;
+		/// <summary>
+		/// The current distance
+		/// </summary>
 		float currentDistance;
+		/// <summary>
+		/// The positive infinity
+		/// </summary>
 		float currentSegmentLength = float.PositiveInfinity;
+		/// <summary>
+		/// The positive infinity
+		/// </summary>
 		float totalDistance = float.PositiveInfinity;
 
 		/// <summary>Current position</summary>
@@ -142,6 +157,12 @@ namespace Pathfinding.Util {
 			MoveToSegment(bestIndex, bestFactor);
 		}
 
+		/// <summary>
+		/// Moves the to locally closest point using the specified point
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <param name="allowForwards">The allow forwards</param>
+		/// <param name="allowBackwards">The allow backwards</param>
 		public void MoveToLocallyClosestPoint (Vector3 point, bool allowForwards = true, bool allowBackwards = true) {
 			if (path == null) return;
 
@@ -170,6 +191,12 @@ namespace Pathfinding.Util {
 			else MoveToSegment(segmentIndex, factor2);
 		}
 
+		/// <summary>
+		/// Moves the to circle intersection 2 d using the specified circle center 3 d
+		/// </summary>
+		/// <param name="circleCenter3D">The circle center</param>
+		/// <param name="radius">The radius</param>
+		/// <param name="transform">The transform</param>
 		public void MoveToCircleIntersection2D (Vector3 circleCenter3D, float radius, IMovementPlane transform) {
 			if (path == null) return;
 
@@ -191,12 +218,18 @@ namespace Pathfinding.Util {
 			MoveToSegment(segmentIndex, factor);
 		}
 
+		/// <summary>
+		/// Prevs the segment
+		/// </summary>
 		protected virtual void PrevSegment () {
 			segmentIndex--;
 			currentSegmentLength = (path[segmentIndex+1] - path[segmentIndex]).magnitude;
 			distanceToSegmentStart -= currentSegmentLength;
 		}
 
+		/// <summary>
+		/// Nexts the segment
+		/// </summary>
 		protected virtual void NextSegment () {
 			segmentIndex++;
 			distanceToSegmentStart += currentSegmentLength;

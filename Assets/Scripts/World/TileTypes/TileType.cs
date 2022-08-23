@@ -16,6 +16,9 @@ namespace World.TileTypes
         /// </summary>
         [SerializeField] private Sprite[] textures;
         
+        /// <summary>
+        /// Gets the value of the textures
+        /// </summary>
         public Sprite[] Textures => textures;
 
         /// <summary>

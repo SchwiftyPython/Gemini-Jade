@@ -14,6 +14,9 @@ namespace Pathfinding {
 	using Thread = System.Threading.Thread;
 #endif
 
+	/// <summary>
+	/// The graph update processor class
+	/// </summary>
 	class GraphUpdateProcessor {
 		public event System.Action OnGraphsUpdated;
 
@@ -50,10 +53,19 @@ namespace Pathfinding {
 		/// <summary>Queue of all non-async graph updates waiting to be executed</summary>
 		readonly Queue<GUOSingle> graphUpdateQueueRegular = new Queue<GUOSingle>();
 
+		/// <summary>
+		/// The manual reset event
+		/// </summary>
 		readonly System.Threading.ManualResetEvent asyncGraphUpdatesComplete = new System.Threading.ManualResetEvent(true);
 
 #if !UNITY_WEBGL
+		/// <summary>
+		/// The auto reset event
+		/// </summary>
 		readonly System.Threading.AutoResetEvent graphUpdateAsyncEvent = new System.Threading.AutoResetEvent(false);
+		/// <summary>
+		/// The auto reset event
+		/// </summary>
 		readonly System.Threading.AutoResetEvent exitAsyncThread = new System.Threading.AutoResetEvent(false);
 #endif
 
@@ -65,17 +77,33 @@ namespace Pathfinding {
 
 		/// <summary>Order type for updating graphs</summary>
 		enum GraphUpdateOrder {
+			/// <summary>
+			/// The graph update graph update order
+			/// </summary>
 			GraphUpdate,
 			// FloodFill
 		}
 
 		/// <summary>Holds a single update that needs to be performed on a graph</summary>
 		struct GUOSingle {
+			/// <summary>
+			/// The order
+			/// </summary>
 			public GraphUpdateOrder order;
+			/// <summary>
+			/// The graph
+			/// </summary>
 			public IUpdatableGraph graph;
+			/// <summary>
+			/// The obj
+			/// </summary>
 			public GraphUpdateObject obj;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GraphUpdateProcessor"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		public GraphUpdateProcessor (AstarPath astar) {
 			this.astar = astar;
 		}
@@ -85,6 +113,9 @@ namespace Pathfinding {
 			return new AstarWorkItem(QueueGraphUpdatesInternal, ProcessGraphUpdates);
 		}
 
+		/// <summary>
+		/// Enables the multithreading
+		/// </summary>
 		public void EnableMultithreading () {
 #if !UNITY_WEBGL
 			if (graphUpdateThread == null || !graphUpdateThread.IsAlive) {
@@ -105,6 +136,9 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Disables the multithreading
+		/// </summary>
 		public void DisableMultithreading () {
 #if !UNITY_WEBGL
 			if (graphUpdateThread != null && graphUpdateThread.IsAlive) {
@@ -200,6 +234,11 @@ namespace Pathfinding {
 			return true;
 		}
 
+		/// <summary>
+		/// Describes whether this instance process regular updates
+		/// </summary>
+		/// <param name="force">The force</param>
+		/// <returns>The bool</returns>
 		bool ProcessRegularUpdates (bool force) {
 			while (graphUpdateQueueRegular.Count > 0) {
 				GUOSingle s = graphUpdateQueueRegular.Peek();
@@ -288,6 +327,9 @@ namespace Pathfinding {
 			return false;
 		}
 
+		/// <summary>
+		/// Processes the post updates
+		/// </summary>
 		void ProcessPostUpdates () {
 			while (graphUpdateQueuePost.Count > 0) {
 				GUOSingle s = graphUpdateQueuePost.Dequeue();

@@ -9,6 +9,9 @@ using Pathfinding.Serialization;
 #endif
 
 namespace Pathfinding {
+	/// <summary>
+	/// The astar data class
+	/// </summary>
 	[System.Serializable]
 	/// <summary>
 	/// Stores the navigation graphs for the A* Pathfinding System.
@@ -141,14 +144,25 @@ namespace Pathfinding {
 
 		//End Serialization Settings
 
+		/// <summary>
+		/// The list
+		/// </summary>
 		List<bool> graphStructureLocked = new List<bool>();
 
 		#endregion
 
+		/// <summary>
+		/// Gets the data
+		/// </summary>
+		/// <returns>The data</returns>
 		public byte[] GetData () {
 			return data;
 		}
 
+		/// <summary>
+		/// Sets the data using the specified data
+		/// </summary>
+		/// <param name="data">The data</param>
 		public void SetData (byte[] data) {
 			this.data = data;
 		}
@@ -185,6 +199,13 @@ namespace Pathfinding {
 			graphStructureLocked.RemoveAt(graphStructureLocked.Count - 1);
 		}
 
+		/// <summary>
+		/// Asserts the safe using the specified only adding graph
+		/// </summary>
+		/// <param name="onlyAddingGraph">The only adding graph</param>
+		/// <exception cref="System.InvalidOperationException">Graphs cannot be added, removed or serialized while the graph structure is locked. This is the case when a graph is currently being scanned and when executing graph updates and work items.
+		///However as a special case, graphs can be added inside work items.</exception>
+		/// <returns>The graph lock</returns>
 		PathProcessor.GraphUpdateLock AssertSafe (bool onlyAddingGraph = false) {
 			if (graphStructureLocked.Count > 0) {
 				bool allowAdding = true;
@@ -321,6 +342,9 @@ namespace Pathfinding {
 			UpdateShortcuts();
 		}
 
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		public void OnDestroy () {
 			ClearGraphs();
 		}

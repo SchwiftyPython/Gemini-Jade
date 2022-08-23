@@ -18,6 +18,9 @@ namespace Pathfinding {
 		/// <summary>Contains info on which SingleNodeBlocker objects have blocked a particular node</summary>
 		Dictionary<GraphNode, List<SingleNodeBlocker> > blocked = new Dictionary<GraphNode, List<SingleNodeBlocker> >();
 
+		/// <summary>
+		/// The block mode enum
+		/// </summary>
 		public enum BlockMode {
 			/// <summary>All blockers except those in the TraversalProvider.selector list will block</summary>
 			AllExceptSelector,
@@ -43,6 +46,14 @@ namespace Pathfinding {
 			/// </summary>
 			readonly List<SingleNodeBlocker> selector;
 
+			/// <summary>
+			/// Initializes a new instance of the <see cref="TraversalProvider"/> class
+			/// </summary>
+			/// <param name="blockManager">The block manager</param>
+			/// <param name="mode">The mode</param>
+			/// <param name="selector">The selector</param>
+			/// <exception cref="System.ArgumentNullException">blockManager</exception>
+			/// <exception cref="System.ArgumentNullException">selector</exception>
 			public TraversalProvider (BlockManager blockManager, BlockMode mode, List<SingleNodeBlocker> selector) {
 				if (blockManager == null) throw new System.ArgumentNullException("blockManager");
 				if (selector == null) throw new System.ArgumentNullException("selector");
@@ -54,6 +65,12 @@ namespace Pathfinding {
 
 			#region ITraversalProvider implementation
 
+			/// <summary>
+			/// Describes whether this instance can traverse
+			/// </summary>
+			/// <param name="path">The path</param>
+			/// <param name="node">The node</param>
+			/// <returns>The bool</returns>
 			public bool CanTraverse (Path path, GraphNode node) {
 				// This first IF is the default implementation that is used when no traversal provider is used
 				if (!node.Walkable || (path.enabledTags >> (int)node.Tag & 0x1) == 0) {
@@ -66,6 +83,12 @@ namespace Pathfinding {
 				}
 			}
 
+			/// <summary>
+			/// Gets the traversal cost using the specified path
+			/// </summary>
+			/// <param name="path">The path</param>
+			/// <param name="node">The node</param>
+			/// <returns>The uint</returns>
 			public uint GetTraversalCost (Path path, GraphNode node) {
 				// Same as default implementation
 				return path.GetTagPenalty((int)node.Tag) + node.Penalty;
@@ -74,6 +97,10 @@ namespace Pathfinding {
 			#endregion
 		}
 
+		/// <summary>
+		/// Starts this instance
+		/// </summary>
+		/// <exception cref="System.Exception">No AstarPath object in the scene</exception>
 		void Start () {
 			if (!AstarPath.active)
 				throw new System.Exception("No AstarPath object in the scene");

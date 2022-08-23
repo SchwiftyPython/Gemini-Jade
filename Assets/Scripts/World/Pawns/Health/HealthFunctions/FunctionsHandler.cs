@@ -7,18 +7,39 @@ using World.Pawns.Health.HealthModifiers;
 
 namespace World.Pawns.Health.HealthFunctions
 {
+    /// <summary>
+    /// The functions handler class
+    /// </summary>
     public class FunctionsHandler
     {
+        /// <summary>
+        /// The function level class
+        /// </summary>
         private class FunctionLevel
         {
+            /// <summary>
+            /// The dirty
+            /// </summary>
             public bool dirty;
+            /// <summary>
+            /// The value
+            /// </summary>
             public float value;
         }
     
+        /// <summary>
+        /// The pawn
+        /// </summary>
         private Pawn _pawn;
 
+        /// <summary>
+        /// The function levels
+        /// </summary>
         private Dictionary<HealthFunctionTemplate, FunctionLevel> _functionLevels;
 
+        /// <summary>
+        /// Gets the value of the can wake up
+        /// </summary>
         public bool CanWakeUp
         {
             get
@@ -29,6 +50,10 @@ namespace World.Pawns.Health.HealthFunctions
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FunctionsHandler"/> class
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
         public FunctionsHandler(Pawn pawn)
         {
             _pawn = pawn;
@@ -38,11 +63,20 @@ namespace World.Pawns.Health.HealthFunctions
             HealthDebug.OnBodyChanged += HealthDebug_OnBodyChanged;
         }
 
+        /// <summary>
+        /// Clears this instance
+        /// </summary>
         public void Clear()
         {
             _functionLevels = null;
         }
 
+        /// <summary>
+        /// Gets the level using the specified function
+        /// </summary>
+        /// <param name="function">The function</param>
+        /// <param name="healthMods">The health mods</param>
+        /// <returns>The float</returns>
         public float GetLevel(HealthFunctionTemplate function, List<HealthMod> healthMods)
         {
             //todo throw exception if pawn is null somehow
@@ -69,6 +103,10 @@ namespace World.Pawns.Health.HealthFunctions
             return _functionLevels[function].value;
         }
 
+        /// <summary>
+        /// Gets the function levels
+        /// </summary>
+        /// <returns>The levels</returns>
         public Dictionary<HealthFunctionTemplate, float> GetFunctionLevels()
         {
             var levels = new Dictionary<HealthFunctionTemplate, float>();
@@ -81,11 +119,19 @@ namespace World.Pawns.Health.HealthFunctions
             return levels;
         }
 
+        /// <summary>
+        /// Describes whether this instance capable of
+        /// </summary>
+        /// <param name="function">The function</param>
+        /// <returns>The bool</returns>
         public bool CapableOf(HealthFunctionTemplate function)
         {
             return GetLevel(function, _pawn.health.GetHealthMods()) > function.functionalMin;
         }
 
+        /// <summary>
+        /// Initializes the function levels
+        /// </summary>
         private void InitializeFunctionLevels()
         {
             _functionLevels = new Dictionary<HealthFunctionTemplate, FunctionLevel>();
@@ -119,6 +165,9 @@ namespace World.Pawns.Health.HealthFunctions
             }
         }
 
+        /// <summary>
+        /// Updates the function levels
+        /// </summary>
         private void UpdateFunctionLevels()
         {
             if (_functionLevels == null)
@@ -143,6 +192,9 @@ namespace World.Pawns.Health.HealthFunctions
             }
         }
         
+        /// <summary>
+        /// Healths the debug on body changed
+        /// </summary>
         private void HealthDebug_OnBodyChanged()
         {
             foreach (var healthFunction in _functionLevels.Keys.ToArray())

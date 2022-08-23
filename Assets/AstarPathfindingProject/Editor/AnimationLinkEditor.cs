@@ -3,8 +3,15 @@ using UnityEditor;
 using System.Collections.Generic;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The animation link editor class
+	/// </summary>
+	/// <seealso cref="Editor"/>
 	[CustomEditor(typeof(AnimationLink))]
 	public class AnimationLinkEditor : Editor {
+		/// <summary>
+		/// Ons the inspector gui
+		/// </summary>
 		public override void OnInspectorGUI () {
 			DrawDefaultInspector();
 

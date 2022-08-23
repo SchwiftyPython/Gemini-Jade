@@ -7,8 +7,18 @@ using World.Pawns.Health.HealthModifiers;
 
 namespace World.Pawns.Health.HealthFunctions.Workers
 {
+    /// <summary>
+    /// The moving worker class
+    /// </summary>
+    /// <seealso cref="HealthFunctionWorker"/>
     public class MovingWorker : HealthFunctionWorker
     {
+        /// <summary>
+        /// Calculates the function level using the specified pawn
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
+        /// <param name="healthMods">The health mods</param>
+        /// <returns>The float</returns>
         public override float CalculateFunctionLevel(Pawn pawn, List<HealthMod> healthMods)
         {
             var tagRepo = Object.FindObjectOfType<BodyPartTagRepo>();
@@ -36,6 +46,11 @@ namespace World.Pawns.Health.HealthFunctions.Workers
             return functionLevel * Mathf.Min(CalculateFunction(pawn, functionRepo.consciousness), 1f);
         }
 
+        /// <summary>
+        /// Describes whether this instance can have function
+        /// </summary>
+        /// <param name="body">The body</param>
+        /// <returns>The bool</returns>
         public override bool CanHaveFunction(BodyTemplate body)
         {
             var tagRepo = Object.FindObjectOfType<BodyPartTagRepo>();

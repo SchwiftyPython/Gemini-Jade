@@ -3,7 +3,15 @@ using UnityEditor;
 using System.Linq;
 
 namespace Pathfinding.Legacy {
+	/// <summary>
+	/// The legacy editor helper class
+	/// </summary>
 	public static class LegacyEditorHelper {
+		/// <summary>
+		/// Upgrades the dialog using the specified targets
+		/// </summary>
+		/// <param name="targets">The targets</param>
+		/// <param name="upgradeType">The upgrade type</param>
 		public static void UpgradeDialog (Object[] targets, System.Type upgradeType) {
 			EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 			var gui = EditorGUIUtility.IconContent("console.warnicon");

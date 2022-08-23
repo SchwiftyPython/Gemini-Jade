@@ -14,20 +14,41 @@ using Object = UnityEngine.Object;
 
 namespace World.Pawns.Health
 {
+    /// <summary>
+    /// The health mod collection class
+    /// </summary>
     public class HealthModCollection
     {
+        /// <summary>
+        /// The pawn
+        /// </summary>
         public Pawn pawn;
 
+        /// <summary>
+        /// The health mods
+        /// </summary>
         public List<HealthMod> healthMods;
         
         //there are some caches and other collections here. Might be needed.
 
+        /// <summary>
+        /// Gets the value of the total pain
+        /// </summary>
         public float TotalPain => CalculatePain();
 
+        /// <summary>
+        /// Gets the value of the total bleed rate
+        /// </summary>
         public float TotalBleedRate => CalculateBleedRate();
 
+        /// <summary>
+        /// Gets the value of the hunger rate modifier
+        /// </summary>
         public float HungerRateModifier => GetHungerRateModifier();
 
+        /// <summary>
+        /// Gets the value of the rest modifier
+        /// </summary>
         public float RestModifier
         {
             get
@@ -62,6 +83,10 @@ namespace World.Pawns.Health
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HealthModCollection"/> class
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
         public HealthModCollection(Pawn pawn)
         {
             this.pawn = pawn;
@@ -69,6 +94,11 @@ namespace World.Pawns.Health
             healthMods = new List<HealthMod>();
         }
 
+        /// <summary>
+        /// Adds the health mod using the specified health mod to add
+        /// </summary>
+        /// <param name="healthModToAdd">The health mod to add</param>
+        /// <param name="bodyPart">The body part</param>
         public void AddHealthMod(HealthMod healthModToAdd, BodyPart bodyPart = null)
         {
             //todo there's a lot going on here. Add additional stuff as needed.
@@ -127,6 +157,10 @@ namespace World.Pawns.Health
             //todo notify apparel of lost body part if applicable
         }
 
+        /// <summary>
+        /// Removes the health mod using the specified health mod to remove
+        /// </summary>
+        /// <param name="healthModToRemove">The health mod to remove</param>
         public void RemoveHealthMod(HealthMod healthModToRemove)
         {
             if (!HasHealthMod(healthModToRemove.template))
@@ -139,22 +173,43 @@ namespace World.Pawns.Health
             healthModToRemove.PostRemove();
         }
 
+        /// <summary>
+        /// Gets the number of using the specified template
+        /// </summary>
+        /// <param name="template">The template</param>
+        /// <returns>The int</returns>
         public int GetNumberOf(HealthModTemplate template)
         {
             return healthMods.ToArray().Count(healthMod => healthMod.template == template);
         }
         
+        /// <summary>
+        /// Gets the first health mod of using the specified health mod template
+        /// </summary>
+        /// <param name="healthModTemplate">The health mod template</param>
+        /// <param name="mustBeVisible">The must be visible</param>
+        /// <returns>The health mod</returns>
         public HealthMod GetFirstHealthModOf(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
         {
             return healthMods.ToArray().FirstOrDefault(healthMod =>
                 healthMod.template == healthModTemplate && (!mustBeVisible || healthMod.visible));
         }
 
+        /// <summary>
+        /// Describes whether this instance body part is missing
+        /// </summary>
+        /// <param name="part">The part</param>
+        /// <returns>The bool</returns>
         public bool BodyPartIsMissing(BodyPart part)
         {
             return healthMods.ToArray().Any(healthMod => healthMod.Part == part && healthMod is MissingBodyPart);
         }
 
+        /// <summary>
+        /// Gets the body part health using the specified part
+        /// </summary>
+        /// <param name="part">The part</param>
+        /// <returns>The float</returns>
         public float GetBodyPartHealth(BodyPart part)
         {
             if (part == null)
@@ -179,6 +234,13 @@ namespace World.Pawns.Health
             return Mathf.RoundToInt(partHealth);
         }
         
+        /// <summary>
+        /// Describes whether this instance has health mod
+        /// </summary>
+        /// <param name="healthModTemplate">The health mod template</param>
+        /// <param name="bodyPart">The body part</param>
+        /// <param name="mustBeVisible">The must be visible</param>
+        /// <returns>The bool</returns>
         public bool HasHealthMod(HealthModTemplate healthModTemplate, BodyPart bodyPart, bool mustBeVisible = false)
         {
             foreach (var healthMod in healthMods)
@@ -202,6 +264,12 @@ namespace World.Pawns.Health
             return false;
         }
         
+        /// <summary>
+        /// Describes whether this instance has health mod
+        /// </summary>
+        /// <param name="healthModTemplate">The health mod template</param>
+        /// <param name="mustBeVisible">The must be visible</param>
+        /// <returns>The bool</returns>
         public bool HasHealthMod(HealthModTemplate healthModTemplate, bool mustBeVisible = false)
         {
             foreach (var healthMod in healthMods)
@@ -220,17 +288,30 @@ namespace World.Pawns.Health
             return false;
         }
 
+        /// <summary>
+        /// Gets the tendable health mods
+        /// </summary>
+        /// <returns>A list of health mod</returns>
         public List<HealthMod> GetTendableHealthMods()
         {
             return healthMods.ToArray().Where(healthMod => healthMod.NeedsTending()).ToList();
         }
 
+        /// <summary>
+        /// Describes whether this instance has tendable health mod
+        /// </summary>
+        /// <param name="forAlert">The for alert</param>
+        /// <returns>The bool</returns>
         public bool HasTendableHealthMod(bool forAlert = false)
         {
             return healthMods.ToArray().Any(healthMod =>
                 (!forAlert || healthMod.template.makesAlert) && healthMod.NeedsTending());
         }
 
+        /// <summary>
+        /// Gets the all comps
+        /// </summary>
+        /// <returns>The components</returns>
         public List<HealthModComp> GetAllComps()
         {
             var components = new List<HealthModComp>();
@@ -251,6 +332,10 @@ namespace World.Pawns.Health
             return components;
         }
 
+        /// <summary>
+        /// Gets the tendable injuries
+        /// </summary>
+        /// <returns>The tendable injuries</returns>
         public List<Injury> GetTendableInjuries()
         {
             var tendableInjuries = new List<Injury>();
@@ -266,6 +351,10 @@ namespace World.Pawns.Health
             return tendableInjuries;
         }
         
+        /// <summary>
+        /// Describes whether this instance has tendable injury
+        /// </summary>
+        /// <returns>The bool</returns>
         public bool HasTendableInjury()
         {
             foreach (var healthMod in healthMods)
@@ -279,6 +368,10 @@ namespace World.Pawns.Health
             return false;
         }
         
+        /// <summary>
+        /// Describes whether this instance has naturally healing injury
+        /// </summary>
+        /// <returns>The bool</returns>
         public bool HasNaturallyHealingInjury()
         {
             foreach (var healthMod in healthMods)
@@ -292,6 +385,10 @@ namespace World.Pawns.Health
             return false;
         }
 
+        /// <summary>
+        /// Describes whether this instance has tended and healing injury
+        /// </summary>
+        /// <returns>The bool</returns>
         public bool HasTendedAndHealingInjury()
         {
             foreach (var healthMod in healthMods)
@@ -315,11 +412,19 @@ namespace World.Pawns.Health
         //     todo
         // }
 
+        /// <summary>
+        /// Gets the injured parts
+        /// </summary>
+        /// <returns>An enumerable of body part</returns>
         public IEnumerable<BodyPart> GetInjuredParts()
         {
             return (from hm in healthMods where hm is Injury select hm.Part).Distinct();
         }
 
+        /// <summary>
+        /// Gets the naturally healing injured parts
+        /// </summary>
+        /// <returns>The natural healing parts</returns>
         public IEnumerable<BodyPart> GetNaturallyHealingInjuredParts()
         {
             var naturalHealingParts = new List<BodyPart>();
@@ -353,6 +458,10 @@ namespace World.Pawns.Health
         
         //todo more injury methods
 
+        /// <summary>
+        /// Gets the missing body parts
+        /// </summary>
+        /// <returns>The missing body parts</returns>
         public List<MissingBodyPart> GetMissingBodyParts()
         {
             var missingBodyParts = new List<MissingBodyPart>();
@@ -395,6 +504,10 @@ namespace World.Pawns.Health
             return missingBodyParts;
         }
         
+        /// <summary>
+        /// Gets the existing parts
+        /// </summary>
+        /// <returns>The existing parts</returns>
         public List<BodyPart> GetExistingParts()
         {
             var existingParts = new List<BodyPart>();
@@ -410,6 +523,14 @@ namespace World.Pawns.Health
             return existingParts;
         }
 
+        /// <summary>
+        /// Gets the existing parts using the specified height
+        /// </summary>
+        /// <param name="height">The height</param>
+        /// <param name="depth">The depth</param>
+        /// <param name="tag">The tag</param>
+        /// <param name="parent">The parent</param>
+        /// <returns>The existing parts</returns>
         public List<BodyPart> GetExistingParts(BodyPartHeight height, BodyPartDepth depth,
             BodyPartTagTemplate tag = null, BodyPart parent = null)
         {
@@ -460,6 +581,10 @@ namespace World.Pawns.Health
             return existingParts;
         }
 
+        /// <summary>
+        /// Gets the random existing part
+        /// </summary>
+        /// <returns>The body part</returns>
         public BodyPart GetRandomExistingPart() 
         {
             var existingParts = GetExistingParts();
@@ -467,6 +592,13 @@ namespace World.Pawns.Health
             return !existingParts.Any() ? null : existingParts.RandomElementByWeight(part => part.coverage);
         }
 
+        /// <summary>
+        /// Gets the random existing part using the specified height
+        /// </summary>
+        /// <param name="height">The height</param>
+        /// <param name="depth">The depth</param>
+        /// <param name="parent">The parent</param>
+        /// <returns>The body part</returns>
         public BodyPart GetRandomExistingPart(BodyPartHeight height, BodyPartDepth depth, BodyPart parent = null)
         {
             var existingParts = GetExistingParts(height, depth, null, parent);
@@ -483,6 +615,10 @@ namespace World.Pawns.Health
             return !existingParts.Any() ? null : existingParts.RandomElementByWeight(part => part.coverage);
         }
 
+        /// <summary>
+        /// Gets the tendable non injury non missing health mods
+        /// </summary>
+        /// <returns>The tendable mods</returns>
         public List<HealthMod> GetTendableNonInjuryNonMissingHealthMods()
         {
             var tendableMods = new List<HealthMod>();
@@ -498,6 +634,11 @@ namespace World.Pawns.Health
             return tendableMods;
         }
 
+        /// <summary>
+        /// Describes whether this instance has tendable non injury non missing health mod
+        /// </summary>
+        /// <param name="forAlert">The for alert</param>
+        /// <returns>The bool</returns>
         public bool HasTendableNonInjuryNonMissingHealthMod(bool forAlert = false)
         {
             foreach (var healthMod in healthMods)
@@ -516,6 +657,10 @@ namespace World.Pawns.Health
             return false;
         }
 
+        /// <summary>
+        /// Describes whether this instance has immunizable not immune health mod
+        /// </summary>
+        /// <returns>The bool</returns>
         public bool HasImmunizableNotImmuneHealthMod()
         {
             foreach (var healthMod in healthMods)
@@ -539,6 +684,11 @@ namespace World.Pawns.Health
             return false;
         }
 
+        /// <summary>
+        /// Gets the health mods
+        /// </summary>
+        /// <typeparam name="T">The </typeparam>
+        /// <returns>The filtered mods</returns>
         public List<T> GetHealthMods<T>() where T : HealthMod
         {
             var filteredMods = new List<T>();
@@ -554,11 +704,18 @@ namespace World.Pawns.Health
             return filteredMods;
         }
 
+        /// <summary>
+        /// Clears this instance
+        /// </summary>
         public void Clear()
         {
             healthMods.Clear();
         }
 
+        /// <summary>
+        /// Gets the hunger rate modifier
+        /// </summary>
+        /// <returns>The float</returns>
         private float GetHungerRateModifier()
         {
             var hungerRateModifier = 1f;
@@ -590,6 +747,10 @@ namespace World.Pawns.Health
             return Mathf.Max(hungerRateModifier, 0f);
         }
 
+        /// <summary>
+        /// Calculates the pain
+        /// </summary>
+        /// <returns>The float</returns>
         private float CalculatePain()
         {
             if (!pawn.IsOrganic || pawn.Dead)
@@ -622,6 +783,10 @@ namespace World.Pawns.Health
             return Mathf.Clamp(pain, 0f, 1f);
         }
         
+        /// <summary>
+        /// Calculates the bleed rate
+        /// </summary>
+        /// <returns>The float</returns>
         private float CalculateBleedRate()
         {
             if (!pawn.IsOrganic || pawn.Dead)

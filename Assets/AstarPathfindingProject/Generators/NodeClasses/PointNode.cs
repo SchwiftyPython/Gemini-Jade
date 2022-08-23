@@ -38,10 +38,18 @@ namespace Pathfinding {
 		/// </summary>
 		public GameObject gameObject;
 
+		/// <summary>
+		/// Sets the position using the specified value
+		/// </summary>
+		/// <param name="value">The value</param>
 		public void SetPosition (Int3 value) {
 			position = value;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PointNode"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		public PointNode (AstarPath astar) : base(astar) {
 		}
 
@@ -54,11 +62,19 @@ namespace Pathfinding {
 			return (Vector3)this.position;
 		}
 
+		/// <summary>
+		/// Gets the connections using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetConnections (System.Action<GraphNode> action) {
 			if (connections == null) return;
 			for (int i = 0; i < connections.Length; i++) action(connections[i].node);
 		}
 
+		/// <summary>
+		/// Clears the connections using the specified also reverse
+		/// </summary>
+		/// <param name="alsoReverse">The also reverse</param>
 		public override void ClearConnections (bool alsoReverse) {
 			if (alsoReverse && connections != null) {
 				for (int i = 0; i < connections.Length; i++) {
@@ -70,6 +86,12 @@ namespace Pathfinding {
 			AstarPath.active.hierarchicalGraph.AddDirtyNode(this);
 		}
 
+		/// <summary>
+		/// Updates the recursive g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void UpdateRecursiveG (Path path, PathNode pathNode, PathHandler handler) {
 			pathNode.UpdateG(path);
 
@@ -84,6 +106,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains connection
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <returns>The bool</returns>
 		public override bool ContainsConnection (GraphNode node) {
 			if (connections == null) return false;
 			for (int i = 0; i < connections.Length; i++) if (connections[i].node == node) return true;
@@ -188,6 +215,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Opens the path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void Open (Path path, PathNode pathNode, PathHandler handler) {
 			if (connections == null) return;
 
@@ -222,6 +255,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the gizmo hash code
+		/// </summary>
+		/// <returns>The hash</returns>
 		public override int GetGizmoHashCode () {
 			var hash = base.GetGizmoHashCode();
 
@@ -233,16 +270,28 @@ namespace Pathfinding {
 			return hash;
 		}
 
+		/// <summary>
+		/// Serializes the node using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void SerializeNode (GraphSerializationContext ctx) {
 			base.SerializeNode(ctx);
 			ctx.SerializeInt3(position);
 		}
 
+		/// <summary>
+		/// Deserializes the node using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void DeserializeNode (GraphSerializationContext ctx) {
 			base.DeserializeNode(ctx);
 			position = ctx.DeserializeInt3();
 		}
 
+		/// <summary>
+		/// Serializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void SerializeReferences (GraphSerializationContext ctx) {
 			if (connections == null) {
 				ctx.writer.Write(-1);
@@ -255,6 +304,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void DeserializeReferences (GraphSerializationContext ctx) {
 			int count = ctx.reader.ReadInt32();
 

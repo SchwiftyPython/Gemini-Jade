@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+tK0J2EWgIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtv2zAM/iuBzuvgvJB2ty1N0x3aBs2GXnxRLDoWIkuGHk3SIv99pGzHroGdwnz8SH58yJ9MaldB5o1dWymejAD2Y8TIZt9GnfMRTnxv9FZ+QMt5k8IXROKR88q9NIiPKcyZEryV2U+9V0ROEAxa5saWK7GHpXHeIZxz5QBd1niK1gh9jtgJf27uKOSM1mRB1gdad8nogmYG2oPtqJN5y5w3xOT7ODKDzhQvKxAkuwuYt6nndUKNDTUMEp8ZpaRr1DB/rmK3r/xMvQrJsbNYnrgFyH3hqXY/8CXPHfimbcvP99LigOqM7Jepp1Zyd6g1vXMVqMZNrbrO+fQ/d25N+diWHSdUwhcyO6DAjDvfm2ofvv+qO+gjVwe+U/BWgH42a2uCFuj0NlBocDC57/5eO1sWkB06vJY6AEPVjbqddLtC6uESmz8tlSx3cVmzGtgqE0cdNw8Wl/IbBce7cE0KREnFXwd/+L5/QI3jQVrn0dV0qUnezgRLVLaKM6Nugl8aqyHCjegKNFf+vME0frjBga9XduB54PRUmuKNr30Bg5AId/wkGbg25nhdlivM8Qlc8RK8krqfjDzPOKil0bq+MDfwUtw22Jxn/bh9kOLrcbHdJJlOpkmWzOacw+3kZsF3WT5fjBN+OxNimrN4fVJjp1xtaqnNgHBvuhulxktrvyGjteVVPHdh+XEtP0rTG7rUudlmFkC/1BmuysFiEXySYiUkjmgL3ksdN84+U6ZMdgCRXhOlsdXVyVuedllSVsl34wlJ2TJ+NFJG8PWaNxbeJRypeJvswi7/AFBLAwQUAAAICAAAmJ/raLtMKG0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UpKRgbGRsUGygYlpYmKqhZGueWJScpqpuaFBooVJSopxmlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAmJ/rStCdhFoCAAATBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/raLtMKG0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
+    dataString: UEsDBBQAAAgIAACYn+uY189mbgIAADAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoWR+RhDby0Q0kMSJrSTiy/CWmMNsuSR5ADJ8N+rlW3s0okvlvfj7Xu7K38SoWwJqdNmYwR/0hzI9wHBM/k26JyPcGYHrXbiA9qYN8FdjkEsxLwyJ7S3R5hmdQHOiPSHOkgMpt5YKZFpU6z5AZbaOuvNGZMWvMtoh9nKmz4H5NwkXPx7HOPpw58WdHD1xxSUA9MFjqejWRtbHzF4SEd04Z9pFJIqlUpWlMCRf5c7a6vMamzllTURqCLVUgrb0CLuUgbZuzIHA6ibC+ZVBjJ0tMDSOYhD7pBKP/0lyyy4RpRhl5Uwvl81Lvmp6yYWzB5rZu9MVlhpWHOvMZ++cmdGF49t2YhiCZeL9PjKLimzrtfkvnnVUY9Cf05MHtlewlsO6llvjK4U905nKkytLIxX3edN2TKH9NjZa6p3xqr8f6rRKJ7Po8kijtdDGrcz84KuoRPnpRTFPrR1Wht2UofuLxABjJ/TL88+7IxtcL0VKf2x8Jsd+svVOB6Esc67GskKue51ZTCUrEMDUVrlltooMH2EEhST7rL1OO5+nne+r7MeGN6jpnrja6/HXUowd/GU3rm2+nQbnc316Qls/lI5KVQfDD3PvlNLrVS9b/bOi3m7ymQs7ecdKsH/XTWyH9PJeEJTOp0xBvPxMGb7NJvFEWXzKeeTjIRdFMorZXJbU20a5Aenum1Qfu/aH8xgY1gZlp8bdtqIj0LbLlKoTO9SA6BeaoQbczC+iL+mfM2Fb9EOnBMqjJx8JkTq9Ag8uQElQer67AxLOpSElOJdO7QkZBn+KQlB8223twbeBZyweAt2Jde/UEsDBBQAAAgIAACYn+tou0wobQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSkpGBsZGxQbKBiWliYqqFka55YlJymqm5oUGihUlKinGaUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+uY189mbgIAADAFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+tou0wobQAAAHgAAAAJACQAAAAAAAAAAAAAALsCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAcwMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -182,7 +182,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -1416,6 +1416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -1432,6 +1433,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &1108667858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +1966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humanTemplate: {fileID: 11400000, guid: b5321f236285ad4478548e1b1307d231, type: 2}
+  skills:
+  - {fileID: 11400000, guid: 477d27391c938c54795aca143920eead, type: 2}
 --- !u!1 &1737449127
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,23 @@ using World.Things.CraftableThings;
 
 namespace UI.Grid
 {
+    /// <summary>
+    /// The select grid object button class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     [RequireComponent(typeof(Button))]
     public class SelectGridObjectButton : MonoBehaviour
     {
         public static event System.Action<PlacedObjectTemplate> OnObjectSelected;
         
+        /// <summary>
+        /// The placed object type
+        /// </summary>
         [SerializeField] private PlacedObjectTemplate placedObjectType;
 
+        /// <summary>
+        /// Starts this instance
+        /// </summary>
         private void Start()
         {
             var button = GetComponent<Button>();
@@ -27,6 +37,9 @@ namespace UI.Grid
             }
         }
         
+        /// <summary>
+        /// Handles the button clicked
+        /// </summary>
         private void HandleButtonClicked()
         {
             OnObjectSelected?.Invoke(placedObjectType);

@@ -21,9 +21,18 @@ namespace Pathfinding {
 		public const int TileIndexOffset = 20;
 #else
 		// Larger worlds
+		/// <summary>
+		/// The vertex index mask
+		/// </summary>
 		public const int VertexIndexMask = 0xFFF;
 
+		/// <summary>
+		/// The tile index mask
+		/// </summary>
 		public const int TileIndexMask = 0x7FFFF;
+		/// <summary>
+		/// The tile index offset
+		/// </summary>
 		public const int TileIndexOffset = 12;
 #endif
 
@@ -110,6 +119,9 @@ namespace Pathfinding {
 		/// </summary>
 		public GraphTransform transform = new GraphTransform(Matrix4x4.identity);
 
+		/// <summary>
+		/// Gets the value of the transform
+		/// </summary>
 		GraphTransform ITransformedGraph.transform { get { return transform; } }
 
 		/// <summary>\copydoc Pathfinding::NavMeshGraph::recalculateNormals</summary>
@@ -180,6 +192,11 @@ namespace Pathfinding {
 			return (index >> TileIndexOffset) & TileIndexMask;
 		}
 
+		/// <summary>
+		/// Gets the vertex array index using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <returns>The int</returns>
 		public int GetVertexArrayIndex (int index) {
 			return index & VertexIndexMask;
 		}
@@ -215,6 +232,11 @@ namespace Pathfinding {
 			return transform.Transform(GetTileBoundsInGraphSpace(x, z, width, depth));
 		}
 
+		/// <summary>
+		/// Gets the tile bounds in graph space using the specified rect
+		/// </summary>
+		/// <param name="rect">The rect</param>
+		/// <returns>The bounds</returns>
 		public Bounds GetTileBoundsInGraphSpace (IntRect rect) {
 			return GetTileBoundsInGraphSpace(rect.xmin, rect.ymin, rect.Width, rect.Height);
 		}
@@ -241,6 +263,9 @@ namespace Pathfinding {
 			return new Int2((int)position.x, (int)position.z);
 		}
 
+		/// <summary>
+		/// Ons the destroy
+		/// </summary>
 		protected override void OnDestroy () {
 			base.OnDestroy();
 
@@ -254,6 +279,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Relocates the nodes using the specified delta matrix
+		/// </summary>
+		/// <param name="deltaMatrix">The delta matrix</param>
 		public override void RelocateNodes (Matrix4x4 deltaMatrix) {
 			RelocateNodes(deltaMatrix * transform);
 		}
@@ -315,6 +344,10 @@ namespace Pathfinding {
 			};
 		}
 
+		/// <summary>
+		/// Gets the nodes using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetNodes (System.Action<GraphNode> action) {
 			if (tiles == null) return;
 
@@ -368,6 +401,12 @@ namespace Pathfinding {
 			return r;
 		}
 
+		/// <summary>
+		/// Connects the tile with neighbours using the specified tile
+		/// </summary>
+		/// <param name="tile">The tile</param>
+		/// <param name="onlyUnflagged">The only unflagged</param>
+		/// <exception cref="System.ArgumentException">Tile widths or depths other than 1 are not supported. The fields exist mainly for possible future expansions.</exception>
 		protected void ConnectTileWithNeighbours (NavmeshTile tile, bool onlyUnflagged = false) {
 			if (tile.w != 1 || tile.d != 1) {
 				throw new System.ArgumentException("Tile widths or depths other than 1 are not supported. The fields exist mainly for possible future expansions.");
@@ -396,6 +435,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Removes the connections from tile using the specified tile
+		/// </summary>
+		/// <param name="tile">The tile</param>
 		protected void RemoveConnectionsFromTile (NavmeshTile tile) {
 			if (tile.x > 0) {
 				int x = tile.x-1;
@@ -415,6 +458,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Removes the connections from to using the specified a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
 		protected void RemoveConnectionsFromTo (NavmeshTile a, NavmeshTile b) {
 			if (a == null || b == null) return;
 			//Same tile, possibly from a large tile (one spanning several x,z tile coordinates)
@@ -446,12 +494,28 @@ namespace Pathfinding {
 		}
 
 
+		/// <summary>
+		/// The distance xz
+		/// </summary>
 		static readonly NNConstraint NNConstraintDistanceXZ = new NNConstraint { distanceXZ = true };
 
+		/// <summary>
+		/// Gets the nearest using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="hint">The hint</param>
+		/// <returns>The nn info internal</returns>
 		public override NNInfoInternal GetNearest (Vector3 position, NNConstraint constraint, GraphNode hint) {
 			return GetNearestForce(position, constraint != null && constraint.distanceXZ ? NNConstraintDistanceXZ : null);
 		}
 
+		/// <summary>
+		/// Gets the nearest force using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <returns>The best</returns>
 		public override NNInfoInternal GetNearestForce (Vector3 position, NNConstraint constraint) {
 			if (tiles == null) return new NNInfoInternal();
 
@@ -791,6 +855,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Tries the connect using the specified tile idx 1
+		/// </summary>
+		/// <param name="tileIdx1">The tile idx</param>
+		/// <param name="tileIdx2">The tile idx</param>
 		void TryConnect (int tileIdx1, int tileIdx2) {
 			// If both tiles were flagged, then only connect if tileIdx1 < tileIdx2 to make sure we don't connect the tiles twice
 			// as this method will be called with swapped arguments as well.
@@ -994,6 +1063,14 @@ namespace Pathfinding {
 			Profiler.EndSample();
 		}
 
+		/// <summary>
+		/// Creates the nodes using the specified buffer
+		/// </summary>
+		/// <param name="buffer">The buffer</param>
+		/// <param name="tris">The tris</param>
+		/// <param name="tileIndex">The tile index</param>
+		/// <param name="graphIndex">The graph index</param>
+		/// <exception cref="System.ArgumentException">buffer must be non null and at least as large as tris.Length/3</exception>
 		protected void CreateNodes (TriangleMeshNode[] buffer, int[] tris, int tileIndex, uint graphIndex) {
 			if (buffer == null || buffer.Length < tris.Length/3) throw new System.ArgumentException("buffer must be non null and at least as large as tris.Length/3");
 			// This index will be ORed to the triangle indices
@@ -1027,11 +1104,19 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NavmeshBase"/> class
+		/// </summary>
 		public NavmeshBase () {
 			navmeshUpdateData = new NavmeshUpdates.NavmeshUpdateSettings(this);
 		}
 
 
+		/// <summary>
+		/// Ons the draw gizmos using the specified gizmos
+		/// </summary>
+		/// <param name="gizmos">The gizmos</param>
+		/// <param name="drawNodes">The draw nodes</param>
 		public override void OnDrawGizmos (Pathfinding.Util.RetainedGizmos gizmos, bool drawNodes) {
 			if (!drawNodes) {
 				return;
@@ -1251,6 +1336,14 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
+		/// <exception cref="System.Exception"></exception>
+		/// <exception cref="System.Exception">Corrupt data. Array lengths did not match</exception>
+		/// <exception cref="System.Exception">Invalid tile coordinates (x &lt; 0)</exception>
+		/// <exception cref="System.Exception">Invalid tile coordinates (z &lt; 0)</exception>
 		protected override void DeserializeExtraInfo (GraphSerializationContext ctx) {
 			BinaryReader reader = ctx.reader;
 
@@ -1338,6 +1431,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Posts the deserialization using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void PostDeserialization (GraphSerializationContext ctx) {
 			// Compatibility
 			if (ctx.meta.version < AstarSerializer.V4_1_0 && tiles != null) {

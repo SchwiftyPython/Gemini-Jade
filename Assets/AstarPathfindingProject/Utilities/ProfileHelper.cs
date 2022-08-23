@@ -8,31 +8,71 @@ using System;
 using System.Collections.Generic;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The profile class
+	/// </summary>
 	public class Profile {
+		/// <summary>
+		/// The profile mem
+		/// </summary>
 		const bool PROFILE_MEM = false;
 
+		/// <summary>
+		/// The name
+		/// </summary>
 		public readonly string name;
+		/// <summary>
+		/// The watch
+		/// </summary>
 		readonly System.Diagnostics.Stopwatch watch;
+		/// <summary>
+		/// The counter
+		/// </summary>
 		int counter;
+		/// <summary>
+		/// The mem
+		/// </summary>
 		long mem;
+		/// <summary>
+		/// The smem
+		/// </summary>
 		long smem;
 
 #if KEEP_SAMPLES
 		List<float> samples = new List<float>();
 #endif
 
+		/// <summary>
+		/// The control
+		/// </summary>
 		int control = 1 << 30;
+		/// <summary>
+		/// The dont count first
+		/// </summary>
 		const bool dontCountFirst = false;
 
+		/// <summary>
+		/// Controls the value
+		/// </summary>
+		/// <returns>The control</returns>
 		public int ControlValue () {
 			return control;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Profile"/> class
+		/// </summary>
+		/// <param name="name">The name</param>
 		public Profile (string name) {
 			this.name = name;
 			watch = new System.Diagnostics.Stopwatch();
 		}
 
+		/// <summary>
+		/// Writes the csv using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="profiles">The profiles</param>
 		public static void WriteCSV (string path, params Profile[] profiles) {
 #if KEEP_SAMPLES
 			var s = new System.Text.StringBuilder();
@@ -46,12 +86,19 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Runs the action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public void Run (System.Action action) {
 			Start();
 			action();
 			Stop();
 		}
 
+		/// <summary>
+		/// Starts this instance
+		/// </summary>
 		[System.Diagnostics.ConditionalAttribute("PROFILE")]
 		public void Start () {
 			if (PROFILE_MEM) {
@@ -61,6 +108,9 @@ namespace Pathfinding {
 			watch.Start();
 		}
 
+		/// <summary>
+		/// Stops this instance
+		/// </summary>
 		[System.Diagnostics.ConditionalAttribute("PROFILE")]
 		public void Stop () {
 			counter++;
@@ -76,12 +126,18 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Logs this instance
+		/// </summary>
 		[System.Diagnostics.ConditionalAttribute("PROFILE")]
 		/// <summary>Log using Debug.Log</summary>
 		public void Log () {
 			UnityEngine.Debug.Log(ToString());
 		}
 
+		/// <summary>
+		/// Consoles the log
+		/// </summary>
 		[System.Diagnostics.ConditionalAttribute("PROFILE")]
 		/// <summary>Log using System.Console</summary>
 		public void ConsoleLog () {
@@ -90,6 +146,11 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Stops the control
+		/// </summary>
+		/// <param name="control">The control</param>
+		/// <exception cref="Exception"></exception>
 		[System.Diagnostics.ConditionalAttribute("PROFILE")]
 		public void Stop (int control) {
 			counter++;
@@ -104,6 +165,11 @@ namespace Pathfinding {
 			else if (this.control != control) throw new Exception("Control numbers do not match " + this.control + " != " + control);
 		}
 
+		/// <summary>
+		/// Controls the other
+		/// </summary>
+		/// <param name="other">The other</param>
+		/// <exception cref="Exception"></exception>
 		[System.Diagnostics.ConditionalAttribute("PROFILE")]
 		public void Control (Profile other) {
 			if (ControlValue() != other.ControlValue()) {
@@ -111,6 +177,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Returns the string
+		/// </summary>
+		/// <returns>The </returns>
 		public override string ToString () {
 			string s = name + " #" + counter + " " + watch.Elapsed.TotalMilliseconds.ToString("0.0 ms") + " avg: " + (watch.Elapsed.TotalMilliseconds/counter).ToString("0.00 ms");
 

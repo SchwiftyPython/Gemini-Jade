@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using Pathfinding.Util;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The simple smooth modifier class
+	/// </summary>
+	/// <seealso cref="MonoModifier"/>
 	[AddComponentMenu("Pathfinding/Modifiers/Simple Smooth")]
 	[System.Serializable]
 	[RequireComponent(typeof(Seeker))]
@@ -40,6 +44,9 @@ namespace Pathfinding {
 		}
 #endif
 
+		/// <summary>
+		/// Gets the value of the order
+		/// </summary>
 		public override int Order { get { return 50; } }
 
 		/// <summary>Type of smoothing to use</summary>
@@ -84,13 +91,32 @@ namespace Pathfinding {
 		[Tooltip("How much to smooth the path. A higher value will give a smoother path, but might take the character far off the optimal path.")]
 		public float factor = 0.1F;
 
+		/// <summary>
+		/// The smooth type enum
+		/// </summary>
 		public enum SmoothType {
+			/// <summary>
+			/// The simple smooth type
+			/// </summary>
 			Simple,
+			/// <summary>
+			/// The bezier smooth type
+			/// </summary>
 			Bezier,
+			/// <summary>
+			/// The offset simple smooth type
+			/// </summary>
 			OffsetSimple,
+			/// <summary>
+			/// The curved nonuniform smooth type
+			/// </summary>
 			CurvedNonuniform
 		}
 
+		/// <summary>
+		/// Applies the p
+		/// </summary>
+		/// <param name="p">The </param>
 		public override void Apply (Path p) {
 			// This should never trigger unless some other modifier has messed stuff up
 			if (p.vectorPath == null) {
@@ -117,6 +143,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Curveds the nonuniform using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The subdivided</returns>
 		public List<Vector3> CurvedNonuniform (List<Vector3> path) {
 			if (maxSegmentLength <= 0) {
 				Debug.LogWarning("Max Segment Length is <= 0 which would cause DivByZero-exception or other nasty errors (avoid this)");
@@ -168,6 +199,15 @@ namespace Pathfinding {
 			return subdivided;
 		}
 
+		/// <summary>
+		/// Gets the point on cubic using the specified a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <param name="tan1">The tan</param>
+		/// <param name="tan2">The tan</param>
+		/// <param name="t">The </param>
+		/// <returns>The vector</returns>
 		public static Vector3 GetPointOnCubic (Vector3 a, Vector3 b, Vector3 tan1, Vector3 tan2, float t) {
 			float t2 = t*t, t3 = t2*t;
 
@@ -182,6 +222,11 @@ namespace Pathfinding {
 				   h4*tan2;
 		}
 
+		/// <summary>
+		/// Smooths the offset simple using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The subdivided</returns>
 		public List<Vector3> SmoothOffsetSimple (List<Vector3> path) {
 			if (path.Count <= 2 || iterations <= 0) {
 				return path;
@@ -254,6 +299,11 @@ namespace Pathfinding {
 			return subdivided;
 		}
 
+		/// <summary>
+		/// Smooths the simple using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The subdivided</returns>
 		public List<Vector3> SmoothSimple (List<Vector3> path) {
 			if (path.Count < 2) return path;
 
@@ -323,6 +373,11 @@ namespace Pathfinding {
 			return subdivided;
 		}
 
+		/// <summary>
+		/// Smooths the bezier using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <returns>The subdivided</returns>
 		public List<Vector3> SmoothBezier (List<Vector3> path) {
 			if (subdivisions < 0) subdivisions = 0;
 

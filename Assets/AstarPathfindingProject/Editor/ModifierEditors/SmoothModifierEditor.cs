@@ -2,9 +2,16 @@ using UnityEngine;
 using UnityEditor;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The smooth modifier editor class
+	/// </summary>
+	/// <seealso cref="EditorBase"/>
 	[CustomEditor(typeof(SimpleSmoothModifier))]
 	[CanEditMultipleObjects]
 	public class SmoothModifierEditor : EditorBase {
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			var smoothType = FindProperty("smoothType");
 

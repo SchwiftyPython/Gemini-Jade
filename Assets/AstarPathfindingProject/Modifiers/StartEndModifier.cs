@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The start end modifier class
+	/// </summary>
+	/// <seealso cref="PathModifier"/>
 	[System.Serializable]
 	/// <summary>
 	/// Adjusts start and end points of a path.
@@ -16,6 +20,9 @@ namespace Pathfinding {
 	/// \ingroup modifiers
 	/// </summary>
 	public class StartEndModifier : PathModifier {
+		/// <summary>
+		/// Gets the value of the order
+		/// </summary>
 		public override int Order { get { return 0; } }
 
 		/// <summary>
@@ -108,6 +115,9 @@ namespace Pathfinding {
 		/// Version: Since 4.1 this field only has an effect for the <see cref="Exactness"/> mode Original because that's the only one where it makes sense.
 		/// </summary>
 		public bool useRaycasting;
+		/// <summary>
+		/// The mask
+		/// </summary>
 		public LayerMask mask = -1;
 
 		/// <summary>
@@ -118,9 +128,19 @@ namespace Pathfinding {
 		/// </summary>
 		public bool useGraphRaycasting;
 
+		/// <summary>
+		/// The connection buffer
+		/// </summary>
 		List<GraphNode> connectionBuffer;
+		/// <summary>
+		/// The connection buffer add delegate
+		/// </summary>
 		System.Action<GraphNode> connectionBufferAddDelegate;
 
+		/// <summary>
+		/// Applies the  p
+		/// </summary>
+		/// <param name="_p">The </param>
 		public override void Apply (Path _p) {
 			var p = _p as ABPath;
 
@@ -180,6 +200,17 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Snaps the path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="mode">The mode</param>
+		/// <param name="start">The start</param>
+		/// <param name="forceAddPoint">The force add point</param>
+		/// <param name="closestConnectionIndex">The closest connection index</param>
+		/// <exception cref="System.ArgumentException">Cannot reach this point, but the compiler is not smart enough to realize that.</exception>
+		/// <exception cref="System.ArgumentException">Invalid mode</exception>
+		/// <returns>The vector</returns>
 		Vector3 Snap (ABPath path, Exactness mode, bool start, out bool forceAddPoint, out int closestConnectionIndex) {
 			var index = start ? 0 : path.path.Count - 1;
 			var node = path.path[index];
@@ -260,6 +291,13 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the clamped point using the specified from
+		/// </summary>
+		/// <param name="from">The from</param>
+		/// <param name="to">The to</param>
+		/// <param name="hint">The hint</param>
+		/// <returns>The point</returns>
 		protected Vector3 GetClampedPoint (Vector3 from, Vector3 to, GraphNode hint) {
 			Vector3 point = to;
 			RaycastHit hit;

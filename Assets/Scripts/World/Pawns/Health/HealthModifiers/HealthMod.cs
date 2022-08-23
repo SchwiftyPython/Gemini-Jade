@@ -9,34 +9,76 @@ using World.Things;
 
 namespace World.Pawns.Health.HealthModifiers
 {
+    /// <summary>
+    /// The health mod class
+    /// </summary>
     public class HealthMod 
     {
+        /// <summary>
+        /// The health mod adder interval
+        /// </summary>
         private const int HealthModAdderInterval = 1000;
         
+        /// <summary>
+        /// The interval check counter
+        /// </summary>
         private int _intervalCheckCounter;
         
+        /// <summary>
+        /// The health mod comp
+        /// </summary>
         public List<HealthModComp> comps = new List<HealthModComp>();
 
+        /// <summary>
+        /// The template
+        /// </summary>
         public HealthModTemplate template;
 
+        /// <summary>
+        /// The duration ticks
+        /// </summary>
         public int durationTicks; 
 
+        /// <summary>
+        /// The part
+        /// </summary>
         private BodyPart _part; 
 
+        /// <summary>
+        /// The source
+        /// </summary>
         private ThingTemplate _source; //source of health mod like Assault Rifle
 
+        /// <summary>
+        /// The severity
+        /// </summary>
         private float _severity;
 
+        /// <summary>
+        /// The painless
+        /// </summary>
         public bool painless;
 
+        /// <summary>
+        /// The visible
+        /// </summary>
         public bool visible;
 
+        /// <summary>
+        /// The pawn
+        /// </summary>
         public Pawn pawn;
 
         //todo need to look at all that stage label stuff
 
+        /// <summary>
+        /// Gets the value of the label base
+        /// </summary>
         public virtual string LabelBase => template.label.CapitalizeFirst();
 
+        /// <summary>
+        /// Gets the value of the severity label
+        /// </summary>
         public virtual string SeverityLabel
         {
             get
@@ -49,6 +91,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the current stage
+        /// </summary>
         public virtual HealthModStage CurrentStage
         {
             get
@@ -62,6 +107,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the current stage index
+        /// </summary>
         public virtual int CurrentStageIndex
         {
             get
@@ -87,6 +135,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets or sets the value of the severity
+        /// </summary>
         public virtual float Severity
         {
             get => _severity;
@@ -119,6 +170,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the should remove
+        /// </summary>
         public virtual bool ShouldRemove
         {
             get
@@ -145,6 +199,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the visible
+        /// </summary>
         public virtual bool Visible
         {
             get
@@ -174,20 +231,38 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Gets the value of the bleed rate
+        /// </summary>
         public virtual float BleedRate => 0f;
 
+        /// <summary>
+        /// Gets the value of the bleeding
+        /// </summary>
         public bool Bleeding => BleedRate > 1E-05f;
 
+        /// <summary>
+        /// Gets the value of the has comps
+        /// </summary>
         public bool HasComps => template.comps != null && template.comps.Any();
 
         //todo pain stuff
 
+        /// <summary>
+        /// Gets the value of the pain offset
+        /// </summary>
         public virtual float PainOffset => 0f; //todo base on current stage's offset if it causes pain
         
+        /// <summary>
+        /// Gets the value of the pain factor
+        /// </summary>
         public virtual float PainFactor => 0f; //todo base on current stage's offset if it causes pain
 
         //todo capacity modifiers
 
+        /// <summary>
+        /// Gets the value of the summary health percent impact
+        /// </summary>
         public virtual float SummaryHealthPercentImpact => 0f;
 
         //todo tend priority
@@ -196,6 +271,9 @@ namespace World.Pawns.Health.HealthModifiers
 
         //todo replace _severity with Severity
 
+        /// <summary>
+        /// Gets or sets the value of the part
+        /// </summary>
         public BodyPart Part
         {
             get => _part;
@@ -212,6 +290,10 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Describes whether this instance needs tending
+        /// </summary>
+        /// <returns>The bool</returns>
         public virtual bool NeedsTending()
         {
             if (!template.tendable || Severity <= 0f || !visible) //todo is perm or immune
@@ -224,6 +306,9 @@ namespace World.Pawns.Health.HealthModifiers
             return true;
         }
 
+        /// <summary>
+        /// Ticks this instance
+        /// </summary>
         public virtual void Tick()
         {
             durationTicks++;
@@ -265,6 +350,10 @@ namespace World.Pawns.Health.HealthModifiers
 
         //todo try mental break
 
+        /// <summary>
+        /// Describes whether this instance cause death now
+        /// </summary>
+        /// <returns>The bool</returns>
         public virtual bool CauseDeathNow()
         {
             if (template.lethalSeverity >= 0f)
@@ -282,6 +371,11 @@ namespace World.Pawns.Health.HealthModifiers
             return false;
         }
 
+        /// <summary>
+        /// Describes whether this instance try merge with
+        /// </summary>
+        /// <param name="otherHealthMod">The other health mod</param>
+        /// <returns>The bool</returns>
         public virtual bool TryMergeWith(HealthMod otherHealthMod)
         {
             if (otherHealthMod == null)
@@ -315,6 +409,9 @@ namespace World.Pawns.Health.HealthModifiers
             return true;
         }
 
+        /// <summary>
+        /// Alerts the pawn died
+        /// </summary>
         public virtual void Alert_PawnDied()
         {
             foreach (var comp in comps)
@@ -323,6 +420,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Alerts the pawn killed
+        /// </summary>
         public virtual void Alert_PawnKilled()
         {
             foreach (var comp in comps)
@@ -331,6 +431,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
         
+        /// <summary>
+        /// Alerts the pawn post apply damage
+        /// </summary>
         public virtual void Alert_PawnPostApplyDamage() //todo args DamageInfo dinfo, float totalDamageDealt
         {
             foreach (var comp in comps)
@@ -339,6 +442,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
         
+        /// <summary>
+        /// Alerts the pawn used verb
+        /// </summary>
         public virtual void Alert_PawnUsedVerb() //todo args Verb verb, LocalTargetInfo target
         {
             foreach (var comp in comps)
@@ -347,6 +453,12 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
         
+        /// <summary>
+        /// Alerts the entropy gained using the specified base amount
+        /// </summary>
+        /// <param name="baseAmount">The base amount</param>
+        /// <param name="finalAmount">The final amount</param>
+        /// <param name="source">The source</param>
         public virtual void Alert_EntropyGained(float baseAmount, float finalAmount, Thing source = null)
         {
             foreach (var comp in comps)
@@ -355,6 +467,12 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
         
+        /// <summary>
+        /// Alerts the implant used using the specified violation source name
+        /// </summary>
+        /// <param name="violationSourceName">The violation source name</param>
+        /// <param name="detectionChance">The detection chance</param>
+        /// <param name="violationSourceLevel">The violation source level</param>
         public virtual void Alert_ImplantUsed(string violationSourceName, float detectionChance, int violationSourceLevel = -1)
         {
             foreach (var comp in comps)
@@ -363,6 +481,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
         
+        /// <summary>
+        /// Modifies the chemical effect
+        /// </summary>
         public virtual void ModifyChemicalEffect() //todo chemical template and effect amount
         {
             foreach (var comp in comps)
@@ -371,10 +492,16 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Posts the make
+        /// </summary>
         public virtual void PostMake()
         {
         }
 
+        /// <summary>
+        /// Posts the add
+        /// </summary>
         public virtual void PostAdd() //todo damage info as arg
         {
             //todo check if template affects needs
@@ -391,6 +518,9 @@ namespace World.Pawns.Health.HealthModifiers
 
         }
 
+        /// <summary>
+        /// Posts the remove
+        /// </summary>
         public virtual void PostRemove()
         {
             //todo check if template affects needs
@@ -406,6 +536,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Posts the tick
+        /// </summary>
         public virtual void PostTick()
         {
             if (comps != null)
@@ -421,6 +554,11 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Tends the quality
+        /// </summary>
+        /// <param name="quality">The quality</param>
+        /// <param name="maxQuality">The max quality</param>
         public virtual void Tend(float quality, float maxQuality)
         {
             foreach (var comp in comps)
@@ -429,6 +567,9 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
         
+        /// <summary>
+        /// Initializes the comps
+        /// </summary>
         private void InitializeComps()
         {
             if (template.comps == null)
@@ -461,6 +602,10 @@ namespace World.Pawns.Health.HealthModifiers
             }
         }
 
+        /// <summary>
+        /// Returns the string
+        /// </summary>
+        /// <returns>The string</returns>
         public override string ToString()
         {
             return "(" + template.templateName + ((_part != null) ? (" " + _part.Label) : "") +

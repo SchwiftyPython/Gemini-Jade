@@ -5,12 +5,26 @@ using World.Things;
 
 namespace World.Pawns.Actions
 {
+    /// <summary>
+    /// The melee attack class
+    /// </summary>
+    /// <seealso cref="Action"/>
     public class MeleeAttack : Action
     {
+        /// <summary>
+        /// The damage modifier min
+        /// </summary>
         private const float DamageModifierMin = 0.4f;
 
+        /// <summary>
+        /// The damage modifier max
+        /// </summary>
         private const float DamageModifierMax = 1.6f;
         
+        /// <summary>
+        /// Describes whether this instance try action
+        /// </summary>
+        /// <returns>The bool</returns>
         public override bool TryAction()
         {
             var userPawn = user as Pawn;
@@ -53,6 +67,11 @@ namespace World.Pawns.Actions
             return true;
         }
 
+        /// <summary>
+        /// Applies the damage to using the specified target thing
+        /// </summary>
+        /// <param name="targetThing">The target thing</param>
+        /// <returns>The damage result</returns>
         protected virtual DamageResult ApplyDamageTo(Thing targetThing)
         {
             var damageAmount = damageTemplate.baseDamage;
@@ -71,6 +90,11 @@ namespace World.Pawns.Actions
             return damageResult;
         }
 
+        /// <summary>
+        /// Describes whether auto hits
+        /// </summary>
+        /// <param name="targetThing">The target thing</param>
+        /// <returns>The bool</returns>
         private static bool AutoHits(Thing targetThing)
         {
             return true;
@@ -78,6 +102,11 @@ namespace World.Pawns.Actions
             return TargetIsImmobile(targetThing);
         }
 
+        /// <summary>
+        /// Describes whether target is immobile
+        /// </summary>
+        /// <param name="targetThing">The target thing</param>
+        /// <returns>The bool</returns>
         private static bool TargetIsImmobile(Thing targetThing)
         {
             return targetThing is not Pawn targetPawn || targetPawn.IsImmobile();

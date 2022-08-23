@@ -1,16 +1,36 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Utilities;
+using World.Pawns;
+using World.Pawns.Jobs;
 using World.Things.CraftableThings;
 
 namespace World
 {
+    /// <summary>
+    /// The placed object class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class PlacedObject : MonoBehaviour
     {
-        public static readonly Color BlueprintColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+        /// <summary>
+        /// The blueprint color
+        /// </summary>
+        protected static readonly Color BlueprintColor = new(0.5f, 0.5f, 0.5f, 0.5f);
+
+        /// <summary>
+        /// The built color
+        /// </summary>
+        protected static readonly Color BuiltColor = new(1f, 1f, 1f, 1f);
         
-        public static readonly Color BuiltColor = new Color(1f, 1f, 1f, 1f);
-        
+        /// <summary>
+        /// Creates the origin
+        /// </summary>
+        /// <param name="origin">The origin</param>
+        /// <param name="direction">The direction</param>
+        /// <param name="placedObjectType">The placed object type</param>
+        /// <returns>The placed object</returns>
         public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
@@ -23,6 +43,8 @@ namespace World
             placedObject.instance = placedObjectInstance;
             
             placedObject.placedObjectType = placedObjectType;
+
+            placedObject.map = gridBuildingSystem.LocalMap;
 
             MapLayer layer;
             bool walkable;
@@ -42,7 +64,7 @@ namespace World
             }
             else
             {
-                placedObject.spriteRenderer.sprite = placedObjectType.texture;
+                placedObject.spriteRenderer.sprite = placedObjectType.builtTexture;
                 
                 placedObject.SpriteRenderer.color = BuiltColor;
 
@@ -73,33 +95,140 @@ namespace World
             return placedObject;
         }
 
+        /// <summary>
+        /// The dir enum
+        /// </summary>
         public enum Dir 
         {
+            /// <summary>
+            /// The down dir
+            /// </summary>
             Down,
+            /// <summary>
+            /// The left dir
+            /// </summary>
             Left,
+            /// <summary>
+            /// The up dir
+            /// </summary>
             Up,
+            /// <summary>
+            /// The right dir
+            /// </summary>
             Right,
         }
 
+        /// <summary>
+        /// The instance
+        /// </summary>
         protected Transform instance;
         
+        /// <summary>
+        /// The sprite renderer
+        /// </summary>
         [SerializeField] protected internal SpriteRenderer spriteRenderer;
 
+        /// <summary>
+        /// The placed object type
+        /// </summary>
         protected internal PlacedObjectTemplate placedObjectType;
 
+        /// <summary>
+        /// The grid positions
+        /// </summary>
         protected internal List<Vector3> gridPositions;
         
+        /// <summary>
+        /// The direction
+        /// </summary>
         protected Dir direction;
 
+        /// <summary>
+        /// The construction job
+        /// </summary>
+        private Job _constructionJob;
+
+        /// <summary>
+        /// The remaining work
+        /// </summary>
         protected int remainingWork;
+
+        /// <summary>
+        /// The constructing
+        /// </summary>
+        private bool _constructing;
+
+        /// <summary>
+        /// The construction speed
+        /// </summary>
+        private float _constructionSpeed;
+
+        /// <summary>
+        /// The construction timer
+        /// </summary>
+        private float _constructionTimer;
+
+        /// <summary>
+        /// The map
+        /// </summary>
+        protected LocalMap map;
+
+        /// <summary>
+        /// The pawn
+        /// </summary>
+        private Pawn _pawn;
         
+        /// <summary>
+        /// Gets or sets the value of the grid objects
+        /// </summary>
         public List<GridObject> GridObjects { get; internal set; }
         
+        /// <summary>
+        /// Gets the value of the sprite renderer
+        /// </summary>
         public SpriteRenderer SpriteRenderer => spriteRenderer;
         
+        /// <summary>
+        /// Gets the value of the needs to be made
+        /// </summary>
         public bool NeedsToBeMade => remainingWork > 0;
 
-        public List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
+        /// <summary>
+        /// Updates this instance
+        /// </summary>
+        private void Update()
+        {
+            if (!_constructing)
+            {
+                return;
+            }
+            
+            if(remainingWork <= 0)
+            {
+                _constructing = false;
+                
+                GridObjects.First().FinishConstruction();
+            }
+
+            _constructionTimer += UnityEngine.Time.deltaTime;
+
+            if (_constructionTimer >= _constructionSpeed)
+            {
+                _constructionTimer -= _constructionSpeed;
+                
+                remainingWork--;
+
+                //todo progress bar of some kind
+            }
+        }
+
+        /// <summary>
+        /// Gets the grid positions using the specified origin
+        /// </summary>
+        /// <param name="origin">The origin</param>
+        /// <param name="dir">The dir</param>
+        /// <returns>The grid position list</returns>
+        protected List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
         {
             var gridPositionList = new List<Vector3>();
             
@@ -154,11 +283,18 @@ namespace World
             return gridPositionList;
         }
 
-        public virtual void Make()
+        /// <summary>
+        /// Finishes the construction
+        /// </summary>
+        public virtual void FinishConstruction()
         {
+            _constructing = false;
+            
             remainingWork = 0;
             
-            SpriteRenderer.sprite = placedObjectType.texture;
+            MovePawnsOutTheWay();
+            
+            SpriteRenderer.sprite = placedObjectType.builtTexture;
             
             SpriteRenderer.color = BuiltColor;
 
@@ -168,11 +304,101 @@ namespace World
                 
                 gridObject.IsTransparent = placedObjectType.transparent;
             }
-            
-            if (!placedObjectType.walkable)
+
+            if (placedObjectType.walkable)
             {
-                UnityUtils.AddBoxColliderTo(instance.gameObject);
+                return;
             }
+
+            UnityUtils.AddBoxColliderTo(instance.gameObject);
+                
+            AstarPath.active.Scan();
+        }
+
+        /// <summary>
+        /// Constructs the job
+        /// </summary>
+        /// <param name="job">The job</param>
+        /// <param name="jobPawn">The job pawn</param>
+        /// <param name="skillLevel">The skill level</param>
+        public void Construct(Job job, Pawn jobPawn, int skillLevel)
+        {
+            _constructionJob = job;
+            
+            _constructionJob.onPawnUnassigned += PauseConstruction;
+
+            _pawn = jobPawn;
+
+            _pawn.onPawnMoved += OnPawnMoved;
+
+            MovePawnsOutTheWay();
+            
+            _constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
+
+            _constructionTimer = 0;
+            
+            _constructing = true;
+        }
+
+        /// <summary>
+        /// Ons the pawn moved
+        /// </summary>
+        private void OnPawnMoved()
+        {
+            _pawn.onPawnMoved -= OnPawnMoved;
+            
+            _pawn.CancelCurrentJob();
+        }
+
+        /// <summary>
+        /// Pauses the construction using the specified job
+        /// </summary>
+        /// <param name="job">The job</param>
+        private void PauseConstruction(Job job)
+        {
+            _constructing = false;
+            
+            _constructionJob.onPawnUnassigned -= PauseConstruction;
+        }
+
+        /// <summary>
+        /// Moves the pawns out the way
+        /// </summary>
+        protected void MovePawnsOutTheWay()
+        {
+            foreach (var gridObject in GridObjects)
+            {
+                foreach (var mapPawn in map.GetAllPawns())
+                {
+                    if (gridObject.Position != mapPawn.Position)
+                    {
+                        continue;
+                    }
+
+                    var pawnNeighbors = map.GetAdjacentWalkableLocations(mapPawn.Position);
+
+                    foreach (var neighbor in pawnNeighbors)
+                    {
+                        var nGridObject = map.GetGridObjectAt(neighbor);
+
+                        if (nGridObject == null)
+                        {
+                            mapPawn.MoveToLocal(neighbor);
+                            break;
+                        }
+
+                        if (GridObjects.Contains(nGridObject))
+                        {
+                            continue;
+                        }
+
+                        mapPawn.MoveToLocal(neighbor);
+                        break;
+                    }
+                }
+            }
+            
+            //todo might need to hail mary move somewhere if they get to this point. Not an issue yet.
         }
     }
 }

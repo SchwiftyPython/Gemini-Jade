@@ -2,12 +2,25 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The base ai editor class
+	/// </summary>
+	/// <seealso cref="EditorBase"/>
 	[CustomEditor(typeof(AIBase), true)]
 	[CanEditMultipleObjects]
 	public class BaseAIEditor : EditorBase {
+		/// <summary>
+		/// The negative infinity
+		/// </summary>
 		float lastSeenCustomGravity = float.NegativeInfinity;
+		/// <summary>
+		/// The debug
+		/// </summary>
 		bool debug = false;
 
+		/// <summary>
+		/// Autoes the repath inspector
+		/// </summary>
 		protected void AutoRepathInspector () {
 			var mode = FindProperty("autoRepath.mode");
 
@@ -30,6 +43,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Debugs the inspector
+		/// </summary>
 		protected void DebugInspector () {
 			debug = EditorGUILayout.Foldout(debug, "Debug info");
 			if (debug) {
@@ -44,6 +60,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			var isAIPath = typeof(AIPath).IsAssignableFrom(target.GetType());
 

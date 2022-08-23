@@ -7,8 +7,19 @@ using World.Things.CraftableThings;
 
 namespace World
 {
+    /// <summary>
+    /// The wall placed object class
+    /// </summary>
+    /// <seealso cref="PlacedObject"/>
     public class WallPlacedObject : PlacedObject
     {
+        /// <summary>
+        /// Creates the origin
+        /// </summary>
+        /// <param name="origin">The origin</param>
+        /// <param name="direction">The direction</param>
+        /// <param name="placedObjectType">The placed object type</param>
+        /// <returns>The placed object</returns>
         public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
@@ -21,6 +32,8 @@ namespace World
             placedObject.instance = placedObjectInstance;
             
             placedObject.placedObjectType = placedObjectType;
+
+            placedObject.map = gridBuildingSystem.LocalMap;
 
             MapLayer layer;
             bool walkable;
@@ -65,6 +78,9 @@ namespace World
             return placedObject;
         }
 
+        /// <summary>
+        /// Updates the texture
+        /// </summary>
         public void UpdateTexture()
         {
             var tileIndex = GetTileIndex();
@@ -76,22 +92,35 @@ namespace World
             SpriteRenderer.color = NeedsToBeMade ? BlueprintColor : BuiltColor;
         }
 
-        public override void Make()
+        /// <summary>
+        /// Finishes the construction
+        /// </summary>
+        public override void FinishConstruction()
         {
             remainingWork = 0;
+            
+            MovePawnsOutTheWay();
             
             UpdateTexture();
 
             GridObjects.First().IsWalkable = placedObjectType.walkable;
             
             GridObjects.First().IsTransparent = placedObjectType.transparent;
-            
-            if (!placedObjectType.walkable)
+
+            if (placedObjectType.walkable)
             {
-                UnityUtils.AddBoxColliderTo(instance.gameObject);
+                return;
             }
+
+            UnityUtils.AddBoxColliderTo(instance.gameObject);
+                
+            AstarPath.active.Scan();
         }
 
+        /// <summary>
+        /// Gets the tile index
+        /// </summary>
+        /// <returns>The int</returns>
         private int GetTileIndex()
         {
             var east = NeighborTo(BitMaskDirection.East);
@@ -113,6 +142,11 @@ namespace World
             return GridBuildingSystem.CalculateTileIndex(east, west, north, south, northWest, northEast, southWest, southEast);
         }
         
+        /// <summary>
+        /// Describes whether this instance neighbor to
+        /// </summary>
+        /// <param name="bmDirection">The bm direction</param>
+        /// <returns>The bool</returns>
         private bool NeighborTo(BitMaskDirection bmDirection)
         {
             return GridObjects.First().HasWallNeighborTo(bmDirection);

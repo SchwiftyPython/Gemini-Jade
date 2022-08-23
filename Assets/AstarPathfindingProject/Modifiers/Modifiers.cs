@@ -7,9 +7,20 @@ namespace Pathfinding {
 	/// Modifier
 	/// </summary>
 	public interface IPathModifier {
+		/// <summary>
+		/// Gets the value of the order
+		/// </summary>
 		int Order { get; }
 
+		/// <summary>
+		/// Applies the path
+		/// </summary>
+		/// <param name="path">The path</param>
 		void Apply(Path path);
+		/// <summary>
+		/// Pres the process using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
 		void PreProcess(Path path);
 	}
 
@@ -19,6 +30,9 @@ namespace Pathfinding {
 	/// </summary>
 	[System.Serializable]
 	public abstract class PathModifier : IPathModifier {
+		/// <summary>
+		/// The seeker
+		/// </summary>
 		[System.NonSerialized]
 		public Seeker seeker;
 
@@ -28,6 +42,10 @@ namespace Pathfinding {
 		/// </summary>
 		public abstract int Order { get; }
 
+		/// <summary>
+		/// Awakes the seeker
+		/// </summary>
+		/// <param name="seeker">The seeker</param>
 		public void Awake (Seeker seeker) {
 			this.seeker = seeker;
 			if (seeker != null) {
@@ -35,12 +53,20 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the destroy using the specified seeker
+		/// </summary>
+		/// <param name="seeker">The seeker</param>
 		public void OnDestroy (Seeker seeker) {
 			if (seeker != null) {
 				seeker.DeregisterModifier(this);
 			}
 		}
 
+		/// <summary>
+		/// Pres the process using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
 		public virtual void PreProcess (Path path) {
 			// Required by IPathModifier
 		}
@@ -55,6 +81,9 @@ namespace Pathfinding {
 	/// </summary>
 	[System.Serializable]
 	public abstract class MonoModifier : VersionedMonoBehaviour, IPathModifier {
+		/// <summary>
+		/// The seeker
+		/// </summary>
 		[System.NonSerialized]
 		public Seeker seeker;
 
@@ -67,6 +96,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		protected virtual void OnDisable () {
 			if (seeker != null) {
 				seeker.DeregisterModifier(this);
@@ -79,6 +111,10 @@ namespace Pathfinding {
 		/// </summary>
 		public abstract int Order { get; }
 
+		/// <summary>
+		/// Pres the process using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
 		public virtual void PreProcess (Path path) {
 			// Required by IPathModifier
 		}

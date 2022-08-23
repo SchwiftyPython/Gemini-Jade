@@ -3,6 +3,9 @@ using Pathfinding.Util;
 
 namespace Pathfinding {
 	// Obsolete methods in AIPath
+	/// <summary>
+	/// The ai path class
+	/// </summary>
 	public partial class AIPath {
 		/// <summary>
 		/// True if the end of the path has been reached.

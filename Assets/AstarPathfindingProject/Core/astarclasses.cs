@@ -14,16 +14,37 @@ namespace Pathfinding {
 	}
 #endif
 
+	/// <summary>
+	/// The astar color class
+	/// </summary>
 	[System.Serializable]
 	/// <summary>Stores editor colors</summary>
 	public class AstarColor {
+		/// <summary>
+		/// The solid color
+		/// </summary>
 		public Color _SolidColor;
+		/// <summary>
+		/// The unwalkable node
+		/// </summary>
 		public Color _UnwalkableNode;
+		/// <summary>
+		/// The bounds handles
+		/// </summary>
 		public Color _BoundsHandles;
 
+		/// <summary>
+		/// The connection low lerp
+		/// </summary>
 		public Color _ConnectionLowLerp;
+		/// <summary>
+		/// The connection high lerp
+		/// </summary>
 		public Color _ConnectionHighLerp;
 
+		/// <summary>
+		/// The mesh edge color
+		/// </summary>
 		public Color _MeshEdgeColor;
 
 		/// <summary>
@@ -32,17 +53,42 @@ namespace Pathfinding {
 		/// </summary>
 		public Color[] _AreaColors;
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static Color SolidColor = new Color(30/255f, 102/255f, 201/255f, 0.9F);
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static Color UnwalkableNode = new Color(1, 0, 0, 0.5F);
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static Color BoundsHandles = new Color(0.29F, 0.454F, 0.741F, 0.9F);
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static Color ConnectionLowLerp = new Color(0, 1, 0, 0.5F);
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static Color ConnectionHighLerp = new Color(1, 0, 0, 0.5F);
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static Color MeshEdgeColor = new Color(0, 0, 0, 0.5F);
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		private static Color[] AreaColors = new Color[1];
 
+		/// <summary>
+		/// Colors the hash
+		/// </summary>
+		/// <returns>The hash</returns>
 		public static int ColorHash () {
 			var hash = SolidColor.GetHashCode() ^ UnwalkableNode.GetHashCode() ^ BoundsHandles.GetHashCode() ^ ConnectionLowLerp.GetHashCode() ^ ConnectionHighLerp.GetHashCode() ^ MeshEdgeColor.GetHashCode();
 
@@ -88,6 +134,9 @@ namespace Pathfinding {
 			AreaColors = _AreaColors;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AstarColor"/> class
+		/// </summary>
 		public AstarColor () {
 			// Set default colors
 			_SolidColor = new Color(30/255f, 102/255f, 201/255f, 0.9F);
@@ -144,6 +193,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GraphHitInfo"/> class
+		/// </summary>
+		/// <param name="point">The point</param>
 		public GraphHitInfo (Vector3 point) {
 			tangentOrigin  = Vector3.zero;
 			origin = Vector3.zero;
@@ -292,6 +345,9 @@ namespace Pathfinding {
 	/// The default PathNNConstraint will constrain the end point to lie inside the same area as the start point.
 	/// </summary>
 	public class PathNNConstraint : NNConstraint {
+		/// <summary>
+		/// Gets the value of the default
+		/// </summary>
 		public static new PathNNConstraint Default {
 			get {
 				return new PathNNConstraint {
@@ -334,6 +390,10 @@ namespace Pathfinding {
 		/// <summary>Clamped position for the optional constrainedNode</summary>
 		public Vector3 constClampedPosition;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NNInfoInternal"/> class
+		/// </summary>
+		/// <param name="node">The node</param>
 		public NNInfoInternal (GraphNode node) {
 			this.node = node;
 			constrainedNode = null;
@@ -372,6 +432,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NNInfo"/> class
+		/// </summary>
+		/// <param name="internalInfo">The internal info</param>
 		public NNInfo (NNInfoInternal internalInfo) {
 			node = internalInfo.node;
 			position = internalInfo.clampedPosition;
@@ -397,15 +461,31 @@ namespace Pathfinding {
 		/// <summary>Description of what is currently being done</summary>
 		public readonly string description;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Progress"/> class
+		/// </summary>
+		/// <param name="progress">The progress</param>
+		/// <param name="description">The description</param>
 		public Progress (float progress, string description) {
 			this.progress = progress;
 			this.description = description;
 		}
 
+		/// <summary>
+		/// Maps the to using the specified min
+		/// </summary>
+		/// <param name="min">The min</param>
+		/// <param name="max">The max</param>
+		/// <param name="prefix">The prefix</param>
+		/// <returns>The progress</returns>
 		public Progress MapTo (float min, float max, string prefix = null) {
 			return new Progress(Mathf.Lerp(min, max, progress), prefix + description);
 		}
 
+		/// <summary>
+		/// Returns the string
+		/// </summary>
+		/// <returns>The string</returns>
 		public override string ToString () {
 			return progress.ToString("0.0") + " " + description;
 		}
@@ -437,6 +517,11 @@ namespace Pathfinding {
 		/// </summary>
 		void UpdateAreaPost(GraphUpdateObject o);
 
+		/// <summary>
+		/// Cans the update using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <returns>The graph update threading</returns>
 		GraphUpdateThreading CanUpdateAsync(GraphUpdateObject o);
 	}
 
@@ -584,7 +669,13 @@ namespace Pathfinding {
 		/// If you need this info immediately, use <see cref="AstarPath.FlushGraphUpdates"/>.
 		/// </summary>
 		public List<GraphNode> changedNodes;
+		/// <summary>
+		/// The backup data
+		/// </summary>
 		private List<uint> backupData;
+		/// <summary>
+		/// The backup position data
+		/// </summary>
 		private List<Int3> backupPositionData;
 
 		/// <summary>
@@ -602,9 +693,21 @@ namespace Pathfinding {
 		/// </summary>
 		internal int internalStage = STAGE_CREATED;
 
+		/// <summary>
+		/// The stage created
+		/// </summary>
 		internal const int STAGE_CREATED = -1;
+		/// <summary>
+		/// The stage pending
+		/// </summary>
 		internal const int STAGE_PENDING = -2;
+		/// <summary>
+		/// The stage aborted
+		/// </summary>
 		internal const int STAGE_ABORTED = -3;
+		/// <summary>
+		/// The stage applied
+		/// </summary>
 		internal const int STAGE_APPLIED = 0;
 
 		/// <summary>Info about if a graph update has been applied or not</summary>
@@ -703,6 +806,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GraphUpdateObject"/> class
+		/// </summary>
 		public GraphUpdateObject () {
 		}
 
@@ -714,15 +820,57 @@ namespace Pathfinding {
 
 	/// <summary>Graph which has a well defined transformation from graph space to world space</summary>
 	public interface ITransformedGraph {
+		/// <summary>
+		/// Gets the value of the transform
+		/// </summary>
 		GraphTransform transform { get; }
 	}
 
 	/// <summary>Graph which supports the Linecast method</summary>
 	public interface IRaycastableGraph {
+		/// <summary>
+		/// Describes whether this instance linecast
+		/// </summary>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <returns>The bool</returns>
 		bool Linecast(Vector3 start, Vector3 end);
+		/// <summary>
+		/// Describes whether this instance linecast
+		/// </summary>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <param name="hint">The hint</param>
+		/// <returns>The bool</returns>
 		bool Linecast(Vector3 start, Vector3 end, GraphNode hint);
+		/// <summary>
+		/// Describes whether this instance linecast
+		/// </summary>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <param name="hint">The hint</param>
+		/// <param name="hit">The hit</param>
+		/// <returns>The bool</returns>
 		bool Linecast(Vector3 start, Vector3 end, GraphNode hint, out GraphHitInfo hit);
+		/// <summary>
+		/// Describes whether this instance linecast
+		/// </summary>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <param name="hint">The hint</param>
+		/// <param name="hit">The hit</param>
+		/// <param name="trace">The trace</param>
+		/// <returns>The bool</returns>
 		bool Linecast(Vector3 start, Vector3 end, GraphNode hint, out GraphHitInfo hit, List<GraphNode> trace);
+		/// <summary>
+		/// Describes whether this instance linecast
+		/// </summary>
+		/// <param name="start">The start</param>
+		/// <param name="end">The end</param>
+		/// <param name="hit">The hit</param>
+		/// <param name="trace">The trace</param>
+		/// <param name="filter">The filter</param>
+		/// <returns>The bool</returns>
 		bool Linecast(Vector3 start, Vector3 end, out GraphHitInfo hit, List<GraphNode> trace, System.Func<GraphNode, bool> filter);
 	}
 
@@ -734,8 +882,18 @@ namespace Pathfinding {
 	/// </summary>
 	[System.Serializable]
 	public struct IntRect {
+		/// <summary>
+		/// The ymax
+		/// </summary>
 		public int xmin, ymin, xmax, ymax;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="IntRect"/> class
+		/// </summary>
+		/// <param name="xmin">The xmin</param>
+		/// <param name="ymin">The ymin</param>
+		/// <param name="xmax">The xmax</param>
+		/// <param name="ymax">The ymax</param>
 		public IntRect (int xmin, int ymin, int xmax, int ymax) {
 			this.xmin = xmin;
 			this.xmax = xmax;
@@ -743,22 +901,37 @@ namespace Pathfinding {
 			this.ymax = ymax;
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains
+		/// </summary>
+		/// <param name="x">The </param>
+		/// <param name="y">The </param>
+		/// <returns>The bool</returns>
 		public bool Contains (int x, int y) {
 			return !(x < xmin || y < ymin || x > xmax || y > ymax);
 		}
 
+		/// <summary>
+		/// Gets the value of the width
+		/// </summary>
 		public int Width {
 			get {
 				return xmax-xmin+1;
 			}
 		}
 
+		/// <summary>
+		/// Gets the value of the height
+		/// </summary>
 		public int Height {
 			get {
 				return ymax-ymin+1;
 			}
 		}
 
+		/// <summary>
+		/// Gets the value of the area
+		/// </summary>
 		public int Area {
 			get {
 				return Width * Height;
@@ -782,12 +955,21 @@ namespace Pathfinding {
 			return a.xmin != b.xmin || a.xmax != b.xmax || a.ymin != b.ymin || a.ymax != b.ymax;
 		}
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="obj">The obj</param>
+		/// <returns>The bool</returns>
 		public override bool Equals (System.Object obj) {
 			var rect = (IntRect)obj;
 
 			return xmin == rect.xmin && xmax == rect.xmax && ymin == rect.ymin && ymax == rect.ymax;
 		}
 
+		/// <summary>
+		/// Gets the hash code
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int GetHashCode () {
 			return xmin*131071 ^ xmax*3571 ^ ymin*3109 ^ ymax*7;
 		}
@@ -845,6 +1027,10 @@ namespace Pathfinding {
 				);
 		}
 
+		/// <summary>
+		/// Returns the string
+		/// </summary>
+		/// <returns>The string</returns>
 		public override string ToString () {
 			return "[x: "+xmin+"..."+xmax+", y: " + ymin +"..."+ymax+"]";
 		}
@@ -891,6 +1077,10 @@ namespace Pathfinding {
 		/// <summary>A mask containing every graph</summary>
 		public static GraphMask everything { get { return new GraphMask(-1); } }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GraphMask"/> class
+		/// </summary>
+		/// <param name="value">The value</param>
 		public GraphMask (int value) {
 			this.value = value;
 		}
@@ -928,6 +1118,10 @@ namespace Pathfinding {
 			return 1 << (int)graph.graphIndex;
 		}
 
+		/// <summary>
+		/// Returns the string
+		/// </summary>
+		/// <returns>The string</returns>
 		public override string ToString () {
 			return value.ToString();
 		}
@@ -961,10 +1155,19 @@ namespace Pathfinding {
 	 * Example function:
 	 * \snippet MiscSnippets.cs OnPathDelegate
 	 */
+	/// <summary>
+	/// The on path delegate
+	/// </summary>
 	public delegate void OnPathDelegate(Path p);
 
+	/// <summary>
+	/// The on graph delegate
+	/// </summary>
 	public delegate void OnGraphDelegate(NavGraph graph);
 
+	/// <summary>
+	/// The on scan delegate
+	/// </summary>
 	public delegate void OnScanDelegate(AstarPath script);
 
 	/// <summary>Deprecated:</summary>
@@ -974,6 +1177,9 @@ namespace Pathfinding {
 
 	#region Enums
 
+	/// <summary>
+	/// The graph update threading enum
+	/// </summary>
 	public enum GraphUpdateThreading {
 		/// <summary>
 		/// Call UpdateArea in the unity thread.
@@ -1108,25 +1314,73 @@ namespace Pathfinding {
 
 	/// <summary>Number of threads to use</summary>
 	public enum ThreadCount {
+		/// <summary>
+		/// The automatic low load thread count
+		/// </summary>
 		AutomaticLowLoad = -1,
+		/// <summary>
+		/// The automatic high load thread count
+		/// </summary>
 		AutomaticHighLoad = -2,
+		/// <summary>
+		/// The none thread count
+		/// </summary>
 		None = 0,
+		/// <summary>
+		/// The one thread count
+		/// </summary>
 		One = 1,
+		/// <summary>
+		/// The two thread count
+		/// </summary>
 		Two,
+		/// <summary>
+		/// The three thread count
+		/// </summary>
 		Three,
+		/// <summary>
+		/// The four thread count
+		/// </summary>
 		Four,
+		/// <summary>
+		/// The five thread count
+		/// </summary>
 		Five,
+		/// <summary>
+		/// The six thread count
+		/// </summary>
 		Six,
+		/// <summary>
+		/// The seven thread count
+		/// </summary>
 		Seven,
+		/// <summary>
+		/// The eight thread count
+		/// </summary>
 		Eight
 	}
 
 	/// <summary>Internal state of a path in the pipeline</summary>
 	public enum PathState {
+		/// <summary>
+		/// The created path state
+		/// </summary>
 		Created = 0,
+		/// <summary>
+		/// The path queue path state
+		/// </summary>
 		PathQueue = 1,
+		/// <summary>
+		/// The processing path state
+		/// </summary>
 		Processing = 2,
+		/// <summary>
+		/// The return queue path state
+		/// </summary>
 		ReturnQueue = 3,
+		/// <summary>
+		/// The returned path state
+		/// </summary>
 		Returned = 4
 	}
 
@@ -1169,6 +1423,9 @@ namespace Pathfinding {
 		Right = 2
 	}
 
+	/// <summary>
+	/// The inspector grid hexagon node size enum
+	/// </summary>
 	public enum InspectorGridHexagonNodeSize {
 		/// <summary>Value is the distance between two opposing sides in the hexagon</summary>
 		Width,
@@ -1178,10 +1435,25 @@ namespace Pathfinding {
 		NodeSize
 	}
 
+	/// <summary>
+	/// The inspector grid mode enum
+	/// </summary>
 	public enum InspectorGridMode {
+		/// <summary>
+		/// The grid inspector grid mode
+		/// </summary>
 		Grid,
+		/// <summary>
+		/// The isometric grid inspector grid mode
+		/// </summary>
 		IsometricGrid,
+		/// <summary>
+		/// The hexagonal inspector grid mode
+		/// </summary>
 		Hexagonal,
+		/// <summary>
+		/// The advanced inspector grid mode
+		/// </summary>
 		Advanced
 	}
 
@@ -1191,7 +1463,13 @@ namespace Pathfinding {
 	/// For 2D games you most likely want the YAxisIsForward option as that is the convention for 2D games.
 	/// </summary>
 	public enum OrientationMode {
+		/// <summary>
+		/// The axis forward orientation mode
+		/// </summary>
 		ZAxisForward,
+		/// <summary>
+		/// The axis forward orientation mode
+		/// </summary>
 		YAxisForward,
 	}
 

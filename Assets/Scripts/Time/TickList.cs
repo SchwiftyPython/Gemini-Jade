@@ -6,16 +6,38 @@ using Object = UnityEngine.Object;
 
 namespace Time
 {
+   /// <summary>
+   /// The tick list class
+   /// </summary>
    public class TickList
    {
+      /// <summary>
+      /// The ticker type
+      /// </summary>
       private TickerType _tickerType;
    
+      /// <summary>
+      /// The thing
+      /// </summary>
       private List<List<Thing>> _things = new List<List<Thing>>();
+      /// <summary>
+      /// The thing
+      /// </summary>
       private List<Thing> _thingsToRegister = new List<Thing>();
+      /// <summary>
+      /// The thing
+      /// </summary>
       private List<Thing> _thingsToUnRegister = new List<Thing>();
 
+      /// <summary>
+      /// Gets the value of the tick interval
+      /// </summary>
       private int TickInterval => _tickerType.tickInterval;
 
+      /// <summary>
+      /// Initializes a new instance of the <see cref="TickList"/> class
+      /// </summary>
+      /// <param name="tickerType">The ticker type</param>
       public TickList(TickerType tickerType)
       {
          _tickerType = tickerType;
@@ -26,6 +48,9 @@ namespace Time
          }
       }
 
+      /// <summary>
+      /// Resets this instance
+      /// </summary>
       public void Reset()
       {
          foreach (var thingList in _things)
@@ -37,6 +62,10 @@ namespace Time
          _thingsToUnRegister.Clear();
       }
 
+      /// <summary>
+      /// Removes the where using the specified predicate
+      /// </summary>
+      /// <param name="predicate">The predicate</param>
       public void RemoveWhere(Predicate<Thing> predicate)
       {
          foreach (var thingList in _things)
@@ -48,16 +77,27 @@ namespace Time
          _thingsToUnRegister.RemoveAll(predicate);
       }
 
+      /// <summary>
+      /// Registers the thing
+      /// </summary>
+      /// <param name="thing">The thing</param>
       public void Register(Thing thing)
       {
          _thingsToRegister.Add(thing);
       }
 
+      /// <summary>
+      /// Uns the register using the specified thing
+      /// </summary>
+      /// <param name="thing">The thing</param>
       public void UnRegister(Thing thing)
       {
          _thingsToUnRegister.Add(thing);
       }
 
+      /// <summary>
+      /// Ticks this instance
+      /// </summary>
       public void Tick()
       {
          RegisterThings();
@@ -74,6 +114,11 @@ namespace Time
          }
       }
 
+      /// <summary>
+      /// Ticks the thing using the specified thing
+      /// </summary>
+      /// <param name="thing">The thing</param>
+      /// <param name="tickController">The tick controller</param>
       private void TickThing(Thing thing, TickController tickController)
       {
          if (thing.Destroyed)
@@ -95,6 +140,9 @@ namespace Time
          }
       }
 
+      /// <summary>
+      /// Registers the things
+      /// </summary>
       private void RegisterThings()
       {
          foreach (var thingToRegister in _thingsToRegister)
@@ -105,6 +153,9 @@ namespace Time
          _thingsToRegister.Clear();
       }
 
+      /// <summary>
+      /// Uns the register things
+      /// </summary>
       private void UnRegisterThings()
       {
          foreach (var thingToUnRegister in _thingsToUnRegister)
@@ -115,6 +166,11 @@ namespace Time
          _thingsToUnRegister.Clear();
       }
 
+      /// <summary>
+      /// Bags the of using the specified thing
+      /// </summary>
+      /// <param name="thing">The thing</param>
+      /// <returns>A list of thing</returns>
       private List<Thing> BagOf(Thing thing)
       {
          var hash = thing.GetHashCode();

@@ -13,6 +13,11 @@ namespace Pathfinding {
 		/// </summary>
 		Int3 GetVertexInGraphSpace(int i);
 
+		/// <summary>
+		/// Gets the vertex array index using the specified index
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <returns>The int</returns>
 		int GetVertexArrayIndex(int index);
 
 		/// <summary>Transforms coordinates from graph space to world space</summary>
@@ -21,6 +26,10 @@ namespace Pathfinding {
 
 	/// <summary>Node represented by a triangle</summary>
 	public class TriangleMeshNode : MeshNode {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TriangleMeshNode"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		public TriangleMeshNode (AstarPath astar) : base(astar) {}
 
 		/// <summary>Internal vertex index for the first vertex</summary>
@@ -38,6 +47,11 @@ namespace Pathfinding {
 		/// <summary>Used for synchronised access to the <see cref="_navmeshHolders"/> array</summary>
 		protected static readonly System.Object lockObject = new System.Object();
 
+		/// <summary>
+		/// Gets the navmesh holder using the specified graph index
+		/// </summary>
+		/// <param name="graphIndex">The graph index</param>
+		/// <returns>The navmesh holder</returns>
 		public static INavmeshHolder GetNavmeshHolder (uint graphIndex) {
 			return _navmeshHolders[(int)graphIndex];
 		}
@@ -107,19 +121,38 @@ namespace Pathfinding {
 			v2 = holder.GetVertexInGraphSpace(this.v2);
 		}
 
+		/// <summary>
+		/// Gets the vertex using the specified i
+		/// </summary>
+		/// <param name="i">The </param>
+		/// <returns>The int</returns>
 		public override Int3 GetVertex (int i) {
 			return GetNavmeshHolder(GraphIndex).GetVertex(GetVertexIndex(i));
 		}
 
+		/// <summary>
+		/// Gets the vertex in graph space using the specified i
+		/// </summary>
+		/// <param name="i">The </param>
+		/// <returns>The int</returns>
 		public Int3 GetVertexInGraphSpace (int i) {
 			return GetNavmeshHolder(GraphIndex).GetVertexInGraphSpace(GetVertexIndex(i));
 		}
 
+		/// <summary>
+		/// Gets the vertex count
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int GetVertexCount () {
 			// A triangle has 3 vertices
 			return 3;
 		}
 
+		/// <summary>
+		/// Closests the point on node using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The vector</returns>
 		public override Vector3 ClosestPointOnNode (Vector3 p) {
 			Int3 a, b, c;
 
@@ -184,6 +217,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Closests the point on node xz using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The vector</returns>
 		public override Vector3 ClosestPointOnNodeXZ (Vector3 p) {
 			// Get all 3 vertices for this node
 			Int3 tp1, tp2, tp3;
@@ -192,10 +230,20 @@ namespace Pathfinding {
 			return Polygon.ClosestPointOnTriangleXZ((Vector3)tp1, (Vector3)tp2, (Vector3)tp3, p);
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains point
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The bool</returns>
 		public override bool ContainsPoint (Vector3 p) {
 			return ContainsPointInGraphSpace((Int3)GetNavmeshHolder(GraphIndex).transform.InverseTransform(p));
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains point in graph space
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The bool</returns>
 		public override bool ContainsPointInGraphSpace (Int3 p) {
 			// Get all 3 vertices for this node
 			Int3 a, b, c;
@@ -215,6 +263,12 @@ namespace Pathfinding {
 			//return Polygon.ContainsPoint(g.GetVertex(v0),g.GetVertex(v1),g.GetVertex(v2),p);
 		}
 
+		/// <summary>
+		/// Updates the recursive g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void UpdateRecursiveG (Path path, PathNode pathNode, PathHandler handler) {
 			pathNode.UpdateG(path);
 
@@ -229,6 +283,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Opens the path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void Open (Path path, PathNode pathNode, PathHandler handler) {
 			if (connections == null) return;
 
@@ -315,12 +375,31 @@ namespace Pathfinding {
 			return edge;
 		}
 
+		/// <summary>
+		/// Describes whether this instance get portal
+		/// </summary>
+		/// <param name="toNode">The to node</param>
+		/// <param name="left">The left</param>
+		/// <param name="right">The right</param>
+		/// <param name="backwards">The backwards</param>
+		/// <returns>The bool</returns>
 		public override bool GetPortal (GraphNode toNode, System.Collections.Generic.List<Vector3> left, System.Collections.Generic.List<Vector3> right, bool backwards) {
 			int aIndex, bIndex;
 
 			return GetPortal(toNode, left, right, backwards, out aIndex, out bIndex);
 		}
 
+		/// <summary>
+		/// Describes whether this instance get portal
+		/// </summary>
+		/// <param name="toNode">The to node</param>
+		/// <param name="left">The left</param>
+		/// <param name="right">The right</param>
+		/// <param name="backwards">The backwards</param>
+		/// <param name="aIndex">The index</param>
+		/// <param name="bIndex">The index</param>
+		/// <exception cref="System.Exception">Connection used edge in one direction, but not in the other direction. Has the wrong overload of AddConnection been used?</exception>
+		/// <returns>The bool</returns>
 		public bool GetPortal (GraphNode toNode, System.Collections.Generic.List<Vector3> left, System.Collections.Generic.List<Vector3> right, bool backwards, out int aIndex, out int bIndex) {
 			aIndex = -1;
 			bIndex = -1;
@@ -426,6 +505,10 @@ namespace Pathfinding {
 			return System.Math.Abs(VectorMath.SignedTriangleAreaTimes2XZ(holder.GetVertex(v0), holder.GetVertex(v1), holder.GetVertex(v2))) * 0.5f;
 		}
 
+		/// <summary>
+		/// Randoms the point on surface
+		/// </summary>
+		/// <returns>The vector</returns>
 		public override Vector3 RandomPointOnSurface () {
 			// Find a random point inside the triangle
 			// This generates uniformly distributed trilinear coordinates
@@ -443,6 +526,10 @@ namespace Pathfinding {
 			return ((Vector3)(holder.GetVertex(v1)-holder.GetVertex(v0)))*r1 + ((Vector3)(holder.GetVertex(v2)-holder.GetVertex(v0)))*r2 + (Vector3)holder.GetVertex(v0);
 		}
 
+		/// <summary>
+		/// Serializes the node using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void SerializeNode (GraphSerializationContext ctx) {
 			base.SerializeNode(ctx);
 			ctx.writer.Write(v0);
@@ -450,6 +537,10 @@ namespace Pathfinding {
 			ctx.writer.Write(v2);
 		}
 
+		/// <summary>
+		/// Deserializes the node using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void DeserializeNode (GraphSerializationContext ctx) {
 			base.DeserializeNode(ctx);
 			v0 = ctx.reader.ReadInt32();

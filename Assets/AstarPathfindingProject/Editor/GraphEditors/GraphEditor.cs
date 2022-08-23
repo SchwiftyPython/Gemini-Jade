@@ -2,7 +2,14 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The graph editor class
+	/// </summary>
+	/// <seealso cref="GraphEditorBase"/>
 	public class GraphEditor : GraphEditorBase {
+		/// <summary>
+		/// The editor
+		/// </summary>
 		public AstarPathEditor editor;
 
 		/// <summary>Stores if the graph is visible or not in the inspector</summary>
@@ -23,13 +30,34 @@ namespace Pathfinding {
 			return false;
 		}
 
+		/// <summary>
+		/// Ons the enable
+		/// </summary>
 		public virtual void OnEnable () {
 		}
 
+		/// <summary>
+		/// Objects the field using the specified label
+		/// </summary>
+		/// <param name="label">The label</param>
+		/// <param name="obj">The obj</param>
+		/// <param name="objType">The obj type</param>
+		/// <param name="allowSceneObjects">The allow scene objects</param>
+		/// <param name="assetsMustBeInResourcesFolder">The assets must be in resources folder</param>
+		/// <returns>The object</returns>
 		public static Object ObjectField (string label, Object obj, System.Type objType, bool allowSceneObjects, bool assetsMustBeInResourcesFolder) {
 			return ObjectField(new GUIContent(label), obj, objType, allowSceneObjects, assetsMustBeInResourcesFolder);
 		}
 
+		/// <summary>
+		/// Objects the field using the specified label
+		/// </summary>
+		/// <param name="label">The label</param>
+		/// <param name="obj">The obj</param>
+		/// <param name="objType">The obj type</param>
+		/// <param name="allowSceneObjects">The allow scene objects</param>
+		/// <param name="assetsMustBeInResourcesFolder">The assets must be in resources folder</param>
+		/// <returns>The obj</returns>
 		public static Object ObjectField (GUIContent label, Object obj, System.Type objType, bool allowSceneObjects, bool assetsMustBeInResourcesFolder) {
 			obj = EditorGUILayout.ObjectField(label, obj, objType, allowSceneObjects);
 

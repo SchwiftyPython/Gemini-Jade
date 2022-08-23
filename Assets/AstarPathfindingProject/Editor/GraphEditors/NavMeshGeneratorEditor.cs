@@ -2,8 +2,16 @@ using UnityEngine;
 using UnityEditor;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The nav mesh graph editor class
+	/// </summary>
+	/// <seealso cref="GraphEditor"/>
 	[CustomGraphEditor(typeof(NavMeshGraph), "Navmesh Graph")]
 	public class NavMeshGraphEditor : GraphEditor {
+		/// <summary>
+		/// Ons the inspector gui using the specified target
+		/// </summary>
+		/// <param name="target">The target</param>
 		public override void OnInspectorGUI (NavGraph target) {
 			var graph = target as NavMeshGraph;
 

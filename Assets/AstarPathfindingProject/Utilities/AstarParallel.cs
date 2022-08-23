@@ -25,12 +25,25 @@ namespace Pathfinding.Util {
 
 		/// <summary>Queue of items</summary>
 		readonly Queue<T> queue;
+		/// <summary>
+		/// The initial count
+		/// </summary>
 		readonly int initialCount;
 #if !SINGLE_THREAD
+		/// <summary>
+		/// The wait events
+		/// </summary>
 		ManualResetEvent[] waitEvents;
+		/// <summary>
+		/// The inner exception
+		/// </summary>
 		System.Exception innerException;
 #endif
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ParallelWorkQueue"/> class
+		/// </summary>
+		/// <param name="queue">The queue</param>
 		public ParallelWorkQueue (Queue<T> queue) {
 			this.queue = queue;
 			initialCount = queue.Count;
@@ -84,6 +97,10 @@ namespace Pathfinding.Util {
 		}
 
 #if !SINGLE_THREAD
+		/// <summary>
+		/// Runs the task using the specified thread index
+		/// </summary>
+		/// <param name="threadIndex">The thread index</param>
 		void RunTask (int threadIndex) {
 			try {
 				while (true) {

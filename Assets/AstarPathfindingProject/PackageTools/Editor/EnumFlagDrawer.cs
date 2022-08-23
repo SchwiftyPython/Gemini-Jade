@@ -4,8 +4,18 @@ using UnityEditor;
 using UnityEngine;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The enum flag drawer class
+	/// </summary>
+	/// <seealso cref="PropertyDrawer"/>
 	[CustomPropertyDrawer(typeof(EnumFlagAttribute))]
 	public class EnumFlagDrawer : PropertyDrawer {
+		/// <summary>
+		/// Ons the gui using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="property">The property</param>
+		/// <param name="label">The label</param>
 		public override void OnGUI (Rect position, SerializedProperty property, GUIContent label) {
 			Enum targetEnum = GetBaseProperty<Enum>(property);
 
@@ -22,6 +32,12 @@ namespace Pathfinding {
 			EditorGUI.EndProperty();
 		}
 
+		/// <summary>
+		/// Gets the base property using the specified prop
+		/// </summary>
+		/// <typeparam name="T">The </typeparam>
+		/// <param name="prop">The prop</param>
+		/// <returns>The</returns>
 		static T GetBaseProperty<T>(SerializedProperty prop) {
 			// Separate the steps it takes to get to this property
 			string[] separatedPaths = prop.propertyPath.Split('.');

@@ -23,7 +23,15 @@ namespace Pathfinding {
 	[AddComponentMenu("Pathfinding/Link2")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_node_link2.php")]
 	public class NodeLink2 : GraphModifier {
+		/// <summary>
+		/// The node link
+		/// </summary>
 		protected static Dictionary<GraphNode, NodeLink2> reference = new Dictionary<GraphNode, NodeLink2>();
+		/// <summary>
+		/// Gets the node link using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <returns>The </returns>
 		public static NodeLink2 GetNodeLink (GraphNode node) {
 			NodeLink2 v;
 
@@ -44,34 +52,67 @@ namespace Pathfinding {
 		/// <summary>Make a one-way connection</summary>
 		public bool oneWay = false;
 
+		/// <summary>
+		/// Gets the value of the start transform
+		/// </summary>
 		public Transform StartTransform {
 			get { return transform; }
 		}
 
+		/// <summary>
+		/// Gets the value of the end transform
+		/// </summary>
 		public Transform EndTransform {
 			get { return end; }
 		}
 
+		/// <summary>
+		/// Gets or sets the value of the start node
+		/// </summary>
 		public PointNode startNode { get; private set; }
+		/// <summary>
+		/// Gets or sets the value of the end node
+		/// </summary>
 		public PointNode endNode { get; private set; }
+		/// <summary>
+		/// The connected node
+		/// </summary>
 		GraphNode connectedNode1, connectedNode2;
+		/// <summary>
+		/// The clamped
+		/// </summary>
 		Vector3 clamped1, clamped2;
+		/// <summary>
+		/// The post scan called
+		/// </summary>
 		bool postScanCalled = false;
 
+		/// <summary>
+		/// Gets the value of the start node
+		/// </summary>
 		[System.Obsolete("Use startNode instead (lowercase s)")]
 		public GraphNode StartNode {
 			get { return startNode; }
 		}
 
+		/// <summary>
+		/// Gets the value of the end node
+		/// </summary>
 		[System.Obsolete("Use endNode instead (lowercase e)")]
 		public GraphNode EndNode {
 			get { return endNode; }
 		}
 
+		/// <summary>
+		/// Ons the post scan
+		/// </summary>
 		public override void OnPostScan () {
 			InternalOnPostScan();
 		}
 
+		/// <summary>
+		/// Internals the on post scan
+		/// </summary>
 		public void InternalOnPostScan () {
 			if (EndTransform == null || StartTransform == null) return;
 
@@ -113,6 +154,9 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Ons the graphs post update
+		/// </summary>
 		public override void OnGraphsPostUpdate () {
 			// Don't bother running it now since OnPostScan will be called later anyway
 			if (AstarPath.active.isScanning)
@@ -132,6 +176,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the enable
+		/// </summary>
 		protected override void OnEnable () {
 			base.OnEnable();
 
@@ -143,6 +190,9 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		protected override void OnDisable () {
 			base.OnDisable();
 
@@ -165,11 +215,18 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Removes the connections using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
 		void RemoveConnections (GraphNode node) {
 			//TODO, might be better to replace connection
 			node.ClearConnections(true);
 		}
 
+		/// <summary>
+		/// Contexts the apply force
+		/// </summary>
 		[ContextMenu("Recalculate neighbours")]
 		void ContextApplyForce () {
 			if (Application.isPlaying) {
@@ -177,6 +234,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Applies the force new check
+		/// </summary>
+		/// <param name="forceNewCheck">The force new check</param>
 		public void Apply (bool forceNewCheck) {
 			//TODO
 			//This function assumes that connections from the n1,n2 nodes never need to be removed in the future (e.g because the nodes move or something)
@@ -218,17 +279,33 @@ namespace Pathfinding {
 			endNode.AddConnection(connectedNode2, (uint)Mathf.RoundToInt(((Int3)(clamped2 - EndTransform.position)).costMagnitude*costFactor));
 		}
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		private readonly static Color GizmosColor = new Color(206.0f/255.0f, 136.0f/255.0f, 48.0f/255.0f, 0.5f);
+		/// <summary>
+		/// The color
+		/// </summary>
 		private readonly static Color GizmosColorSelected = new Color(235.0f/255.0f, 123.0f/255.0f, 32.0f/255.0f, 1.0f);
 
+		/// <summary>
+		/// Ons the draw gizmos selected
+		/// </summary>
 		public virtual void OnDrawGizmosSelected () {
 			OnDrawGizmos(true);
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		public void OnDrawGizmos () {
 			OnDrawGizmos(false);
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos using the specified selected
+		/// </summary>
+		/// <param name="selected">The selected</param>
 		public void OnDrawGizmos (bool selected) {
 			Color color = selected ? GizmosColorSelected : GizmosColor;
 
@@ -249,6 +326,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Serializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		internal static void SerializeReferences (Pathfinding.Serialization.GraphSerializationContext ctx) {
 			var links = GetModifiersOfType<NodeLink2>();
 
@@ -265,6 +346,14 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
+		/// <exception cref="System.Exception">Tried to deserialize a NodeLink2 reference, but the link could not be found in the scene.
+///If a NodeLink2 is included in serialized graph data, the same NodeLink2 component must be present in the scene when loading the graph data.</exception>
+		/// <exception cref="System.Exception">Tried to deserialize a NodeLink2 reference, but the link was not of the correct type or it has been destroyed.
+///If a NodeLink2 is included in serialized graph data, the same NodeLink2 component must be present in the scene when loading the graph data.</exception>
 		internal static void DeserializeReferences (Pathfinding.Serialization.GraphSerializationContext ctx) {
 			int count = ctx.reader.ReadInt32();
 

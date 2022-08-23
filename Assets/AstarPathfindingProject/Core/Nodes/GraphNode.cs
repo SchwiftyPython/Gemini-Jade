@@ -31,16 +31,31 @@ namespace Pathfinding {
 		/// </summary>
 		public byte shapeEdge;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Connection"/> class
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="cost">The cost</param>
+		/// <param name="shapeEdge">The shape edge</param>
 		public Connection (GraphNode node, uint cost, byte shapeEdge = 0xFF) {
 			this.node = node;
 			this.cost = cost;
 			this.shapeEdge = shapeEdge;
 		}
 
+		/// <summary>
+		/// Gets the hash code
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int GetHashCode () {
 			return node.GetHashCode() ^ (int)cost;
 		}
 
+		/// <summary>
+		/// Describes whether this instance equals
+		/// </summary>
+		/// <param name="obj">The obj</param>
+		/// <returns>The bool</returns>
 		public override bool Equals (object obj) {
 			if (obj == null) return false;
 			var conn = (Connection)obj;
@@ -124,6 +139,9 @@ namespace Pathfinding {
 			NodeIndex = DestroyedNodeIndex;
 		}
 
+		/// <summary>
+		/// Gets the value of the destroyed
+		/// </summary>
 		public bool Destroyed {
 			get {
 				return NodeIndex == DestroyedNodeIndex;
@@ -131,9 +149,21 @@ namespace Pathfinding {
 		}
 
 		// If anyone creates more than about 200 million nodes then things will not go so well, however at that point one will certainly have more pressing problems, such as having run out of RAM
+		/// <summary>
+		/// The node index mask
+		/// </summary>
 		const int NodeIndexMask = 0xFFFFFFF;
+		/// <summary>
+		/// The node index mask
+		/// </summary>
 		const int DestroyedNodeIndex = NodeIndexMask - 1;
+		/// <summary>
+		/// The temporary flag mask
+		/// </summary>
 		const int TemporaryFlag1Mask = 0x10000000;
+		/// <summary>
+		/// The temporary flag mask
+		/// </summary>
 		const int TemporaryFlag2Mask = 0x20000000;
 
 		/// <summary>
@@ -185,6 +215,9 @@ namespace Pathfinding {
 		/// <summary>Mask of graph index bits. See: <see cref="GraphIndex"/></summary>
 		const uint FlagsGraphMask = (256u-1) << FlagsGraphOffset;
 
+		/// <summary>
+		/// The flags hierarchical index offset
+		/// </summary>
 		public const uint MaxHierarchicalNodeIndex = HierarchicalIndexMask >> FlagsHierarchicalIndexOffset;
 
 		/// <summary>Max number of graphs-1</summary>
@@ -352,6 +385,12 @@ namespace Pathfinding {
 		public void RecalculateConnectionCosts () {
 		}
 
+		/// <summary>
+		/// Updates the recursive g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public virtual void UpdateRecursiveG (Path path, PathNode pathNode, PathHandler handler) {
 			//Simple but slow default implementation
 			pathNode.UpdateG(path);
@@ -566,7 +605,15 @@ namespace Pathfinding {
 		}
 	}
 
+	/// <summary>
+	/// The mesh node class
+	/// </summary>
+	/// <seealso cref="GraphNode"/>
 	public abstract class MeshNode : GraphNode {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MeshNode"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		protected MeshNode (AstarPath astar) : base(astar) {
 		}
 
@@ -597,6 +644,10 @@ namespace Pathfinding {
 		/// </summary>
 		public abstract Vector3 ClosestPointOnNodeXZ(Vector3 p);
 
+		/// <summary>
+		/// Clears the connections using the specified also reverse
+		/// </summary>
+		/// <param name="alsoReverse">The also reverse</param>
 		public override void ClearConnections (bool alsoReverse) {
 			// Remove all connections to this node from our neighbours
 			if (alsoReverse && connections != null) {
@@ -614,16 +665,31 @@ namespace Pathfinding {
 			AstarPath.active.hierarchicalGraph.AddDirtyNode(this);
 		}
 
+		/// <summary>
+		/// Gets the connections using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetConnections (System.Action<GraphNode> action) {
 			if (connections == null) return;
 			for (int i = 0; i < connections.Length; i++) action(connections[i].node);
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains connection
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <returns>The bool</returns>
 		public override bool ContainsConnection (GraphNode node) {
 			for (int i = 0; i < connections.Length; i++) if (connections[i].node == node) return true;
 			return false;
 		}
 
+		/// <summary>
+		/// Updates the recursive g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void UpdateRecursiveG (Path path, PathNode pathNode, PathHandler handler) {
 			pathNode.UpdateG(path);
 
@@ -766,6 +832,10 @@ namespace Pathfinding {
 		/// </summary>
 		public abstract bool ContainsPointInGraphSpace(Int3 point);
 
+		/// <summary>
+		/// Gets the gizmo hash code
+		/// </summary>
+		/// <returns>The hash</returns>
 		public override int GetGizmoHashCode () {
 			var hash = base.GetGizmoHashCode();
 
@@ -777,6 +847,10 @@ namespace Pathfinding {
 			return hash;
 		}
 
+		/// <summary>
+		/// Serializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void SerializeReferences (GraphSerializationContext ctx) {
 			if (connections == null) {
 				ctx.writer.Write(-1);
@@ -790,6 +864,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the references using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void DeserializeReferences (GraphSerializationContext ctx) {
 			int count = ctx.reader.ReadInt32();
 

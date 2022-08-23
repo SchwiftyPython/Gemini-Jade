@@ -6,8 +6,18 @@ using Random = UnityEngine.Random;
 
 namespace Utilities
 {
+    /// <summary>
+    /// The collection utils class
+    /// </summary>
     public static class CollectionUtils
     {
+        /// <summary>
+        /// Randoms the element by weight using the specified collection
+        /// </summary>
+        /// <typeparam name="T">The </typeparam>
+        /// <param name="collection">The collection</param>
+        /// <param name="weightSelector">The weight selector</param>
+        /// <returns>The</returns>
         public static T RandomElementByWeight<T>(this IEnumerable<T> collection, Func<T, float> weightSelector)
         {
             var totalWeight = 0f;
@@ -117,6 +127,11 @@ namespace Utilities
             return default;
         }
         
+        /// <summary>
+        /// Enums the to array
+        /// </summary>
+        /// <typeparam name="T">The </typeparam>
+        /// <returns>The array</returns>
         public static T[] EnumToArray<T>()
         {
             return (T[]) Enum.GetValues(typeof(T));

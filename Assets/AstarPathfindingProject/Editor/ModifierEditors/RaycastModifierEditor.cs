@@ -1,9 +1,16 @@
 using UnityEditor;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The raycast modifier editor class
+	/// </summary>
+	/// <seealso cref="EditorBase"/>
 	[CustomEditor(typeof(RaycastModifier))]
 	[CanEditMultipleObjects]
 	public class RaycastModifierEditor : EditorBase {
+		/// <summary>
+		/// Inspectors this instance
+		/// </summary>
 		protected override void Inspector () {
 			PropertyField("quality");
 

@@ -17,7 +17,13 @@ namespace Pathfinding {
 	/// </summary>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_single_node_blocker.php")]
 	public class SingleNodeBlocker : VersionedMonoBehaviour {
+		/// <summary>
+		/// Gets or sets the value of the last blocked
+		/// </summary>
 		public GraphNode lastBlocked { get; private set; }
+		/// <summary>
+		/// The manager
+		/// </summary>
 		public BlockManager manager;
 
 		/// <summary>

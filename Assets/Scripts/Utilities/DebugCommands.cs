@@ -3,8 +3,15 @@ using World;
 
 namespace Utilities
 {
+    /// <summary>
+    /// The debug commands class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class DebugCommands : MonoBehaviour
     {
+        /// <summary>
+        /// Finishes the all blueprints
+        /// </summary>
         public void FinishAllBlueprints()
         {
             var blueprints = FindObjectOfType<GridBuildingSystem>().LocalMap.GetAllBlueprints();
@@ -13,11 +20,11 @@ namespace Utilities
             {
                 if (blueprint.placedObjectType.isWall)
                 {
-                    ((WallPlacedObject)blueprint).Make();
+                    ((WallPlacedObject)blueprint).FinishConstruction();
                 }
                 else
                 {
-                    blueprint.Make();
+                    blueprint.FinishConstruction();
                 }
             }
         }

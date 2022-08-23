@@ -12,6 +12,14 @@ using Thread = Pathfinding.WindowsStore.Thread;
 using Thread = System.Threading.Thread;
 #endif
 
+/// <summary>
+
+/// The astar path class
+
+/// </summary>
+
+/// <seealso cref="VersionedMonoBehaviour"/>
+
 [ExecuteInEditMode]
 [AddComponentMenu("Pathfinding/Pathfinder")]
 /// <summary>
@@ -29,7 +37,16 @@ public class AstarPath : VersionedMonoBehaviour {
 	public static readonly System.Version Version = new System.Version(4, 2, 17);
 
 	/// <summary>Information about where the package was downloaded</summary>
-	public enum AstarDistribution { WebsiteDownload, AssetStore, PackageManager };
+	public enum AstarDistribution { /// <summary>
+ /// The website download astar distribution
+ /// </summary>
+ WebsiteDownload, /// <summary>
+ /// The asset store astar distribution
+ /// </summary>
+ AssetStore, /// <summary>
+ /// The package manager astar distribution
+ /// </summary>
+ PackageManager };
 
 	/// <summary>Used by the editor to guide the user to the correct place to download updates</summary>
 	public static readonly AstarDistribution Distribution = AstarDistribution.WebsiteDownload;
@@ -597,6 +614,9 @@ public class AstarPath : VersionedMonoBehaviour {
 	/// <summary>Holds all paths waiting to be calculated and calculates them</summary>
 	PathProcessor pathProcessor;
 
+	/// <summary>
+	/// The graph update routine running
+	/// </summary>
 	bool graphUpdateRoutineRunning = false;
 
 	/// <summary>Makes sure QueueGraphUpdates will not queue multiple graph update orders</summary>
@@ -634,6 +654,9 @@ public class AstarPath : VersionedMonoBehaviour {
 	/// </summary>
 	private ushort nextFreePathID = 1;
 
+	/// <summary>
+	/// Initializes a new instance of the <see cref="AstarPath"/> class
+	/// </summary>
 	private AstarPath () {
 		pathReturnQueue = new PathReturnQueue(this);
 
@@ -705,6 +728,9 @@ public class AstarPath : VersionedMonoBehaviour {
 		return nextFreePathID++;
 	}
 
+	/// <summary>
+	/// Recalculates the debug limits
+	/// </summary>
 	void RecalculateDebugLimits () {
 		debugFloor = float.PositiveInfinity;
 		debugRoof = float.NegativeInfinity;
@@ -748,6 +774,9 @@ public class AstarPath : VersionedMonoBehaviour {
 		if (debugRoof-debugFloor < 1) debugRoof += 1;
 	}
 
+	/// <summary>
+	/// The retained gizmos
+	/// </summary>
 	Pathfinding.Util.RetainedGizmos gizmos = new Pathfinding.Util.RetainedGizmos();
 
 	/// <summary>Calls OnDrawGizmos on graph generators</summary>
@@ -871,6 +900,10 @@ public class AstarPath : VersionedMonoBehaviour {
 		pathReturnQueue.ReturnPaths(true);
 	}
 
+	/// <summary>
+	/// Performs the blocking actions using the specified force
+	/// </summary>
+	/// <param name="force">The force</param>
 	private void PerformBlockingActions (bool force = false) {
 		if (workItemLock.Held && pathProcessor.queue.AllReceiversBlocked) {
 			// Return all paths before starting blocking actions
@@ -1785,6 +1818,11 @@ public class AstarPath : VersionedMonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Scans the graph using the specified graph
+	/// </summary>
+	/// <param name="graph">The graph</param>
+	/// <returns>An enumerable of progress</returns>
 	IEnumerable<Progress> ScanGraph (NavGraph graph) {
 		if (OnGraphPreScan != null) {
 			yield return new Progress(0, "Pre processing");
@@ -1810,6 +1848,9 @@ public class AstarPath : VersionedMonoBehaviour {
 
 	#endregion
 
+	/// <summary>
+	/// The wait for path depth
+	/// </summary>
 	private static int waitForPathDepth = 0;
 
 	/// <summary>

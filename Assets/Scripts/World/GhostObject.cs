@@ -4,18 +4,40 @@ using World.Things.CraftableThings;
 
 namespace World
 {
+    /// <summary>
+    /// The ghost object class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class GhostObject : MonoBehaviour
     {
+        /// <summary>
+        /// The ghost object layer name
+        /// </summary>
         private const string GhostObjectLayerName = "GhostObject";
         
+        /// <summary>
+        /// The instance
+        /// </summary>
         private Transform _instance;
 
+        /// <summary>
+        /// The placed object ghost
+        /// </summary>
         private PlacedObject _placedObjectGhost;
     
+        /// <summary>
+        /// The placed object type
+        /// </summary>
         private PlacedObjectTemplate _placedObjectType;
         
+        /// <summary>
+        /// The grid building system
+        /// </summary>
         private GridBuildingSystem _gridBuildingSystem;
 
+        /// <summary>
+        /// Awakes this instance
+        /// </summary>
         private void Awake()
         {
             _gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
@@ -24,6 +46,9 @@ namespace World
         }
 
 
+        /// <summary>
+        /// Lates the update
+        /// </summary>
         private void LateUpdate()
         {
             var targetPosition = _gridBuildingSystem.GetMouseWorldSnappedPosition();
@@ -33,11 +58,17 @@ namespace World
             transform.rotation = Quaternion.Lerp(transform.rotation, _gridBuildingSystem.GetObjectRotation(), UnityEngine.Time.deltaTime * 25f);
         }
 
+        /// <summary>
+        /// Shows this instance
+        /// </summary>
         public void Show()
         {
             gameObject.SetActive(true);
         }
         
+        /// <summary>
+        /// Hides this instance
+        /// </summary>
         public void Hide()
         {
             gameObject.SetActive(false);
@@ -45,6 +76,10 @@ namespace World
             transform.position = Vector3.zero;
         }
 
+        /// <summary>
+        /// Setup the object type
+        /// </summary>
+        /// <param name="objectType">The object type</param>
         public void Setup(PlacedObjectTemplate objectType)
         {
             if (_instance != null)
@@ -71,25 +106,40 @@ namespace World
                 
             _placedObjectGhost.SpriteRenderer.sprite = NeedsToBeMade
                 ? objectType.blueprintTexture
-                : objectType.texture;
+                : objectType.builtTexture;
 
             _placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
                 
             Show();
         }
         
+        /// <summary>
+        /// Gets the value of the needs to be made
+        /// </summary>
         public bool NeedsToBeMade => _placedObjectType.workToMake > 0;
 
+        /// <summary>
+        /// Colors the sprite red
+        /// </summary>
         public void ColorSpriteRed()
         {
             _placedObjectGhost.SpriteRenderer.color = Color.red;
         }
 
+        /// <summary>
+        /// Colors the sprite white
+        /// </summary>
         public void ColorSpriteWhite()
         {
             _placedObjectGhost.SpriteRenderer.color = Color.white;
         }
         
+        /// <summary>
+        /// Gets the grid positions using the specified origin
+        /// </summary>
+        /// <param name="origin">The origin</param>
+        /// <param name="dir">The dir</param>
+        /// <returns>The grid position list</returns>
         public List<Vector2Int> GetGridPositions(Vector2Int origin, PlacedObject.Dir dir)
         {
             var gridPositionList = new List<Vector2Int>();
@@ -145,6 +195,10 @@ namespace World
             return gridPositionList;
         }
 
+        /// <summary>
+        /// Ons the object selected using the specified object type
+        /// </summary>
+        /// <param name="objectType">The object type</param>
         private void OnObjectSelected(PlacedObjectTemplate objectType)
         {
             if (_instance != null)

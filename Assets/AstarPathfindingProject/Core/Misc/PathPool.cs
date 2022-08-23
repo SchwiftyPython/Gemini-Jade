@@ -5,7 +5,13 @@ using System.Collections.Generic;
 namespace Pathfinding {
 	/// <summary>Pools path objects to reduce load on the garbage collector</summary>
 	public static class PathPool {
+		/// <summary>
+		/// The path
+		/// </summary>
 		static readonly Dictionary<Type, Stack<Path> > pool = new Dictionary<Type, Stack<Path> >();
+		/// <summary>
+		/// The type
+		/// </summary>
 		static readonly Dictionary<Type, int> totalCreated = new Dictionary<Type, int>();
 
 		/// <summary>

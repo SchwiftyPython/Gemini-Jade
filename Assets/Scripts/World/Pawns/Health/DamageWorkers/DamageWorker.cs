@@ -10,10 +10,22 @@ using World.Things;
 
 namespace World.Pawns.Health.DamageWorkers
 {
+    /// <summary>
+    /// The damage worker class
+    /// </summary>
     public class DamageWorker
     {
+        /// <summary>
+        /// The template
+        /// </summary>
         public DamageTemplate template;
 
+        /// <summary>
+        /// Applies the damage info
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="target">The target</param>
+        /// <returns>The damage result</returns>
         public virtual DamageResult Apply(DamageInfo damageInfo, Thing target)
         {
             if (target is Pawn pawn)
@@ -55,11 +67,24 @@ namespace World.Pawns.Health.DamageWorkers
             return damageResult;
         }
 
+        /// <summary>
+        /// Chooses the hit part using the specified damage info
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="target">The target</param>
+        /// <returns>The body part</returns>
         protected virtual BodyPart ChooseHitPart(DamageInfo damageInfo, Pawn target)
         {
             return target.health.GetRandomBodyPart(damageInfo.Height, damageInfo.Depth);
         }
 
+        /// <summary>
+        /// Adds the injury using the specified target
+        /// </summary>
+        /// <param name="target">The target</param>
+        /// <param name="totalDamage">The total damage</param>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="damageResult">The damage result</param>
         protected void AddInjury(Pawn target, float totalDamage, DamageInfo damageInfo, DamageResult damageResult)
         {
             if (target.health.BodyPartIsMissing(damageInfo.HitPart))
@@ -87,6 +112,13 @@ namespace World.Pawns.Health.DamageWorkers
             AddInjury(target, injury, damageInfo, damageResult);
         }
         
+        /// <summary>
+        /// Adds the injury using the specified target
+        /// </summary>
+        /// <param name="target">The target</param>
+        /// <param name="injury">The injury</param>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="damageResult">The damage result</param>
         protected void AddInjury(Pawn target, Injury injury, DamageInfo damageInfo, DamageResult damageResult)
         {
             injury.GetComp<HealthModifierComponents.GetsPermanent>()?.PreFinalizeInjury();
@@ -100,6 +132,12 @@ namespace World.Pawns.Health.DamageWorkers
             damageResult.AddHealthMod(injury);
         }
 
+        /// <summary>
+        /// Applies the to pawn using the specified damage info
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="target">The target</param>
+        /// <returns>The damage result</returns>
         private DamageResult ApplyToPawn(DamageInfo damageInfo, Pawn target)
         {
             var damageResult = new DamageResult();
@@ -145,6 +183,12 @@ namespace World.Pawns.Health.DamageWorkers
             return damageResult;
         }
 
+        /// <summary>
+        /// Applies the damage to part using the specified damage info
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="target">The target</param>
+        /// <param name="damageResult">The damage result</param>
         private void ApplyDamageToPart(DamageInfo damageInfo, Pawn target, DamageResult damageResult)
         {
             damageInfo.HitPart = GetPartFromDamageInfo(damageInfo, target);  
@@ -202,6 +246,12 @@ namespace World.Pawns.Health.DamageWorkers
             }
         }
 
+        /// <summary>
+        /// Gets the part from damage info using the specified damage info
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="pawn">The pawn</param>
+        /// <returns>The body part</returns>
         private BodyPart GetPartFromDamageInfo(DamageInfo damageInfo, Pawn pawn)
         {
             if (damageInfo.HitPart == null)
@@ -212,6 +262,12 @@ namespace World.Pawns.Health.DamageWorkers
             return pawn.health.GetExistingParts().Any(part => part == damageInfo.HitPart) ? damageInfo.HitPart : null;
         }
 
+        /// <summary>
+        /// Spreads the damage using the specified damage info
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <param name="target">The target</param>
+        /// <param name="damageResult">The damage result</param>
         private void SpreadDamage(DamageInfo damageInfo, Pawn target, DamageResult damageResult)
         {
             if (damageInfo.HitPart == null)
@@ -272,6 +328,11 @@ namespace World.Pawns.Health.DamageWorkers
             ApplyDamageToPart(damageInfoCopy, target, damageResult);
         }
 
+        /// <summary>
+        /// Describes whether is headshot
+        /// </summary>
+        /// <param name="damageInfo">The damage info</param>
+        /// <returns>The bool</returns>
         private static bool IsHeadshot(DamageInfo damageInfo)
         {
             var bodyPartGroupRepo = Object.FindObjectOfType<BodyPartGroupRepo>();

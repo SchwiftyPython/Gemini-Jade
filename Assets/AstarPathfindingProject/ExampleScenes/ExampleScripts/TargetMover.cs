@@ -15,15 +15,30 @@ namespace Pathfinding {
 		/// <summary>Mask for the raycast placement</summary>
 		public LayerMask mask;
 
+		/// <summary>
+		/// The target
+		/// </summary>
 		public Transform target;
+		/// <summary>
+		/// The ais
+		/// </summary>
 		IAstarAI[] ais;
 
 		/// <summary>Determines if the target position should be updated every frame or only on double-click</summary>
 		public bool onlyOnDoubleClick;
+		/// <summary>
+		/// The use
+		/// </summary>
 		public bool use2D;
 
+		/// <summary>
+		/// The cam
+		/// </summary>
 		Camera cam;
 
+		/// <summary>
+		/// Starts this instance
+		/// </summary>
 		public void Start () {
 			//Cache the Main Camera
 			cam = Camera.main;
@@ -33,6 +48,9 @@ namespace Pathfinding {
 			useGUILayout = false;
 		}
 
+		/// <summary>
+		/// Ons the gui
+		/// </summary>
 		public void OnGUI () {
 			if (onlyOnDoubleClick && cam != null && Event.current.type == EventType.MouseDown && Event.current.clickCount == 2) {
 				UpdateTargetPosition();
@@ -46,6 +64,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Updates the target position
+		/// </summary>
 		public void UpdateTargetPosition () {
 			Vector3 newPosition = Vector3.zero;
 			bool positionFound = false;

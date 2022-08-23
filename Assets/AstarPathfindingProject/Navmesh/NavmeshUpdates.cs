@@ -44,12 +44,32 @@ namespace Pathfinding {
 		/// </summary>
 		public float updateInterval;
 
+		/// <summary>
+		/// The navmesh update settings class
+		/// </summary>
 		internal class NavmeshUpdateSettings {
+			/// <summary>
+			/// Initializes a new instance of the <see cref="NavmeshUpdateSettings"/> class
+			/// </summary>
+			/// <param name="graph">The graph</param>
 			public NavmeshUpdateSettings(NavmeshBase graph) {}
+			/// <summary>
+			/// Ons the recalculated tiles using the specified tiles
+			/// </summary>
+			/// <param name="tiles">The tiles</param>
 			public void OnRecalculatedTiles (NavmeshTile[] tiles) {}
 		}
+		/// <summary>
+		/// Updates this instance
+		/// </summary>
 		internal void Update () {}
+		/// <summary>
+		/// Ons the enable
+		/// </summary>
 		internal void OnEnable () {}
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		internal void OnDisable () {}
 	}
 }

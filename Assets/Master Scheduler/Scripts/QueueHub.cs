@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,8 +9,14 @@ using System.Collections.Generic;
 public class QueueHub : MonoBehaviour
 {
 
+    /// <summary>
+    /// The instance
+    /// </summary>
     private static QueueHub instance;
 
+    /// <summary>
+    /// Gets the value of the instance
+    /// </summary>
     public static QueueHub Instance
     {
         get

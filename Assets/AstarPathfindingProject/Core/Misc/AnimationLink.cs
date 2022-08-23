@@ -2,22 +2,59 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Pathfinding {
+	/// <summary>
+	/// The animation link class
+	/// </summary>
+	/// <seealso cref="NodeLink2"/>
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_animation_link.php")]
 	public class AnimationLink : NodeLink2 {
+		/// <summary>
+		/// The clip
+		/// </summary>
 		public string clip;
+		/// <summary>
+		/// The anim speed
+		/// </summary>
 		public float animSpeed = 1;
+		/// <summary>
+		/// The reverse anim
+		/// </summary>
 		public bool reverseAnim = true;
 
+		/// <summary>
+		/// The reference mesh
+		/// </summary>
 		public GameObject referenceMesh;
+		/// <summary>
+		/// The sequence
+		/// </summary>
 		public LinkClip[] sequence;
+		/// <summary>
+		/// The bone root
+		/// </summary>
 		public string boneRoot = "bn_COG_Root";
 
+		/// <summary>
+		/// The link clip class
+		/// </summary>
 		[System.Serializable]
 		public class LinkClip {
+			/// <summary>
+			/// The clip
+			/// </summary>
 			public AnimationClip clip;
+			/// <summary>
+			/// The velocity
+			/// </summary>
 			public Vector3 velocity;
+			/// <summary>
+			/// The loop count
+			/// </summary>
 			public int loopCount = 1;
 
+			/// <summary>
+			/// Gets the value of the name
+			/// </summary>
 			public string name {
 				get {
 					return clip != null ? clip.name : "";
@@ -25,6 +62,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Searches the rec using the specified tr
+		/// </summary>
+		/// <param name="tr">The tr</param>
+		/// <param name="name">The name</param>
+		/// <returns>The transform</returns>
 		static Transform SearchRec (Transform tr, string name) {
 			int childCount = tr.childCount;
 
@@ -39,6 +82,12 @@ namespace Pathfinding {
 			return null;
 		}
 
+		/// <summary>
+		/// Calculates the offsets using the specified trace
+		/// </summary>
+		/// <param name="trace">The trace</param>
+		/// <param name="endPosition">The end position</param>
+		/// <exception cref="System.Exception">Could not find root transform</exception>
 		public void CalculateOffsets (List<Vector3> trace, out Vector3 endPosition) {
 			//Vector3 opos = transform.position;
 			endPosition = transform.position;
@@ -108,6 +157,9 @@ namespace Pathfinding {
 			endPosition = position;
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos selected
+		/// </summary>
 		public override void OnDrawGizmosSelected () {
 			base.OnDrawGizmosSelected();
 			List<Vector3> buffer = Pathfinding.Util.ListPool<Vector3>.Claim();

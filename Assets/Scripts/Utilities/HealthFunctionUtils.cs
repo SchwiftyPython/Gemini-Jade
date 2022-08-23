@@ -9,10 +9,20 @@ using World.Pawns.Health.HealthModifiers;
 
 namespace Utilities
 {
+    /// <summary>
+    /// The health function utils class
+    /// </summary>
     public static class HealthFunctionUtils
     {
         //todo looks like impactors are used to list reason for function efficiency when hovering over function in health summary
         
+        /// <summary>
+        /// Calculates the function level using the specified pawn
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
+        /// <param name="healthMods">The health mods</param>
+        /// <param name="function">The function</param>
+        /// <returns>The level</returns>
         public static float CalculateFunctionLevel(Pawn pawn, List<HealthMod> healthMods, HealthFunctionTemplate function)
         {
             if (function.zeroIfCannotWakeUp && !pawn.CanWakeUp)
@@ -48,6 +58,13 @@ namespace Utilities
             return level;
         }
 
+        /// <summary>
+        /// Calculates the part efficiency using the specified body part
+        /// </summary>
+        /// <param name="bodyPart">The body part</param>
+        /// <param name="pawn">The pawn</param>
+        /// <param name="healthMods">The health mods</param>
+        /// <returns>The float</returns>
         public static float CalculatePartEfficiency(BodyPart bodyPart, Pawn pawn, List<HealthMod> healthMods)
         {
             //todo there are checks here for added parts as an impact. 
@@ -66,6 +83,13 @@ namespace Utilities
             return Mathf.Max(efficiency, 0f);
         }
 
+        /// <summary>
+        /// Calculates the tag efficiency using the specified pawn
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
+        /// <param name="healthMods">The health mods</param>
+        /// <param name="tag">The tag</param>
+        /// <returns>The tag efficiency</returns>
         public static float CalculateTagEfficiency(Pawn pawn, List<HealthMod> healthMods, BodyPartTagTemplate tag)
         {
             var partsWithTag = pawn.health.GetBodyPartsWithTag(tag);
@@ -100,6 +124,17 @@ namespace Utilities
             return tagEfficiency;
         }
 
+        /// <summary>
+        /// Calculates the limb efficiency using the specified pawn
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
+        /// <param name="healthMods">The health mods</param>
+        /// <param name="limbCoreTag">The limb core tag</param>
+        /// <param name="limbSegmentTag">The limb segment tag</param>
+        /// <param name="limbDigitTag">The limb digit tag</param>
+        /// <param name="appendageWeight">The appendage weight</param>
+        /// <param name="functionalPercentage">The functional percentage</param>
+        /// <returns>The float</returns>
         public static float CalculateLimbEfficiency(Pawn pawn, List<HealthMod> healthMods,
             BodyPartTagTemplate limbCoreTag, BodyPartTagTemplate limbSegmentTag, BodyPartTagTemplate limbDigitTag,
             float appendageWeight, out float functionalPercentage)

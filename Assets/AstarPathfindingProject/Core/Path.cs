@@ -10,16 +10,40 @@ namespace Pathfinding {
 	/// See: turnbased (view in online documentation for working links)
 	/// </summary>
 	public interface ITraversalProvider {
+		/// <summary>
+		/// Describes whether this instance can traverse
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="node">The node</param>
+		/// <returns>The bool</returns>
 		bool CanTraverse(Path path, GraphNode node);
+		/// <summary>
+		/// Gets the traversal cost using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="node">The node</param>
+		/// <returns>The uint</returns>
 		uint GetTraversalCost(Path path, GraphNode node);
 	}
 
 	/// <summary>Convenience class to access the default implementation of the ITraversalProvider</summary>
 	public static class DefaultITraversalProvider {
+		/// <summary>
+		/// Describes whether can traverse
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="node">The node</param>
+		/// <returns>The bool</returns>
 		public static bool CanTraverse (Path path, GraphNode node) {
 			return node.Walkable && (path.enabledTags >> (int)node.Tag & 0x1) != 0;
 		}
 
+		/// <summary>
+		/// Gets the traversal cost using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="node">The node</param>
+		/// <returns>The uint</returns>
 		public static uint GetTraversalCost (Path path, GraphNode node) {
 			return path.GetTagPenalty((int)node.Tag) + node.Penalty;
 		}
@@ -64,6 +88,9 @@ namespace Pathfinding {
 
 		/// <summary>Returns the state of the path in the pathfinding pipeline</summary>
 		public PathState PipelineState { get; private set; }
+		/// <summary>
+		/// The state lock
+		/// </summary>
 		System.Object stateLock = new object();
 
 		/// <summary>
@@ -346,6 +373,10 @@ namespace Pathfinding {
 			return (uint)internalTagPenalties[tag];
 		}
 
+		/// <summary>
+		/// Gets the h target
+		/// </summary>
+		/// <returns>The target</returns>
 		protected Int3 GetHTarget () {
 			return hTarget;
 		}
@@ -815,31 +846,106 @@ namespace Pathfinding {
 		/// <summary>Calculates the until it is complete or the time has progressed past targetTick</summary>
 		protected abstract void CalculateStep(long targetTick);
 
+		/// <summary>
+		/// Gets the value of the path handler
+		/// </summary>
 		PathHandler IPathInternals.PathHandler { get { return pathHandler; } }
+		/// <summary>
+		/// Ons the enter pool
+		/// </summary>
 		void IPathInternals.OnEnterPool () { OnEnterPool(); }
+		/// <summary>
+		/// Resets this instance
+		/// </summary>
 		void IPathInternals.Reset () { Reset(); }
+		/// <summary>
+		/// Returns the path
+		/// </summary>
 		void IPathInternals.ReturnPath () { ReturnPath(); }
+		/// <summary>
+		/// Prepares the base using the specified handler
+		/// </summary>
+		/// <param name="handler">The handler</param>
 		void IPathInternals.PrepareBase (PathHandler handler) { PrepareBase(handler); }
+		/// <summary>
+		/// Prepares this instance
+		/// </summary>
 		void IPathInternals.Prepare () { Prepare(); }
+		/// <summary>
+		/// Cleanups this instance
+		/// </summary>
 		void IPathInternals.Cleanup () { Cleanup(); }
+		/// <summary>
+		/// Initializes this instance
+		/// </summary>
 		void IPathInternals.Initialize () { Initialize(); }
+		/// <summary>
+		/// Calculates the step using the specified target tick
+		/// </summary>
+		/// <param name="targetTick">The target tick</param>
 		void IPathInternals.CalculateStep (long targetTick) { CalculateStep(targetTick); }
+		/// <summary>
+		/// Debugs the string using the specified log mode
+		/// </summary>
+		/// <param name="logMode">The log mode</param>
+		/// <returns>The string</returns>
 		string IPathInternals.DebugString (PathLog logMode) { return DebugString(logMode); }
 	}
 
 	/// <summary>Used for hiding internal methods of the Path class</summary>
 	internal interface IPathInternals {
+		/// <summary>
+		/// Gets the value of the path handler
+		/// </summary>
 		PathHandler PathHandler { get; }
+		/// <summary>
+		/// Gets or sets the value of the pooled
+		/// </summary>
 		bool Pooled { get; set; }
+		/// <summary>
+		/// Advances the state using the specified s
+		/// </summary>
+		/// <param name="s">The </param>
 		void AdvanceState(PathState s);
+		/// <summary>
+		/// Ons the enter pool
+		/// </summary>
 		void OnEnterPool();
+		/// <summary>
+		/// Resets this instance
+		/// </summary>
 		void Reset();
+		/// <summary>
+		/// Returns the path
+		/// </summary>
 		void ReturnPath();
+		/// <summary>
+		/// Prepares the base using the specified handler
+		/// </summary>
+		/// <param name="handler">The handler</param>
 		void PrepareBase(PathHandler handler);
+		/// <summary>
+		/// Prepares this instance
+		/// </summary>
 		void Prepare();
+		/// <summary>
+		/// Initializes this instance
+		/// </summary>
 		void Initialize();
+		/// <summary>
+		/// Cleanups this instance
+		/// </summary>
 		void Cleanup();
+		/// <summary>
+		/// Calculates the step using the specified target tick
+		/// </summary>
+		/// <param name="targetTick">The target tick</param>
 		void CalculateStep(long targetTick);
+		/// <summary>
+		/// Debugs the string using the specified log mode
+		/// </summary>
+		/// <param name="logMode">The log mode</param>
+		/// <returns>The string</returns>
 		string DebugString(PathLog logMode);
 	}
 }

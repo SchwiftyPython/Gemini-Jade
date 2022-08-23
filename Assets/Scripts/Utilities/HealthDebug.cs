@@ -15,34 +15,68 @@ using World.Things;
 
 namespace Assets.Scripts.Utilities
 {
+    /// <summary>
+    /// The health debug class
+    /// </summary>
+    /// <seealso cref="MonoBehaviour"/>
     public class HealthDebug : MonoBehaviour
     {
+        /// <summary>
+        /// The current pawn
+        /// </summary>
         private Pawn _currentPawn;
 
+        /// <summary>
+        /// The body parts dict
+        /// </summary>
         private Dictionary<string, BodyPart> _bodyPartsDict;
 
         //todo move these to a more central location -- probably some ui handler 
+        /// <summary>
+        /// The select pawn
+        /// </summary>
         public delegate void SelectPawn(Pawn pawn);
         public static event SelectPawn OnPawnSelected;
 
+        /// <summary>
+        /// The body changed
+        /// </summary>
         public delegate void BodyChanged();
         public static event BodyChanged OnBodyChanged;
 
+        /// <summary>
+        /// The human template
+        /// </summary>
         public SpeciesTemplate humanTemplate;
 
+        /// <summary>
+        /// The remove body part template
+        /// </summary>
         public HealthModTemplate removeBodyPartTemplate;
+        /// <summary>
+        /// The cut body part template
+        /// </summary>
         public HealthModTemplate cutBodyPartTemplate;
 
+        /// <summary>
+        /// The body parts dropdown
+        /// </summary>
         public Dropdown bodyPartsDropdown;
 
         //todo add health mods to call or we can assign health mods directly to buttons and not worry about it here
 
+        /// <summary>
+        /// Starts this instance
+        /// </summary>
         private void Start()
         {
             OnPawnSelected += HealthDebug_OnPawnSelected;
             OnBodyChanged += HealthDebug_OnBodyChanged;
         }
 
+        /// <summary>
+        /// Creates the pawn
+        /// </summary>
         public void CreatePawn()
         {
             var pawn = humanTemplate.NewPawn();
@@ -50,11 +84,17 @@ namespace Assets.Scripts.Utilities
             OnPawnSelected?.Invoke(pawn);
         }
 
+        /// <summary>
+        /// Notifies the body changed
+        /// </summary>
         public static void NotifyBodyChanged()
         {
             OnBodyChanged?.Invoke();
         }
 
+        /// <summary>
+        /// Removes the body part
+        /// </summary>
         public void RemoveBodyPart()
         {
             var partName = bodyPartsDropdown.options[bodyPartsDropdown.value].text;
@@ -92,6 +132,9 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
+        /// <summary>
+        /// Cuts the pawn
+        /// </summary>
         public void CutPawn()
         {
             var damageTemplateRepo = FindObjectOfType<DamageTemplateRepo>();
@@ -123,6 +166,9 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
+        /// <summary>
+        /// Attacks the with weapon
+        /// </summary>
         public void AttackWithWeapon()
         {
             //todo have a weapon select dropdown
@@ -144,6 +190,9 @@ namespace Assets.Scripts.Utilities
             Debug.Log($"Attempt to attack with {knifeTemplate.label} {partToUse.label}: {success}");
         }
 
+        /// <summary>
+        /// Populates the body part dropdown
+        /// </summary>
         private void PopulateBodyPartDropdown()
         {
             bodyPartsDropdown.ClearOptions();
@@ -171,6 +220,9 @@ namespace Assets.Scripts.Utilities
             bodyPartsDropdown.AddOptions(_bodyPartsDict.Keys.ToList());
         }
 
+        /// <summary>
+        /// Draws the health summary
+        /// </summary>
         private void DrawHealthSummary()
         {
             var healthSummary = Object.FindObjectOfType<HealthSummary>();
@@ -191,6 +243,10 @@ namespace Assets.Scripts.Utilities
             healthSummary.Draw(functionPercentages);
         }
 
+        /// <summary>
+        /// Healths the debug on pawn selected using the specified pawn
+        /// </summary>
+        /// <param name="pawn">The pawn</param>
         private void HealthDebug_OnPawnSelected(Pawn pawn)
         {
             _currentPawn = pawn;
@@ -198,6 +254,9 @@ namespace Assets.Scripts.Utilities
             PopulateBodyPartDropdown();
         }
 
+        /// <summary>
+        /// Healths the debug on body changed
+        /// </summary>
         public void HealthDebug_OnBodyChanged()
         {
             DrawHealthSummary();

@@ -13,13 +13,37 @@ namespace Pathfinding {
 	/// See: Pathfinding.GraphUpdateObject.shape
 	/// </summary>
 	public class GraphUpdateShape {
+		/// <summary>
+		/// The points
+		/// </summary>
 		Vector3[] _points;
+		/// <summary>
+		/// The convex points
+		/// </summary>
 		Vector3[] _convexPoints;
+		/// <summary>
+		/// The convex
+		/// </summary>
 		bool _convex;
+		/// <summary>
+		/// The right
+		/// </summary>
 		Vector3 right = Vector3.right;
+		/// <summary>
+		/// The forward
+		/// </summary>
 		Vector3 forward = Vector3.forward;
+		/// <summary>
+		/// The up
+		/// </summary>
 		Vector3 up = Vector3.up;
+		/// <summary>
+		/// The origin
+		/// </summary>
 		Vector3 origin;
+		/// <summary>
+		/// The minimum height
+		/// </summary>
 		public float minimumHeight;
 
 		/// <summary>
@@ -53,6 +77,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GraphUpdateShape"/> class
+		/// </summary>
 		public GraphUpdateShape () {
 		}
 
@@ -76,6 +103,9 @@ namespace Pathfinding {
 			this.minimumHeight = minimumHeight;
 		}
 
+		/// <summary>
+		/// Calculates the convex hull
+		/// </summary>
 		void CalculateConvexHull () {
 			_convexPoints = points != null? Polygon.ConvexHullXZ(points) : null;
 		}
@@ -85,6 +115,13 @@ namespace Pathfinding {
 			return GetBounds(convex ? _convexPoints : points, right, up, forward, origin, minimumHeight);
 		}
 
+		/// <summary>
+		/// Gets the bounds using the specified points
+		/// </summary>
+		/// <param name="points">The points</param>
+		/// <param name="matrix">The matrix</param>
+		/// <param name="minimumHeight">The minimum height</param>
+		/// <returns>The bounds</returns>
 		public static Bounds GetBounds (Vector3[] points, Matrix4x4 matrix, float minimumHeight) {
 			var origin = matrix.MultiplyPoint3x4(Vector3.zero);
 			var right = matrix.MultiplyPoint3x4(Vector3.right) - origin;
@@ -94,6 +131,16 @@ namespace Pathfinding {
 			return GetBounds(points, right, up, forward, origin, minimumHeight);
 		}
 
+		/// <summary>
+		/// Gets the bounds using the specified points
+		/// </summary>
+		/// <param name="points">The points</param>
+		/// <param name="right">The right</param>
+		/// <param name="up">The up</param>
+		/// <param name="forward">The forward</param>
+		/// <param name="origin">The origin</param>
+		/// <param name="minimumHeight">The minimum height</param>
+		/// <returns>The bounds</returns>
 		static Bounds GetBounds (Vector3[] points, Vector3 right, Vector3 up, Vector3 forward, Vector3 origin, float minimumHeight) {
 			if (points == null || points.Length == 0) return new Bounds();
 			float miny = points[0].y, maxy = points[0].y;
@@ -119,10 +166,20 @@ namespace Pathfinding {
 			return new Bounds((min+max)*0.5F + origin, max-min);
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <returns>The bool</returns>
 		public bool Contains (GraphNode node) {
 			return Contains((Vector3)node.position);
 		}
 
+		/// <summary>
+		/// Describes whether this instance contains
+		/// </summary>
+		/// <param name="point">The point</param>
+		/// <returns>The bool</returns>
 		public bool Contains (Vector3 point) {
 			// Transform to local space (shape in the XZ plane)
 			point -= origin;

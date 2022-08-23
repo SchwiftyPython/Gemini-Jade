@@ -92,6 +92,9 @@ namespace Pathfinding {
 			RemoveGridGraphFromStatic();
 		}
 
+		/// <summary>
+		/// Destroys the all nodes
+		/// </summary>
 		protected override void DestroyAllNodes () {
 			GetNodes(node => {
 				// If the grid data happens to be invalid (e.g we had to abort a graph update while it was running) using 'false' as
@@ -104,6 +107,9 @@ namespace Pathfinding {
 			});
 		}
 
+		/// <summary>
+		/// Removes the grid graph from static
+		/// </summary>
 		void RemoveGridGraphFromStatic () {
 			var graphIndex = active.data.GetGraphIndex(this);
 
@@ -132,10 +138,18 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Counts the nodes
+		/// </summary>
+		/// <returns>The int</returns>
 		public override int CountNodes () {
 			return nodes != null ? nodes.Length : 0;
 		}
 
+		/// <summary>
+		/// Gets the nodes using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetNodes (System.Action<GraphNode> action) {
 			if (nodes == null) return;
 			for (int i = 0; i < nodes.Length; i++) action(nodes[i]);
@@ -338,6 +352,9 @@ namespace Pathfinding {
 		[JsonMember]
 		public float penaltyPositionFactor = 1F;
 
+		/// <summary>
+		/// The penalty angle
+		/// </summary>
 		[JsonMember]
 		public bool penaltyAngle;
 
@@ -461,6 +478,9 @@ namespace Pathfinding {
 		}
 
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GridGraph"/> class
+		/// </summary>
 		public GridGraph () {
 			unclampedSize = new Vector2(10, 10);
 			nodeSize = 1F;
@@ -468,6 +488,11 @@ namespace Pathfinding {
 			transform = new GraphTransform(Matrix4x4.identity);
 		}
 
+		/// <summary>
+		/// Relocates the nodes using the specified delta matrix
+		/// </summary>
+		/// <param name="deltaMatrix">The delta matrix</param>
+		/// <exception cref="System.Exception">This method cannot be used for Grid Graphs. Please use the other overload of RelocateNodes instead</exception>
 		public override void RelocateNodes (Matrix4x4 deltaMatrix) {
 			// It just makes a lot more sense to use the other overload and for that case we don't have to serialize the matrix
 			throw new System.Exception("This method cannot be used for Grid Graphs. Please use the other overload of RelocateNodes instead");
@@ -503,18 +528,33 @@ namespace Pathfinding {
 			return (Int3)transform.Transform(new Vector3(x+0.5f, height, z+0.5f));
 		}
 
+		/// <summary>
+		/// Converts the hexagon size to node size using the specified mode
+		/// </summary>
+		/// <param name="mode">The mode</param>
+		/// <param name="value">The value</param>
+		/// <returns>The value</returns>
 		public static float ConvertHexagonSizeToNodeSize (InspectorGridHexagonNodeSize mode, float value) {
 			if (mode == InspectorGridHexagonNodeSize.Diameter) value *= 1.5f/(float)System.Math.Sqrt(2.0f);
 			else if (mode == InspectorGridHexagonNodeSize.Width) value *= (float)System.Math.Sqrt(3.0f/2.0f);
 			return value;
 		}
 
+		/// <summary>
+		/// Converts the node size to hexagon size using the specified mode
+		/// </summary>
+		/// <param name="mode">The mode</param>
+		/// <param name="value">The value</param>
+		/// <returns>The value</returns>
 		public static float ConvertNodeSizeToHexagonSize (InspectorGridHexagonNodeSize mode, float value) {
 			if (mode == InspectorGridHexagonNodeSize.Diameter) value *= (float)System.Math.Sqrt(2.0f)/1.5f;
 			else if (mode == InspectorGridHexagonNodeSize.Width) value *= (float)System.Math.Sqrt(2.0f/3.0f);
 			return value;
 		}
 
+		/// <summary>
+		/// Gets or sets the value of the width
+		/// </summary>
 		public int Width {
 			get {
 				return width;
@@ -523,6 +563,9 @@ namespace Pathfinding {
 				width = value;
 			}
 		}
+		/// <summary>
+		/// Gets or sets the value of the depth
+		/// </summary>
 		public int Depth {
 			get {
 				return depth;
@@ -532,10 +575,21 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the connection cost using the specified dir
+		/// </summary>
+		/// <param name="dir">The dir</param>
+		/// <returns>The uint</returns>
 		public uint GetConnectionCost (int dir) {
 			return neighbourCosts[dir];
 		}
 
+		/// <summary>
+		/// Gets the node connection using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="dir">The dir</param>
+		/// <returns>The grid node</returns>
 		public GridNode GetNodeConnection (GridNode node, int dir) {
 			if (!node.HasConnectionInDirection(dir)) return null;
 			if (!node.EdgeNode) {
@@ -550,6 +604,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Describes whether this instance has node connection
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="dir">The dir</param>
+		/// <returns>The bool</returns>
 		public bool HasNodeConnection (GridNode node, int dir) {
 			if (!node.HasConnectionInDirection(dir)) return false;
 			if (!node.EdgeNode) {
@@ -563,6 +623,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Sets the node connection using the specified node
+		/// </summary>
+		/// <param name="node">The node</param>
+		/// <param name="dir">The dir</param>
+		/// <param name="value">The value</param>
 		public void SetNodeConnection (GridNode node, int dir, bool value) {
 			int index = node.NodeInGridIndex;
 			int z = index/Width;
@@ -609,6 +675,14 @@ namespace Pathfinding {
 			nodes[index].SetConnectionInternal(dir, value);
 		}
 
+		/// <summary>
+		/// Describes whether this instance has node connection
+		/// </summary>
+		/// <param name="index">The index</param>
+		/// <param name="x">The </param>
+		/// <param name="z">The </param>
+		/// <param name="dir">The dir</param>
+		/// <returns>The bool</returns>
 		public bool HasNodeConnection (int index, int x, int z, int dir) {
 			if (!nodes[index].HasConnectionInDirection(dir)) return false;
 
@@ -783,6 +857,13 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the nearest using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <param name="hint">The hint</param>
+		/// <returns>The nn</returns>
 		public override NNInfoInternal GetNearest (Vector3 position, NNConstraint constraint, GraphNode hint) {
 			if (nodes == null || depth*width != nodes.Length) {
 				return new NNInfoInternal();
@@ -804,6 +885,12 @@ namespace Pathfinding {
 			return nn;
 		}
 
+		/// <summary>
+		/// Gets the nearest force using the specified position
+		/// </summary>
+		/// <param name="position">The position</param>
+		/// <param name="constraint">The constraint</param>
+		/// <returns>The nn</returns>
 		public override NNInfoInternal GetNearestForce (Vector3 position, NNConstraint constraint) {
 			if (nodes == null || depth*width != nodes.Length) {
 				return new NNInfoInternal();
@@ -1018,6 +1105,10 @@ namespace Pathfinding {
 			neighbourZOffsets[7] = -1;
 		}
 
+		/// <summary>
+		/// Scans the internal
+		/// </summary>
+		/// <returns>An enumerable of progress</returns>
 		protected override IEnumerable<Progress> ScanInternal () {
 			if (nodeSize <= 0) {
 				yield break;
@@ -1542,6 +1633,11 @@ namespace Pathfinding {
 		}
 
 
+		/// <summary>
+		/// Ons the draw gizmos using the specified gizmos
+		/// </summary>
+		/// <param name="gizmos">The gizmos</param>
+		/// <param name="drawNodes">The draw nodes</param>
 		public override void OnDrawGizmos (RetainedGizmos gizmos, bool drawNodes) {
 			using (var helper = gizmos.GetSingleFrameGizmoHelper(active)) {
 				// The width and depth fields might not be up to date, so recalculate
@@ -1909,13 +2005,35 @@ namespace Pathfinding {
 			return nodes[x + z*width];
 		}
 
+		/// <summary>
+		/// Cans the update using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <returns>The graph update threading</returns>
 		GraphUpdateThreading IUpdatableGraph.CanUpdateAsync (GraphUpdateObject o) {
 			return GraphUpdateThreading.UnityThread;
 		}
 
+		/// <summary>
+		/// Updates the area init using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
 		void IUpdatableGraph.UpdateAreaInit (GraphUpdateObject o) {}
+		/// <summary>
+		/// Updates the area post using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
 		void IUpdatableGraph.UpdateAreaPost (GraphUpdateObject o) {}
 
+		/// <summary>
+		/// Calculates the affected regions using the specified o
+		/// </summary>
+		/// <param name="o">The </param>
+		/// <param name="originalRect">The original rect</param>
+		/// <param name="affectRect">The affect rect</param>
+		/// <param name="physicsRect">The physics rect</param>
+		/// <param name="willChangeWalkability">The will change walkability</param>
+		/// <param name="erosion">The erosion</param>
 		protected void CalculateAffectedRegions (GraphUpdateObject o, out IntRect originalRect, out IntRect affectRect, out IntRect physicsRect, out bool willChangeWalkability, out int erosion) {
 			// Take the bounds and transform it using the matrix
 			// Then convert that to a rectangle which contains
@@ -2146,6 +2264,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Serializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void SerializeExtraInfo (GraphSerializationContext ctx) {
 			if (nodes == null) {
 				ctx.writer.Write(-1);
@@ -2159,6 +2281,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the extra info using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void DeserializeExtraInfo (GraphSerializationContext ctx) {
 			int count = ctx.reader.ReadInt32();
 
@@ -2175,6 +2301,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Deserializes the settings compatibility using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void DeserializeSettingsCompatibility (GraphSerializationContext ctx) {
 			base.DeserializeSettingsCompatibility(ctx);
 
@@ -2202,6 +2332,10 @@ namespace Pathfinding {
 			uniformEdgeCosts = ctx.reader.ReadBoolean();
 		}
 
+		/// <summary>
+		/// Posts the deserialization using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		protected override void PostDeserialization (GraphSerializationContext ctx) {
 			UpdateTransform();
 			SetUpOffsetsAndCosts();
@@ -2235,8 +2369,17 @@ namespace Pathfinding {
 	/// \since The 'Six' item was added in 3.6.1
 	/// </summary>
 	public enum NumNeighbours {
+		/// <summary>
+		/// The four num neighbours
+		/// </summary>
 		Four,
+		/// <summary>
+		/// The eight num neighbours
+		/// </summary>
 		Eight,
+		/// <summary>
+		/// The six num neighbours
+		/// </summary>
 		Six
 	}
 }

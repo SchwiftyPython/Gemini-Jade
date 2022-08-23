@@ -100,16 +100,25 @@ namespace Pathfinding {
 			get { return height * 0.5f; } set { height = value * 2; }
 		}
 
+		/// <summary>
+		/// The na
+		/// </summary>
 		[SerializeField]
 		[HideInInspector]
 		[FormerlySerializedAs("centerOffset")]
 		float centerOffsetCompatibility = float.NaN;
 
+		/// <summary>
+		/// The na
+		/// </summary>
 		[SerializeField]
 		[HideInInspector]
 		[UnityEngine.Serialization.FormerlySerializedAs("repathRate")]
 		float repathRateCompatibility = float.NaN;
 
+		/// <summary>
+		/// The can search compability
+		/// </summary>
 		[SerializeField]
 		[HideInInspector]
 		[UnityEngine.Serialization.FormerlySerializedAs("canSearch")]
@@ -276,6 +285,9 @@ namespace Pathfinding {
 		/// <summary>Only when the previous path has been calculated should the script consider searching for a new path</summary>
 		protected bool waitingForPathCalculation = false;
 
+		/// <summary>
+		/// The target compatibility
+		/// </summary>
 		[UnityEngine.Serialization.FormerlySerializedAs("target")][SerializeField][HideInInspector]
 		Transform targetCompatibility;
 
@@ -339,6 +351,9 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AIBase"/> class
+		/// </summary>
 		protected AIBase () {
 			// Note that this needs to be set here in the constructor and not in e.g Awake
 			// because it is possible that other code runs and sets the destination property
@@ -379,6 +394,9 @@ namespace Pathfinding {
 			Init();
 		}
 
+		/// <summary>
+		/// Inits this instance
+		/// </summary>
 		void Init () {
 			if (startHasRun) {
 				// Clamp the agent to the navmesh (which is what the Teleport call will do essentially. Though only some movement scripts require this, like RichAI).
@@ -397,12 +415,18 @@ namespace Pathfinding {
 			if (clearPath) SearchPath();
 		}
 
+		/// <summary>
+		/// Cancels the current path request
+		/// </summary>
 		protected void CancelCurrentPathRequest () {
 			waitingForPathCalculation = false;
 			// Abort calculation of the current path
 			if (seeker != null) seeker.CancelCurrentPathRequest();
 		}
 
+		/// <summary>
+		/// Ons the disable
+		/// </summary>
 		protected virtual void OnDisable () {
 			ClearPath();
 
@@ -612,6 +636,10 @@ namespace Pathfinding {
 			FinalizePosition(nextPosition);
 		}
 
+		/// <summary>
+		/// Finalizes the rotation using the specified next rotation
+		/// </summary>
+		/// <param name="nextRotation">The next rotation</param>
 		void FinalizeRotation (Quaternion nextRotation) {
 			simulatedRotation = nextRotation;
 			if (updateRotation) {
@@ -621,6 +649,10 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Finalizes the position using the specified next position
+		/// </summary>
+		/// <param name="nextPosition">The next position</param>
 		void FinalizePosition (Vector3 nextPosition) {
 			// Use a local variable, it is significantly faster
 			Vector3 currentPosition = simulatedPosition;
@@ -664,6 +696,9 @@ namespace Pathfinding {
 			UpdateVelocity();
 		}
 
+		/// <summary>
+		/// Updates the velocity
+		/// </summary>
 		protected void UpdateVelocity () {
 			var currentFrame = Time.frameCount;
 
@@ -717,6 +752,9 @@ namespace Pathfinding {
 			return position;
 		}
 
+		/// <summary>
+		/// Ons the draw gizmos selected
+		/// </summary>
 		protected virtual void OnDrawGizmosSelected () {
 			// When selected in the Unity inspector it's nice to make the component react instantly if
 			// any other components are attached/detached or enabled/disabled.
@@ -724,8 +762,14 @@ namespace Pathfinding {
 			if (Application.isPlaying) FindComponents();
 		}
 
+		/// <summary>
+		/// The color
+		/// </summary>
 		public static readonly Color ShapeGizmoColor = new Color(240/255f, 213/255f, 30/255f);
 
+		/// <summary>
+		/// Ons the draw gizmos
+		/// </summary>
 		protected virtual void OnDrawGizmos () {
 			if (!Application.isPlaying || !enabled) FindComponents();
 
@@ -741,11 +785,17 @@ namespace Pathfinding {
 			autoRepath.DrawGizmos((IAstarAI)this);
 		}
 
+		/// <summary>
+		/// Resets this instance
+		/// </summary>
 		protected override void Reset () {
 			ResetShape();
 			base.Reset();
 		}
 
+		/// <summary>
+		/// Resets the shape
+		/// </summary>
 		void ResetShape () {
 			var cc = GetComponent<CharacterController>();
 
@@ -755,6 +805,12 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Ons the upgrade serialized data using the specified version
+		/// </summary>
+		/// <param name="version">The version</param>
+		/// <param name="unityThread">The unity thread</param>
+		/// <returns>The int</returns>
 		protected override int OnUpgradeSerializedData (int version, bool unityThread) {
 			if (unityThread && !float.IsNaN(centerOffsetCompatibility)) {
 				height = centerOffsetCompatibility*2;

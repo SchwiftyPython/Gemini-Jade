@@ -5,13 +5,30 @@ using UnityEngine;
 namespace Pathfinding {
 	/// <summary>Node used for the GridGraph</summary>
 	public class GridNode : GridNodeBase {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GridNode"/> class
+		/// </summary>
+		/// <param name="astar">The astar</param>
 		public GridNode (AstarPath astar) : base(astar) {
 		}
 
 #if !ASTAR_NO_GRID_GRAPH
+		/// <summary>
+		/// The grid graph
+		/// </summary>
 		private static GridGraph[] _gridGraphs = new GridGraph[0];
+		/// <summary>
+		/// Gets the grid graph using the specified graph index
+		/// </summary>
+		/// <param name="graphIndex">The graph index</param>
+		/// <returns>The grid graph</returns>
 		public static GridGraph GetGridGraph (uint graphIndex) { return _gridGraphs[(int)graphIndex]; }
 
+		/// <summary>
+		/// Sets the grid graph using the specified graph index
+		/// </summary>
+		/// <param name="graphIndex">The graph index</param>
+		/// <param name="graph">The graph</param>
 		public static void SetGridGraph (int graphIndex, GridGraph graph) {
 			if (_gridGraphs.Length <= graphIndex) {
 				var gg = new GridGraph[graphIndex+1];
@@ -22,6 +39,11 @@ namespace Pathfinding {
 			_gridGraphs[graphIndex] = graph;
 		}
 
+		/// <summary>
+		/// Clears the grid graph using the specified graph index
+		/// </summary>
+		/// <param name="graphIndex">The graph index</param>
+		/// <param name="graph">The graph</param>
 		public static void ClearGridGraph (int graphIndex, GridGraph graph) {
 			if (graphIndex < _gridGraphs.Length && _gridGraphs[graphIndex] == graph) {
 				_gridGraphs[graphIndex] = null;
@@ -34,13 +56,31 @@ namespace Pathfinding {
 			set { gridFlags = value; }
 		}
 
+		/// <summary>
+		/// The grid flags connection offset
+		/// </summary>
 		const int GridFlagsConnectionOffset = 0;
+		/// <summary>
+		/// The grid flags connection offset
+		/// </summary>
 		const int GridFlagsConnectionBit0 = 1 << GridFlagsConnectionOffset;
+		/// <summary>
+		/// The grid flags connection offset
+		/// </summary>
 		const int GridFlagsConnectionMask = 0xFF << GridFlagsConnectionOffset;
 
+		/// <summary>
+		/// The grid flags edge node offset
+		/// </summary>
 		const int GridFlagsEdgeNodeOffset = 10;
+		/// <summary>
+		/// The grid flags edge node offset
+		/// </summary>
 		const int GridFlagsEdgeNodeMask = 1 << GridFlagsEdgeNodeOffset;
 
+		/// <summary>
+		/// Gets the value of the has connections to all eight neighbours
+		/// </summary>
 		public override bool HasConnectionsToAllEightNeighbours {
 			get {
 				return (InternalGridFlags & GridFlagsConnectionMask) == GridFlagsConnectionMask;
@@ -126,6 +166,11 @@ namespace Pathfinding {
 			}
 		}
 
+		/// <summary>
+		/// Gets the neighbour along direction using the specified direction
+		/// </summary>
+		/// <param name="direction">The direction</param>
+		/// <returns>The grid node base</returns>
 		public override GridNodeBase GetNeighbourAlongDirection (int direction) {
 			if (HasConnectionInDirection(direction)) {
 				GridGraph gg = GetGridGraph(GraphIndex);
@@ -134,6 +179,10 @@ namespace Pathfinding {
 			return null;
 		}
 
+		/// <summary>
+		/// Clears the connections using the specified also reverse
+		/// </summary>
+		/// <param name="alsoReverse">The also reverse</param>
 		public override void ClearConnections (bool alsoReverse) {
 			if (alsoReverse) {
 				// Note: This assumes that all connections are bidirectional
@@ -154,6 +203,10 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Gets the connections using the specified action
+		/// </summary>
+		/// <param name="action">The action</param>
 		public override void GetConnections (System.Action<GraphNode> action) {
 			GridGraph gg = GetGridGraph(GraphIndex);
 
@@ -172,6 +225,11 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Closests the point on node using the specified p
+		/// </summary>
+		/// <param name="p">The </param>
+		/// <returns>The vector</returns>
 		public override Vector3 ClosestPointOnNode (Vector3 p) {
 			var gg = GetGridGraph(GraphIndex);
 
@@ -191,6 +249,14 @@ namespace Pathfinding {
 			return gg.transform.Transform(closestInGraphSpace);
 		}
 
+		/// <summary>
+		/// Describes whether this instance get portal
+		/// </summary>
+		/// <param name="other">The other</param>
+		/// <param name="left">The left</param>
+		/// <param name="right">The right</param>
+		/// <param name="backwards">The backwards</param>
+		/// <returns>The bool</returns>
 		public override bool GetPortal (GraphNode other, List<Vector3> left, List<Vector3> right, bool backwards) {
 			if (backwards) return true;
 
@@ -241,6 +307,12 @@ namespace Pathfinding {
 			return false;
 		}
 
+		/// <summary>
+		/// Updates the recursive g using the specified path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void UpdateRecursiveG (Path path, PathNode pathNode, PathHandler handler) {
 			GridGraph gg = GetGridGraph(GraphIndex);
 
@@ -266,6 +338,12 @@ namespace Pathfinding {
 		}
 
 
+		/// <summary>
+		/// Opens the path
+		/// </summary>
+		/// <param name="path">The path</param>
+		/// <param name="pathNode">The path node</param>
+		/// <param name="handler">The handler</param>
 		public override void Open (Path path, PathNode pathNode, PathHandler handler) {
 			GridGraph gg = GetGridGraph(GraphIndex);
 
@@ -325,12 +403,20 @@ namespace Pathfinding {
 #endif
 		}
 
+		/// <summary>
+		/// Serializes the node using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void SerializeNode (GraphSerializationContext ctx) {
 			base.SerializeNode(ctx);
 			ctx.SerializeInt3(position);
 			ctx.writer.Write(gridFlags);
 		}
 
+		/// <summary>
+		/// Deserializes the node using the specified ctx
+		/// </summary>
+		/// <param name="ctx">The ctx</param>
 		public override void DeserializeNode (GraphSerializationContext ctx) {
 			base.DeserializeNode(ctx);
 			position = ctx.DeserializeInt3();

@@ -58,14 +58,26 @@ namespace Pathfinding.Legacy {
 		/// </summary>
 		public bool closestOnPathCheck = true;
 
+		/// <summary>
+		/// The min move scale
+		/// </summary>
 		protected float minMoveScale = 0.05F;
 
 		/// <summary>Current index in the path which is current target</summary>
 		protected int currentWaypointIndex = 0;
 
+		/// <summary>
+		/// The last found waypoint position
+		/// </summary>
 		protected Vector3 lastFoundWaypointPosition;
+		/// <summary>
+		/// The last found waypoint time
+		/// </summary>
 		protected float lastFoundWaypointTime = -9999;
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
 		protected override void Awake () {
 			base.Awake();
 		}
@@ -131,6 +143,9 @@ namespace Pathfinding.Legacy {
 			}
 		}
 
+		/// <summary>
+		/// Updates this instance
+		/// </summary>
 		protected override void Update () {
 			if (!canMove) { return; }
 
@@ -154,6 +169,12 @@ namespace Pathfinding.Legacy {
 		/// </summary>
 		protected new Vector3 targetDirection;
 
+		/// <summary>
+		/// Xzes the sqr magnitude using the specified a
+		/// </summary>
+		/// <param name="a">The </param>
+		/// <param name="b">The </param>
+		/// <returns>The float</returns>
 		protected float XZSqrMagnitude (Vector3 a, Vector3 b) {
 			float dx = b.x-a.x;
 			float dz = b.z-a.z;

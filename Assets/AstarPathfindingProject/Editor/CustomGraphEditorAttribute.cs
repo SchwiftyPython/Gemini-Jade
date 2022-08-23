@@ -11,6 +11,11 @@ namespace Pathfinding {
 		/// <summary>Type of the editor for the graph</summary>
 		public System.Type editorType;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CustomGraphEditorAttribute"/> class
+		/// </summary>
+		/// <param name="t">The </param>
+		/// <param name="displayName">The display name</param>
 		public CustomGraphEditorAttribute (System.Type t, string displayName) {
 			graphType = t;
 			this.displayName = displayName;

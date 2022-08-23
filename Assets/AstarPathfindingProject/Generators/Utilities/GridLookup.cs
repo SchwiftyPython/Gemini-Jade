@@ -13,27 +13,55 @@ namespace Pathfinding.Util {
 	/// (inclusive) and one at <see cref="size"/> (exclusive) that is specified in the constructor.
 	/// </summary>
 	public class GridLookup<T> where T : class {
+		/// <summary>
+		/// The size
+		/// </summary>
 		Int2 size;
+		/// <summary>
+		/// The cells
+		/// </summary>
 		Item[] cells;
 		/// <summary>
 		/// Linked list of all items.
 		/// Note that the first item in the list is a dummy item and does not contain any data.
 		/// </summary>
 		Root all = new Root();
+		/// <summary>
+		/// The root
+		/// </summary>
 		Dictionary<T, Root> rootLookup = new Dictionary<T, Root>();
+		/// <summary>
+		/// The item
+		/// </summary>
 		Stack<Item> itemPool = new Stack<Item>();
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="GridLookup"/> class
+		/// </summary>
+		/// <param name="size">The size</param>
 		public GridLookup (Int2 size) {
 			this.size = size;
 			cells = new Item[size.x*size.y];
 			for (int i = 0; i < cells.Length; i++) cells[i] = new Item();
 		}
 
+		/// <summary>
+		/// The item class
+		/// </summary>
 		internal class Item {
+			/// <summary>
+			/// The root
+			/// </summary>
 			public Root root;
+			/// <summary>
+			/// The next
+			/// </summary>
 			public Item prev, next;
 		}
 
+		/// <summary>
+		/// The root class
+		/// </summary>
 		public class Root {
 			/// <summary>Underlying object</summary>
 			public T obj;
@@ -41,9 +69,15 @@ namespace Pathfinding.Util {
 			public Root next;
 			/// <summary>Previous item in the linked list of all roots</summary>
 			internal Root prev;
+			/// <summary>
+			/// The int rect
+			/// </summary>
 			internal IntRect previousBounds = new IntRect(0, 0, -1, -1);
 			/// <summary>References to an item in each grid cell that this object is contained inside</summary>
 			internal List<Item> items = new List<Item>();
+			/// <summary>
+			/// The flag
+			/// </summary>
 			internal bool flag;
 		}
 
@@ -54,12 +88,20 @@ namespace Pathfinding.Util {
 			}
 		}
 
+		/// <summary>
+		/// Clears this instance
+		/// </summary>
 		public void Clear () {
 			rootLookup.Clear();
 			all.next = null;
 			foreach (var item in cells) item.next = null;
 		}
 
+		/// <summary>
+		/// Gets the root using the specified item
+		/// </summary>
+		/// <param name="item">The item</param>
+		/// <returns>The root</returns>
 		public Root GetRoot (T item) {
 			Root root;
 

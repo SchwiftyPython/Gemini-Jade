@@ -28,7 +28,13 @@ namespace Pathfinding.Util {
 		static readonly List<List<T> > pool = new List<List<T> >();
 
 #if !ASTAR_NO_POOLING
+		/// <summary>
+		/// The 
+		/// </summary>
 		static readonly List<List<T> > largePool = new List<List<T> >();
+		/// <summary>
+		/// The 
+		/// </summary>
 		static readonly HashSet<List<T> > inPool = new HashSet<List<T> >();
 #endif
 
@@ -37,7 +43,13 @@ namespace Pathfinding.Util {
 		/// Must be greater or equal to one.
 		/// </summary>
 		const int MaxCapacitySearchLength = 8;
+		/// <summary>
+		/// The large threshold
+		/// </summary>
 		const int LargeThreshold = 5000;
+		/// <summary>
+		/// The max large pool size
+		/// </summary>
 		const int MaxLargePoolSize = 8;
 
 		/// <summary>
@@ -63,6 +75,12 @@ namespace Pathfinding.Util {
 #endif
 		}
 
+		/// <summary>
+		/// Finds the candidate using the specified pool
+		/// </summary>
+		/// <param name="pool">The pool</param>
+		/// <param name="capacity">The capacity</param>
+		/// <returns>The list index</returns>
 		static int FindCandidate (List<List<T> > pool, int capacity) {
 			// Loop through the last MaxCapacitySearchLength items
 			// and check if any item has a capacity greater or equal to the one that

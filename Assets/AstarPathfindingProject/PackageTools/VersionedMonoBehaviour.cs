@@ -3,6 +3,9 @@ using UnityEngine;
 namespace Pathfinding {
 	/// <summary>Exposes internal methods from <see cref="Pathfinding.VersionedMonoBehaviour"/></summary>
 	public interface IVersionedMonoBehaviourInternal {
+		/// <summary>
+		/// Upgrades the from unity thread
+		/// </summary>
 		void UpgradeFromUnityThread();
 	}
 
@@ -13,6 +16,9 @@ namespace Pathfinding {
 		[HideInInspector]
 		int version = 0;
 
+		/// <summary>
+		/// Awakes this instance
+		/// </summary>
 		protected virtual void Awake () {
 			// Make sure the version field is up to date for components created during runtime.
 			// Reset is not called when in play mode.
@@ -43,6 +49,10 @@ namespace Pathfinding {
 			return 1;
 		}
 
+		/// <summary>
+		/// Upgrades the from unity thread
+		/// </summary>
+		/// <exception cref="System.Exception"></exception>
 		void IVersionedMonoBehaviourInternal.UpgradeFromUnityThread () {
 			var r = OnUpgradeSerializedData(version, true);
 
