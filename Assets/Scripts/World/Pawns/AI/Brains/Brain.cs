@@ -6,26 +6,26 @@ using World.Pawns.Jobs;
 namespace World.Pawns.AI.Brains
 {
     /// <summary>
-    /// The brain class
+    /// Represents a <see cref="Pawn"/>'s thinkin'
     /// </summary>
     public class Brain
     {
         //todo brain types
 
         /// <summary>
-        /// Gets or sets the value of the goals
+        /// Collection of current <see cref="Goal"/>s 
         /// </summary>
         public Stack<Goal> Goals { get; private set; }
 
         /// <summary>
-        /// Gets the value of the pawn
+        /// Brain's owner
         /// </summary>
         public Pawn Pawn { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Brain"/> class
+        /// <see cref="Brain"/> class constructor
         /// </summary>
-        /// <param name="pawn">The pawn</param>
+        /// <param name="pawn">The pawn using the brain</param>
         public Brain(Pawn pawn)
         {
             Pawn = pawn;
@@ -34,7 +34,7 @@ namespace World.Pawns.AI.Brains
         }
 
         /// <summary>
-        /// Thinks this instance
+        /// Determines next actions based on what <see cref="Goal"/>s are in the stack
         /// </summary>
         public void Think()
         {
@@ -64,9 +64,9 @@ namespace World.Pawns.AI.Brains
         }
 
         /// <summary>
-        /// Adds the goal using the specified goal
+        /// Adds the specified goal
         /// </summary>
-        /// <param name="goal">The goal</param>
+        /// <param name="goal">The goal to add</param>
         public void AddGoal(Goal goal)
         {
             goal.brain ??= this;
@@ -77,9 +77,9 @@ namespace World.Pawns.AI.Brains
         }
 
         /// <summary>
-        /// Adds the priority goal using the specified p goal
+        /// Adds a goal as a priority. Clears all current goals.
         /// </summary>
-        /// <param name="pGoal">The goal</param>
+        /// <param name="pGoal">The <see cref="Goal"/> to add</param>
         public void AddPriorityGoal(Goal pGoal)
         {
             var jobGoals = Goals.Where(g => g is JobGoal);
@@ -97,9 +97,9 @@ namespace World.Pawns.AI.Brains
         }
 
         /// <summary>
-        /// Describes whether this instance has job goal
+        /// Checks for existence of a <see cref="JobGoal"/>
         /// </summary>
-        /// <returns>The bool</returns>
+        /// <returns>Returns true if any of the current goals are job goals</returns>
         public bool HasJobGoal()
         {
             return Goals.Any(g => g is JobGoal);
@@ -108,7 +108,7 @@ namespace World.Pawns.AI.Brains
         /// <summary>
         /// Gets the current job
         /// </summary>
-        /// <returns>The job</returns>
+        /// <returns>A <see cref="Job"/> if one exists. Null if one doesn't exist</returns>
         public Job GetCurrentJob()
         {
             var jobGoal = Goals.SingleOrDefault(g => g is JobGoal);

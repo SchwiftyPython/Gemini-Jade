@@ -3,30 +3,30 @@ using GoRogue;
 namespace World.Pawns.AI.Goals
 {
     /// <summary>
-    /// 
+    /// Moves a <see cref="Pawn"/> to a walkable <see cref="Coord"/> on their current <see cref="LocalMap"/>
     /// </summary>
     public class LocalMove : Goal
     {
         /// <summary>
-        /// The movement
+        /// Reference to <see cref="Pawn"/>'s <see cref="PawnMovement"/> instance
         /// </summary>
         private readonly PawnMovement _movement;
         
         /// <summary>
-        /// The target
+        /// Target walkable <see cref="Coord"/> <see cref="Pawn"/> is moving to
         /// </summary>
         private readonly Coord _target;
 
         /// <summary>
-        /// The finished
+        /// Returns true if finished
         /// </summary>
         private bool _finished;
 
         /// <summary>
-        /// 
+        /// Constructor for <see cref="LocalMove"/>
         /// </summary>
-        /// <param name="movement"></param>
-        /// <param name="target"></param>
+        /// <param name="movement">Reference to <see cref="Pawn"/>'s <see cref="PawnMovement"/> instance</param>
+        /// <param name="target">Target walkable <see cref="Coord"/> <see cref="Pawn"/> is moving to</param>
         public LocalMove(PawnMovement movement, Coord target)
         {
             _finished = false;
@@ -37,16 +37,17 @@ namespace World.Pawns.AI.Goals
         }
 
         /// <summary>
-        /// Describes whether this instance finished
+        /// Checks if finished
         /// </summary>
-        /// <returns>The finished</returns>
+        /// <returns>True if finished</returns>
         public override bool Finished()
         {
             return _finished;
         }
 
         /// <summary>
-        /// Takes the action
+        /// Attempts to move <see cref="Pawn"/> to target <see cref="Coord"/>. If Pawn cannot reach
+        /// target then <see cref="LocalMove"/> fails.
         /// </summary>
         public override void TakeAction()
         {
@@ -66,7 +67,7 @@ namespace World.Pawns.AI.Goals
         }
         
         /// <summary>
-        /// Ons the destination reached
+        /// Handles business once <see cref="Pawn"/> reaches target
         /// </summary>
         private void OnDestinationReached()
         {
@@ -80,7 +81,8 @@ namespace World.Pawns.AI.Goals
         }
         
         /// <summary>
-        /// Ons the destination unreachable
+        /// Handles failure to reach target. If <see cref="LocalMove"/> is a child <see cref="Goal"/>
+        /// then it fails to parent. Otherwise, it is just removed from Goals
         /// </summary>
         private void OnDestinationUnreachable()
         {

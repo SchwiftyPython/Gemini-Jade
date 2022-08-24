@@ -7,19 +7,18 @@ using World.Pawns.Skills;
 namespace World.Pawns.Jobs
 {
     /// <summary>
-    /// The job giver class
+    /// Keeps track of available <see cref="Job"/>s and assigns them to idle <see cref="Pawn"/>s.
     /// </summary>
     public class JobGiver
     {
         /// <summary>
-        /// The available jobs
+        /// Available <see cref="Job"/>s organized by <see cref="Skill"/> and ordered by default
+        /// Skill priority. 
         /// </summary>
         private Dictionary<Skill, List<Job>> _availableJobs;
 
-        //private List<Job> _availableJobs;
-    
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobGiver"/> class
+        /// Constructor
         /// </summary>
         public JobGiver()
         {
@@ -27,7 +26,8 @@ namespace World.Pawns.Jobs
         }
 
         /// <summary>
-        /// Ticks this instance
+        /// Iterates through available <see cref="Job"/>s and assigns them to
+        /// <see cref="Pawn"/>s when possible.
         /// </summary>
         public void Tick()
         {
@@ -46,33 +46,31 @@ namespace World.Pawns.Jobs
         }
 
         /// <summary>
-        /// Registers the pawn using the specified pawn
+        /// Registers the pawn
         /// </summary>
-        /// <param name="pawn">The pawn</param>
+        /// <param name="pawn">The pawn to be registered</param>
         public void RegisterPawn(Pawn pawn)
         {
             pawn.onJobTaken += OnJobTaken;
         }
 
         /// <summary>
-        /// Registers the map using the specified map
+        /// Registers the map
         /// </summary>
-        /// <param name="map">The map</param>
+        /// <param name="map">The map to be registered</param>
         public void RegisterMap(LocalMap map)
         {
             map.onJobAdded += AddJob;
         }
         
         /// <summary>
-        /// Adds the job using the specified job
+        /// Adds <see cref="Job"/> to available jobs.
         /// </summary>
-        /// <param name="job">The job</param>
+        /// <param name="job">The job to be added</param>
         public void AddJob(Job job)
         {
             if (JobAlreadyAdded(job))
             {
-                Debug.Log($"Job already add to available jobs. Job Location: {job.Location}");
-                
                 return;
             }
 
@@ -85,16 +83,16 @@ namespace World.Pawns.Jobs
         }
         
         /// <summary>
-        /// Removes the job using the specified job
+        /// Removes the <see cref="Job"/> from available jobs.
         /// </summary>
-        /// <param name="job">The job</param>
+        /// <param name="job">The job to remove</param>
         public void RemoveJob(Job job)
         {
             _availableJobs[job.SkillNeeded].Remove(job);
         }
         
         /// <summary>
-        /// Ons the job taken using the specified job
+        /// Removes <see cref="Job"/> from available jobs.
         /// </summary>
         /// <param name="job">The job</param>
         private void OnJobTaken(Job job)
@@ -105,20 +103,19 @@ namespace World.Pawns.Jobs
         }
 
         /// <summary>
-        /// Ons the job unassigned using the specified job
+        /// Adds <see cref="Job"/> back to available jobs
         /// </summary>
         /// <param name="job">The job</param>
         public void OnJobUnassigned(Job job)
         {
             job.onPawnUnassigned -= OnJobUnassigned;
-            
-            Debug.Log($"Pawn unassigned, adding job to available jobs. Job Location: {job.Location}");
-            
+
             AddJob(job);
         }
 
         /// <summary>
-        /// Initializes the available jobs
+        /// Initializes the available <see cref="Job"/>s grouped by <see cref="Skill"/> and ordered by default
+        /// skill priority
         /// </summary>
         private void InitializeAvailableJobs()
         {
@@ -135,10 +132,10 @@ namespace World.Pawns.Jobs
         }
 
         /// <summary>
-        /// Describes whether this instance job already added
+        /// Checks if <see cref="Job"/> is already added to available jobs
         /// </summary>
-        /// <param name="job">The job</param>
-        /// <returns>The bool</returns>
+        /// <param name="job">The job to check for existence</param>
+        /// <returns>True if job is already added</returns>
         private bool JobAlreadyAdded(Job job)
         {
             return _availableJobs.Keys.ToArray().Any(skill => _availableJobs[skill].Contains(job));
