@@ -5,7 +5,8 @@ using Utilities;
 namespace World.Pawns.AI.Goals
 {
     /// <summary>
-    /// The wander class
+    /// Moves <see cref="Pawn"/> around a specified radius with small pauses in between.
+    /// This Goal runs until it is canceled.
     /// </summary>
     /// <seealso cref="Goal"/>
     public class Wander : Goal
@@ -16,27 +17,21 @@ namespace World.Pawns.AI.Goals
         private const float WanderRadius = 10f;
 
         /// <summary>
-        /// Takes the action
+        /// Moves to some <see cref="Coord"/> within the radius after waiting a short time.
         /// </summary>
         public override void TakeAction()
         {
-            //todo pause for a bit
-            
             _inProgress = true;
             
-            var target = PickRandomPoint();
-        
-            var localMove = new LocalMove(Pawn.Movement, target);
-        
-            PushChildGoal(localMove);
+            var waitTime = Random.Range(1f, 4f);
 
-            _inProgress = false;
+            FunctionTimer.Create(AddLocalMoveChildGoal, waitTime);
         }
 
         /// <summary>
-        /// Describes whether this instance finished
+        /// Checks if finished
         /// </summary>
-        /// <returns>The bool</returns>
+        /// <returns>Always returns false</returns>
         public override bool Finished()
         {
             return false;
@@ -51,6 +46,21 @@ namespace World.Pawns.AI.Goals
             var point = Random.insideUnitSphere * WanderRadius;
 
             return Pawn.Position + point.ToCoord();
+        }
+        
+        /// <summary>
+        /// Adds <see cref="LocalMove"/> as a Child <see cref="Goal"/> with a random <see cref="Coord"/>
+        /// from within the wander radius
+        /// </summary>
+        private void AddLocalMoveChildGoal()
+        {
+            var target = PickRandomPoint();
+            
+            var localMove = new LocalMove(Pawn.Movement, target);
+        
+            PushChildGoal(localMove);
+            
+            _inProgress = false;
         }
     }
 }

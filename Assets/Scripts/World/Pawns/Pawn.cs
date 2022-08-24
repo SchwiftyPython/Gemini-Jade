@@ -80,39 +80,39 @@ namespace World.Pawns
         public bool CanWakeUp => health.CanWakeUp;
 
         /// <summary>
-        /// Gets the value of the is organic
+        /// Returns true if Pawn is organic
         /// </summary>
         public bool IsOrganic => species.fleshType != FleshType.Machine;
 
         /// <summary>
-        /// Gets the value of the is humanoid
+        /// Returns true if Pawn is humanoid
         /// </summary>
         public bool IsHumanoid => species.intellect >= Intellect.Humanoid;
 
         /// <summary>
-        /// Gets the value of the tool user
+        /// Returns true if Pawn is a tool user
         /// </summary>
         public bool ToolUser => species.intellect >= Intellect.ToolUser;
 
         /// <summary>
-        /// Gets the value of the is animal
+        /// Returns true if Pawn is an animal
         /// </summary>
         public bool IsAnimal => !ToolUser && IsOrganic;
 
         /// <summary>
-        /// The on job taken
+        /// <see cref="Job"/> taken <see cref="Action"/>/>
         /// </summary>
         public Action<Job> onJobTaken;
 
         /// <summary>
-        /// The on pawn moved
+        /// <see cref="Pawn"/> moved <see cref="Action"/>
         /// </summary>
         public Action onPawnMoved;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Pawn"/> class
+        /// Constructor
         /// </summary>
-        /// <param name="speciesTemplate">The species template</param>
+        /// <param name="speciesTemplate">The <see cref="SpeciesTemplate"/> to create Pawn with.</param>
         public Pawn(SpeciesTemplate speciesTemplate) : base(speciesTemplate)
         {
             species = speciesTemplate;
@@ -138,7 +138,7 @@ namespace World.Pawns
         }
 
         /// <summary>
-        /// Dies this instance
+        /// Handles Pawn death
         /// </summary>
         public void Die()
         {
@@ -254,8 +254,6 @@ namespace World.Pawns
         {
             if (job.IsAssigned)
             {
-                Debug.Log($"{job} is already assigned.");
-                
                 return;
             }
             
