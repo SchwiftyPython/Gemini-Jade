@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
+using Graphics;
 using UnityEngine;
 using World.TileTypes;
-using Random = UnityEngine.Random;
 
 namespace World
 {
@@ -13,10 +13,52 @@ namespace World
     /// <seealso cref="BaseObject"/>
     public class Tile : BaseObject
     {
+        private TileType _tileType;
+        
         /// <summary>
         /// Gets the value of the texture
         /// </summary>
         public Sprite Texture { get; }
+        
+        /// <summary>
+        /// Scale
+        /// </summary>
+        public Vector3 scale = Vector3.one;
+        
+        /// <summary>
+        /// Graphic instance
+        /// </summary>
+        public GraphicInstance MainGraphic { get; set; }
+        
+        /// <summary>
+        /// Additional graphics
+        /// </summary>
+        public Dictionary<string, GraphicInstance> AddGraphics { get; set; }
+
+        /// <summary>
+        /// Tile tick counts
+        /// </summary>
+        protected int ticks = 0;
+
+        /// <summary>
+        /// Matrices
+        /// </summary>
+        private Dictionary<int, Matrix4x4> _matrices;
+
+        /// <summary>
+        /// Do we need to reset matrices
+        /// </summary>
+        public bool resetMatrices;
+
+        /// <summary>
+        /// If this is True the tile is not drawn
+        /// </summary>
+        public bool hidden = false;
+
+        /// <summary>
+        /// Parent bucket
+        /// </summary>
+        public LayerGridBucket Bucket { get; protected set; }
 
         /// <summary>
         /// Default constructor.
@@ -32,6 +74,8 @@ namespace World
         /// <param name="position">Tile's position.</param>
         public Tile(Coord position, TileType tileType) : base(position, (int) MapLayer.Terrain,  true, tileType.walkable, tileType.transparent)
         {
+            _tileType = tileType;
+            
             Texture = ChooseTexture(tileType);
         }
 
@@ -70,6 +114,41 @@ namespace World
             }
 
             return tiles;
+        }
+        
+        /// <summary>
+        /// Get the Tile Matrix by Uid
+        /// </summary>
+        /// <param name="graphicUid"></param>
+        /// <returns></returns>
+        public Matrix4x4 GetMatrix(int graphicUid) 
+        {
+            if (_matrices == null || resetMatrices) 
+            {
+                _matrices = new Dictionary<int, Matrix4x4>();
+                resetMatrices = true;
+            }
+            
+            if (!_matrices.ContainsKey(graphicUid)) 
+            {
+                var mat = Matrix4x4.identity;
+                
+                mat.SetTRS(
+                    new Vector3(
+                        Position.X
+                        -_tileType.graphics.pivot.x*scale.x
+                        +(1f-scale.x)/2f
+                        ,Position.Y
+                         -_tileType.graphics.pivot.y*scale.y
+                         +(1f-scale.y)/2f
+                        ,(float) (_tileType.layer + (byte) GraphicInstance.instances[graphicUid].Priority) //todo not sure how this will look
+                    ), 
+                    Quaternion.identity, 
+                    scale
+                );
+                _matrices.Add(graphicUid, mat);
+            }
+            return _matrices[graphicUid];
         }
 
         /// <summary>

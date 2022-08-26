@@ -1,6 +1,7 @@
 using System.Linq;
 using GoRogue;
 using GoRogue.GameFramework;
+using Graphics.GraphicTemplates;
 using UnityEngine;
 
 namespace World.TileTypes
@@ -20,6 +21,10 @@ namespace World.TileTypes
         /// Gets the value of the textures
         /// </summary>
         public Sprite[] Textures => textures;
+
+        public GraphicTemplate graphics;
+
+        public MapLayer layer;
 
         /// <summary>
         /// Whether or not the object is considered "transparent", eg. whether or not light passes through it.
