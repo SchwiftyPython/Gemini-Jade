@@ -17,5 +17,7 @@ namespace Graphics.GraphicTemplates
         public float drawPriority;
         
         public Vector2 pivot;
+
+        public bool isInstanced;
     }
 }

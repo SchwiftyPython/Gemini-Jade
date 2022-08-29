@@ -55,6 +55,8 @@ namespace World
         /// </summary>
         public bool hidden = false;
 
+        public bool HasInstancedGraphics => _tileType.graphics.isInstanced;
+
         /// <summary>
         /// Parent bucket
         /// </summary>
@@ -76,7 +78,9 @@ namespace World
         {
             _tileType = tileType;
             
-            Texture = ChooseTexture(tileType);
+            MainGraphic = GraphicInstance.GetNew(_tileType.graphics);
+            
+            //Texture = ChooseTexture(tileType);
         }
 
         /// <summary>
@@ -149,6 +153,11 @@ namespace World
                 _matrices.Add(graphicUid, mat);
             }
             return _matrices[graphicUid];
+        }
+        
+        public void SetBucket(LayerGridBucket layerGridBucket)
+        {
+            Bucket = layerGridBucket;
         }
 
         /// <summary>

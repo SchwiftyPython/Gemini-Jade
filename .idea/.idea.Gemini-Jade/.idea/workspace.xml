@@ -2,25 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicInstance.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicInstance.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/GraphicTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/GraphicTemplate.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshPool.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshPool.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/HashUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/HashUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/GraphicTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/GraphicTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/GroundTest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/GroundTest.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +33,15 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/18/a4e641ab/GridManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,6 +67,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/b8/cdc89675/ArrayMap`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/db/5239244a/Map.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/e5/d1a31275/AdvancedLayeredSpatialMap`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/e6/e291d0f0/Rectangle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/619504c34ccf41f09db256606713ff1534c00/ed/82b538de/IMapViewExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695d1cc93cca45069c528c15c9fdd7493e2800/0c/b2ab89de/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9df56e6ea4c549bfbf2511342fd303949800/da/e02ea357/Tilemap.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,6 +77,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/LeanTween/Examples/Scripts/GeneralEventsListeners.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PanZoom/Scripts/Third-Party Dependent/PanZoomEasingBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicInstance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -83,6 +91,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" root0="FORCE_HIGHLIGHTING" />
@@ -263,14 +273,8 @@
       <workItem from="1661250906156" duration="7682000" />
       <workItem from="1661339860534" duration="11537000" />
       <workItem from="1661425076921" duration="3249000" />
-      <workItem from="1661521410659" duration="11508000" />
-    </task>
-    <task id="LOCAL-00005" summary="Added BloodFiltration.asset&#10;Added BloodPumpingWorker.cs&#10;Added Breathing.asset&#10;Added BreathingWorker.cs&#10;Added BloodPumping.asset&#10;Added BloodFiltrationWorker.cs&#10;Renamed some capacity stuff to match health functions&#10;Got everything setup to feed info to ui I think">
-      <created>1651175173474</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1651175173474</updated>
+      <workItem from="1661521410659" duration="11987000" />
+      <workItem from="1661770957665" duration="17061000" />
     </task>
     <task id="LOCAL-00006" summary="We get some values back for blood filtration, breathing, and consciousness when removing body parts.&#10;So far nothing wacky.">
       <created>1651246622188</created>
@@ -608,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661200664473</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one">
+      <created>1661539416413</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1661539416413</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +643,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added BodyPartGroupRepo.cs&#10;Added more methods to DamageWorker.cs" />
     <MESSAGE value="AddInjury methods and added override to CutWorker.cs" />
     <MESSAGE value="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay" />
     <MESSAGE value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
@@ -657,6 +667,7 @@
     <MESSAGE value="Pawns move to work site and build blueprint" />
     <MESSAGE value="Added skill priorities&#10;Checked for pawns when constructing and finishing constructing&#10;Had local move check for parent when failing" />
     <MESSAGE value="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere." />
-    <option name="LAST_COMMIT_MESSAGE" value="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere." />
+    <MESSAGE value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
   </component>
 </project>

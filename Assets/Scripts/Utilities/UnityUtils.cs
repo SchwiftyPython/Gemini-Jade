@@ -137,5 +137,30 @@ namespace Utilities
 
             gameObject.GetComponent<RaycastModifier>().thickRaycastRadius = 2;
         }
+
+        public static Rectangle Clip(this Rectangle rect, Rectangle otherRect)
+        {
+            if (rect.MinExtentX < otherRect.MinExtentX)
+            {
+                rect = rect.WithMinExtentX(otherRect.MinExtentX);
+            }
+            
+            if (rect.MaxExtentX > otherRect.MaxExtentX) 
+            {
+                rect = rect.WithMaxExtentX(otherRect.MaxExtentX);
+            }
+            
+            if (rect.MinExtentY < otherRect.MinExtentY)
+            {
+                rect = rect.WithMinExtentY(otherRect.MinExtentY);
+            }
+            
+            if (rect.MaxExtentY > otherRect.MaxExtentY) 
+            {
+                rect = rect.WithMaxExtentY(otherRect.MaxExtentY);
+            }
+
+            return rect;
+        }
     }
 }

@@ -16,5 +16,7 @@ MonoBehaviour:
   - {fileID: -798824562, guid: 051b9f175141dd340add5cf341eeb8d1, type: 3}
   - {fileID: -1355326733, guid: 051b9f175141dd340add5cf341eeb8d1, type: 3}
   - {fileID: -582062196, guid: 051b9f175141dd340add5cf341eeb8d1, type: 3}
+  graphics: {fileID: 11400000, guid: 692c7cf91ed77354dae3d5b68ee662e2, type: 2}
+  layer: 0
   transparent: 1
   walkable: 1

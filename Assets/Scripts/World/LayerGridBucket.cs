@@ -8,6 +8,9 @@ namespace World
 {
     public class BucketProperties
     {
+        //todo not sure of purpose yet.
+        //Could be used to seek out areas with high quantities of a resource?
+        
         public float foodQuantity;
         public float fertility;
         public int woodQuantity;
@@ -22,8 +25,6 @@ namespace World
 
     public class LayerGridBucket
     {
-        public const int BucketSize = 32;
-
         private BucketRenderer _staticRenderer;
 
         private bool _visible;
@@ -84,10 +85,10 @@ namespace World
 
         public bool CalcVisible()
         {
-            _visible = Rect.MinExtentX >= Camera.main.rect.min.x - BucketSize &&
-                       Rect.MaxExtentX <= Camera.main.rect.max.x + BucketSize &&
-                       Rect.MinExtentY >= Camera.main.rect.min.y - BucketSize &&
-                       Rect.MaxExtentY <= Camera.main.rect.max.y + BucketSize;
+            _visible = Rect.MinExtentX >= Camera.main.rect.min.x - Game.BucketSize &&
+                       Rect.MaxExtentX <= Camera.main.rect.max.x + Game.BucketSize &&
+                       Rect.MinExtentY >= Camera.main.rect.min.y - Game.BucketSize &&
+                       Rect.MaxExtentY <= Camera.main.rect.max.y + Game.BucketSize;
 
             return _visible;
         }
@@ -108,7 +109,7 @@ namespace World
             
             foreach (Tile tile in Tiles)
             {
-                if (tile != null) //todo  && tile.isInstanced
+                if (tile != null && tile.HasInstancedGraphics)
                 {
                     AddMatrix(tile.MainGraphic.Uid, tile.GetMatrix(tile.MainGraphic.Uid));
                     
@@ -126,6 +127,80 @@ namespace World
             foreach (KeyValuePair<int, List<Matrix4x4>> kv in TileMatrices)
             {
                 TileMatricesArr.Add(kv.Key, kv.Value.ToArray());
+            }
+        }
+
+        public void DrawInstancedMeshes()
+        {
+            foreach (var tileMatrix in TileMatricesArr)
+            {
+                UnityEngine.Graphics.DrawMeshInstanced(GraphicInstance.instances[tileMatrix.Key].Mesh, 0,
+                    GraphicInstance.instances[tileMatrix.Key].Material, tileMatrix.Value);
+            }
+        }
+
+        public void BuildStaticMeshes()
+        {
+            _staticRenderer.BuildMeshes();
+        }
+
+        public Tile GetTileAt(Coord position)
+        {
+            if (position.X < 0)
+            {
+                return null;
+            }
+
+            if (position.Y < 0)
+            {
+                return null;
+            }
+
+            if (position.X >= Rect.Width)
+            {
+                return null;
+            }
+
+            return position.Y < Rect.Height ? Tiles[position.X + position.Y * Rect.Width] : null;
+        }
+
+        public void AddTile(Tile tile)
+        {
+            Tiles[tile.Position.X + tile.Position.Y * Rect.Width] = tile;
+
+            tile.SetBucket(this);
+            
+            //todo onBucketChanged event
+            
+            //todo if tile has resources, add those resources to this bucket
+
+            if (tile.HasInstancedGraphics)
+            {
+                AddMatrix(tile.MainGraphic.Uid, tile.GetMatrix(tile.MainGraphic.Uid));
+
+                if (tile.AddGraphics != null)
+                {
+                    foreach (var instance in tile.AddGraphics.Values)
+                    {
+                        AddMatrix(instance.Uid, tile.GetMatrix(instance.Uid));
+                    }
+                }
+
+                rebuildMatrices = true;
+            }
+        }
+
+        public void DeleteTile(Tile tile)
+        {
+            //todo if tile has resources, subtract those resources from this bucket
+
+            Tiles[tile.Position.X + tile.Position.Y * Rect.Width] = null;
+            
+            //todo onBucketChanged event
+
+            if (tile.HasInstancedGraphics)
+            {
+                rebuildMatrices = true;
             }
         }
         

@@ -16,6 +16,8 @@ using World.Pawns.Jobs;
 
 public class Game : MonoBehaviour
 {
+    public static int BucketSize = 32;
+    
     /// <summary>
     /// The job giver
     /// </summary>
