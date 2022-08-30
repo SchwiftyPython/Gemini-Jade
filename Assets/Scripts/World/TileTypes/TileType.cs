@@ -22,9 +22,13 @@ namespace World.TileTypes
         /// </summary>
         public Sprite[] Textures => textures;
 
+        public string Uid => name;
+
         public GraphicTemplate graphics;
 
         public MapLayer layer;
+
+        public float maxHeight;
 
         /// <summary>
         /// Whether or not the object is considered "transparent", eg. whether or not light passes through it.

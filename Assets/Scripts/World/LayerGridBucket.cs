@@ -85,10 +85,21 @@ namespace World
 
         public bool CalcVisible()
         {
-            _visible = Rect.MinExtentX >= Camera.main.rect.min.x - Game.BucketSize &&
-                       Rect.MaxExtentX <= Camera.main.rect.max.x + Game.BucketSize &&
-                       Rect.MinExtentY >= Camera.main.rect.min.y - Game.BucketSize &&
-                       Rect.MaxExtentY <= Camera.main.rect.max.y + Game.BucketSize;
+            var cameraMinExtent =
+                new Vector2Int(
+                    Mathf.FloorToInt(Camera.main.transform.position.x -
+                                     Camera.main.orthographicSize * Camera.main.aspect),
+                    Mathf.FloorToInt(Camera.main.transform.position.y - Camera.main.orthographicSize));
+            
+            var cameraMaxExtent = new Vector2Int(
+                Mathf.FloorToInt(Camera.main.transform.position.x +
+                                 Camera.main.orthographicSize * Camera.main.aspect),
+                Mathf.FloorToInt(Camera.main.transform.position.y + Camera.main.orthographicSize));
+            
+            _visible = Rect.MinExtentX >= cameraMinExtent.x - Game.BucketSize &&
+                       Rect.MaxExtentX <= cameraMaxExtent.x + Game.BucketSize &&
+                       Rect.MinExtentY >= cameraMinExtent.y - Game.BucketSize &&
+                       Rect.MaxExtentY <= cameraMaxExtent.y + Game.BucketSize;
 
             return _visible;
         }
@@ -144,29 +155,40 @@ namespace World
             _staticRenderer.BuildMeshes();
         }
 
+        public Coord GetLocalPosition(Coord globalPosition)
+        {
+            return new Coord(globalPosition.X - Rect.MinExtentX, globalPosition.Y - Rect.MinExtentY);
+        }
+
         public Tile GetTileAt(Coord position)
         {
-            if (position.X < 0)
+            var localPosition = GetLocalPosition(position);
+            
+            if (localPosition.X < 0)
             {
                 return null;
             }
 
-            if (position.Y < 0)
+            if (localPosition.Y < 0)
             {
                 return null;
             }
 
-            if (position.X >= Rect.Width)
+            if (localPosition.X >= Rect.Width)
             {
                 return null;
             }
 
-            return position.Y < Rect.Height ? Tiles[position.X + position.Y * Rect.Width] : null;
+            return localPosition.Y < Rect.Height ? Tiles[localPosition.X + localPosition.Y * Rect.Width] : null;
         }
 
         public void AddTile(Tile tile)
         {
-            Tiles[tile.Position.X + tile.Position.Y * Rect.Width] = tile;
+            var localPosition = GetLocalPosition(tile.Position);
+            
+            var tileIndex = localPosition.X + localPosition.Y * Rect.Width;
+
+            Tiles[tileIndex] = tile;
 
             tile.SetBucket(this);
             
@@ -193,8 +215,12 @@ namespace World
         public void DeleteTile(Tile tile)
         {
             //todo if tile has resources, subtract those resources from this bucket
+            
+            var localPosition = GetLocalPosition(tile.Position);
+            
+            var tileIndex = localPosition.X + localPosition.Y * Rect.Width;
 
-            Tiles[tile.Position.X + tile.Position.Y * Rect.Width] = null;
+            Tiles[tileIndex] = null;
             
             //todo onBucketChanged event
 

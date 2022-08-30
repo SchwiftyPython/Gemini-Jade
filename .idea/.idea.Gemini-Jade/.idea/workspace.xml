@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs.meta" afterDir="false" />
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test.">
+      <change afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/PerlinNoise.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/PerlinNoise.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Fy-Grounds.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Fy-Grounds.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Fy-Tilables.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/Fy-Tilables.shader.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Tile.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Tile.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/GraphicTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/GraphicTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/TerrainRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/TerrainRepo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/GroundTest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/GroundTest.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/GroundTest.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/GroundTest.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +47,10 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -86,6 +104,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/FunctionTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/PerlinNoise.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/BitMaskDirection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" root0="FORCE_HIGHLIGHTING" />
@@ -166,10 +185,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="30680">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="30680" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -274,14 +293,7 @@
       <workItem from="1661339860534" duration="11537000" />
       <workItem from="1661425076921" duration="3249000" />
       <workItem from="1661521410659" duration="11987000" />
-      <workItem from="1661770957665" duration="17061000" />
-    </task>
-    <task id="LOCAL-00006" summary="We get some values back for blood filtration, breathing, and consciousness when removing body parts.&#10;So far nothing wacky.">
-      <created>1651246622188</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1651246622188</updated>
+      <workItem from="1661770957665" duration="39517000" />
     </task>
     <task id="LOCAL-00007" summary="Added Eating.asset&#10;Added Sight.asset&#10;Added Hearing.asset&#10;Added Moving.asset&#10;Added workers for each asset added.&#10;Sight and Hearing work okay.&#10;Eating and moving return 0% every refresh.">
       <created>1651516214852</created>
@@ -619,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661539416413</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test.">
+      <created>1661799968082</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1661799968082</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +662,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="AddInjury methods and added override to CutWorker.cs" />
     <MESSAGE value="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay" />
     <MESSAGE value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
     <MESSAGE value="Added Knife" />
@@ -668,6 +686,7 @@
     <MESSAGE value="Added skill priorities&#10;Checked for pawns when constructing and finishing constructing&#10;Had local move check for parent when failing" />
     <MESSAGE value="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere." />
     <MESSAGE value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
+    <MESSAGE value="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test." />
   </component>
 </project>

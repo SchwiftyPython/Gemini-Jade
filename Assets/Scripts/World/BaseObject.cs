@@ -27,7 +27,7 @@ namespace World
         /// Gets the value of the layer
         /// </summary>
         public int Layer => backingField.Layer;
-        
+
         /// <summary>
         /// Gets the value of the current map
         /// </summary>

@@ -80,6 +80,56 @@ namespace World
             }
         }
 
+        public void BuildAllMeshes()
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                layerGrid.BuildStaticMeshes();
+            }
+        }
+
+        public void CheckAllMatrices()
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                layerGrid.CheckMatricesUpdates();
+            }
+        }
+
+        public void DrawBuckets()
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                layerGrid.DrawBuckets();
+            }
+        }
+
+        public void AddTile(Tile tile, Coord position, bool force = false)
+        {
+            if (force || tile.Layer == (int) MapLayer.Undefined || GetTileAt(position, tile.GetMapLayer()) == null)
+            {
+                layerGrids[tile.GetMapLayer()].AddTile(tile);
+            }
+        }
+
+        public Tile GetTileAt(Coord position, MapLayer layer)
+        {
+            return layerGrids[layer].GetTileAt(position);
+        }
+
+        public IEnumerable<Tile> GetAllTilesAt(Coord position)
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                var tile = layerGrid.GetTileAt(position);
+
+                if (tile != null)
+                {
+                    yield return tile;
+                }
+            }
+        }
+
         /// <summary>
         /// Gets the tile at using the specified position
         /// </summary>

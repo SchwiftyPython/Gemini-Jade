@@ -160,6 +160,11 @@ namespace World
             Bucket = layerGridBucket;
         }
 
+        public MapLayer GetMapLayer()
+        {
+            return (MapLayer) Layer;
+        }
+
         /// <summary>
         /// Gets the texture from using the specified object type
         /// </summary>

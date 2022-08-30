@@ -118,6 +118,8 @@ namespace Graphics
                 {
                     mesh.SetColors(colors);
                 }
+                
+                mesh.RecalculateNormals();
 
                 return mesh;
             }

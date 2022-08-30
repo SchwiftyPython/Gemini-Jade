@@ -7,7 +7,7 @@ namespace World
     {
         public GroundGrid(Coord size) : base(size, MapLayer.Terrain)
         {
-            RendererType = typeof(BucketRenderer);
+            RendererType = typeof(BucketGroundRenderer);
             
             GenerateBuckets();
         }

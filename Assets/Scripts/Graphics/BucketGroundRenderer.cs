@@ -37,10 +37,10 @@ namespace Graphics
                 
                 float z = tile.MainGraphic.Priority;
 
-                currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y, z));
-                currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y+1, z));
-                currentMeshData.vertices.Add(new Vector3(tile.Position.X+1, tile.Position.Y+1, z));
-                currentMeshData.vertices.Add(new Vector3(tile.Position.X+1, tile.Position.Y, z));
+                currentMeshData.vertices.Add(new Vector3(tile.Position.X - .5f, tile.Position.Y - .5f, z));
+                currentMeshData.vertices.Add(new Vector3(tile.Position.X - .5f, tile.Position.Y+.5f, z));
+                currentMeshData.vertices.Add(new Vector3(tile.Position.X+.5f, tile.Position.Y+.5f, z));
+                currentMeshData.vertices.Add(new Vector3(tile.Position.X+.5f, tile.Position.Y- .5f, z));
                 currentMeshData.colors.Add(Color.white);
                 currentMeshData.colors.Add(Color.white);
                 currentMeshData.colors.Add(Color.white);
@@ -50,6 +50,11 @@ namespace Graphics
 
                 foreach (var directionType in CollectionUtils.EnumToArray<Direction.Types>())
                 {
+                    if (directionType == Direction.Types.NONE)
+                    {
+                        continue;
+                    }
+                    
                     var neighbor = tile.GetAdjacentTileByDirection(Direction.ToDirection(directionType));
 
                     if (neighbor != null)
@@ -69,14 +74,14 @@ namespace Graphics
                     }
                 }
 
-                foreach (var neighborId in neighborGraphicIdList)
+                /*foreach (var neighborId in neighborGraphicIdList)
                 {
                     currentMeshData = GetMeshData(neighborId, false, (MeshFlags.Base | MeshFlags.Color));
                 
                     vIndex = currentMeshData.vertices.Count;
 
                     z = GraphicInstance.instances[neighborId].Priority;
-                    
+
                     currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y, z));         // 0
                     currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y, z));               // 1
                     currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y + .5f, z));         // 2
@@ -141,7 +146,7 @@ namespace Graphics
                     currentMeshData.AddTriangle(vIndex, 2, 3, 4);
                     currentMeshData.AddTriangle(vIndex, 8, 5, 6);
                     currentMeshData.AddTriangle(vIndex, 8, 4, 5);
-                }
+                }*/
             }
 
             foreach (var meshData in Meshes.Values)

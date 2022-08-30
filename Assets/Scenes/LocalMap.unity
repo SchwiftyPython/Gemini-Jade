@@ -255,6 +255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 11400000, guid: 8b8d7a2e7a726b1448cec1c0c99e5523, type: 2}
+  tileTypes:
+  - {fileID: 11400000, guid: 8b8d7a2e7a726b1448cec1c0c99e5523, type: 2}
+  - {fileID: 11400000, guid: b17e37fbb3c55664cb530e89a9427f9d, type: 2}
 --- !u!1 &152331898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,10 +1728,10 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &1210218022

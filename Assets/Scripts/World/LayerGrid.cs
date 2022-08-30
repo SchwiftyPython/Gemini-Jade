@@ -10,9 +10,9 @@ namespace World
 {
     public class LayerGrid
     {
-        private int _bucketSizeX;
+        private int _numBucketsX;
 
-        private int _bucketSizeY;
+        private int _numBucketsY;
         
         private int _bucketCount;
         
@@ -30,15 +30,15 @@ namespace World
         {
             Layer = layer;
 
-            Rect = new Rectangle(new Coord(0, 0), size);
+            Rect = new Rectangle(0, 0, size.X, size.Y);
 
             RendererType = typeof(BucketRenderer);
 
-            _bucketSizeX = Mathf.CeilToInt(Size.X / (float)Game.BucketSize);
+            _numBucketsX = Mathf.CeilToInt(Size.X / (float)Game.BucketSize);
             
-            _bucketSizeY = Mathf.CeilToInt(Size.Y / (float)Game.BucketSize);
+            _numBucketsY = Mathf.CeilToInt(Size.Y / (float)Game.BucketSize);
 
-            _bucketCount = _bucketSizeX * _bucketSizeY;
+            _bucketCount = _numBucketsX * _numBucketsY;
         }
 
         public void AddTile(Tile tile)
@@ -67,7 +67,7 @@ namespace World
 
         public LayerGridBucket GetBucketAt(Coord position)
         {
-            var bucketIndex = position.X / Game.BucketSize + position.Y / Game.BucketSize * _bucketSizeX;
+            var bucketIndex = position.X / Game.BucketSize + position.Y / Game.BucketSize * _numBucketsX;
 
             if (bucketIndex >= 0 && bucketIndex < Buckets.Length)
             {
@@ -123,15 +123,15 @@ namespace World
         {
             Buckets = new LayerGridBucket[_bucketCount];
 
-            for (var x = 0; x < Size.X; x++)
+            for (var x = 0; x < Size.X; x += Game.BucketSize)
             {
-                for (var y = 0; y < Size.Y; y++)
+                for (var y = 0; y < Size.Y; y += Game.BucketSize) 
                 {
-                    var bucketRect = new Rectangle(new Coord(x, y), Game.BucketSize, Game.BucketSize);
+                    var bucketRect = new Rectangle(x, y, Game.BucketSize, Game.BucketSize);
 
                     bucketRect = bucketRect.Clip(Rect);
 
-                    var bucketId = x / Game.BucketSize + y / Game.BucketSize * _bucketSizeX;
+                    var bucketId = x / Game.BucketSize + y / Game.BucketSize * _numBucketsX;
 
                     Buckets[bucketId] = new LayerGridBucket(bucketId, bucketRect, Layer, RendererType);
                 }
