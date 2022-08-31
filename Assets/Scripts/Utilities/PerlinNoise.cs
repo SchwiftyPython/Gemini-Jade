@@ -97,6 +97,8 @@ namespace Utilities
                 total += Q(uv.x, uv.y) * Vector2.Dot(grad, uv);
             }
 
+            return Mathf.Clamp(total, 0.05f, 1);
+
             return Math.Min(Math.Max(total, 0f), 1f) * 10;
         }
 
@@ -134,6 +136,8 @@ namespace Utilities
             
                 amplitude /= 2;
             }
+            
+            Debug.Log($"Avg noise {noiseMap.AsQueryable().Average()}");
 
             return noiseMap;
         }

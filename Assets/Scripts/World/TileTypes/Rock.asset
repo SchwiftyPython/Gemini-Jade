@@ -15,6 +15,6 @@ MonoBehaviour:
   textures: []
   graphics: {fileID: 11400000, guid: f873fe5c27985ac47a2f63cdb1711984, type: 2}
   layer: 0
-  maxHeight: 0.75
+  maxHeight: 0.6
   transparent: 1
   walkable: 1

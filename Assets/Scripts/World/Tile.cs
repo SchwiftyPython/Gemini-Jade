@@ -165,6 +165,11 @@ namespace World
             return (MapLayer) Layer;
         }
 
+        public float GetMaxHeight()
+        {
+            return _tileType.maxHeight;
+        }
+
         /// <summary>
         /// Gets the texture from using the specified object type
         /// </summary>

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GoRogue;
+using Repos;
 using UnityEngine;
 using Utilities;
 using World;
@@ -20,14 +21,14 @@ namespace Graphics
 
             var neighborGraphicIdsArr = new int[8];
 
-            var colors = new Color[9]; //todo why 9?
+            var colors = new Color[9]; 
 
             foreach (var tile in Bucket.Tiles)
             {
-                if (tile.hidden)
-                {
-                    continue;
-                }
+                // if (tile.hidden)
+                // {
+                //     continue;
+                // }
                 
                 neighborGraphicIdList.Clear();
                 
@@ -41,10 +42,12 @@ namespace Graphics
                 currentMeshData.vertices.Add(new Vector3(tile.Position.X - .5f, tile.Position.Y+.5f, z));
                 currentMeshData.vertices.Add(new Vector3(tile.Position.X+.5f, tile.Position.Y+.5f, z));
                 currentMeshData.vertices.Add(new Vector3(tile.Position.X+.5f, tile.Position.Y- .5f, z));
+                
                 currentMeshData.colors.Add(Color.white);
                 currentMeshData.colors.Add(Color.white);
                 currentMeshData.colors.Add(Color.white);
                 currentMeshData.colors.Add(Color.white);
+                
                 currentMeshData.AddTriangle(vIndex, 0, 1, 2);
                 currentMeshData.AddTriangle(vIndex, 0, 2, 3);
 
@@ -63,7 +66,7 @@ namespace Graphics
 
                         if (!neighborGraphicIdList.Contains(neighbor.MainGraphic.Uid) &&
                             neighbor.MainGraphic.Uid !=
-                            tile.MainGraphic.Uid) //todo && neighbor.TileType.MaxHeight >= tile.TileType.MaxHeight
+                            tile.MainGraphic.Uid && neighbor.GetMaxHeight() >= tile.GetMaxHeight())
                         {
                             neighborGraphicIdList.Add(neighbor.MainGraphic.Uid);
                         }
@@ -74,29 +77,39 @@ namespace Graphics
                     }
                 }
 
-                /*foreach (var neighborId in neighborGraphicIdList)
+                foreach (var neighborId in neighborGraphicIdList)
                 {
                     currentMeshData = GetMeshData(neighborId, false, (MeshFlags.Base | MeshFlags.Color));
                 
                     vIndex = currentMeshData.vertices.Count;
 
                     z = GraphicInstance.instances[neighborId].Priority;
+                    
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y + .5f, z));
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y + .5f, z));
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y, z));
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y - .5f, z)); 
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y - .5f, z));         
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X - .5f, tile.Position.Y - .5f, z));
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X - .5f, tile.Position.Y, z));
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X - .5f, tile.Position.Y + .5f, z));
+                    currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y, z));
 
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y, z));         // 0
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y, z));               // 1
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y + .5f, z));         // 2
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y + 1, z));           // 3
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y + 1, z));     // 4
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + 1, tile.Position.Y + 1, z));       // 5
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + 1, tile.Position.Y + .5f, z));     // 6
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + 1, tile.Position.Y, z));           // 7
-                    currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y + .5f, z));   // 8
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y, z));         // 0
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y, z));               // 1
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y + .5f, z));         // 2
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X, tile.Position.Y + 1, z));           // 3
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y + 1, z));     // 4
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X + 1, tile.Position.Y + 1, z));       // 5
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X + 1, tile.Position.Y + .5f, z));     // 6
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X + 1, tile.Position.Y, z));           // 7
+                    // currentMeshData.vertices.Add(new Vector3(tile.Position.X + .5f, tile.Position.Y + .5f, z));   // 8
 
                     for (int i = 0; i < colors.Length; i++)
                     {
                         colors[i] = Color.clear;
                     }
-                    
+
                     for (int i = 0; i < 8; i++) 
                     {
                         if (i % 2 != 0) 
@@ -112,25 +125,25 @@ namespace Graphics
                             {
                                 switch (i)
                                 {
-                                    case 0: // South
-                                        colors[1] = Color.white;
-                                        colors[0] = Color.white;
-                                        colors[7] = Color.white;
-                                        break;
-                                    case 3:  // West
-                                        colors[1] = Color.white;
-                                        colors[2] = Color.white;
-                                        colors[3] = Color.white;
-                                        break;
-                                    case 6: // North
+                                    case 4: // South
                                         colors[3] = Color.white;
                                         colors[4] = Color.white;
                                         colors[5] = Color.white;
                                         break;
-                                    case 5: // East
-                                        colors[5] = Color.white;
+                                    case 6:  // West
                                         colors[6] = Color.white;
                                         colors[7] = Color.white;
+                                        colors[5] = Color.white;
+                                        break;
+                                    case 0: // North
+                                        colors[0] = Color.white;
+                                        colors[7] = Color.white;
+                                        colors[1] = Color.white;
+                                        break;
+                                    case 2: // East
+                                        colors[1] = Color.white;
+                                        colors[2] = Color.white;
+                                        colors[3] = Color.white;
                                         break;
                                 }
                             }
@@ -146,7 +159,7 @@ namespace Graphics
                     currentMeshData.AddTriangle(vIndex, 2, 3, 4);
                     currentMeshData.AddTriangle(vIndex, 8, 5, 6);
                     currentMeshData.AddTriangle(vIndex, 8, 4, 5);
-                }*/
+                }
             }
 
             foreach (var meshData in Meshes.Values)

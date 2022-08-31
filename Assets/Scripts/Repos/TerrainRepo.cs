@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
@@ -21,7 +20,7 @@ namespace Repos
         /// <summary>
         /// The ground
         /// </summary>
-        [SerializeField] private TileType ground;
+        [SerializeField] private Material tileMaterial;
 
         [SerializeField] private TileType[] tileTypes;
 
@@ -32,20 +31,13 @@ namespace Repos
            HeightOrderTileTypes();
         }
 
-        /// <summary>
-        /// Get a new Ground <see cref="Tile"/> at given position.
-        /// </summary>
-        /// <param name="position">Given position.</param>
-        /// <returns>A Ground <see cref="Tile"/> at given position.</returns>
-        public Tile GroundTile(Coord position)
+        public Material GetTileMaterial()
         {
-            return ground.NewTile(position);
+            return tileMaterial;
         }
 
         public Tile GetTerrainByHeight(float height, Coord position)
         {
-            Debug.Log($"Height: {height}");
-            
             foreach (var tileType in _heightOrderedTileTypes.Values)
             {
                 if (height <= tileType.maxHeight)
@@ -53,8 +45,6 @@ namespace Repos
                     return tileType.NewTile(position);
                 }
             }
-
-            Debug.Log($"Choosing default tile");
 
             return tileTypes.First().NewTile(position); //todo return water
         }
