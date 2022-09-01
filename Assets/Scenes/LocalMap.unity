@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+uY189mbgIAADAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoWR+RhDby0Q0kMSJrSTiy/CWmMNsuSR5ADJ8N+rlW3s0okvlvfj7Xu7K38SoWwJqdNmYwR/0hzI9wHBM/k26JyPcGYHrXbiA9qYN8FdjkEsxLwyJ7S3R5hmdQHOiPSHOkgMpt5YKZFpU6z5AZbaOuvNGZMWvMtoh9nKmz4H5NwkXPx7HOPpw58WdHD1xxSUA9MFjqejWRtbHzF4SEd04Z9pFJIqlUpWlMCRf5c7a6vMamzllTURqCLVUgrb0CLuUgbZuzIHA6ibC+ZVBjJ0tMDSOYhD7pBKP/0lyyy4RpRhl5Uwvl81Lvmp6yYWzB5rZu9MVlhpWHOvMZ++cmdGF49t2YhiCZeL9PjKLimzrtfkvnnVUY9Cf05MHtlewlsO6llvjK4U905nKkytLIxX3edN2TKH9NjZa6p3xqr8f6rRKJ7Po8kijtdDGrcz84KuoRPnpRTFPrR1Wht2UofuLxABjJ/TL88+7IxtcL0VKf2x8Jsd+svVOB6Esc67GskKue51ZTCUrEMDUVrlltooMH2EEhST7rL1OO5+nne+r7MeGN6jpnrja6/HXUowd/GU3rm2+nQbnc316Qls/lI5KVQfDD3PvlNLrVS9b/bOi3m7ymQs7ecdKsH/XTWyH9PJeEJTOp0xBvPxMGb7NJvFEWXzKeeTjIRdFMorZXJbU20a5Aenum1Qfu/aH8xgY1gZlp8bdtqIj0LbLlKoTO9SA6BeaoQbczC+iL+mfM2Fb9EOnBMqjJx8JkTq9Ag8uQElQer67AxLOpSElOJdO7QkZBn+KQlB8223twbeBZyweAt2Jde/UEsDBBQAAAgIAACYn+tou0wobQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSkpGBsZGxQbKBiWliYqqFka55YlJymqm5oUGihUlKinGaUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+uY189mbgIAADAFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+tou0wobQAAAHgAAAAJACQAAAAAAAAAAAAAALsCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAcwMAAAAA
+    dataString: UEsDBBQAAAgIAACYn+sz/Lz+YgIAACUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzk1GfGQSemsJIT0kYUI7ufiySGusQZY8khwgGf57tbLBLp34Yvnt24+3u/InU8ZXKIJ1C6fkk5XIvg8Yndm3QWd8xD1srFmpDzxx3pQMBZEgcV4hKBvxIbl5W2JwSvwwG01kHsHaqNy6ci43OLM++AjnoD1Gk7OBvE2EPgds3zoc4nt0S6ePeJrywTEeBZqAriNOp9c3Lbc9EvmKX/NpfCbD5FQboaGsUFL9ne+In9PwJrqJ2loO6RBWa+Xbwlg4VEn4qirQISmXCqLOVA6/nlLyAtWmCBSx7/6S5x5DK8vB4V652LEmLvtpmzaW4LdNbe+ga8p01VTfxHz6ypw7Wz6e0g6TpFAosX2FgwAfem3uw/dd6cPUoR3oLaw1vhVonu3C2drIaAyuJtfa4+i++zwrmxUoth3elHoB1tX/cz1NlTQck/j9TKtynTo5aYCVtqnhUyKji6P5FQtOi+LbEBGlKv54/A2b/ka1hgflfIimVqWh8ta2dkRl89QzUlOHmXUGXT9ChQZ0OCxjnHA5wgvb114PQJenzd7aTnfiwiXBHZ/zC9PS7s7T8oXdPaEvXuqglekHI8tz7NTMGtOsmL+wkt+qdjmIvt+mVvLf7WLrER+PxlzwyQ0A3o2ubmEt8pvbIYe7iZTjnKX1UyYqBb1sSm0bFAdnugUwcdVOf5XBwkGV9l062C3UR2l9x1QmtyvhEM1LE+FcObqYJN5MOZcqtmiFISiTRs4+M6at2KLMzoGyJHW+Dw6yLkrGKvVuAyEZm6UfScYIPq/z0uG7wh0lPwU7suNfUEsDBBQAAAgIAACYn+tou0wobQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSkpGBsZGxQbKBiWliYqqFka55YlJymqm5oUGihUlKinGaUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+sz/Lz+YgIAACUFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+tou0wobQAAAHgAAAAJACQAAAAAAAAAAAAAAK8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAZwMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -254,7 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951c8f192fbccd746a701c2e0b94b6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground: {fileID: 11400000, guid: 8b8d7a2e7a726b1448cec1c0c99e5523, type: 2}
+  tileMaterial: {fileID: 2100000, guid: 26117fb7239462143a309f66e076c626, type: 2}
+  tileTypes:
+  - {fileID: 11400000, guid: 8b8d7a2e7a726b1448cec1c0c99e5523, type: 2}
+  - {fileID: 11400000, guid: b17e37fbb3c55664cb530e89a9427f9d, type: 2}
 --- !u!1 &152331898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,10 +1728,10 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &1210218022
@@ -2080,7 +2083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708202132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.5, y: 24.5, z: 0}
+  m_LocalPosition: {x: 99.5, y: 99.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2098,7 +2101,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 25, z: 20}
+  m_Size: {x: 200, y: 200, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1737449127
 GameObject:

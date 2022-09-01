@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2efea5154d6f9049be1e68e335231db, type: 3}
-  m_Name: GroundTest
+  m_Name: Dirt
   m_EditorClassIdentifier: 
   textures:
   - {fileID: -798824562, guid: 051b9f175141dd340add5cf341eeb8d1, type: 3}
   - {fileID: -1355326733, guid: 051b9f175141dd340add5cf341eeb8d1, type: 3}
   - {fileID: -582062196, guid: 051b9f175141dd340add5cf341eeb8d1, type: 3}
+  graphics: {fileID: 11400000, guid: 692c7cf91ed77354dae3d5b68ee662e2, type: 2}
+  layer: 0
+  maxHeight: 0.24
   transparent: 1
   walkable: 1

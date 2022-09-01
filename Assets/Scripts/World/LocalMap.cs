@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
 using GoRogue.GameFramework;
+using GoRogue.MapViews;
 using UnityEngine;
 using Utilities;
 using World.Pawns;
@@ -37,6 +38,10 @@ namespace World
         /// </summary>
         public Action<Job> onJobAdded;
 
+        public Dictionary<MapLayer, LayerGrid> layerGrids;
+
+        public Coord Size => new Coord(Width, Height);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="LocalMap"/> class
         /// </summary>
@@ -45,6 +50,84 @@ namespace World
         public LocalMap(int width, int height) : base(width, height, NumberOfEntityLayers, Distance.CHEBYSHEV)
         {
             Direction.YIncreasesUpward = true;
+
+            _pawns = new List<Pawn>();
+
+            layerGrids = new Dictionary<MapLayer, LayerGrid>();
+            
+            layerGrids.Add(MapLayer.Terrain, new GroundGrid(Size));
+            
+            //todo other layers
+        }
+
+        public void UpdateVisibleBuckets()
+        {
+            var i = 0;
+
+            foreach (var bucket in layerGrids[MapLayer.Terrain].Buckets)
+            {
+                var bucketVisible = bucket.CalcVisible();
+
+                foreach (var grid in layerGrids.Values)
+                {
+                    if (grid.Layer != MapLayer.Terrain)
+                    {
+                        grid.Buckets[i].SetVisible(bucketVisible);
+                    }
+                }
+
+                i++;
+            }
+        }
+
+        public void BuildAllMeshes()
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                layerGrid.BuildStaticMeshes();
+            }
+        }
+
+        public void CheckAllMatrices()
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                layerGrid.CheckMatricesUpdates();
+            }
+        }
+
+        public void DrawBuckets()
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                layerGrid.DrawBuckets();
+            }
+        }
+
+        public void AddTile(Tile tile, Coord position, bool force = false)
+        {
+            if (force || tile.Layer == (int) MapLayer.Undefined || GetTileAt(position, tile.GetMapLayer()) == null)
+            {
+                layerGrids[tile.GetMapLayer()].AddTile(tile);
+            }
+        }
+
+        public Tile GetTileAt(Coord position, MapLayer layer)
+        {
+            return layerGrids[layer].GetTileAt(position);
+        }
+
+        public IEnumerable<Tile> GetAllTilesAt(Coord position)
+        {
+            foreach (var layerGrid in layerGrids.Values)
+            {
+                var tile = layerGrid.GetTileAt(position);
+
+                if (tile != null)
+                {
+                    yield return tile;
+                }
+            }
         }
 
         /// <summary>

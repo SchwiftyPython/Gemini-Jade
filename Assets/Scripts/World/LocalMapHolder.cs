@@ -42,7 +42,7 @@ namespace World
 
             _localMap = map;
             
-            PlaceTiles();
+            //PlaceTiles();
             
             PlacePawns();
         }

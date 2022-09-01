@@ -20,7 +20,7 @@ namespace World.Pawns.Health.DamageWorkers
         /// <summary>
         /// Gets or sets the value of the attacker
         /// </summary>
-        public Thing Attacker { get; set; }
+        public Thing Attacker { get; }
         
         /// <summary>
         /// Gets the value of the target
@@ -30,7 +30,7 @@ namespace World.Pawns.Health.DamageWorkers
         /// <summary>
         /// Gets or sets the value of the template
         /// </summary>
-        public DamageTemplate Template { get; set; }
+        public DamageTemplate Template { get; }
 
         /// <summary>
         /// Gets the value of the armor penetration
@@ -40,7 +40,7 @@ namespace World.Pawns.Health.DamageWorkers
         /// <summary>
         /// Gets or sets the value of the ignore armor
         /// </summary>
-        public bool IgnoreArmor { get; set; }
+        public bool IgnoreArmor { get; }
 
         /// <summary>
         /// Gets or sets the value of the hit part
@@ -60,22 +60,22 @@ namespace World.Pawns.Health.DamageWorkers
         /// <summary>
         /// Gets or sets the value of the weapon body part group
         /// </summary>
-        public BodyPartGroupTemplate WeaponBodyPartGroup { get; set; }
+        public BodyPartGroupTemplate WeaponBodyPartGroup { get; }
 
         /// <summary>
         /// Gets or sets the value of the weapon health mod
         /// </summary>
-        public HealthModTemplate WeaponHealthMod { get; set; }
+        public HealthModTemplate WeaponHealthMod { get; }
 
         /// <summary>
         /// Gets or sets the value of the allow damage to spread
         /// </summary>
-        public bool AllowDamageToSpread { get; set; }
+        public bool AllowDamageToSpread { get; }
 
         /// <summary>
         /// Gets or sets the value of the amount
         /// </summary>
-        public float Amount { get; set; }
+        public float Amount { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DamageInfo"/> class

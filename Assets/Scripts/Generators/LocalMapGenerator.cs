@@ -2,6 +2,7 @@ using GoRogue.MapGeneration;
 using GoRogue.MapViews;
 using Repos;
 using UnityEngine;
+using Utilities;
 using World;
 
 namespace Generators
@@ -38,13 +39,19 @@ namespace Generators
 
             var map = new LocalMap(width, height);
 
+            var noiseMap = PerlinNoise.GenerateNoiseMap(width, height, 5);
+
             var terrainRepo = Object.FindObjectOfType<TerrainRepo>();
 
             foreach (var position in terrainMap.Positions())
             {
-                var testGroundTile = terrainRepo.GroundTile(position);
+                var noiseHeight = noiseMap[position.X + position.Y * width];
+
+                var groundTile = terrainRepo.GetTerrainByHeight(noiseHeight, position);
                 
-                map.SetTerrain(testGroundTile);
+                map.AddTile(groundTile, position);
+                
+                map.SetTerrain(groundTile); //todo not sure if needed. Probably not if we have to stick with layer grids.
             }
 
             return map;

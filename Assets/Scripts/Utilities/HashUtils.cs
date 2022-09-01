@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Time;
 using UnityEngine;
 using World.Things;
@@ -57,6 +58,11 @@ namespace Utilities
             Debug.Log($"Pawn Hash Offset Ticks: {hashOffsetTicks}");
             
             return hashOffsetTicks % interval == 0;
+        }
+
+        public static int HashBoolArray(bool[] arr)
+        {
+            return arr.Aggregate(arr.Length, (current, v) => unchecked(current * 314159 + (!v ? 1 : 2)));
         }
     }
 }

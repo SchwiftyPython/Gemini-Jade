@@ -1,29 +1,26 @@
 using Generators;
-using GoRogue;
 using Repos;
 using Time;
 using UnityEngine;
 using World;
 using World.Pawns.Jobs;
+using Random = UnityEngine.Random;
 
 /// <summary>
-
 /// The game class
-
 /// </summary>
-
 /// <seealso cref="MonoBehaviour"/>
-
 public class Game : MonoBehaviour
 {
+    public const int BucketSize = 32;
+
     /// <summary>
     /// The job giver
     /// </summary>
     public JobGiver jobGiver;
-    
-    /// <summary>
-    /// Awakes this instance
-    /// </summary>
+
+    private LocalMap map;
+
     private void Awake()
     {
         var tickController = FindObjectOfType<TickController>();
@@ -32,17 +29,19 @@ public class Game : MonoBehaviour
         
         jobGiver = new JobGiver();
         
-        //testing map gen
+        //temp map gen
 
         var mapGen = new LocalMapGenerator();
             
-        var map = mapGen.GenerateMap(50, 50);
+        map = mapGen.GenerateMap(200, 200);
+        
+        map.BuildAllMeshes();
 
         var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
         
         gridBuildingSystem.SetLocalMap(map);
         
-        //testing pawn stuff
+        //temp pawn stuff
 
         var pawnRepo = FindObjectOfType<PawnRepo>();
 
@@ -66,5 +65,21 @@ public class Game : MonoBehaviour
         var localMapHolder = FindObjectOfType<LocalMapHolder>();
             
         localMapHolder.Build(map);
+    }
+
+    private void Update()
+    {
+        //todo not sure if I want to keep this map stuff here
+        
+        if (map == null)
+        {
+            return;
+        }
+        
+        map.UpdateVisibleBuckets();
+        
+        map.DrawBuckets();
+        
+        map.CheckAllMatrices();
     }
 }
