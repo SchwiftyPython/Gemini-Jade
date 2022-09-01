@@ -1,6 +1,4 @@
-using System;
 using Generators;
-using GoRogue;
 using Repos;
 using Time;
 using UnityEngine;
@@ -9,27 +7,20 @@ using World.Pawns.Jobs;
 using Random = UnityEngine.Random;
 
 /// <summary>
-
 /// The game class
-
 /// </summary>
-
 /// <seealso cref="MonoBehaviour"/>
-
 public class Game : MonoBehaviour
 {
-    public static int BucketSize = 5;
-    
+    public const int BucketSize = 32;
+
     /// <summary>
     /// The job giver
     /// </summary>
     public JobGiver jobGiver;
 
-    public LocalMap map;
-    
-    /// <summary>
-    /// Awakes this instance
-    /// </summary>
+    private LocalMap map;
+
     private void Awake()
     {
         var tickController = FindObjectOfType<TickController>();
@@ -38,11 +29,11 @@ public class Game : MonoBehaviour
         
         jobGiver = new JobGiver();
         
-        //testing map gen
+        //temp map gen
 
         var mapGen = new LocalMapGenerator();
             
-        map = mapGen.GenerateMap(50, 50);
+        map = mapGen.GenerateMap(200, 200);
         
         map.BuildAllMeshes();
 
@@ -50,7 +41,7 @@ public class Game : MonoBehaviour
         
         gridBuildingSystem.SetLocalMap(map);
         
-        //testing pawn stuff
+        //temp pawn stuff
 
         var pawnRepo = FindObjectOfType<PawnRepo>();
 

@@ -23,23 +23,26 @@ namespace World
         }
     }
 
+    /// <summary>
+    /// Represents a region of the <see cref="LocalMap"/> on a specific <see cref="MapLayer"/> 
+    /// </summary>
     public class LayerGridBucket
     {
-        private BucketRenderer _staticRenderer;
+        private readonly BucketRenderer _staticRenderer;
 
         private bool _visible;
 
         public bool rebuildMatrices;
 
-        public BucketProperties Properties { get; protected set; }
+        public BucketProperties Properties { get; }
 
-        public Rectangle Rect { get; protected set; }
+        public Rectangle Rect { get; }
 
-        public Tile[] Tiles { get; protected set; }
+        public Tile[] Tiles { get; }
 
-        public int Id { get; protected set; }
+        public int Id { get; }
 
-        public MapLayer Layer { get; protected set; }
+        public MapLayer Layer { get; }
 
         /// <summary>
         /// Dictionary of tile matrices indexed by id
@@ -48,6 +51,13 @@ namespace World
 
         public Dictionary<int, Matrix4x4[]> TileMatricesArr { get; protected set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="rect"></param>
+        /// <param name="layer"></param>
+        /// <param name="renderer"></param>
         public LayerGridBucket(int id, Rectangle rect, MapLayer layer, Type renderer)
         {
             Id = id;
@@ -68,21 +78,36 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Sets if bucket is visible
+        /// </summary>
+        /// <param name="visible"></param>
         public void SetVisible(bool visible)
         {
             _visible = visible;
         }
 
+        /// <summary>
+        /// Indicates if bucket is visible
+        /// </summary>
+        /// <returns></returns>
         public bool IsVisible()
         {
             return _visible;
         }
 
+        /// <summary>
+        /// Draws statics
+        /// </summary>
         public void DrawStatics()
         {
             _staticRenderer.Draw();
         }
 
+        /// <summary>
+        /// Calculates if bucket is visible based on what camera sees
+        /// </summary>
+        /// <returns></returns>
         public bool CalcVisible()
         {
             var cameraMinExtent =
@@ -104,6 +129,10 @@ namespace World
             return _visible;
         }
 
+        /// <summary>
+        /// Check if Matrices need an update.
+        /// Updates them if necessary.
+        /// </summary>
         public void CheckMatricesUpdate()
         {
             if (rebuildMatrices && IsVisible())
@@ -114,28 +143,41 @@ namespace World
             }
         }
 
-        public void UpdateMatrices()
+        /// <summary>
+        /// Updates matrices
+        /// </summary>
+        private void UpdateMatrices()
         {
             TileMatrices = new Dictionary<int, List<Matrix4x4>>();
             
-            foreach (Tile tile in Tiles)
+            foreach (var tile in Tiles)
             {
-                if (tile != null && tile.HasInstancedGraphics)
+                if (tile == null)
                 {
-                    AddMatrix(tile.MainGraphic.Uid, tile.GetMatrix(tile.MainGraphic.Uid));
-                    
-                    if (tile.AddGraphics != null)
-                    {
-                        foreach (GraphicInstance graphicInstance in tile.AddGraphics.Values)
-                        {
-                            AddMatrix(graphicInstance.Uid, tile.GetMatrix(graphicInstance.Uid));
-                        }
-                    }
+                    continue;
+                }
+
+                if (!tile.HasInstancedGraphics)
+                {
+                    continue;
+                }
+
+                AddMatrix(tile.MainGraphic.Uid, tile.GetMatrix(tile.MainGraphic.Uid));
+
+                if (tile.AddGraphics == null)
+                {
+                    continue;
+                }
+
+                foreach (var graphicInstance in tile.AddGraphics.Values)
+                {
+                    AddMatrix(graphicInstance.Uid, tile.GetMatrix(graphicInstance.Uid));
                 }
             }
 
             TileMatricesArr = new Dictionary<int, Matrix4x4[]>();
-            foreach (KeyValuePair<int, List<Matrix4x4>> kv in TileMatrices)
+            
+            foreach (var kv in TileMatrices)
             {
                 TileMatricesArr.Add(kv.Key, kv.Value.ToArray());
             }

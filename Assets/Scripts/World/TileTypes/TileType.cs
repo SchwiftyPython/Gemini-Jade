@@ -12,16 +12,6 @@ namespace World.TileTypes
     [CreateAssetMenu(menuName = "My Assets/Tile Type")]
     public class TileType : ScriptableObject
     {
-        /// <summary>
-        /// The textures available for the TileType.
-        /// </summary>
-        [SerializeField] private Sprite[] textures;
-        
-        /// <summary>
-        /// Gets the value of the textures
-        /// </summary>
-        public Sprite[] Textures => textures;
-
         public string Uid => name;
 
         public GraphicTemplate graphics;

@@ -2,17 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Rock.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Rock.mat.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rock.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Rock.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicInstance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicInstance.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/MeshPool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/TerrainRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/TerrainRepo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/PerlinNoise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/PerlinNoise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Health/DamageWorkers/DamageInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Rock.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Rock.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +37,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/18/a4e641ab/GridManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -109,6 +112,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/Tile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/Tile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/TileTypes/TileType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -269,14 +275,8 @@
       <workItem from="1661425076921" duration="3249000" />
       <workItem from="1661521410659" duration="11987000" />
       <workItem from="1661770957665" duration="40214000" />
-      <workItem from="1661956522162" duration="9408000" />
-    </task>
-    <task id="LOCAL-00008" summary="Added the rest of the Function Workers and Function Assets&#10;Everything seems to be working okay&#10;Need to cache functions as they are calculated to prevent recalculations">
-      <created>1651598374048</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1651598374048</updated>
+      <workItem from="1661956522162" duration="9655000" />
+      <workItem from="1662029962425" duration="8256000" />
     </task>
     <task id="LOCAL-00009" summary="Added TimeSpeeds&#10;Added TickController.cs">
       <created>1651689275204</created>
@@ -614,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661892297946</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Figured out how to fix blending meshes">
+      <created>1661968743739</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1661968743739</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +645,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added CraftableTemplate.cs&#10;Added Layer.cs&#10;Added MeleeWeapon.asset&#10;Added Weapon.asset" />
     <MESSAGE value="Added Knife" />
     <MESSAGE value="Added basic implementation of Action.cs" />
     <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
@@ -663,6 +669,7 @@
     <MESSAGE value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
     <MESSAGE value="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test." />
     <MESSAGE value="Added Rock&#10;Added PerlinNoise.cs&#10;Got noise generating and meshes drawing dirt and rock&#10;Blending is not working os far" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Rock&#10;Added PerlinNoise.cs&#10;Got noise generating and meshes drawing dirt and rock&#10;Blending is not working os far" />
+    <MESSAGE value="Figured out how to fix blending meshes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Figured out how to fix blending meshes" />
   </component>
 </project>

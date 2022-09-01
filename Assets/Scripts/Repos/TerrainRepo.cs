@@ -18,10 +18,13 @@ namespace Repos
         private Dictionary<string, TileType> _unOrderedTileTypes;
 
         /// <summary>
-        /// The ground
+        /// Default material for tiles
         /// </summary>
         [SerializeField] private Material tileMaterial;
 
+        /// <summary>
+        /// Collection of <see cref="TileType"/>s
+        /// </summary>
         [SerializeField] private TileType[] tileTypes;
 
         private void Awake()
@@ -31,11 +34,21 @@ namespace Repos
            HeightOrderTileTypes();
         }
 
+        /// <summary>
+        /// Gets tile material
+        /// </summary>
+        /// <returns></returns>
         public Material GetTileMaterial()
         {
             return tileMaterial;
         }
 
+        /// <summary>
+        /// Gets a terrain tile based on height
+        /// </summary>
+        /// <param name="height"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public Tile GetTerrainByHeight(float height, Coord position)
         {
             foreach (var tileType in _heightOrderedTileTypes.Values)
@@ -49,7 +62,10 @@ namespace Repos
             return tileTypes.First().NewTile(position); //todo return water
         }
 
-        public void Populate()
+        /// <summary>
+        /// Populates unordered collections
+        /// </summary>
+        private void Populate()
         {
             _unOrderedTileTypes = new Dictionary<string, TileType>();
             
@@ -59,7 +75,10 @@ namespace Repos
             }
         }
 
-        public void HeightOrderTileTypes()
+        /// <summary>
+        /// Sorts <see cref="TileType"/>s by height into a <see cref="SortedDictionary{TKey,TValue}"/>
+        /// </summary>
+        private void HeightOrderTileTypes()
         {
             _heightOrderedTileTypes = new SortedDictionary<float, TileType>();
             

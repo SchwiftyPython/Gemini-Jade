@@ -11,36 +11,50 @@ namespace Utilities
     /// <remarks></remarks>
     public static class PerlinNoise
     {
-        private static TRandom _random = TRandom.New();
+        private static readonly TRandom Random = TRandom.New();
 
         private static int[] _permutation;
         
-        private static Vector2[] _gradients;
+        private static readonly Vector2[] Gradients;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         static PerlinNoise()
         {
             CalculatePermutation(out _permutation);
             
-            CalculateGradients(out _gradients);
+            CalculateGradients(out Gradients);
         }
         
+        /// <summary>
+        /// Calculates permutation
+        /// </summary>
+        /// <param name="p"></param>
         private static void CalculatePermutation(out int[] p)
         {
             p = Enumerable.Range(0, 256).ToArray();
 
             for (var i = 0; i < p.Length; i++)
             {
-                var source = _random.Next(p.Length);
+                var source = Random.Next(p.Length);
 
                 (p[i], p[source]) = (p[source], p[i]);
             }
         }
 
-        public static void Reseed()
+        /// <summary>
+        /// Reseeds
+        /// </summary>
+        private static void Reseed()
         {
             CalculatePermutation(out _permutation);
         }
-
+        
+        /// <summary>
+        /// Calculates gradients
+        /// </summary>
+        /// <param name="grad"></param>
         private static void CalculateGradients(out Vector2[] grad)
         {
             grad = new Vector2[256];
@@ -51,7 +65,7 @@ namespace Utilities
 
                 do
                 {
-                    gradient = new Vector2((float)(_random.NextDouble() * 2 - 1), (float)(_random.NextDouble() * 2 - 1));
+                    gradient = new Vector2((float)(Random.NextDouble() * 2 - 1), (float)(Random.NextDouble() * 2 - 1));
                 }
                 while (Mathf.Pow(gradient.magnitude, 2) >= 1);
 
@@ -62,6 +76,11 @@ namespace Utilities
 
         }
 
+        /// <summary>
+        /// Drops
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         private static float Drop(float t)
         {
             t = Math.Abs(t);
@@ -69,12 +88,24 @@ namespace Utilities
             return 1f - t * t * t * (t * (t * 6 - 15) + 10);
         }
 
-        private static float Q(float u, float v)
+        /// <summary>
+        /// Q things
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private static float Q(float x, float y)
         {
-            return Drop(u) * Drop(v);
+            return Drop(x) * Drop(y);
         }
 
-        public static float Noise(float x, float y)
+        /// <summary>
+        /// Generates a noise value
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns>A noise value</returns>
+        private static float Noise(float x, float y)
         {
             var cell = new Vector2((float)Math.Floor(x), (float)Math.Floor(y));
 
@@ -92,16 +123,21 @@ namespace Utilities
                 
                 index = _permutation[(index + (int)ij.y) % _permutation.Length];
 
-                var grad = _gradients[index % _gradients.Length];
+                var grad = Gradients[index % Gradients.Length];
 
                 total += Q(uv.x, uv.y) * Vector2.Dot(grad, uv);
             }
 
             return Mathf.Clamp(total, 0.05f, 1);
-
-            return Math.Min(Math.Max(total, 0f), 1f) * 10;
         }
 
+        /// <summary>
+        /// Generates a 2d noise map
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="octaves"></param>
+        /// <returns>A 2d noise map represented by a 1d array</returns>
         public static float[] GenerateNoiseMap(int width, int height, int octaves)
         {
             var noiseMap = new float[width * height];
@@ -112,7 +148,7 @@ namespace Utilities
             
             Reseed();
             
-            var frequency = 0.75f;
+            var frequency = 0.5f;
             
             var amplitude = 1f;
 
@@ -137,6 +173,7 @@ namespace Utilities
                 amplitude /= 2;
             }
             
+            //todo add to logging
             Debug.Log($"Avg noise {noiseMap.AsQueryable().Average()}");
 
             return noiseMap;

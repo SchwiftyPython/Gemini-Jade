@@ -13,7 +13,7 @@ namespace World
     /// <seealso cref="BaseObject"/>
     public class Tile : BaseObject
     {
-        private TileType _tileType;
+        private readonly TileType _tileType;
         
         /// <summary>
         /// Gets the value of the texture
@@ -23,22 +23,22 @@ namespace World
         /// <summary>
         /// Scale
         /// </summary>
-        public Vector3 scale = Vector3.one;
+        private readonly Vector3 scale = Vector3.one;
         
         /// <summary>
         /// Graphic instance
         /// </summary>
-        public GraphicInstance MainGraphic { get; set; }
+        public GraphicInstance MainGraphic { get; }
         
         /// <summary>
         /// Additional graphics
         /// </summary>
-        public Dictionary<string, GraphicInstance> AddGraphics { get; set; }
+        public Dictionary<string, GraphicInstance> AddGraphics { get; }
 
         /// <summary>
         /// Tile tick counts
         /// </summary>
-        protected int ticks = 0;
+        private int ticks = 0;
 
         /// <summary>
         /// Matrices
@@ -48,39 +48,40 @@ namespace World
         /// <summary>
         /// Do we need to reset matrices
         /// </summary>
-        public bool resetMatrices;
+        private bool resetMatrices;
 
         /// <summary>
         /// If this is True the tile is not drawn
         /// </summary>
-        public bool hidden = false;
+        public readonly bool hidden = false;
 
         public bool HasInstancedGraphics => _tileType.graphics.isInstanced;
 
         /// <summary>
         /// Parent bucket
         /// </summary>
-        public LayerGridBucket Bucket { get; protected set; }
+        private LayerGridBucket Bucket { get; set; }
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public Tile()
+        public Tile(Sprite texture, Dictionary<string, GraphicInstance> addGraphics, int ticks)
         {
+            Texture = texture;
+            AddGraphics = addGraphics;
+            this.ticks = ticks;
         }
-        
+
         /// <summary>
         /// Constructor.
         /// </summary>
         /// <param name="tileType">Tile's <see cref="TileType"/>.</param>
         /// <param name="position">Tile's position.</param>
-        public Tile(Coord position, TileType tileType) : base(position, (int) MapLayer.Terrain,  true, tileType.walkable, tileType.transparent)
+        public Tile(Coord position, TileType tileType) : base(position, (int) MapLayer.Terrain, true, tileType.walkable, tileType.transparent)
         {
             _tileType = tileType;
             
             MainGraphic = GraphicInstance.GetNew(_tileType.graphics);
-            
-            //Texture = ChooseTexture(tileType);
         }
 
         /// <summary>
@@ -103,21 +104,8 @@ namespace World
         {
             var neighbors = AdjacencyRule.EIGHT_WAY.NeighborsClockwise(Position);
 
-            var tiles = new List<Tile>();
-
-            foreach (var coord in neighbors)
-            {
-                var tile = ((LocalMap)CurrentMap).GetTileAt(coord);
-
-                if (tile == null)
-                {
-                    continue;
-                }
-
-                tiles.Add(tile);
-            }
-
-            return tiles;
+            return neighbors.Select(coord => ((LocalMap) CurrentMap).GetTileAt(coord)).Where(tile => tile != null)
+                .ToList();
         }
         
         /// <summary>
@@ -132,75 +120,58 @@ namespace World
                 _matrices = new Dictionary<int, Matrix4x4>();
                 resetMatrices = true;
             }
-            
-            if (!_matrices.ContainsKey(graphicUid)) 
+
+            if (_matrices.ContainsKey(graphicUid))
             {
-                var mat = Matrix4x4.identity;
-                
-                mat.SetTRS(
-                    new Vector3(
-                        Position.X
-                        -_tileType.graphics.pivot.x*scale.x
-                        +(1f-scale.x)/2f
-                        ,Position.Y
-                         -_tileType.graphics.pivot.y*scale.y
-                         +(1f-scale.y)/2f
-                        ,(float) (_tileType.layer + (byte) GraphicInstance.instances[graphicUid].Priority) //todo not sure how this will look
-                    ), 
-                    Quaternion.identity, 
-                    scale
-                );
-                _matrices.Add(graphicUid, mat);
+                return _matrices[graphicUid];
             }
+
+            var mat = Matrix4x4.identity;
+                
+            mat.SetTRS(
+                new Vector3(
+                    Position.X
+                    -_tileType.graphics.pivot.x*scale.x
+                    +(1f-scale.x)/2f
+                    ,Position.Y
+                     -_tileType.graphics.pivot.y*scale.y
+                     +(1f-scale.y)/2f
+                    ,(float) (_tileType.layer + (byte) GraphicInstance.instances[graphicUid].Priority) 
+                ), 
+                Quaternion.identity, 
+                scale
+            );
+            
+            _matrices.Add(graphicUid, mat);
+            
             return _matrices[graphicUid];
         }
         
+        /// <summary>
+        /// Sets the tile's bucket
+        /// </summary>
+        /// <param name="layerGridBucket"></param>
         public void SetBucket(LayerGridBucket layerGridBucket)
         {
             Bucket = layerGridBucket;
         }
 
+        /// <summary>
+        /// Gets the tile's map layer 
+        /// </summary>
+        /// <returns></returns>
         public MapLayer GetMapLayer()
         {
             return (MapLayer) Layer;
         }
 
+        /// <summary>
+        /// Gets tile's max height
+        /// </summary>
+        /// <returns></returns>
         public float GetMaxHeight()
         {
             return _tileType.maxHeight;
-        }
-
-        /// <summary>
-        /// Gets the texture from using the specified object type
-        /// </summary>
-        /// <param name="objectType">The object type</param>
-        /// <returns>The sprite</returns>
-        protected override Sprite GetTextureFrom(ScriptableObject objectType)
-        {
-            var tileType = objectType as TileType;
-
-            return tileType == null ? Texture : ChooseTexture(tileType);
-        }
-
-        /// <summary>
-        /// Gets a random Sprite that's assigned to the TileType.
-        /// </summary>
-        /// <returns>A random Sprite that's assigned to the TileType.</returns>
-        private static Sprite ChooseTexture(TileType tileType)
-        {
-            if (tileType.Textures == null)
-            {
-                Debug.LogError($"No texture defined for {tileType.name}");
-                return null;
-            }
-
-            if (tileType.Textures.Any())
-            {
-                return tileType.Textures[Random.Range(0, tileType.Textures.Length)];
-            }
-
-            Debug.LogError($"No texture defined for {tileType.name}");
-            return null;
         }
     }
 }

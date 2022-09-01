@@ -16,13 +16,13 @@ namespace World
         
         private int _bucketCount;
         
-        public Rectangle Rect { get; protected set; }
+        public Rectangle Rect { get; }
     
         public LayerGridBucket[] Buckets { get; protected set; }
     
         public Type RendererType { get; protected set; }
     
-        public MapLayer Layer { get; protected set; }
+        public MapLayer Layer { get; }
 
         public Coord Size => Rect.Size;
 

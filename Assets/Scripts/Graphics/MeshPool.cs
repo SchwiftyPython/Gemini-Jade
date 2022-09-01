@@ -111,10 +111,10 @@ namespace Graphics
                     meshData.vertices.Add(new Vector3(loc.x, loc.y + sy));
                     meshData.vertices.Add(new Vector3(loc.x + sx, loc.y + sy));
                     meshData.vertices.Add(new Vector3(loc.x + sx, loc.y));
-                    meshData.UVs.Add(new Vector2(0f, 0f));
-                    meshData.UVs.Add(new Vector2(0f, 1f));
-                    meshData.UVs.Add(new Vector2(1f, 1f));
-                    meshData.UVs.Add(new Vector2(1f, 0f));
+                    meshData.uvs.Add(new Vector2(0f, 0f));
+                    meshData.uvs.Add(new Vector2(0f, 1f));
+                    meshData.uvs.Add(new Vector2(1f, 1f));
+                    meshData.uvs.Add(new Vector2(1f, 0f));
                     meshData.AddTriangle(vIndex, 0, 1, 2);
                     meshData.AddTriangle(vIndex, 0, 2, 3);
                 }
@@ -142,31 +142,31 @@ namespace Graphics
 
             if (direction == Direction.UP)
             {
-                meshData.UVs.Add(new Vector2(0f, uy));
-                meshData.UVs.Add(new Vector2(0f, uy * 2f));
-                meshData.UVs.Add(new Vector2(1f, uy * 2f));
-                meshData.UVs.Add(new Vector2(1f, uy));
+                meshData.uvs.Add(new Vector2(0f, uy));
+                meshData.uvs.Add(new Vector2(0f, uy * 2f));
+                meshData.uvs.Add(new Vector2(1f, uy * 2f));
+                meshData.uvs.Add(new Vector2(1f, uy));
             }
             else if (direction == Direction.DOWN)
             {
-                meshData.UVs.Add(new Vector2(0f, uy * 2f));
-                meshData.UVs.Add(new Vector2(0f, 1f));
-                meshData.UVs.Add(new Vector2(1f, 1f));
-                meshData.UVs.Add(new Vector2(1f, uy * 2f));
+                meshData.uvs.Add(new Vector2(0f, uy * 2f));
+                meshData.uvs.Add(new Vector2(0f, 1f));
+                meshData.uvs.Add(new Vector2(1f, 1f));
+                meshData.uvs.Add(new Vector2(1f, uy * 2f));
             }
             else if (direction == Direction.RIGHT)
             {
-                meshData.UVs.Add(new Vector2(0f, 0f));
-                meshData.UVs.Add(new Vector2(0f, uy));
-                meshData.UVs.Add(new Vector2(1f, uy));
-                meshData.UVs.Add(new Vector2(1f, 0f));
+                meshData.uvs.Add(new Vector2(0f, 0f));
+                meshData.uvs.Add(new Vector2(0f, uy));
+                meshData.uvs.Add(new Vector2(1f, uy));
+                meshData.uvs.Add(new Vector2(1f, 0f));
             }
             else if (direction == Direction.LEFT)
             {
-                meshData.UVs.Add(new Vector2(1f, 0f));
-                meshData.UVs.Add(new Vector2(1f, uy));
-                meshData.UVs.Add(new Vector2(0f, uy));
-                meshData.UVs.Add(new Vector2(0f, 0f));
+                meshData.uvs.Add(new Vector2(1f, 0f));
+                meshData.uvs.Add(new Vector2(1f, uy));
+                meshData.uvs.Add(new Vector2(0f, uy));
+                meshData.uvs.Add(new Vector2(0f, 0f));
             }
 
             meshData.AddTriangle(0, 0, 1, 2);
@@ -187,10 +187,10 @@ namespace Graphics
             meshData.vertices.Add(new Vector3(0, size.y));
             meshData.vertices.Add(new Vector3(size.x, size.y));
             meshData.vertices.Add(new Vector3(size.x, 0));
-            meshData.UVs.Add(new Vector2(0f, 0f));
-            meshData.UVs.Add(new Vector2(0f, 1f));
-            meshData.UVs.Add(new Vector2(1f, 1f));
-            meshData.UVs.Add(new Vector2(1f, 0f));
+            meshData.uvs.Add(new Vector2(0f, 0f));
+            meshData.uvs.Add(new Vector2(0f, 1f));
+            meshData.uvs.Add(new Vector2(1f, 1f));
+            meshData.uvs.Add(new Vector2(1f, 0f));
             meshData.AddTriangle(0, 0, 1, 2);
             meshData.AddTriangle(0, 0, 2, 3);
             meshData.Build();

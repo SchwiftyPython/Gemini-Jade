@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Repos;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -15,26 +14,33 @@ namespace Graphics
         All = ~(~0 << 3)
     }
     
+    /// <summary>
+    /// Stores all the Mesh Data
+    /// </summary>
     public class MeshData
     {
-        public List<Vector3> vertices;
+        public readonly List<Vector3> vertices;
 
-        public List<int> indices;
+        private readonly List<int> indices;
 
-        public List<Vector2> UVs;
+        public readonly List<Vector2> uvs;
 
-        public List<Color> colors;
+        public readonly List<Color> colors;
 
         public Mesh mesh;
 
-        private MeshFlags _flags;
+        private readonly MeshFlags _flags;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="flags"></param>
         public MeshData(MeshFlags flags = MeshFlags.Base)
         {
             vertices = new List<Vector3>();
             indices = new List<int>();
             colors = new List<Color>();
-            UVs = new List<Vector2>();
+            uvs = new List<Vector2>();
             _flags = flags;
         }
 
@@ -53,7 +59,7 @@ namespace Graphics
             colors = new List<Color>(
                 (flag & MeshFlags.Color) == MeshFlags.Color ? planeCount * 4 : 0
             );
-            UVs = new List<Vector2>(
+            uvs = new List<Vector2>(
                 (flag & MeshFlags.UV) == MeshFlags.UV ? planeCount * 4 : 0
             );
             _flags = flag;
@@ -76,7 +82,7 @@ namespace Graphics
         /// <summary>
         /// Create a new mesh
         /// </summary>
-        public void CreateNewMesh()
+        private void CreateNewMesh()
         {
             if (mesh != null)
             {
@@ -94,7 +100,7 @@ namespace Graphics
             vertices.Clear();
             indices.Clear();
             colors.Clear();
-            UVs.Clear();
+            uvs.Clear();
         }
 
         /// <summary>
@@ -105,28 +111,33 @@ namespace Graphics
         public Mesh Build()
         {
             CreateNewMesh();
-            if (vertices.Count > 0 && indices.Count > 0)
+            
+            if (vertices.Count > 0)
             {
-                mesh.SetVertices(vertices);
-                mesh.SetTriangles(indices, 0);
-
-                if ((_flags & MeshFlags.UV) == MeshFlags.UV)
+                if (indices.Count > 0)
                 {
-                    mesh.SetUVs(0, UVs);
-                }
+                    mesh.SetVertices(vertices);
+                    mesh.SetTriangles(indices, 0);
 
-                if ((_flags & MeshFlags.Color) == MeshFlags.Color)
-                {
-                    mesh.SetColors(colors);
-                }
+                    if ((_flags & MeshFlags.UV) == MeshFlags.UV)
+                    {
+                        mesh.SetUVs(0, uvs);
+                    }
+
+                    if ((_flags & MeshFlags.Color) == MeshFlags.Color)
+                    {
+                        mesh.SetColors(colors);
+                    }
                 
-                mesh.RecalculateNormals();
+                    mesh.RecalculateNormals();
 
-                return mesh;
+                    return mesh;
+                }
             }
 
             // todo Output some kind of error here?
             Object.Destroy(mesh);
+            
             return null;
         }
     }
