@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
 using GoRogue.GameFramework;
-using GoRogue.MapViews;
 using UnityEngine;
 using Utilities;
 using World.Pawns;
@@ -58,6 +57,11 @@ namespace World
             layerGrids.Add(MapLayer.Terrain, new GroundGrid(Size));
             
             //todo other layers
+        }
+
+        public Vector3 GetMapCenterWithOffset()
+        {
+            return new Vector3(Width / 2.0f - 0.5f, Height / 2.0f - 0.5f);
         }
 
         public void UpdateVisibleBuckets()
@@ -365,6 +369,8 @@ namespace World
                 Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
             }
             
+            //todo run UpdateGraphs only on changed bucket
+            
             AstarPath.active.Scan();
             
             //todo else notify map changed
@@ -396,6 +402,8 @@ namespace World
             {
                 Debug.LogError("Failed to remove object from local map!");
             }
+            
+            //todo run UpdateGraphs only on changed bucket
             
             AstarPath.active.Scan();
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using GoRogue;
 using Graphics;
+using Settings;
 using UnityEngine;
 
 namespace World
@@ -121,10 +122,10 @@ namespace World
                                  Camera.main.orthographicSize * Camera.main.aspect),
                 Mathf.FloorToInt(Camera.main.transform.position.y + Camera.main.orthographicSize));
             
-            _visible = Rect.MinExtentX >= cameraMinExtent.x - Game.BucketSize &&
-                       Rect.MaxExtentX <= cameraMaxExtent.x + Game.BucketSize &&
-                       Rect.MinExtentY >= cameraMinExtent.y - Game.BucketSize &&
-                       Rect.MaxExtentY <= cameraMaxExtent.y + Game.BucketSize;
+            _visible = Rect.MinExtentX >= cameraMinExtent.x - Constants.BucketSize &&
+                       Rect.MaxExtentX <= cameraMaxExtent.x + Constants.BucketSize &&
+                       Rect.MinExtentY >= cameraMinExtent.y - Constants.BucketSize &&
+                       Rect.MaxExtentY <= cameraMaxExtent.y + Constants.BucketSize;
 
             return _visible;
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using GoRogue;
 using Graphics;
+using Settings;
 using Utilities;
 
 namespace World
@@ -34,9 +35,9 @@ namespace World
 
             RendererType = typeof(BucketRenderer);
 
-            _numBucketsX = Mathf.CeilToInt(Size.X / (float)Game.BucketSize);
+            _numBucketsX = Mathf.CeilToInt(Size.X / (float)Constants.BucketSize);
             
-            _numBucketsY = Mathf.CeilToInt(Size.Y / (float)Game.BucketSize);
+            _numBucketsY = Mathf.CeilToInt(Size.Y / (float)Constants.BucketSize);
 
             _bucketCount = _numBucketsX * _numBucketsY;
         }
@@ -67,7 +68,7 @@ namespace World
 
         public LayerGridBucket GetBucketAt(Coord position)
         {
-            var bucketIndex = position.X / Game.BucketSize + position.Y / Game.BucketSize * _numBucketsX;
+            var bucketIndex = position.X / Constants.BucketSize + position.Y / Constants.BucketSize * _numBucketsX;
 
             if (bucketIndex >= 0 && bucketIndex < Buckets.Length)
             {
@@ -123,15 +124,15 @@ namespace World
         {
             Buckets = new LayerGridBucket[_bucketCount];
 
-            for (var x = 0; x < Size.X; x += Game.BucketSize)
+            for (var x = 0; x < Size.X; x += Constants.BucketSize)
             {
-                for (var y = 0; y < Size.Y; y += Game.BucketSize) 
+                for (var y = 0; y < Size.Y; y += Constants.BucketSize) 
                 {
-                    var bucketRect = new Rectangle(x, y, Game.BucketSize, Game.BucketSize);
+                    var bucketRect = new Rectangle(x, y, Constants.BucketSize, Constants.BucketSize);
 
                     bucketRect = bucketRect.Clip(Rect);
 
-                    var bucketId = x / Game.BucketSize + y / Game.BucketSize * _numBucketsX;
+                    var bucketId = x / Constants.BucketSize + y / Constants.BucketSize * _numBucketsX;
 
                     Buckets[bucketId] = new LayerGridBucket(bucketId, bucketRect, Layer, RendererType);
                 }
