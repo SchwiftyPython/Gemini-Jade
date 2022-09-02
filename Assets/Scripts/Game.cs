@@ -1,3 +1,4 @@
+using System;
 using Generators;
 using Repos;
 using Time;
@@ -12,14 +13,14 @@ using Random = UnityEngine.Random;
 /// <seealso cref="MonoBehaviour"/>
 public class Game : MonoBehaviour
 {
-    public const int BucketSize = 32;
-
     /// <summary>
     /// The job giver
     /// </summary>
     public JobGiver jobGiver;
 
     private LocalMap map;
+
+    public Action<LocalMap> onNewLocalMap;
 
     private void Awake()
     {
@@ -33,7 +34,9 @@ public class Game : MonoBehaviour
 
         var mapGen = new LocalMapGenerator();
             
-        map = mapGen.GenerateMap(200, 200);
+        map = mapGen.GenerateMap(100, 100);
+        
+        onNewLocalMap?.Invoke(map);
         
         map.BuildAllMeshes();
 

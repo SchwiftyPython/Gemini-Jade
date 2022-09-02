@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 65417976}
   - component: {fileID: 65417977}
+  - component: {fileID: 65417978}
   m_Layer: 0
   m_Name: A*
   m_TagString: Untagged
@@ -210,6 +211,18 @@ MonoBehaviour:
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
+--- !u!114 &65417978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65417975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d56ff0965469f8479211ca9d3d01d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &122174030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,9 +1686,9 @@ GameObject:
   - component: {fileID: 1210218022}
   - component: {fileID: 1210218021}
   - component: {fileID: 1210218020}
-  - component: {fileID: 1210218023}
   - component: {fileID: 1210218025}
   - component: {fileID: 1210218024}
+  - component: {fileID: 1210218026}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1749,26 +1762,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1210218023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210218019}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 32
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!114 &1210218024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1854,6 +1847,19 @@ MonoBehaviour:
   triggerBoundaryObject: {fileID: 1708202132}
   triggerBoundaryLayerName: 
   isContributionProportionalToDistFromTarget: 1
+--- !u!114 &1210218026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210218019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0576988d597e534b96cf1497bce33b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraBoundary: {fileID: 1708202132}
 --- !u!1 &1396208772
 GameObject:
   m_ObjectHideFlags: 0
