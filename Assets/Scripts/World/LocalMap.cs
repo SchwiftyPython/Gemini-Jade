@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
 using GoRogue.GameFramework;
+using Pathfinding;
 using UnityEngine;
 using Utilities;
 using World.Pawns;
@@ -368,11 +369,9 @@ namespace World
             {
                 Debug.LogError($"Failed to place object at {gridObject.Position.ToString()}");
             }
-            
-            //todo run UpdateGraphs only on changed bucket
-            
-            AstarPath.active.Scan();
-            
+
+            UpdateAStar(gridObject);
+
             //todo else notify map changed
             
             //todo if needs to be built, create a job and add to job giver -- could be part of map changed event
@@ -403,9 +402,28 @@ namespace World
                 Debug.LogError("Failed to remove object from local map!");
             }
             
-            //todo run UpdateGraphs only on changed bucket
+            UpdateAStar(gridObject);
+        }
+
+        public LayerGridBucket GetBucketAt(Coord coord, MapLayer layer = MapLayer.Terrain)
+        {
+            return layerGrids[layer].GetBucketAt(coord);
+        }
+
+        public void UpdateAStar(IGameObject gridObject)
+        {
+            var bucket = layerGrids.First().Value.GetBucketAt(gridObject.Position);
+
+            var bounds = new Bounds(bucket.Rect.Center.ToVector3(), bucket.Rect.Size.ToVector3());
             
-            AstarPath.active.Scan();
+            AstarPath.active.UpdateGraphs(new GraphUpdateObject(bounds));
+        }
+
+        public void UpdateAStar(LayerGridBucket bucket)
+        {
+            var bounds = new Bounds(bucket.Rect.Center.ToVector3(), bucket.Rect.Size.ToVector3());
+            
+            AstarPath.active.UpdateGraphs(new GraphUpdateObject(bounds));
         }
         
         /// <summary>

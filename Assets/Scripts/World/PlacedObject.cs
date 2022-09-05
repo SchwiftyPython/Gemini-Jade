@@ -298,11 +298,22 @@ namespace World
             
             SpriteRenderer.color = BuiltColor;
 
+            var buckets = new List<LayerGridBucket>();
+
             foreach (var gridObject in GridObjects)
             {
                 gridObject.IsWalkable = placedObjectType.walkable;
                 
                 gridObject.IsTransparent = placedObjectType.transparent;
+
+                var bucket = map.GetBucketAt(gridObject.Position, MapLayer.GridObject);
+
+                if (buckets.Contains(bucket))
+                {
+                    continue;
+                }
+                
+                buckets.Add(bucket);
             }
 
             if (placedObjectType.walkable)
@@ -311,8 +322,11 @@ namespace World
             }
 
             UnityUtils.AddBoxColliderTo(instance.gameObject);
-                
-            AstarPath.active.Scan();
+
+            foreach (var bucket in buckets)
+            {
+                map.UpdateAStar(bucket);
+            }
         }
 
         /// <summary>

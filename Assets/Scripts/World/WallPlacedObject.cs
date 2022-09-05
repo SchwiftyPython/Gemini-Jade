@@ -114,7 +114,7 @@ namespace World
 
             UnityUtils.AddBoxColliderTo(instance.gameObject);
                 
-            AstarPath.active.Scan();
+            map.UpdateAStar(GridObjects.First());
         }
 
         /// <summary>
