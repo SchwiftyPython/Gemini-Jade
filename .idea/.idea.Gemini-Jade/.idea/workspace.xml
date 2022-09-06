@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,6 +266,7 @@
       <workItem from="1662029962425" duration="8256000" />
       <workItem from="1662114453597" duration="8863000" />
       <workItem from="1662373647675" duration="4292000" />
+      <workItem from="1662459509617" duration="11526000" />
     </task>
     <task id="LOCAL-00009" summary="Added TimeSpeeds&#10;Added TickController.cs">
       <created>1651689275204</created>
@@ -630,7 +635,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Knife" />
     <MESSAGE value="Added basic implementation of Action.cs" />
     <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
     <MESSAGE value="Adding new grid system." />
@@ -655,6 +659,7 @@
     <MESSAGE value="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test." />
     <MESSAGE value="Added Rock&#10;Added PerlinNoise.cs&#10;Got noise generating and meshes drawing dirt and rock&#10;Blending is not working os far" />
     <MESSAGE value="Figured out how to fix blending meshes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Figured out how to fix blending meshes" />
+    <MESSAGE value="Astar updates by bucket instead of entire graph" />
+    <option name="LAST_COMMIT_MESSAGE" value="Astar updates by bucket instead of entire graph" />
   </component>
 </project>

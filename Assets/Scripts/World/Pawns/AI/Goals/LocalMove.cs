@@ -1,4 +1,5 @@
 using GoRogue;
+using UnityEngine;
 
 namespace World.Pawns.AI.Goals
 {
@@ -62,7 +63,7 @@ namespace World.Pawns.AI.Goals
             _movement.onDestinationReached += OnDestinationReached;
             
             _movement.onDestinationUnreachable += OnDestinationUnreachable;
-            
+
             Pawn.Movement.MoveTo(_target);
         }
         
