@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoRogue.Random;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -135,6 +136,20 @@ namespace Utilities
         public static T[] EnumToArray<T>()
         {
             return (T[]) Enum.GetValues(typeof(T));
+        }
+        
+        public static IEnumerable<T> ShuffleIterator<T>(this IEnumerable<T> source)
+        {
+            var rng = SingletonRandom.DefaultRNG;
+            
+            var buffer = source.ToList();
+            for (int i = 0; i < buffer.Count; i++)
+            {
+                int j = rng.Next(i, buffer.Count);
+                yield return buffer[j];
+
+                buffer[j] = buffer[i];
+            }
         }
     }
 }

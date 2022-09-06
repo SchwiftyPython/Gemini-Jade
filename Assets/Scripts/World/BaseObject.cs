@@ -65,6 +65,8 @@ namespace World
             set => backingField.Position = value;
         }
 
+        public Vector3 TransformPosition => SpriteInstance.transform.position;
+
         /// <summary>
         /// The moved
         /// </summary>

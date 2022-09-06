@@ -15,12 +15,12 @@ namespace World.Pawns
         /// <summary>
         /// The next waypoint distance
         /// </summary>
-        private const float NextWaypointDistance = .02f;
+        private const float NextWaypointDistance = .2f;
 
         /// <summary>
         /// The repath rate
         /// </summary>
-        private const float RepathRate = 0.5f;
+        private const float RepathRate = 3f;
         
         /// <summary>
         /// The seeker
@@ -100,8 +100,34 @@ namespace World.Pawns
         /// <summary>
         /// Updates this instance
         /// </summary>
-        private void Update () 
+        private void Update ()
         {
+            var distanceToDestination = Vector3.Distance(transform.position, Destination.ToVector3());
+            
+            if (UnityEngine.Time.time > _lastRepath + RepathRate)
+            {
+                if (distanceToDestination >= 1f)
+                {
+                    if (_seeker.IsDone() && ((LocalMap) _pawn.CurrentMap).WalkableAt(Destination))
+                    {
+                        _lastRepath = UnityEngine.Time.time;
+                    
+                        _seeker.StartPath(transform.position, Destination.ToVector3());
+                    }
+                    else
+                    {
+                        Debug.Log("Destination unreachable");
+                    
+                        Reset();
+                            
+                        //todo if this is null maybe consider clearing goals as a fail-safe
+                        onDestinationUnreachable?.Invoke();
+
+                        return;
+                    }
+                }
+            }
+
             if (!HasDestination)
             {
                 return;
@@ -118,10 +144,22 @@ namespace World.Pawns
                     if(_currentWaypoint + 1 < Path.vectorPath.Count)
                     {
                         _currentWaypoint++;
+                        
+                        var waypoint = Path.vectorPath[_currentWaypoint];
+
+                        if (!((LocalMap) _pawn.CurrentMap).WalkableAt(waypoint.ToCoord()))
+                        {
+                            Reset();
+                            
+                            //todo if this is null maybe consider clearing goals as a fail-safe
+                            onDestinationUnreachable?.Invoke();
+
+                            return;
+                        }
                     }
                     else
                     {
-                        _reachedEndOfPath = true;
+                        Reset();
                         
                         onDestinationReached?.Invoke();
                         break;
@@ -132,24 +170,15 @@ namespace World.Pawns
                     break;
                 }
             }
-            
-            var waypoint = Path.vectorPath[_currentWaypoint];
 
-            if (!((LocalMap) _pawn.CurrentMap).WalkableAt(waypoint.ToCoord()))
-            {
-                Path = null;
-                
-                _reachedEndOfPath = true;
-
-                //todo if this is null maybe consider clearing goals as a fail-safe
-                onDestinationUnreachable?.Invoke();
-
-                return;
-            }
-            
             var speedFactor = 1f; //todo calculate speed factor based on terrain movement speed and pawn movement function
 
             var calculatedPosition = transform.position;
+
+            if (Path == null)
+            {
+                return;
+            }
 
             var dir = (Path.vectorPath[_currentWaypoint] - calculatedPosition).normalized;
             
@@ -184,13 +213,18 @@ namespace World.Pawns
         /// </summary>
         /// <param name="destination">The destination</param>
         /// <returns>The bool</returns>
-        public bool CanPathTo(Coord destination)
+        public bool CanPathTo(Vector3 destination)
         {
-            var path = _seeker.StartPath(_pawn.Position.ToVector3(), destination.ToVector3());
+            var path = _seeker.StartPath(transform.position, destination);
             
             path.BlockUntilCalculated();
 
             return !path.error && path.vectorPath.Count > 1;
+        }
+        
+        public bool CanPathTo(Coord workSpot)
+        {
+            return CanPathTo(workSpot.ToVector3());
         }
 
         /// <summary>
@@ -208,19 +242,7 @@ namespace World.Pawns
                 return;
             }
 
-            if (UnityEngine.Time.time <= _lastRepath + RepathRate)
-            {
-                return;
-            }
-
-            if (_seeker.IsDone())
-            {
-                _lastRepath = UnityEngine.Time.time;
-            }
-                
             Destination = destination;
-            
-            _seeker.StartPath(_pawn.Position.ToVector3(), Destination.ToVector3());
         }
 
         /// <summary>
@@ -299,9 +321,13 @@ namespace World.Pawns
         /// </summary>
         private void Reset()
         {
+            _pawn.Position = transform.position.ToCoord();
+            
             Destination = _pawn.Position;
 
             Path = null;
+
+            _reachedEndOfPath = true;
         }
         
         /// <summary>

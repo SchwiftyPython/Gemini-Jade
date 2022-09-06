@@ -1,5 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using GoRogue;
 using UnityEngine;
+using Utilities;
 
 namespace World.Pawns.AI.Goals
 {
@@ -18,6 +22,10 @@ namespace World.Pawns.AI.Goals
         /// The work spot
         /// </summary>
         private Coord _workSpot;
+
+        private List<Coord> _possibleWorkSpots;
+
+        private bool _foundWorkSpot;
         
         /// <summary>
         /// Initializes a new instance of the <see cref="Build"/> class
@@ -41,29 +49,35 @@ namespace World.Pawns.AI.Goals
             // basically job subscribes to a stockpile event for that particular resource
         
             //todo if all resources are added, construct at some rate based on construction skill until work left is zero
-            //placed object can handle construction. Pawn stops at work site, placed object runs construction loop until work left is zero or pawn moves away from work site
 
-            if (Pawn.Position != _workSpot)
+            if (Vector3.Distance(Pawn.TransformPosition, _workSpot.ToVector3()) >= 1f)
             {
                 //todo this works for one tile jobs, but for bigger blueprints we need to find adjacent tiles around whole object
                 // maybe loop through all grid objects and return walkable adjacent coords that are not part of the same placed object
                 //changing job location to list to make this easier
-                
-                
-                var walkablePositions = ((LocalMap) Pawn.CurrentMap).GetAdjacentWalkableLocations(Job.Location);
 
-                _workSpot = Coord.NONE;
-
-                foreach (var position in walkablePositions)
+                if (!_foundWorkSpot || !Pawn.Movement.CanPathTo(_workSpot))
                 {
-                    if (Pawn.Movement.CanPathTo(position))
+                    _possibleWorkSpots = (List<Coord>) ((LocalMap) Pawn.CurrentMap).GetAdjacentWalkableLocations(Job.Location);
+
+                    _workSpot = Coord.NONE;
+
+                    _foundWorkSpot = false;
+
+                    foreach (var position in _possibleWorkSpots.ShuffleIterator().ToArray()) 
                     {
-                        _workSpot = position;
-                        break;
+                        if (Pawn.Movement.CanPathTo(position.ToVector3()))
+                        {
+                            _workSpot = position;
+                            _foundWorkSpot = true;
+                            break;
+                        }
+
+                        _possibleWorkSpots.Remove(position);
                     }
                 }
 
-                if (_workSpot == Coord.NONE)
+                if (!_foundWorkSpot) 
                 {
                     //todo suspend job until a walkable neighbor is available
                     

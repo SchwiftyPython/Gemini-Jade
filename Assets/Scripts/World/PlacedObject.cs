@@ -345,8 +345,6 @@ namespace World
 
             _pawn.onPawnMoved += OnPawnMoved;
 
-            MovePawnsOutTheWay();
-            
             _constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
 
             _constructionTimer = 0;
