@@ -27,9 +27,7 @@ public class Game : MonoBehaviour
         var tickController = FindObjectOfType<TickController>();
         
         tickController.Init();
-        
-        jobGiver = new JobGiver();
-        
+
         //temp map gen
 
         var mapGen = new LocalMapGenerator();
@@ -43,6 +41,8 @@ public class Game : MonoBehaviour
         var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
         
         gridBuildingSystem.SetLocalMap(map);
+        
+        jobGiver = new JobGiver();
         
         //temp pawn stuff
 

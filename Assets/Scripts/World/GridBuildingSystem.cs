@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UI.Grid;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -109,7 +111,9 @@ namespace World
         /// <summary>
         /// The ghost object
         /// </summary>
-        [SerializeField] private GhostObject ghostObject;
+        [SerializeField] private GhostObject ghostObjectPrefab;
+
+        private List<GhostObject> ghostObjects;
 
         /// <summary>
         /// The dir
@@ -120,6 +124,16 @@ namespace World
         /// The placing object
         /// </summary>
         private bool _placingObject;
+
+        private bool _placingWalls;
+
+        private bool _wallStarted;
+
+        private GhostObject _lastGhost;
+
+        public Action onDraggingStarted;
+
+        public Action onDraggingEnded;
 
         /// <summary>
         /// Awakes this instance
@@ -134,14 +148,104 @@ namespace World
         /// </summary>
         private void Update()
         {
-            if (!_placingObject)
+            if (_placingObject)
             {
-                return;
+                HandleSingleObjectPlacement();
             }
+            else if (_placingWalls)
+            {
+                HandleWallPlacement();
+            }
+        }
 
+        private void HandleWallPlacement()
+        {
+            if (Input.GetMouseButton(0))
+            {
+                if (_wallStarted)
+                {
+                    UpdateWall();
+                    return;
+                }
+                
+                StartWall();
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                if (!_wallStarted)
+                {
+                    return;
+                }
+                
+                PlaceWall();
+            }
+            else if (Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                if (_wallStarted)
+                {
+                    CancelWall();
+                }
+            }
+        }
+
+        private void StartWall()
+        {
+            _wallStarted = true;
+            
+            onDraggingStarted?.Invoke();
+            
+            var startPosition = GetMouseGridSnappedPosition();
+
+            ghostObjects.First().transform.position = startPosition;
+
+            _lastGhost = ghostObjects.First();
+        }
+
+        private void PlaceWall()
+        {
+            _wallStarted = false;
+            
+            onDraggingEnded?.Invoke();
+            
+            //todo place wall tiles where valid
+            
+            //todo new ghost object for next wall
+        }
+
+        private void UpdateWall()
+        {
             var mousePosition = GetMouseGridSnappedPosition();
 
-            var gridPositions = ghostObject.GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
+            if (!mousePosition.Equals(_lastGhost.transform.position))
+            {
+                //todo determine if we are extending the wall or decreasing it
+                //if direction changed? for adding subtracting and rotation?
+                
+                //todo need to handle 90 degree rotation here too
+
+                //todo if increasing
+                var newGhost = Instantiate(ghostObjectPrefab, mousePosition, Quaternion.identity);
+
+                newGhost.Setup(_selectedObjectType, false);
+
+                newGhost.transform.position = mousePosition;
+                
+                ghostObjects.Add(newGhost);
+
+                _lastGhost = newGhost;
+            }
+        }
+
+        private void CancelWall()
+        {
+            onDraggingEnded?.Invoke();
+        }
+
+        private void HandleSingleObjectPlacement()
+        {
+            var mousePosition = GetMouseGridSnappedPosition();
+
+            var gridPositions = ghostObjects.First().GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
 
             var canPlace = true;
 
@@ -158,7 +262,7 @@ namespace World
 
             if (canPlace)
             {
-                ghostObject.ColorSpriteWhite();
+                ghostObjects.First().ColorSpriteWhite();
                     
                 if (Mouse.current.leftButton.isPressed)
                 {
@@ -180,7 +284,7 @@ namespace World
             }
             else
             {
-                ghostObject.ColorSpriteRed();
+                ghostObjects.First().ColorSpriteRed();
             }
 
             if (Keyboard.current.rKey.wasPressedThisFrame)
@@ -305,7 +409,9 @@ namespace World
         {
             _selectedObjectType = null;
             
-            ghostObject.Hide();
+            DestroyGhostObjects();
+            
+            //ghostObject.Hide();
         }
 
         /// <summary>
@@ -322,10 +428,31 @@ namespace World
             _dir = PlacedObject.Dir.Down;
             
             _selectedObjectType = objectType;
+
+            ghostObjects = new List<GhostObject>();
+
+            var ghostObject = Instantiate(ghostObjectPrefab, GetMouseWorldSnappedPosition(), Quaternion.identity);
+            
+            ghostObjects.Add(ghostObject);
             
             ghostObject.Setup(objectType);
 
-            _placingObject = true;
+            if (_selectedObjectType.isWall)
+            {
+                _placingWalls = true;
+            }
+            else
+            {
+                _placingObject = true;
+            }
+        }
+
+        private void DestroyGhostObjects()
+        {
+            foreach (var ghostObject in ghostObjects)
+            {
+                Destroy(ghostObject.gameObject);
+            }
         }
     }
 }
