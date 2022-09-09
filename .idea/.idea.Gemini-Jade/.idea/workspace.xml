@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/UndefinedRock.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/UndefinedRock.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/Jobs/JobGiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +19,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/18/a4e641ab/GridManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -270,21 +268,8 @@
       <workItem from="1662373647675" duration="4292000" />
       <workItem from="1662459509617" duration="12103000" />
       <workItem from="1662546365445" duration="2388000" />
-      <workItem from="1662633024991" duration="9456000" />
-    </task>
-    <task id="LOCAL-00010" summary="Added TickList.cs&#10;Added Thing.cs&#10;Added methods to TickController.cs">
-      <created>1651761896715</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1651761896715</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace">
-      <created>1652205943605</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1652205943605</updated>
+      <workItem from="1662633024991" duration="9697000" />
+      <workItem from="1662717623428" duration="4383000" />
     </task>
     <task id="LOCAL-00012" summary="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods">
       <created>1652291264032</created>
@@ -615,7 +600,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662476216988</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Seperated wall placement from single object placement in grid building system.&#10;Can drag wall ghost objects in a line.">
+      <created>1662658987904</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1662658987905</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Ghost object prefab fell behind">
+      <created>1662659015329</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1662659015329</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,8 +638,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
-    <MESSAGE value="Adding new grid system." />
     <MESSAGE value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
     <MESSAGE value="Can place 1 x 1 grid objects&#10;Can rotate 1 x 1 grid objects" />
     <MESSAGE value="Started working on blueprint functionality" />
@@ -664,6 +661,8 @@
     <MESSAGE value="Figured out how to fix blending meshes" />
     <MESSAGE value="Astar updates by bucket instead of entire graph" />
     <MESSAGE value="Couldn't recreate pawns getting stuck in walls.&#10;Cleaned up pathfinding to job sites.&#10;Fixed bug where Build goal wasn't recognizing that pawn was at job site due to rounding errors." />
-    <option name="LAST_COMMIT_MESSAGE" value="Couldn't recreate pawns getting stuck in walls.&#10;Cleaned up pathfinding to job sites.&#10;Fixed bug where Build goal wasn't recognizing that pawn was at job site due to rounding errors." />
+    <MESSAGE value="Seperated wall placement from single object placement in grid building system.&#10;Can drag wall ghost objects in a line." />
+    <MESSAGE value="Ghost object prefab fell behind" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ghost object prefab fell behind" />
   </component>
 </project>

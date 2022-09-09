@@ -23,9 +23,12 @@ namespace World
         public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
-
+            
             var placedObjectInstance = Instantiate(placedObjectType.Prefab,
-                gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
+                origin.ToVector3(), gridBuildingSystem.GetObjectRotation());
+
+            // var placedObjectInstance = Instantiate(placedObjectType.Prefab,
+            //     gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
 
             var placedObject = placedObjectInstance.GetComponent<WallPlacedObject>();
 

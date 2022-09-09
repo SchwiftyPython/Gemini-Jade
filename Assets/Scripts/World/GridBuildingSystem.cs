@@ -160,6 +160,20 @@ namespace World
 
         private void HandleWallPlacement()
         {
+            if (!_wallStarted)
+            {
+                var mousePosition = GetMouseGridSnappedPosition();
+
+                if (LocalMap.CanPlaceGridObjectAt(mousePosition.ToCoord()))
+                {
+                    ghostObjects.First().ColorSpriteWhite();
+                }
+                else
+                {
+                    ghostObjects.First().ColorSpriteRed();
+                }
+            }
+            
             if (Input.GetMouseButton(0))
             {
                 if (_wallStarted)
@@ -167,24 +181,21 @@ namespace World
                     UpdateWall();
                     return;
                 }
-                
+
                 StartWall();
             }
-            else if (Input.GetMouseButtonUp(1))
+            else if (Input.GetMouseButtonUp(0))
             {
                 if (!_wallStarted)
                 {
                     return;
                 }
-                
+
                 PlaceWall();
             }
             else if (Mouse.current.rightButton.wasPressedThisFrame || Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                if (_wallStarted)
-                {
-                    CancelWall();
-                }
+                CancelWall();
             }
         }
 
@@ -206,10 +217,27 @@ namespace World
             _wallStarted = false;
             
             onDraggingEnded?.Invoke();
+
+            foreach (var ghost in ghostObjects)
+            {
+                if (!LocalMap.CanPlaceGridObjectAt(ghost.transform.position.ToCoord()))
+                {
+                    continue;
+                }
+                
+                var placedObject = WallPlacedObject.Create(ghost.transform.position.ToVector2Int(), _dir,
+                    _selectedObjectType);
+                
+                Debug.Log($"Placing Wall at: {placedObject.gridPositions.First()}");
+                
+                LocalMap.PlacePlacedObject(placedObject);
+            }
             
-            //todo place wall tiles where valid
-            
+            DestroyGhostObjects();
+
             //todo new ghost object for next wall
+            
+            OnObjectSelected(_selectedObjectType);
         }
 
         private void UpdateWall()
@@ -231,6 +259,13 @@ namespace World
                 newGhost.transform.position = mousePosition;
                 
                 ghostObjects.Add(newGhost);
+                
+                //todo need to update color of ghost to reflect if it can be placed
+
+                if (!LocalMap.CanPlaceGridObjectAt(mousePosition.ToCoord()))
+                {
+                    newGhost.ColorSpriteRed();
+                }
 
                 _lastGhost = newGhost;
             }
@@ -238,6 +273,12 @@ namespace World
 
         private void CancelWall()
         {
+            _wallStarted = false;
+
+            _placingWalls = false;
+            
+            DeselectObjectType();
+
             onDraggingEnded?.Invoke();
         }
 
@@ -245,7 +286,7 @@ namespace World
         {
             var mousePosition = GetMouseGridSnappedPosition();
 
-            var gridPositions = ghostObjects.First().GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
+            var gridPositions = ghostObjects.First().GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir); //todo need to fix so it is handling all grid positions
 
             var canPlace = true;
 
