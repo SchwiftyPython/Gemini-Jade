@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,9 +21,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
@@ -101,6 +100,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/PlacedObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" root0="FORCE_HIGHLIGHTING" />
@@ -269,14 +269,8 @@
       <workItem from="1662459509617" duration="12103000" />
       <workItem from="1662546365445" duration="2388000" />
       <workItem from="1662633024991" duration="9697000" />
-      <workItem from="1662717623428" duration="4383000" />
-    </task>
-    <task id="LOCAL-00012" summary="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods">
-      <created>1652291264032</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1652291264033</updated>
+      <workItem from="1662717623428" duration="4655000" />
+      <workItem from="1662991165432" duration="12871000" />
     </task>
     <task id="LOCAL-00013" summary="Added stages to health mods">
       <created>1652373891882</created>
@@ -614,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662659015329</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Can place walls once left mouse button is released.">
+      <created>1662737927657</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1662737927657</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +639,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
     <MESSAGE value="Can place 1 x 1 grid objects&#10;Can rotate 1 x 1 grid objects" />
     <MESSAGE value="Started working on blueprint functionality" />
     <MESSAGE value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
@@ -663,6 +663,7 @@
     <MESSAGE value="Couldn't recreate pawns getting stuck in walls.&#10;Cleaned up pathfinding to job sites.&#10;Fixed bug where Build goal wasn't recognizing that pawn was at job site due to rounding errors." />
     <MESSAGE value="Seperated wall placement from single object placement in grid building system.&#10;Can drag wall ghost objects in a line." />
     <MESSAGE value="Ghost object prefab fell behind" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ghost object prefab fell behind" />
+    <MESSAGE value="Can place walls once left mouse button is released." />
+    <option name="LAST_COMMIT_MESSAGE" value="Can place walls once left mouse button is released." />
   </component>
 </project>

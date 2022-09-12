@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GoRogue;
 using UI.Grid;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,13 +11,13 @@ using World.Things.CraftableThings;
 namespace World
 {
     /// <summary>
-    /// The grid building system class
+    /// Handles placing and removing <see cref="PlacedObject"/>s on the current <see cref="LocalMap"/>
     /// </summary>
     /// <seealso cref="MonoBehaviour"/>
     public class GridBuildingSystem : MonoBehaviour
     {
         /// <summary>
-        /// The bit mask value to index
+        /// Stores bitmask value to index conversions
         /// </summary>
         private static readonly Dictionary<int, int> BitMaskValueToIndex = new()
         {
@@ -70,7 +71,7 @@ namespace World
         };
 
         /// <summary>
-        /// Calculates the tile index using the specified east
+        /// Calculates the tile index depending on what directions have neighbors.
         /// </summary>
         /// <param name="east">The east</param>
         /// <param name="west">The west</param>
@@ -109,43 +110,46 @@ namespace World
         private PlacedObjectTemplate _selectedObjectType;
         
         /// <summary>
-        /// The ghost object
+        /// The ghost object prefab
         /// </summary>
         [SerializeField] private GhostObject ghostObjectPrefab;
 
         private List<GhostObject> ghostObjects;
 
         /// <summary>
-        /// The dir
+        /// The current direction the object is facing or wall being built in
         /// </summary>
-        private PlacedObject.Dir _dir;
+        private Direction _dir;
 
         /// <summary>
-        /// The placing object
+        /// Indicates if an object is currently selected and being placed
         /// </summary>
         private bool _placingObject;
 
+        /// <summary>
+        /// Indicates if currently placing walls
+        /// </summary>
         private bool _placingWalls;
 
+        /// <summary>
+        /// Indicates if an origin has been picked for the wall and the user is determining length
+        /// </summary>
         private bool _wallStarted;
 
+        /// <summary>
+        /// Stores the last ghost object placed
+        /// </summary>
         private GhostObject _lastGhost;
 
         public Action onDraggingStarted;
 
         public Action onDraggingEnded;
 
-        /// <summary>
-        /// Awakes this instance
-        /// </summary>
         private void Awake()
         {
             SelectGridObjectButton.OnObjectSelected += OnObjectSelected;
         }
-        
-        /// <summary>
-        /// Updates this instance
-        /// </summary>
+
         private void Update()
         {
             if (_placingObject)
@@ -158,6 +162,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Handles input while placing walls
+        /// </summary>
         private void HandleWallPlacement()
         {
             if (!_wallStarted)
@@ -173,7 +180,7 @@ namespace World
                     ghostObjects.First().ColorSpriteRed();
                 }
             }
-            
+
             if (Input.GetMouseButton(0))
             {
                 if (_wallStarted)
@@ -199,6 +206,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Places <see cref="GhostObject"/> at current mouse position and allows player to adjust length of wall
+        /// </summary>
         private void StartWall()
         {
             _wallStarted = true;
@@ -212,6 +222,9 @@ namespace World
             _lastGhost = ghostObjects.First();
         }
 
+        /// <summary>
+        /// Places all <see cref="GhostObject"/>s that are in valid positions.
+        /// </summary>
         private void PlaceWall()
         {
             _wallStarted = false;
@@ -227,50 +240,179 @@ namespace World
                 
                 var placedObject = WallPlacedObject.Create(ghost.transform.position.ToVector2Int(), _dir,
                     _selectedObjectType);
-                
-                Debug.Log($"Placing Wall at: {placedObject.gridPositions.First()}");
-                
+
                 LocalMap.PlacePlacedObject(placedObject);
             }
             
             DestroyGhostObjects();
 
-            //todo new ghost object for next wall
-            
             OnObjectSelected(_selectedObjectType);
         }
 
+        /// <summary>
+        /// Adjusts length and <see cref="Direction"/> of wall once wall is started
+        /// </summary>
         private void UpdateWall()
         {
             var mousePosition = GetMouseGridSnappedPosition();
 
             if (!mousePosition.Equals(_lastGhost.transform.position))
             {
-                //todo determine if we are extending the wall or decreasing it
-                //if direction changed? for adding subtracting and rotation?
+                var coordDelta = mousePosition.ToCoord() - _lastGhost.transform.position.ToCoord();
                 
-                //todo need to handle 90 degree rotation here too
+                var currentDirection =
+                    Direction.GetDirection(coordDelta);
 
-                //todo if increasing
-                var newGhost = Instantiate(ghostObjectPrefab, mousePosition, Quaternion.identity);
-
-                newGhost.Setup(_selectedObjectType, false);
-
-                newGhost.transform.position = mousePosition;
-                
-                ghostObjects.Add(newGhost);
-                
-                //todo need to update color of ghost to reflect if it can be placed
-
-                if (!LocalMap.CanPlaceGridObjectAt(mousePosition.ToCoord()))
+                if (ghostObjects.Count == 1)
                 {
-                    newGhost.ColorSpriteRed();
+                    if (currentDirection == Direction.UP || currentDirection == Direction.DOWN ||
+                        currentDirection == Direction.LEFT || currentDirection == Direction.RIGHT)
+                    {
+                        _dir = currentDirection;
+                    }
+                    else
+                    {
+                        _dir = Direction.GetCardinalDirection(coordDelta);
+                    }
                 }
-
-                _lastGhost = newGhost;
+                
+                if (_dir != currentDirection)
+                {
+                    HandleWallDirectionChange(currentDirection);
+                }
+                else
+                {
+                    var ghostPosition = _lastGhost.transform.position.ToCoord() + _dir;
+                    
+                    AddGhostObject(ghostPosition);
+                }
             }
         }
 
+        /// <summary>
+        /// Changes direction of wall if current direction is perpendicular or opposite of wall direction
+        /// </summary>
+        /// <param name="currentDirection"></param>
+        private void HandleWallDirectionChange(Direction currentDirection)
+        {
+            if (DirectionPerpendicularTo(currentDirection))
+            {
+                var prevGhost = ghostObjects.First();
+
+                foreach (var ghost in ghostObjects)
+                {
+                    if (ghost == ghostObjects.First())
+                    {
+                        continue;
+                    }
+
+                    ghost.transform.position = (prevGhost.transform.position.ToCoord() + currentDirection).ToVector3();
+                }
+
+                _dir = currentDirection;
+            }
+            else if(DirectionIsOppositeOf(currentDirection))
+            {
+                if (ghostObjects.Count == 1)
+                {
+                    return;
+                }
+
+                var ghostToRemove = ghostObjects.Last();
+
+                ghostObjects.Remove(ghostToRemove);
+                        
+                Destroy(ghostToRemove.gameObject);
+
+                _lastGhost = ghostObjects.Last();
+            }
+        }
+
+        /// <summary>
+        /// Adds a <see cref="GhostObject"/> at the specified position
+        /// </summary>
+        /// <param name="position"></param>
+        private void AddGhostObject(Coord position)
+        {
+            var newGhost = Instantiate(ghostObjectPrefab, position.ToVector3(), Quaternion.identity);
+
+            newGhost.Setup(_selectedObjectType, false);
+
+            newGhost.transform.position = position.ToVector3();
+                
+            ghostObjects.Add(newGhost);
+                    
+            if (!LocalMap.CanPlaceGridObjectAt(position))
+            {
+                newGhost.ColorSpriteRed();
+            }
+
+            _lastGhost = newGhost;
+        }
+
+        /// <summary>
+        /// Determines if direction is perpendicular to wall direction
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <returns>True if direction is perpendicular to wall direction</returns>
+        private bool DirectionPerpendicularTo(Direction dir)
+        {
+            if (_dir == Direction.UP)
+            {
+                return dir == Direction.LEFT || dir == Direction.RIGHT;
+            }
+
+            if (_dir == Direction.DOWN)
+            {
+                return dir == Direction.LEFT || dir == Direction.RIGHT;
+            }
+
+            if (_dir == Direction.LEFT)
+            {
+                return dir == Direction.UP || dir == Direction.DOWN;
+            }
+
+            if (_dir == Direction.RIGHT)
+            {
+                return dir == Direction.UP || dir == Direction.DOWN;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Determines if direction is opposite of wall direction
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <returns>True if direction is opposite of wall direction</returns>
+        private bool DirectionIsOppositeOf(Direction dir)
+        {
+            if (_dir == Direction.UP)
+            {
+                return dir == Direction.DOWN;
+            }
+
+            if (_dir == Direction.DOWN)
+            {
+                return dir == Direction.UP;
+            }
+
+            if (_dir == Direction.LEFT)
+            {
+                return dir == Direction.RIGHT;
+            }
+
+            if (_dir == Direction.RIGHT)
+            {
+                return dir == Direction.LEFT;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Cancels current wall being placed
+        /// </summary>
         private void CancelWall()
         {
             _wallStarted = false;
@@ -282,11 +424,14 @@ namespace World
             onDraggingEnded?.Invoke();
         }
 
+        /// <summary>
+        /// Handles placing a single <see cref="PlacedObject"/>
+        /// </summary>
         private void HandleSingleObjectPlacement()
         {
             var mousePosition = GetMouseGridSnappedPosition();
 
-            var gridPositions = ghostObjects.First().GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir); //todo need to fix so it is handling all grid positions
+            var gridPositions = ghostObjects.First().GetGridPositions(new Vector2Int((int) mousePosition.x, (int) mousePosition.y), _dir);
 
             var canPlace = true;
 
@@ -389,19 +534,19 @@ namespace World
         {
             int rotationAngle;
             
-            switch (_dir)
+            switch (_dir.Type)
             {
                 default:
-                case PlacedObject.Dir.Down: rotationAngle = 0;
+                case Direction.Types.DOWN: rotationAngle = 0;
                     break;
 
-                case PlacedObject.Dir.Left: rotationAngle = 90;
+                case Direction.Types.LEFT: rotationAngle = 90;
                     break;
 
-                case PlacedObject.Dir.Up: rotationAngle = 180;
+                case Direction.Types.UP: rotationAngle = 180;
                     break;
 
-                case PlacedObject.Dir.Right: rotationAngle = 270;
+                case Direction.Types.RIGHT: rotationAngle = 270;
                     break;
             }
             
@@ -409,18 +554,18 @@ namespace World
         }
 
         /// <summary>
-        /// Gets the next dir
+        /// Gets the next dir in clockwise order
         /// </summary>
         /// <returns>The placed object dir</returns>
-        private PlacedObject.Dir GetNextDir()
+        private Direction GetNextDir()
         {
-            switch (_dir)
+            switch (_dir.Type)
             {
                 default:
-                case PlacedObject.Dir.Down: return PlacedObject.Dir.Left;
-                case PlacedObject.Dir.Left: return PlacedObject.Dir.Up;
-                case PlacedObject.Dir.Up: return PlacedObject.Dir.Right;
-                case PlacedObject.Dir.Right: return PlacedObject.Dir.Down;
+                case Direction.Types.DOWN: return Direction.LEFT;
+                case Direction.Types.LEFT: return Direction.UP;
+                case Direction.Types.UP: return Direction.RIGHT;
+                case Direction.Types.RIGHT: return Direction.DOWN;
             }
         }
 
@@ -430,16 +575,16 @@ namespace World
         /// <returns>The vector int</returns>
         private Vector2Int GetRotationOffset()
         {
-            switch (_dir)
+            switch (_dir.Type)
             {
                 default:
-                case PlacedObject.Dir.Down: return new Vector2Int(0, 0);
+                case Direction.Types.DOWN: return new Vector2Int(0, 0);
                 
-                case PlacedObject.Dir.Left: return new Vector2Int(1, 0);
+                case Direction.Types.LEFT: return new Vector2Int(1, 0);
                 
-                case PlacedObject.Dir.Up: return new Vector2Int(1,1);
+                case Direction.Types.UP: return new Vector2Int(1,1);
                 
-                case PlacedObject.Dir.Right: return new Vector2Int(0, 1);
+                case Direction.Types.RIGHT: return new Vector2Int(0, 1);
             }
         }
 
@@ -451,12 +596,10 @@ namespace World
             _selectedObjectType = null;
             
             DestroyGhostObjects();
-            
-            //ghostObject.Hide();
         }
 
         /// <summary>
-        /// Ons the object selected using the specified object type
+        /// Sets up a <see cref="GhostObject"/> for the selected <see cref="PlacedObjectTemplate"/>
         /// </summary>
         /// <param name="objectType">The object type</param>
         private void OnObjectSelected(PlacedObjectTemplate objectType)
@@ -466,7 +609,7 @@ namespace World
                 return;
             }
             
-            _dir = PlacedObject.Dir.Down;
+            _dir = Direction.DOWN;
             
             _selectedObjectType = objectType;
 
@@ -488,6 +631,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// Destroys all <see cref="GhostObject"/>s
+        /// </summary>
         private void DestroyGhostObjects()
         {
             foreach (var ghostObject in ghostObjects)

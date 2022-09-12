@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using GoRogue;
 using Repos;
+using Unity.Mathematics;
 using UnityEngine;
 using Utilities;
 using World.Things.CraftableThings;
@@ -20,15 +22,12 @@ namespace World
         /// <param name="direction">The direction</param>
         /// <param name="placedObjectType">The placed object type</param>
         /// <returns>The placed object</returns>
-        public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
+        public static PlacedObject Create(Vector2Int origin, Direction direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
             
             var placedObjectInstance = Instantiate(placedObjectType.Prefab,
-                origin.ToVector3(), gridBuildingSystem.GetObjectRotation());
-
-            // var placedObjectInstance = Instantiate(placedObjectType.Prefab,
-            //     gridBuildingSystem.GetMouseWorldSnappedPosition(), gridBuildingSystem.GetObjectRotation());
+                origin.ToVector3(), quaternion.identity);
 
             var placedObject = placedObjectInstance.GetComponent<WallPlacedObject>();
 
@@ -59,19 +58,14 @@ namespace World
 
             placedObject.direction = direction;
 
-            placedObject.GridObjects = new List<GridObject>();
-
-            placedObject.gridPositions = placedObject.GetGridPositions(origin, direction);
-
-            foreach (var position in placedObject.gridPositions)
-            {
-                var gridObject = new GridObject(placedObject, position, true, walkable,
+            var gridObject = new GridObject(placedObject, origin.ToVector3(), true, walkable,
                     transparent);
+            
+            placedObject.GridObjects = new List<GridObject> {gridObject};
 
-                placedObject.GridObjects.Add(gridObject);
-            }
+            placedObject.gridPositions = new List<Vector3> {origin.ToVector3()};
 
-            if (!walkable )
+            if (!walkable)
             {
                 UnityUtils.AddBoxColliderTo(placedObjectInstance.gameObject);
             }

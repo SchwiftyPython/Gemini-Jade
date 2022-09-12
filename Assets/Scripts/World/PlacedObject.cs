@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using GoRogue;
 using UnityEngine;
 using Utilities;
 using World.Pawns;
@@ -31,7 +32,7 @@ namespace World
         /// <param name="direction">The direction</param>
         /// <param name="placedObjectType">The placed object type</param>
         /// <returns>The placed object</returns>
-        public static PlacedObject Create(Vector2Int origin, Dir direction, PlacedObjectTemplate placedObjectType)
+        public static PlacedObject Create(Vector2Int origin, Direction direction, PlacedObjectTemplate placedObjectType)
         {
             var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
 
@@ -141,7 +142,7 @@ namespace World
         /// <summary>
         /// The direction
         /// </summary>
-        protected Dir direction;
+        protected Direction direction;
 
         /// <summary>
         /// The construction job
@@ -228,14 +229,14 @@ namespace World
         /// <param name="origin">The origin</param>
         /// <param name="dir">The dir</param>
         /// <returns>The grid position list</returns>
-        protected List<Vector3> GetGridPositions(Vector2Int origin, Dir dir)
+        protected List<Vector3> GetGridPositions(Vector2Int origin, Direction dir)
         {
             var gridPositionList = new List<Vector3>();
             
-            switch (dir)
+            switch (dir.Type)
             {
                 default:
-                case Dir.Down:
+                case Direction.Types.DOWN:
                     for (var x = 0; x < placedObjectType.width; x++)
                     {
                         for (var y = 0; y < placedObjectType.height; y++)
@@ -246,7 +247,7 @@ namespace World
 
                     break;
                 
-                case Dir.Up:
+                case Direction.Types.UP:
                     for (var x = placedObjectType.width - 1; x >= 0; x--)
                     {
                         for (var y = placedObjectType.height - 1; y >= 0; y--)
@@ -257,7 +258,7 @@ namespace World
 
                     break;
                 
-                case Dir.Left:
+                case Direction.Types.LEFT:
                     for (var x = 0; x < placedObjectType.height; x++)
                     {
                         for (var y = 0; y < placedObjectType.width; y++)
@@ -268,7 +269,7 @@ namespace World
 
                     break;
                 
-                case Dir.Right:
+                case Direction.Types.RIGHT:
                     for (var x = placedObjectType.height - 1; x >= 0; x--)
                     {
                         for (var y = placedObjectType.width - 1; y >= 0; y--)
