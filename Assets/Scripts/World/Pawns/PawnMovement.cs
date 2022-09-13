@@ -116,8 +116,6 @@ namespace World.Pawns
                     }
                     else
                     {
-                        Debug.Log("Destination unreachable");
-                    
                         Reset();
                             
                         //todo if this is null maybe consider clearing goals as a fail-safe
