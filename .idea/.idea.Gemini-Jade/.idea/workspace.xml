@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/CollectionUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Brains/Brain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/PlacedObject.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +15,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0edcb05f22cd4a6a8e48ede00af0543bf200/18/a4e641ab/GridManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -76,6 +69,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/BitMaskDirection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GhostObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/GhostObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridBuildingSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" root0="FORCE_HIGHLIGHTING" />
@@ -101,6 +95,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/PawnMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/PlacedObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" root0="FORCE_HIGHLIGHTING" />
@@ -266,42 +261,11 @@
       <workItem from="1662029962425" duration="8256000" />
       <workItem from="1662114453597" duration="8863000" />
       <workItem from="1662373647675" duration="4292000" />
-      <workItem from="1662459509617" duration="11526000" />
-    </task>
-    <task id="LOCAL-00009" summary="Added TimeSpeeds&#10;Added TickController.cs">
-      <created>1651689275204</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1651689275204</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added TickList.cs&#10;Added Thing.cs&#10;Added methods to TickController.cs">
-      <created>1651761896715</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1651761896715</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added time speed control buttons&#10;Added TimeChanger.cs&#10;Moved Ticks and Time stuff into a Time namespace">
-      <created>1652205943605</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1652205943605</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Upgraded Unity Editor&#10;Implemented HealthTick&#10;Added checks for if pawn should be down or dead&#10;Basic Pawn dead and Down methods">
-      <created>1652291264032</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1652291264033</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added stages to health mods">
-      <created>1652373891882</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1652373891882</updated>
+      <workItem from="1662459509617" duration="12103000" />
+      <workItem from="1662546365445" duration="2388000" />
+      <workItem from="1662633024991" duration="9697000" />
+      <workItem from="1662717623428" duration="4655000" />
+      <workItem from="1662991165432" duration="12922000" />
     </task>
     <task id="LOCAL-00014" summary="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs">
       <created>1652725722445</created>
@@ -611,7 +575,42 @@
       <option name="project" value="LOCAL" />
       <updated>1661968743739</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Couldn't recreate pawns getting stuck in walls.&#10;Cleaned up pathfinding to job sites.&#10;Fixed bug where Build goal wasn't recognizing that pawn was at job site due to rounding errors.">
+      <created>1662476216988</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1662476216988</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Seperated wall placement from single object placement in grid building system.&#10;Can drag wall ghost objects in a line.">
+      <created>1662658987904</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1662658987905</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Ghost object prefab fell behind">
+      <created>1662659015329</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1662659015329</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Can place walls once left mouse button is released.">
+      <created>1662737927657</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1662737927657</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Got wall dragging to work for length and direction. &#10;Not 100% sure if missing jobs is still an issue.&#10;Going to revisit before merging into dev.">
+      <created>1663014137376</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1663014137376</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,11 +634,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added basic implementation of Action.cs" />
-    <MESSAGE value="Added MeleeAttack.cs&#10;Added PartTemplate.cs&#10;Added SmallBlade.asset" />
-    <MESSAGE value="Adding new grid system." />
-    <MESSAGE value="GridBuildingSystem.cs spawns a GhostObject.cs when placing objects.&#10;GhostObject.cs follows mouse and snaps to grid." />
-    <MESSAGE value="Can place 1 x 1 grid objects&#10;Can rotate 1 x 1 grid objects" />
     <MESSAGE value="Started working on blueprint functionality" />
     <MESSAGE value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
     <MESSAGE value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
@@ -660,6 +654,11 @@
     <MESSAGE value="Added Rock&#10;Added PerlinNoise.cs&#10;Got noise generating and meshes drawing dirt and rock&#10;Blending is not working os far" />
     <MESSAGE value="Figured out how to fix blending meshes" />
     <MESSAGE value="Astar updates by bucket instead of entire graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="Astar updates by bucket instead of entire graph" />
+    <MESSAGE value="Couldn't recreate pawns getting stuck in walls.&#10;Cleaned up pathfinding to job sites.&#10;Fixed bug where Build goal wasn't recognizing that pawn was at job site due to rounding errors." />
+    <MESSAGE value="Seperated wall placement from single object placement in grid building system.&#10;Can drag wall ghost objects in a line." />
+    <MESSAGE value="Ghost object prefab fell behind" />
+    <MESSAGE value="Can place walls once left mouse button is released." />
+    <MESSAGE value="Got wall dragging to work for length and direction. &#10;Not 100% sure if missing jobs is still an issue.&#10;Going to revisit before merging into dev." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got wall dragging to work for length and direction. &#10;Not 100% sure if missing jobs is still an issue.&#10;Going to revisit before merging into dev." />
   </component>
 </project>

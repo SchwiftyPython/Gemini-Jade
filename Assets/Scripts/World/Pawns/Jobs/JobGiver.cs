@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Repos;
-using UnityEngine;
 using World.Pawns.Skills;
+using Object = UnityEngine.Object;
 
 namespace World.Pawns.Jobs
 {
@@ -90,7 +90,7 @@ namespace World.Pawns.Jobs
         {
             _availableJobs[job.SkillNeeded].Remove(job);
         }
-        
+
         /// <summary>
         /// Removes <see cref="Job"/> from available jobs.
         /// </summary>

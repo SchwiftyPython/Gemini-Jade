@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GoRogue;
 using UnityEngine;
 using World.Things.CraftableThings;
 
@@ -35,6 +36,10 @@ namespace World
         /// </summary>
         private GridBuildingSystem _gridBuildingSystem;
 
+        private bool _isStartingObject;
+
+        private bool _isDragging;
+
         /// <summary>
         /// Awakes this instance
         /// </summary>
@@ -51,6 +56,11 @@ namespace World
         /// </summary>
         private void LateUpdate()
         {
+            if (!_isStartingObject || _isDragging)
+            {
+                return;
+            }
+            
             var targetPosition = _gridBuildingSystem.GetMouseWorldSnappedPosition();
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, UnityEngine.Time.deltaTime * 25f);
@@ -80,7 +90,8 @@ namespace World
         /// Setup the object type
         /// </summary>
         /// <param name="objectType">The object type</param>
-        public void Setup(PlacedObjectTemplate objectType)
+        /// <param name="startingObject"></param>
+        public void Setup(PlacedObjectTemplate objectType, bool startingObject = true)
         {
             if (_instance != null)
             {
@@ -96,6 +107,13 @@ namespace World
 
             _placedObjectType = objectType;
             
+            _isStartingObject = startingObject;
+
+            if (_isStartingObject)
+            {
+                _gridBuildingSystem.onDraggingStarted += OnDraggingStarted;
+            }
+
             _instance = Instantiate(_placedObjectType.Prefab, Vector3.zero, Quaternion.identity, transform);
             
             _instance.localPosition = Vector3.zero;
@@ -109,10 +127,28 @@ namespace World
                 : objectType.builtTexture;
 
             _placedObjectGhost.SpriteRenderer.sortingLayerName = GhostObjectLayerName;
-                
+
             Show();
         }
-        
+
+        private void OnDraggingStarted()
+        {
+            _isDragging = true;
+            
+            _gridBuildingSystem.onDraggingStarted -= OnDraggingStarted;
+            
+            _gridBuildingSystem.onDraggingEnded += OnDraggingEnded;
+        }
+
+        private void OnDraggingEnded()
+        {
+            _isDragging = false;
+            
+            _gridBuildingSystem.onDraggingEnded -= OnDraggingEnded;
+            
+            _gridBuildingSystem.onDraggingStarted += OnDraggingStarted;
+        }
+
         /// <summary>
         /// Gets the value of the needs to be made
         /// </summary>
@@ -140,14 +176,14 @@ namespace World
         /// <param name="origin">The origin</param>
         /// <param name="dir">The dir</param>
         /// <returns>The grid position list</returns>
-        public List<Vector2Int> GetGridPositions(Vector2Int origin, PlacedObject.Dir dir)
+        public List<Vector2Int> GetGridPositions(Vector2Int origin, Direction dir)
         {
             var gridPositionList = new List<Vector2Int>();
             
-            switch (dir)
+            switch (dir.Type)
             {
                 default:
-                case PlacedObject.Dir.Down:
+                case Direction.Types.DOWN:
                     for (var x = 0; x < _placedObjectType.width; x++)
                     {
                         for (var y = 0; y < _placedObjectType.height; y++)
@@ -158,7 +194,7 @@ namespace World
 
                     break;
                 
-                case PlacedObject.Dir.Up:
+                case Direction.Types.UP:
                     for (var x = _placedObjectType.width - 1; x >= 0; x--)
                     {
                         for (var y = _placedObjectType.height - 1; y >= 0; y--)
@@ -169,7 +205,7 @@ namespace World
 
                     break;
                 
-                case PlacedObject.Dir.Left:
+                case Direction.Types.LEFT:
                     for (var x = 0; x < _placedObjectType.height; x++)
                     {
                         for (var y = 0; y < _placedObjectType.width; y++)
@@ -180,7 +216,7 @@ namespace World
 
                     break;
                 
-                case PlacedObject.Dir.Right:
+                case Direction.Types.RIGHT:
                     for (var x = _placedObjectType.height - 1; x >= 0; x--)
                     {
                         for (var y = _placedObjectType.width - 1; y >= 0; y--)
@@ -211,7 +247,7 @@ namespace World
             if (objectType != null)
             {
                 _placedObjectType = objectType;
-            
+
                 _instance = Instantiate(_placedObjectType.Prefab, Vector3.zero, Quaternion.identity, transform);
             
                 _instance.localPosition = Vector3.zero;

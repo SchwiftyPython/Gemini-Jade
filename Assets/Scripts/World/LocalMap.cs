@@ -414,9 +414,7 @@ namespace World
         {
             var bucket = layerGrids.First().Value.GetBucketAt(gridObject.Position);
 
-            var bounds = new Bounds(bucket.Rect.Center.ToVector3(), bucket.Rect.Size.ToVector3());
-            
-            AstarPath.active.UpdateGraphs(new GraphUpdateObject(bounds));
+            UpdateAStar(bucket);
         }
 
         public void UpdateAStar(LayerGridBucket bucket)
