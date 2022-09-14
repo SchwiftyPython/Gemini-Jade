@@ -54,8 +54,10 @@ namespace World
             _pawns = new List<Pawn>();
 
             layerGrids = new Dictionary<MapLayer, LayerGrid>();
-            
+
             layerGrids.Add(MapLayer.Terrain, new GroundGrid(Size));
+            
+            layerGrids.Add(MapLayer.Plant, new LayerGrid(Size, MapLayer.Plant));
             
             //todo other layers
         }

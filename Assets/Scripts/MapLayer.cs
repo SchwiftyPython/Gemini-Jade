@@ -7,6 +7,10 @@
     /// The terrain map layer
     /// </summary>
     Terrain,
+    /// <summary>
+    /// Plant layer
+    /// </summary>
+    Plant,
     Mountain,
     /// <summary>
     /// The grid object map layer
