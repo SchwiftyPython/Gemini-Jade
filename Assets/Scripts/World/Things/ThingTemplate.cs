@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Assets.Scripts.World;
 using GoRogue.GameFramework;
+using Graphics.GraphicTemplates;
 using Time.TickerTypes;
 using UnityEngine;
 using World.Things.Parts;
@@ -88,7 +89,9 @@ namespace World.Things
         /// <summary>
         /// The sprite sheet
         /// </summary>
-        public Sprite spriteSheet;
+        public Sprite spriteSheet;  //todo only used by pawns atm. Pawns need to use graphics template as well.
+        
+        public GraphicTemplate graphics;
 
         /// <summary>
         /// The destroyable

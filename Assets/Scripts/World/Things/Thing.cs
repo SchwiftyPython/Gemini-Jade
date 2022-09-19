@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
+using Graphics.GraphicTemplates;
 using UnityEngine;
 using World.Pawns.Health.DamageWorkers;
 
@@ -25,7 +26,9 @@ namespace World.Things
         /// <summary>
         /// The sprite sheet
         /// </summary>
-        protected Sprite spriteSheet;
+        protected Sprite spriteSheet; //todo only used by pawns atm. Pawns need to use graphics template as well.
+
+        protected GraphicTemplate graphicTemplate;
         
         /// <summary>
         /// The template
@@ -80,6 +83,8 @@ namespace World.Things
             this.template = template;
             
             spriteSheet = template.spriteSheet;
+
+            graphicTemplate = template.graphics;
             
             PopulateSprites();
             
@@ -261,6 +266,10 @@ namespace World.Things
 
                 colIndex++;
             }
+        }
+
+        protected virtual void UpdateGraphics() //todo add to an interface?
+        {
         }
     }
 }

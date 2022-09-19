@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Season.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Season.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables/HarvestableTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables/HarvestableTemplate.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/PlantTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/PlantTemplate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemini-Jade.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Gemini-Jade.sln.DotSettings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables/Corn.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables/Corn.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables/HarvestableTemplate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Harvestables/HarvestableTemplate.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/PlantTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/PlantTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +113,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Season.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -280,14 +283,8 @@
       <workItem from="1662633024991" duration="9697000" />
       <workItem from="1662717623428" duration="4655000" />
       <workItem from="1662991165432" duration="12922000" />
-      <workItem from="1663156025934" duration="5653000" />
-    </task>
-    <task id="LOCAL-00014" summary="Added CollectionUtils.cs&#10;Added HealthModAdder.cs&#10;Added HealthModAdderUtils.cs">
-      <created>1652725722445</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1652725722445</updated>
+      <workItem from="1663156025934" duration="6138000" />
+      <workItem from="1663584452813" duration="6060000" />
     </task>
     <task id="LOCAL-00015" summary="Added BloodLoss.cs&#10;Added methods to get current bleed rate and calculate stage of health mod based on severity">
       <created>1652806259352</created>
@@ -625,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663014137376</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Added Harvestables.meta&#10;Added Plants.meta&#10;Added Corn.asset">
+      <created>1663174010069</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1663174010069</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +653,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Started working on blueprint functionality" />
     <MESSAGE value="Placed objects detect if they need to be a Blueprint.cs&#10;Placed objects change sprite to finished sprite and update grid object properties when finished." />
     <MESSAGE value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
     <MESSAGE value="Bitmasking works. &#10;Need to do some cleanup next week." />
@@ -674,6 +677,7 @@
     <MESSAGE value="Ghost object prefab fell behind" />
     <MESSAGE value="Can place walls once left mouse button is released." />
     <MESSAGE value="Got wall dragging to work for length and direction. &#10;Not 100% sure if missing jobs is still an issue.&#10;Going to revisit before merging into dev." />
-    <option name="LAST_COMMIT_MESSAGE" value="Got wall dragging to work for length and direction. &#10;Not 100% sure if missing jobs is still an issue.&#10;Going to revisit before merging into dev." />
+    <MESSAGE value="Added Harvestables.meta&#10;Added Plants.meta&#10;Added Corn.asset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Harvestables.meta&#10;Added Plants.meta&#10;Added Corn.asset" />
   </component>
 </project>

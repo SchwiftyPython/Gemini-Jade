@@ -6,5 +6,7 @@ namespace Settings
     public static class Constants
     {
         public const int BucketSize = 32;
+
+        public const int TicksPerDay = 84000;
     }
 }

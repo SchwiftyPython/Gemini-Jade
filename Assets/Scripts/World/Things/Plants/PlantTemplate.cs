@@ -12,6 +12,12 @@ namespace World.Things.Plants
 
         public bool canCut;
 
+        public bool canHarvest;
+        
+        public Thing thingHarvested;
+
+        public int numThingHarvested;
+
         public float minFertility = 0.5f;
         
         //todo growth states
