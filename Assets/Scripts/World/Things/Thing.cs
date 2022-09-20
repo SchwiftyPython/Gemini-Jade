@@ -28,8 +28,6 @@ namespace World.Things
         /// </summary>
         protected Sprite spriteSheet; //todo only used by pawns atm. Pawns need to use graphics template as well.
 
-        protected GraphicTemplate graphicTemplate;
-        
         /// <summary>
         /// The template
         /// </summary>
@@ -89,7 +87,6 @@ namespace World.Things
             PopulateSprites();
             
             //todo other template properties that need setting 
-            
         }
        
 
@@ -241,6 +238,11 @@ namespace World.Things
         {
             //for one sprite could just use same dictionary amd assign same sprite to all directions
             //determine number of sprites depending on sprite sheet size?
+
+            if (spriteSheet == null)
+            {
+                return;
+            }
 
             directionalSprites = new Dictionary<Direction, Sprite>
             {

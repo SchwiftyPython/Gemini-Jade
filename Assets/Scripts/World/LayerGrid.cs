@@ -6,6 +6,7 @@ using GoRogue;
 using Graphics;
 using Settings;
 using Utilities;
+using World.Things;
 
 namespace World
 {
@@ -40,6 +41,15 @@ namespace World
             _numBucketsY = Mathf.CeilToInt(Size.Y / (float)Constants.BucketSize);
 
             _bucketCount = _numBucketsX * _numBucketsY;
+            
+            //GenerateBuckets();
+        }
+
+        public void AddThing(Thing thing)
+        {
+            var bucket = GetBucketAt(thing.Position);
+            
+            bucket?.AddThing(thing);
         }
 
         public void AddTile(Tile tile)
@@ -49,12 +59,22 @@ namespace World
             bucket?.AddTile(tile);
         }
 
-        public List<Tile> GetTiles()
+        public void AddBaseObject(BaseObject baseObject)
         {
-            return (from bucket in Buckets from tile in bucket.Tiles where tile != null select tile).ToList();
+            var bucket = GetBucketAt(baseObject.Position);
+            
+            bucket?.AddBaseObject(baseObject);
         }
 
-        public Tile GetTileAt(Coord position)
+        public List<BaseObject> GetBaseObjects()
+        {
+            return (from bucket in Buckets
+                from baseObject in bucket.BaseObjects
+                where baseObject != null
+                select baseObject).ToList();
+        }
+
+        public BaseObject GetBaseObjectAt(Coord position)
         {
             var bucket = GetBucketAt(position);
 
@@ -63,7 +83,7 @@ namespace World
                 return null;
             }
 
-            return bucket.GetTileAt(position);
+            return bucket.GetBaseObjectAt(position);
         }
 
         public LayerGridBucket GetBucketAt(Coord position)
@@ -72,7 +92,11 @@ namespace World
 
             if (bucketIndex >= 0 && bucketIndex < Buckets.Length)
             {
-                return Buckets[bucketIndex];
+                var bucket = Buckets[bucketIndex];
+                    
+                Debug.Log($"Got bucket number {bucket.Id} in layer {Layer} at {position}");
+
+                return bucket;
             }
 
             Debug.LogError($"Tried to get bucket at out of bounds location: {position} Bucket Index: {bucketIndex}");
@@ -106,14 +130,24 @@ namespace World
 
         public void DrawBuckets()
         {
+            if (RendererType == null)
+            {
+                foreach (var bucket in Buckets)
+                {
+                    if (bucket.IsVisible())
+                    {
+                        bucket.DrawInstancedMeshes();
+                    }
+                }
+                
+                return;
+            }
+            
             foreach (var bucket in Buckets)
             {
                 if (bucket.IsVisible())
                 {
-                    if (RendererType != null)
-                    {
-                        bucket.DrawStatics();
-                    }
+                    bucket.DrawStatics();
 
                     bucket.DrawInstancedMeshes();
                 }

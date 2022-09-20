@@ -4,6 +4,7 @@ using GoRogue;
 using Graphics;
 using Settings;
 using UnityEngine;
+using World.Things;
 
 namespace World
 {
@@ -39,7 +40,7 @@ namespace World
 
         public Rectangle Rect { get; }
 
-        public Tile[] Tiles { get; }
+        public BaseObject[] BaseObjects { get; }
 
         public int Id { get; }
 
@@ -48,9 +49,9 @@ namespace World
         /// <summary>
         /// Dictionary of tile matrices indexed by id
         /// </summary>
-        public Dictionary<int, List<Matrix4x4>> TileMatrices { get; protected set; }
+        public Dictionary<int, List<Matrix4x4>> Matrices { get; protected set; }
 
-        public Dictionary<int, Matrix4x4[]> TileMatricesArr { get; protected set; }
+        public Dictionary<int, Matrix4x4[]> MatricesArr { get; protected set; }
 
         /// <summary>
         /// Constructor
@@ -65,11 +66,11 @@ namespace World
             Rect = rect;
             Layer = layer;
 
-            Tiles = new Tile[Rect.Width * Rect.Height];
+            BaseObjects = new BaseObject[Rect.Width * Rect.Height];
 
-            TileMatrices = new Dictionary<int, List<Matrix4x4>>();
+            Matrices = new Dictionary<int, List<Matrix4x4>>();
 
-            TileMatricesArr = new Dictionary<int, Matrix4x4[]>();
+            MatricesArr = new Dictionary<int, Matrix4x4[]>();
 
             Properties = new BucketProperties();
 
@@ -149,9 +150,9 @@ namespace World
         /// </summary>
         private void UpdateMatrices()
         {
-            TileMatrices = new Dictionary<int, List<Matrix4x4>>();
-            
-            foreach (var tile in Tiles)
+            Matrices = new Dictionary<int, List<Matrix4x4>>();
+
+            foreach (var tile in BaseObjects)
             {
                 if (tile == null)
                 {
@@ -176,17 +177,17 @@ namespace World
                 }
             }
 
-            TileMatricesArr = new Dictionary<int, Matrix4x4[]>();
+            MatricesArr = new Dictionary<int, Matrix4x4[]>();
             
-            foreach (var kv in TileMatrices)
+            foreach (var kv in Matrices)
             {
-                TileMatricesArr.Add(kv.Key, kv.Value.ToArray());
+                MatricesArr.Add(kv.Key, kv.Value.ToArray());
             }
         }
 
         public void DrawInstancedMeshes()
         {
-            foreach (var tileMatrix in TileMatricesArr)
+            foreach (var tileMatrix in MatricesArr)
             {
                 UnityEngine.Graphics.DrawMeshInstanced(GraphicInstance.instances[tileMatrix.Key].Mesh, 0,
                     GraphicInstance.instances[tileMatrix.Key].Material, tileMatrix.Value);
@@ -203,7 +204,7 @@ namespace World
             return new Coord(globalPosition.X - Rect.MinExtentX, globalPosition.Y - Rect.MinExtentY);
         }
 
-        public Tile GetTileAt(Coord position)
+        public BaseObject GetBaseObjectAt(Coord position)
         {
             var localPosition = GetLocalPosition(position);
             
@@ -222,7 +223,39 @@ namespace World
                 return null;
             }
 
-            return localPosition.Y < Rect.Height ? Tiles[localPosition.X + localPosition.Y * Rect.Width] : null;
+            return localPosition.Y < Rect.Height ? BaseObjects[localPosition.X + localPosition.Y * Rect.Width] : null;
+        }
+
+        public void AddBaseObject(BaseObject baseObject)
+        {
+            Debug.Log($"Adding {baseObject.ID} to {baseObject.Layer} grid bucket {Id}");
+            
+            var localPosition = GetLocalPosition(baseObject.Position);
+            
+            var tileIndex = localPosition.X + localPosition.Y * Rect.Width;
+
+            BaseObjects[tileIndex] = baseObject;
+
+            baseObject.SetBucket(this);
+            
+            //todo onBucketChanged event
+            
+            //todo if tile has resources, add those resources to this bucket
+
+            if (baseObject.HasInstancedGraphics)
+            {
+                AddMatrix(baseObject.MainGraphic.Uid, baseObject.GetMatrix(baseObject.MainGraphic.Uid));
+
+                if (baseObject.AddGraphics != null)
+                {
+                    foreach (var instance in baseObject.AddGraphics.Values)
+                    {
+                        AddMatrix(instance.Uid, baseObject.GetMatrix(instance.Uid));
+                    }
+                }
+
+                rebuildMatrices = true;
+            }
         }
 
         public void AddTile(Tile tile)
@@ -231,7 +264,7 @@ namespace World
             
             var tileIndex = localPosition.X + localPosition.Y * Rect.Width;
 
-            Tiles[tileIndex] = tile;
+            BaseObjects[tileIndex] = tile;
 
             tile.SetBucket(this);
             
@@ -263,7 +296,7 @@ namespace World
             
             var tileIndex = localPosition.X + localPosition.Y * Rect.Width;
 
-            Tiles[tileIndex] = null;
+            BaseObjects[tileIndex] = null;
             
             //todo onBucketChanged event
 
@@ -272,15 +305,45 @@ namespace World
                 rebuildMatrices = true;
             }
         }
+
+        public void AddThing(Thing thing)
+        {
+            var localPosition = GetLocalPosition(thing.Position);
+            
+            var tileIndex = localPosition.X + localPosition.Y * Rect.Width;
+
+            BaseObjects[tileIndex] = thing;
+
+            thing.SetBucket(this);
+            
+            //todo onBucketChanged event
+            
+            //todo if tile has resources, add those resources to this bucket
+
+            if (thing.HasInstancedGraphics)
+            {
+                AddMatrix(thing.MainGraphic.Uid, thing.GetMatrix(thing.MainGraphic.Uid));
+
+                if (thing.AddGraphics != null)
+                {
+                    foreach (var instance in thing.AddGraphics.Values)
+                    {
+                        AddMatrix(instance.Uid, thing.GetMatrix(instance.Uid));
+                    }
+                }
+
+                rebuildMatrices = true;
+            }
+        }
         
         public void AddMatrix(int graphicID, Matrix4x4 matrix) 
         {
-            if (!TileMatrices.ContainsKey(graphicID)) 
+            if (!Matrices.ContainsKey(graphicID)) 
             {
-                TileMatrices.Add(graphicID, new List<Matrix4x4>());
+                Matrices.Add(graphicID, new List<Matrix4x4>());
             }
             
-            TileMatrices[graphicID].Add(matrix);
+            Matrices[graphicID].Add(matrix);
         }
     }
 }

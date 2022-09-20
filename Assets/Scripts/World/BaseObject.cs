@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using GoRogue;
 using GoRogue.GameFramework;
+using Graphics;
+using Graphics.GraphicTemplates;
 using UnityEngine;
 using GameObject = GoRogue.GameFramework.GameObject;
 
@@ -66,6 +69,8 @@ namespace World
         }
 
         public Vector3 TransformPosition => SpriteInstance.transform.position;
+        
+        public bool HasInstancedGraphics => graphicTemplate.isInstanced;
 
         /// <summary>
         /// The moved
@@ -80,6 +85,43 @@ namespace World
         /// Gets or sets the value of the sprite instance
         /// </summary>
         public UnityEngine.GameObject SpriteInstance { get; private set; }
+        
+        /// <summary>
+        /// Graphic instance
+        /// </summary>
+        public GraphicInstance MainGraphic { get; set; }
+        
+        /// <summary>
+        /// Parent bucket
+        /// </summary>
+        private LayerGridBucket Bucket { get; set; }
+        
+        protected GraphicTemplate graphicTemplate;
+        
+        /// <summary>
+        /// Matrices
+        /// </summary>
+        private Dictionary<int, Matrix4x4> _matrices;
+
+        /// <summary>
+        /// Do we need to reset matrices
+        /// </summary>
+        private bool resetMatrices;
+        
+        /// <summary>
+        /// Scale
+        /// </summary>
+        private readonly Vector3 scale = Vector3.one;
+        
+        /// <summary>
+        /// Additional graphics
+        /// </summary>
+        public Dictionary<string, GraphicInstance> AddGraphics { get; set; }
+        
+        /// <summary>
+        /// If this is True the tile is not drawn
+        /// </summary>
+        public readonly bool hidden = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseObject"/> class
@@ -137,6 +179,87 @@ namespace World
         public void SetSpriteInstance(UnityEngine.GameObject instance)
         {
             SpriteInstance = instance;
+        }
+        
+        /// <summary>
+        /// Sets the tile's bucket
+        /// </summary>
+        /// <param name="layerGridBucket"></param>
+        public void SetBucket(LayerGridBucket layerGridBucket)
+        {
+            Bucket = layerGridBucket;
+        }
+        
+        /// <summary>
+        /// Get the Tile Matrix by Uid
+        /// </summary>
+        /// <param name="graphicUid"></param>
+        /// <returns></returns>
+        public Matrix4x4 GetMatrix(int graphicUid) 
+        {
+            if (_matrices == null || resetMatrices) 
+            {
+                _matrices = new Dictionary<int, Matrix4x4>();
+                resetMatrices = true;
+            }
+
+            if (_matrices.ContainsKey(graphicUid))
+            {
+                return _matrices[graphicUid];
+            }
+
+            var mat = Matrix4x4.identity;
+                
+            mat.SetTRS(
+                new Vector3(
+                    Position.X
+                    -graphicTemplate.pivot.x*scale.x
+                    +(1f-scale.x)/2f
+                    ,Position.Y
+                     -graphicTemplate.pivot.y*scale.y
+                     +(1f-scale.y)/2f
+                    ,(float) (Layer + (byte) GraphicInstance.instances[graphicUid].Priority) 
+                ), 
+                Quaternion.identity, 
+                scale
+            );
+            
+            _matrices.Add(graphicUid, mat);
+            
+            return _matrices[graphicUid];
+        }
+        
+        /// <summary>
+        /// Gets the object's map layer 
+        /// </summary>
+        /// <returns></returns>
+        public MapLayer GetMapLayer()
+        {
+            return (MapLayer) Layer;
+        }
+        
+        /// <summary>
+        /// Gets the adjacent tile by direction using the specified direction
+        /// </summary>
+        /// <param name="direction">The direction</param>
+        /// <returns>The tile</returns>
+        public Tile GetAdjacentTileByDirection(Direction direction)
+        {
+            var neighbors = AdjacencyRule.EIGHT_WAY.NeighborsClockwise(Position, direction);
+
+            return ((LocalMap)CurrentMap).GetTileAt(neighbors.First());
+        }
+
+        /// <summary>
+        /// Gets the adjacent tiles
+        /// </summary>
+        /// <returns>The tiles</returns>
+        public List<Tile> GetAdjacentTiles()
+        {
+            var neighbors = AdjacencyRule.EIGHT_WAY.NeighborsClockwise(Position);
+
+            return neighbors.Select(coord => ((LocalMap) CurrentMap).GetTileAt(coord)).Where(tile => tile != null)
+                .ToList();
         }
 
         /// <summary>

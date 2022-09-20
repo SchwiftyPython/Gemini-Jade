@@ -1,7 +1,8 @@
-using System.Linq;
+using Assets.Scripts.World;
 using GoRogue;
 using GoRogue.GameFramework;
 using Graphics.GraphicTemplates;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace World.TileTypes
@@ -10,7 +11,7 @@ namespace World.TileTypes
     /// Scriptable Object used to hold data for different types of <see cref="Tile"/>s.
     /// </summary>
     [CreateAssetMenu(menuName = "My Assets/Tile Type")]
-    public class TileType : ScriptableObject
+    public class TileType : Template
     {
         public string Uid => name;
 
@@ -20,6 +21,9 @@ namespace World.TileTypes
 
         public float maxHeight;
 
+        [PropertyRange(0f, 1f)]
+        public float fertility = 0.5f;
+        
         /// <summary>
         /// Whether or not the object is considered "transparent", eg. whether or not light passes through it.
         /// </summary>

@@ -42,6 +42,8 @@ namespace Generators
             var noiseMap = PerlinNoise.GenerateNoiseMap(width, height, 5);
 
             var terrainRepo = Object.FindObjectOfType<TerrainRepo>();
+            
+            var plantRepo = Object.FindObjectOfType<PlantRepo>();
 
             foreach (var position in terrainMap.Positions())
             {
@@ -49,9 +51,25 @@ namespace Generators
 
                 var groundTile = terrainRepo.GetTerrainByHeight(noiseHeight, position);
                 
-                map.AddTile(groundTile, position);
+                map.AddBaseObject(groundTile, position);
                 
                 map.SetTerrain(groundTile); //todo not sure if needed. Probably not if we have to stick with layer grids.
+
+                if (groundTile.Fertility > 0f)
+                {
+                    //todo pick a plant from available plants in biome template
+                    
+                    //todo if fertility and temperature are in range and probability succeeds then plant
+
+                    var plant = plantRepo.GetRandomPlant();
+
+                    if (groundTile.Fertility >= plant.minFertility)
+                    {
+                        //Debug.Log($"Placed {plant.name} at {position}");
+                        
+                        map.AddBaseObject(plant.NewPlant(position), position);
+                    }
+                }
             }
 
             return map;

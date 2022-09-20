@@ -1,3 +1,4 @@
+using GoRogue;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ namespace World.Things.Plants
         public int numThingHarvested;
 
         public float minFertility = 0.5f;
+
+        public int workToHarvest = -1;
+
+        public int workToCut = -1;
         
         //todo growth states
 
@@ -27,7 +32,12 @@ namespace World.Things.Plants
         /// <summary>
         /// Multiplied by days to maturity to determine lifespan of plant
         /// </summary>
-        [PropertyRange(3f, 7f)]
+        [PropertyRange(3f, 20f)]
         public float lifeSpanMultiplier = 5f;
+
+        public Plant NewPlant(Coord position)
+        {
+            return new Plant(this, position);
+        }
     }
 }

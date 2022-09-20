@@ -30,22 +30,22 @@ namespace Graphics
 
             var neighborGraphicIdsArr = new int[8];
 
-            foreach (var tile in Bucket.Tiles)
+            foreach (var baseObject in Bucket.BaseObjects)
             {
-                if (tile.hidden)
+                if (baseObject.hidden)
                 {
                     continue;
                 }
                 
                 neighborGraphicIdList.Clear();
                 
-                var currentMeshData = GetMeshData(tile.MainGraphic.Uid, false, MeshFlags.Base | MeshFlags.Color);
+                var currentMeshData = GetMeshData(baseObject.MainGraphic.Uid, false, MeshFlags.Base | MeshFlags.Color);
 
-                InitializeMesh(currentMeshData, tile);
+                InitializeMesh(currentMeshData, baseObject);
 
-                BuildNeighborLists(tile, neighborGraphicIdList, neighborGraphicIdsArr);
+                BuildNeighborLists((Tile) baseObject, neighborGraphicIdList, neighborGraphicIdsArr);
 
-                BlendNeighbors(neighborGraphicIdList, neighborGraphicIdsArr, tile);
+                BlendNeighbors(neighborGraphicIdList, neighborGraphicIdsArr, baseObject);
             }
 
             foreach (var meshData in Meshes.Values)
@@ -124,7 +124,7 @@ namespace Graphics
         /// </summary>
         /// <param name="currentMeshData"></param>
         /// <param name="tile"></param>
-        private static void InitializeMesh(MeshData currentMeshData, Tile tile)
+        private static void InitializeMesh(MeshData currentMeshData, BaseObject tile)
         {
             var vIndex = currentMeshData.vertices.Count;
                 
@@ -150,7 +150,7 @@ namespace Graphics
         /// <param name="neighborGraphicIdList"></param>
         /// <param name="neighborGraphicIdsArr"></param>
         /// <param name="tile"></param>
-        private void BlendNeighbors(List<int> neighborGraphicIdList, int[] neighborGraphicIdsArr, Tile tile)
+        private void BlendNeighbors(List<int> neighborGraphicIdList, int[] neighborGraphicIdsArr, BaseObject tile)
         {
             foreach (var neighborId in neighborGraphicIdList)
             {

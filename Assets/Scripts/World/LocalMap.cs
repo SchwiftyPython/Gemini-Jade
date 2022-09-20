@@ -57,7 +57,7 @@ namespace World
 
             layerGrids.Add(MapLayer.Terrain, new GroundGrid(Size));
             
-            layerGrids.Add(MapLayer.Plant, new LayerGrid(Size, MapLayer.Plant));
+            layerGrids.Add(MapLayer.Plant, new InstancedGrid(Size, MapLayer.Plant));
             
             //todo other layers
         }
@@ -79,6 +79,8 @@ namespace World
                 {
                     if (grid.Layer != MapLayer.Terrain)
                     {
+                        Debug.Log($"Setting bucket visible to true for {grid.Layer}");
+                        
                         grid.Buckets[i].SetVisible(bucketVisible);
                     }
                 }
@@ -111,24 +113,24 @@ namespace World
             }
         }
 
-        public void AddTile(Tile tile, Coord position, bool force = false)
+        public void AddBaseObject(BaseObject baseObject, Coord position, bool force = false)
         {
-            if (force || tile.Layer == (int) MapLayer.Undefined || GetTileAt(position, tile.GetMapLayer()) == null)
+            if (force || baseObject.Layer == (int) MapLayer.Undefined || GetBaseObjectAt(position, baseObject.GetMapLayer()) == null)
             {
-                layerGrids[tile.GetMapLayer()].AddTile(tile);
+                layerGrids[baseObject.GetMapLayer()].AddBaseObject(baseObject);
             }
         }
 
-        public Tile GetTileAt(Coord position, MapLayer layer)
+        public BaseObject GetBaseObjectAt(Coord position, MapLayer layer)
         {
-            return layerGrids[layer].GetTileAt(position);
+            return layerGrids[layer].GetBaseObjectAt(position);
         }
 
-        public IEnumerable<Tile> GetAllTilesAt(Coord position)
+        public IEnumerable<BaseObject> GetAllBaseObjectsAt(Coord position)
         {
             foreach (var layerGrid in layerGrids.Values)
             {
-                var tile = layerGrid.GetTileAt(position);
+                var tile = layerGrid.GetBaseObjectAt(position);
 
                 if (tile != null)
                 {
@@ -142,7 +144,7 @@ namespace World
         /// </summary>
         /// <param name="position">The position</param>
         /// <returns>The tile</returns>
-        public Tile GetTileAt(Coord position)
+        public Tile GetTileAt(Coord position) //todo is this needed?
         {
             return OutOfBounds(position) ? null : GetTerrain<Tile>(position);
         }

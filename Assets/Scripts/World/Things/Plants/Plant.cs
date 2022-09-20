@@ -1,4 +1,5 @@
 using GoRogue;
+using Graphics;
 using Settings;
 using Time;
 using UnityEngine;
@@ -16,16 +17,20 @@ namespace World.Things.Plants
         
         //todo growth states
 
-        public Plant(PlantTemplate template, Coord position) : base(template)
+        public Plant(PlantTemplate plantTemplate, Coord position) : base(position.ToVector3(), MapLayer.Plant, plantTemplate.isStatic, plantTemplate.walkable, plantTemplate.transparent)
         {
+            template = plantTemplate;
+            
             _ageTicks = 0;
 
-            _lifespanTicks = template.daysToMaturity * template.lifeSpanMultiplier * Constants.TicksPerDay;
+            _lifespanTicks = plantTemplate.daysToMaturity * plantTemplate.lifeSpanMultiplier * Constants.TicksPerDay;
 
             //todo _ticksPerState = _lifespanTicks / template.numGrowthStates;
             
             Position = position;
-            
+
+            graphicTemplate = plantTemplate.graphics;
+
             UpdateGraphics();
             
             var tickController = Object.FindObjectOfType<TickController>();
@@ -58,7 +63,9 @@ namespace World.Things.Plants
 
         protected sealed override void UpdateGraphics()
         {
-            //todo
+            //todo plant colors
+            
+            MainGraphic = GraphicInstance.GetNew(template.graphics);
         }
 
         private void CalculateGrowthState()

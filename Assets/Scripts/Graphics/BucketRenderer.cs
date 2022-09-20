@@ -65,7 +65,7 @@ namespace Graphics
 
         public virtual void BuildMeshes()
         {
-            foreach (var tile in Bucket.Tiles)
+            foreach (var tile in Bucket.BaseObjects)
             {
                 if (tile == null || tile.hidden)
                 {
