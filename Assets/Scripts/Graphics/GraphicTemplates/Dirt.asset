@@ -28,6 +28,6 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 26117fb7239462143a309f66e076c626, type: 2}
   size: {x: 1, y: 1}
   color: {r: 1, g: 1, b: 1, a: 0}
-  drawPriority: 1
+  drawPriority: 0
   pivot: {x: 0, y: 0}
   isInstanced: 0

@@ -228,8 +228,6 @@ namespace World
 
         public void AddBaseObject(BaseObject baseObject)
         {
-            Debug.Log($"Adding {baseObject.ID} to {baseObject.Layer} grid bucket {Id}");
-            
             var localPosition = GetLocalPosition(baseObject.Position);
             
             var tileIndex = localPosition.X + localPosition.Y * Rect.Width;

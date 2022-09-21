@@ -82,7 +82,10 @@ public class Game : MonoBehaviour
         map.UpdateVisibleBuckets();
         
         map.DrawBuckets();
-        
+    }
+
+    private void LateUpdate()
+    {
         map.CheckAllMatrices();
     }
 }

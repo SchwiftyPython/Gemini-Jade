@@ -212,10 +212,10 @@ namespace World
                 
             mat.SetTRS(
                 new Vector3(
-                    Position.X
+                    Position.X - 0.5f
                     -graphicTemplate.pivot.x*scale.x
                     +(1f-scale.x)/2f
-                    ,Position.Y
+                    ,Position.Y - 0.5f
                      -graphicTemplate.pivot.y*scale.y
                      +(1f-scale.y)/2f
                     ,(float) (Layer + (byte) GraphicInstance.instances[graphicUid].Priority) 

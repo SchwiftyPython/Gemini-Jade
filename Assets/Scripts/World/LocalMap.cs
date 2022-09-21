@@ -79,8 +79,6 @@ namespace World
                 {
                     if (grid.Layer != MapLayer.Terrain)
                     {
-                        Debug.Log($"Setting bucket visible to true for {grid.Layer}");
-                        
                         grid.Buckets[i].SetVisible(bucketVisible);
                     }
                 }

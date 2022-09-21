@@ -93,8 +93,6 @@ namespace World
             if (bucketIndex >= 0 && bucketIndex < Buckets.Length)
             {
                 var bucket = Buckets[bucketIndex];
-                    
-                Debug.Log($"Got bucket number {bucket.Id} in layer {Layer} at {position}");
 
                 return bucket;
             }

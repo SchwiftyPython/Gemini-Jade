@@ -2,35 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/grass_temp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Things.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/Things.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/PlantRepo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/PlantRepo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/InstancedGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/InstancedGrid.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Grass.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Grass.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/PlantTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/PlantTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Rock.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Rock.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,32 +30,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -212,10 +170,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22860">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="22860" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -332,14 +290,8 @@
       <workItem from="1662991165432" duration="12922000" />
       <workItem from="1663156025934" duration="6138000" />
       <workItem from="1663584452813" duration="6367000" />
-      <workItem from="1663669050342" duration="21095000" />
-    </task>
-    <task id="LOCAL-00016" summary="Finished up adjusting severity of health mods&#10;Finished BloodLoss.cs&#10;Added AddHealthMod and RemoveHealthMod methods to Health.cs">
-      <created>1652881671028</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1652881671028</updated>
+      <workItem from="1663669050342" duration="21490000" />
+      <workItem from="1663756503776" duration="5381000" />
     </task>
     <task id="LOCAL-00017" summary="Added HashUtils.cs&#10;Added HealthModAdderSetTemplate.cs&#10;Added Organic HealthModifierAdderSetTemplate&#10;Looks like Remove BodyPart is broken now.">
       <created>1652971888914</created>
@@ -677,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663597972376</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Grass going everything but showing up on screen">
+      <created>1663701744662</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1663701744662</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +660,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Started Bitmasking for walls&#10;Added WallPlacedObject.cs&#10;Added artwork for walls" />
     <MESSAGE value="Bitmasking works. &#10;Need to do some cleanup next week." />
     <MESSAGE value="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs" />
     <MESSAGE value="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI" />
@@ -726,25 +684,7 @@
     <MESSAGE value="Got wall dragging to work for length and direction. &#10;Not 100% sure if missing jobs is still an issue.&#10;Going to revisit before merging into dev." />
     <MESSAGE value="Added Harvestables.meta&#10;Added Plants.meta&#10;Added Corn.asset" />
     <MESSAGE value="Added Plant.cs and mapped out structure&#10;Got rid of Harvestables.meta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Plant.cs and mapped out structure&#10;Got rid of Harvestables.meta" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs</url>
-          <line>193</line>
-          <properties documentPath="C:\Users\User\source\repos\Gemini-Jade\Assets\Scripts\World\LayerGridBucket.cs" initialLine="195" containingFunctionPresentation="method 'DrawInstancedMeshes'">
-            <startOffsets>
-              <option value="5647" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5827" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Grass going everything but showing up on screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grass going everything but showing up on screen" />
   </component>
 </project>
