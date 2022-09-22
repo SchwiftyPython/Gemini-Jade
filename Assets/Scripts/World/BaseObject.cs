@@ -5,6 +5,7 @@ using GoRogue;
 using GoRogue.GameFramework;
 using Graphics;
 using Graphics.GraphicTemplates;
+using Settings;
 using UnityEngine;
 using GameObject = GoRogue.GameFramework.GameObject;
 
@@ -212,10 +213,10 @@ namespace World
                 
             mat.SetTRS(
                 new Vector3(
-                    Position.X - 0.5f
+                    Position.X //+ Constants.MeshOffset.Item1
                     -graphicTemplate.pivot.x*scale.x
                     +(1f-scale.x)/2f
-                    ,Position.Y - 0.5f
+                    ,Position.Y //+ Constants.MeshOffset.Item2
                      -graphicTemplate.pivot.y*scale.y
                      +(1f-scale.y)/2f
                     ,(float) (Layer + (byte) GraphicInstance.instances[graphicUid].Priority) 

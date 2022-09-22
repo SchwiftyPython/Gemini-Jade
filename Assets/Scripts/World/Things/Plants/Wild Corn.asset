@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9e2ad534796bd94e92992e7c8beba00, type: 3}
-  m_Name: Corn
+  m_Name: Wild Corn
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -61,9 +61,9 @@ MonoBehaviour:
   maxTemp: 130
   canCut: 1
   canHarvest: 1
-  numThingHarvested: 12
-  minFertility: 0.7
+  numThingHarvested: 6
+  minFertility: 0.5
   workToHarvest: -1
   workToCut: -1
-  daysToMaturity: 5.8
+  daysToMaturity: 5.6
   lifeSpanMultiplier: 3

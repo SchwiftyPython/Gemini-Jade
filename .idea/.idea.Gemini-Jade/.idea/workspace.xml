@@ -2,20 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_stack_temp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_stack_temp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_temp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_temp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/grass_temp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/grass_temp.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Corn.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Corn.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Selection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Selection.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Wild Corn.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Wild Corn.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/Plant.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/Plant.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/dirt_texture.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/undefined_rock_texture.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/grass_temp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/UndefinedRock.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/UndefinedRock.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Grass.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Grass.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +49,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -75,6 +93,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/PanZoom/Scripts/Third-Party Dependent/PanZoomEasingBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/AStarController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -83,6 +102,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapLayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Selection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/FunctionTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/HealthModUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" root0="FORCE_HIGHLIGHTING" />
@@ -291,14 +312,8 @@
       <workItem from="1663156025934" duration="6138000" />
       <workItem from="1663584452813" duration="6367000" />
       <workItem from="1663669050342" duration="21490000" />
-      <workItem from="1663756503776" duration="5381000" />
-    </task>
-    <task id="LOCAL-00017" summary="Added HashUtils.cs&#10;Added HealthModAdderSetTemplate.cs&#10;Added Organic HealthModifierAdderSetTemplate&#10;Looks like Remove BodyPart is broken now.">
-      <created>1652971888914</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1652971888914</updated>
+      <workItem from="1663756503776" duration="5506000" />
+      <workItem from="1663841516428" duration="10823000" />
     </task>
     <task id="LOCAL-00018" summary="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss.">
       <created>1653335775440</created>
@@ -636,7 +651,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663701744662</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Got plants to render above terrain.">
+      <created>1663778878092</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1663778878092</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,7 +682,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Bitmasking works. &#10;Need to do some cleanup next week." />
     <MESSAGE value="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs" />
     <MESSAGE value="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI" />
     <MESSAGE value="Pawn wanders around okay.&#10;Pathfinding mostly working, but pawn seems offset from the path a bit." />
@@ -685,6 +706,7 @@
     <MESSAGE value="Added Harvestables.meta&#10;Added Plants.meta&#10;Added Corn.asset" />
     <MESSAGE value="Added Plant.cs and mapped out structure&#10;Got rid of Harvestables.meta" />
     <MESSAGE value="Grass going everything but showing up on screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Grass going everything but showing up on screen" />
+    <MESSAGE value="Got plants to render above terrain." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got plants to render above terrain." />
   </component>
 </project>

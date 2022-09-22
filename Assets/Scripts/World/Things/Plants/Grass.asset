@@ -37,7 +37,7 @@ MonoBehaviour:
   label: grass
   description: 
   parent: {fileID: 0}
-  _category: {fileID: 0}
+  _category: {fileID: 11400000, guid: 6d140c97dce2ccd469452d0076ce7798, type: 2}
   _layer: 1
   _tickerType: {fileID: 11400000, guid: 63ffcf4f75f52b54cb467c69c9efa1de, type: 2}
   _stackLimit: -1

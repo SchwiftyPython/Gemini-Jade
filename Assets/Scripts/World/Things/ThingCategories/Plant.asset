@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78f7e5bc409adc54a81dc680c4f4ded0, type: 3}
-  m_Name: UndefinedRock
+  m_Script: {fileID: 11500000, guid: 08863e88646531d4f988a8b68eefde8a, type: 3}
+  m_Name: Plant
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,13 +21,6 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  templateName: UndefinedRock
-  label: undefined rock
+  templateName: 
+  label: 
   description: 
-  texture: {fileID: 2800000, guid: ccddc0384c757384db3368570c26b3df, type: 3}
-  material: {fileID: 2100000, guid: 26117fb7239462143a309f66e076c626, type: 2}
-  size: {x: 1, y: 1}
-  color: {r: 1, g: 1, b: 1, a: 0}
-  drawPriority: 2
-  pivot: {x: 0.5, y: 0.5}
-  isInstanced: 0

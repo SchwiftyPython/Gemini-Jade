@@ -65,9 +65,15 @@ namespace Generators
 
                     if (groundTile.Fertility >= plant.minFertility)
                     {
-                        //Debug.Log($"Placed {plant.name} at {position}");
-                        
-                        map.AddBaseObject(plant.NewPlant(position), position);
+                        //todo get probability from biome template
+                        const float plantProbability = 31f;
+
+                        var roll = Random.Range(0, 100);
+
+                        if (roll < plantProbability)
+                        {
+                            map.AddBaseObject(plant.NewPlant(position), position);
+                        }
                     }
                 }
             }

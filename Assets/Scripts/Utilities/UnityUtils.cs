@@ -117,25 +117,25 @@ namespace Utilities
         {
             gameObject.AddComponent<Seeker>();
 
-            gameObject.AddComponent<PawnMovement>();
+            var movement = gameObject.AddComponent<PawnMovement>();
             
-            gameObject.GetComponent<PawnMovement>().Init(pawn);
+            movement.Init(pawn);
 
-            gameObject.AddComponent<SimpleSmoothModifier>();
+            var simpleSmoothModifier = gameObject.AddComponent<SimpleSmoothModifier>();
             
-            gameObject.GetComponent<SimpleSmoothModifier>().maxSegmentLength = 1;
+            simpleSmoothModifier.maxSegmentLength = 1;
             
-            gameObject.GetComponent<SimpleSmoothModifier>().iterations = 5;
+            simpleSmoothModifier.iterations = 5;
             
-            gameObject.GetComponent<SimpleSmoothModifier>().strength = 0.05f;
+            simpleSmoothModifier.strength = 0.05f;
 
-            gameObject.AddComponent<RaycastModifier>();
+            var modifier = gameObject.AddComponent<RaycastModifier>();
 
-            gameObject.GetComponent<RaycastModifier>().use2DPhysics = true;
+            modifier.use2DPhysics = true;
 
-            gameObject.GetComponent<RaycastModifier>().thickRaycast = true;
+            modifier.thickRaycast = true;
 
-            gameObject.GetComponent<RaycastModifier>().thickRaycastRadius = 2;
+            modifier.thickRaycastRadius = 2;
         }
 
         public static Rectangle Clip(this Rectangle rect, Rectangle otherRect)
@@ -161,6 +161,17 @@ namespace Utilities
             }
 
             return rect;
+        }
+
+        public static Texture2D GetColoredTexture(Color color)
+        {
+            var texture = new Texture2D(1, 1);
+            
+            texture.SetPixel(0, 0, color);
+            
+            texture.Apply();
+
+            return texture;
         }
     }
 }
