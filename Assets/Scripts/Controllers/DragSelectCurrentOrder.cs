@@ -7,7 +7,7 @@ using Utilities;
 
 namespace Controllers
 {
-    public class DragSelection : MonoBehaviour
+    public class DragSelectCurrentOrder : MonoBehaviour 
     {
         public bool isDragging;
 

@@ -1,40 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_stack_temp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_stack_temp.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_temp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/corn_temp.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/grass_temp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/Prototype/grass_temp.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Corn.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Corn.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Selection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Selection.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Wild Corn.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Wild Corn.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/Plant.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingCategories/Plant.asset.meta" afterDir="false" />
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="Added job progress tracker">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/JobProgressTracker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/JobProgressTracker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Harvest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Harvest.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/grass_temp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/grass_temp.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Dirt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/Grass.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/UndefinedRock.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/UndefinedRock.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Settings/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/UnityUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Corn.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Grass.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Grass.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/TileTypes/Dirt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +27,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -93,7 +72,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/PanZoom/Scripts/Third-Party Dependent/PanZoomEasingBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/AStarController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/BucketGroundRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Graphics/BucketRenderer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -115,12 +94,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GridObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/GroundGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/InstancedGrid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/JobProgressTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/LocalMapHolder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Goal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Harvest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/JobGoal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/LocalMove.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Actions/MeleeAttack.cs" root0="FORCE_HIGHLIGHTING" />
@@ -313,14 +295,9 @@
       <workItem from="1663584452813" duration="6367000" />
       <workItem from="1663669050342" duration="21490000" />
       <workItem from="1663756503776" duration="5506000" />
-      <workItem from="1663841516428" duration="10823000" />
-    </task>
-    <task id="LOCAL-00018" summary="Blood Loss shows up in health mod list&#10;Added HealthModCollection.cs because using body parts to store health mods made it difficult to determine if a health mod affected the core body part or the whole body in cases like blood loss.">
-      <created>1653335775440</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1653335775440</updated>
+      <workItem from="1663841516428" duration="11403000" />
+      <workItem from="1663931264296" duration="967000" />
+      <workItem from="1664189208912" duration="11496000" />
     </task>
     <task id="LOCAL-00019" summary="Finished conversion to HealthModCollection.cs&#10;Blood loss shows up under Whole Body as intended, but not when an injury first happens. Probably need to trigger event somewhere.">
       <created>1653410316872</created>
@@ -658,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663778878092</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Added corn and wild corn&#10;Added area selection on drag&#10;Added OrderTemplate.cs">
+      <created>1663863731811</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1663863731811</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -682,8 +666,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Pawn spawns okay and is added to map&#10;Started PawnMovement.cs" />
-    <MESSAGE value="Moved around sprite stuff&#10;Looks like pawn changes sprites at the right time when moving different directions&#10;Started adding AI" />
     <MESSAGE value="Pawn wanders around okay.&#10;Pathfinding mostly working, but pawn seems offset from the path a bit." />
     <MESSAGE value="Pawn wanders around okay&#10;Pathfinding a little janky. Pawn seems offset from the path a bit, but for the most part moves around walls okay." />
     <MESSAGE value="Pathfinding working fairly well.&#10;&#10;Can cancel an invalid path and choose a new destination." />
@@ -707,6 +689,8 @@
     <MESSAGE value="Added Plant.cs and mapped out structure&#10;Got rid of Harvestables.meta" />
     <MESSAGE value="Grass going everything but showing up on screen" />
     <MESSAGE value="Got plants to render above terrain." />
-    <option name="LAST_COMMIT_MESSAGE" value="Got plants to render above terrain." />
+    <MESSAGE value="Added corn and wild corn&#10;Added area selection on drag&#10;Added OrderTemplate.cs" />
+    <MESSAGE value="Added job progress tracker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added job progress tracker" />
   </component>
 </project>

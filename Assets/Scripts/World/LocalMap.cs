@@ -8,6 +8,7 @@ using UnityEngine;
 using Utilities;
 using World.Pawns;
 using World.Pawns.Jobs;
+using World.Things.Plants;
 using Random = UnityEngine.Random;
 
 namespace World
@@ -345,6 +346,16 @@ namespace World
             }
 
             return gridObject.IsBlueprint() ? gridObject : null;
+        }
+
+        /// <summary>
+        /// Gets the plant at the specified position
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns>The plant at the specified position</returns>
+        public Plant GetPlantAt(Coord position)
+        {
+            return (Plant) layerGrids[MapLayer.Plant].GetBaseObjectAt(position);
         }
         
         /// <summary>

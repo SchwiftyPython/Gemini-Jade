@@ -4,11 +4,15 @@ using Settings;
 using Time;
 using UnityEngine;
 using Utilities;
+using World.Pawns;
+using World.Pawns.Jobs;
 
 namespace World.Things.Plants
 {
     public class Plant : Thing
     {
+        private JobProgressTracker _progressTracker;
+        
         private float _ageTicks;
 
         private float _lifespanTicks;
@@ -54,11 +58,24 @@ namespace World.Things.Plants
         public void Cut()
         {
             //todo
+            //if plant is ready to harvest, drops some amount of loot, but never max.
+            
         }
 
-        public void Harvest()
+        public void Harvest(Job job, Pawn worker)
         {
-            //todo
+            if (_progressTracker == null)
+            {
+                var go = new GameObject($"{id} Harvest Progress Tracker");
+
+                _progressTracker = go.AddComponent<JobProgressTracker>();
+            }
+            
+            //todo get worker's harvest skill
+            
+            _progressTracker.WorkOn(job, worker, 16);
+            
+            //todo sub to job completing to drop loot
         }
 
         protected sealed override void UpdateGraphics()
