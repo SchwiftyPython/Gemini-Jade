@@ -5,7 +5,6 @@ using GoRogue;
 using GoRogue.GameFramework;
 using Graphics;
 using Graphics.GraphicTemplates;
-using Settings;
 using UnityEngine;
 using GameObject = GoRogue.GameFramework.GameObject;
 

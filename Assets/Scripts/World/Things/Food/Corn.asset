@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ce93516272e4e46bf6fab6d7ad94c6, type: 3}
+  m_Name: Corn
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: thingClass
+      Entry: 6
+      Data: 
+  templateName: Corn
+  label: corn
+  description: A staple carried by humans across the universe due to its long shelf
+    life and many uses.
+  parent: {fileID: 0}
+  _category: {fileID: 0}
+  _layer: 3
+  _tickerType: {fileID: 0}
+  _stackLimit: 50
+  _maxHitPoints: 80
+  _flammability: 1
+  _beauty: -1
+  _mass: 1
+  _parts: []
+  prefab: {fileID: 0}
+  spriteSheet: {fileID: 0}
+  graphics: {fileID: 11400000, guid: 8b0c42dfd69af8f46bf1daa9ed6cebb7, type: 2}
+  destroyable: 1
+  rotatable: 0
+  useHitPoints: 1
+  selectable: 1
+  transparent: 1
+  walkable: 1
+  isStatic: 1
+  value: 0.05
+  shelfLifeDays: 20
+  nutrition: 15

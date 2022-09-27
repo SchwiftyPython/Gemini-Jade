@@ -18,7 +18,7 @@ public class Game : MonoBehaviour
     /// </summary>
     public JobGiver jobGiver;
 
-    private LocalMap map;
+    public LocalMap CurrentLocalMap { get; private set; }
 
     public Action<LocalMap> onNewLocalMap;
 
@@ -32,15 +32,15 @@ public class Game : MonoBehaviour
 
         var mapGen = new LocalMapGenerator();
             
-        map = mapGen.GenerateMap(100, 100);
+        CurrentLocalMap = mapGen.GenerateMap(100, 100);
         
-        onNewLocalMap?.Invoke(map);
+        onNewLocalMap?.Invoke(CurrentLocalMap);
         
-        map.BuildAllMeshes();
+        CurrentLocalMap.BuildAllMeshes();
 
         var gridBuildingSystem = FindObjectOfType<GridBuildingSystem>();
         
-        gridBuildingSystem.SetLocalMap(map);
+        gridBuildingSystem.SetLocalMap(CurrentLocalMap);
         
         jobGiver = new JobGiver();
         
@@ -54,7 +54,7 @@ public class Game : MonoBehaviour
         {
             var testPawn = PawnRepo.CreatePawn(pawnRepo.GetHumanTemplate());
             
-            var spawnPoint = map.GetRandomTile(true);
+            var spawnPoint = CurrentLocalMap.GetRandomTile(true);
 
             gridBuildingSystem.LocalMap.PlacePawn(testPawn, spawnPoint.Position);
         
@@ -62,30 +62,30 @@ public class Game : MonoBehaviour
             
             jobGiver.RegisterPawn(testPawn); //probably move to pawn constructor
             
-            jobGiver.RegisterMap(map); //probably move to map constructor
+            jobGiver.RegisterMap(CurrentLocalMap); //probably move to map constructor
         }
 
         var localMapHolder = FindObjectOfType<LocalMapHolder>();
             
-        localMapHolder.Build(map);
+        localMapHolder.Build(CurrentLocalMap);
     }
 
     private void Update()
     {
         //todo not sure if I want to keep this map stuff here
         
-        if (map == null)
+        if (CurrentLocalMap == null)
         {
             return;
         }
         
-        map.UpdateVisibleBuckets();
+        CurrentLocalMap.UpdateVisibleBuckets();
         
-        map.DrawBuckets();
+        CurrentLocalMap.DrawBuckets();
     }
 
     private void LateUpdate()
     {
-        map.CheckAllMatrices();
+        CurrentLocalMap.CheckAllMatrices();
     }
 }

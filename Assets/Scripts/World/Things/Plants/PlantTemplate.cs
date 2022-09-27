@@ -1,6 +1,7 @@
 using GoRogue;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using World.Pawns.Skills;
 
 namespace World.Things.Plants
 {
@@ -15,7 +16,7 @@ namespace World.Things.Plants
 
         public bool canHarvest;
         
-        public Thing thingHarvested;
+        public ThingTemplate thingHarvested;
 
         public int numThingHarvested;
 
@@ -24,6 +25,10 @@ namespace World.Things.Plants
         public int workToHarvest = -1;
 
         public int workToCut = -1;
+
+        public Skill skill;
+
+        public int minSkillLevel = 0;
         
         //todo growth states
 

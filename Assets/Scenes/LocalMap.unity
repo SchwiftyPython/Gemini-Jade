@@ -2226,6 +2226,7 @@ MonoBehaviour:
   humanTemplate: {fileID: 11400000, guid: b5321f236285ad4478548e1b1307d231, type: 2}
   skills:
   - {fileID: 11400000, guid: 477d27391c938c54795aca143920eead, type: 2}
+  - {fileID: 11400000, guid: a5ff22aa81c1c4a4fb459f28926832b2, type: 2}
 --- !u!1 &1708202132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,6 +2339,7 @@ GameObject:
   - component: {fileID: 1900906487}
   - component: {fileID: 1900906486}
   - component: {fileID: 1900906484}
+  - component: {fileID: 1900906489}
   m_Layer: 5
   m_Name: HarvestButton
   m_TagString: Untagged
@@ -2429,7 +2431,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1900906487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1900906489}
+        m_TargetAssemblyTypeName: UI.Orders.OrderButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1900906487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,6 +2482,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900906482}
   m_CullTransparentMesh: 1
+--- !u!114 &1900906489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900906482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43aa26c038efe2a44826a0eb82698a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderTemplate: {fileID: 11400000, guid: 10a5da941e2b0194e969052f9b301129, type: 2}
 --- !u!1 &1961701010
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,11 @@ namespace Graphics.GraphicTemplates
         
         public Vector2 size = Vector2.one;
         
-        public Color color;
+        public Color color = Color.white;
         
         public float drawPriority;
         
-        public Vector2 pivot;
+        public Vector2 pivot = new(0.5f, 0.5f);
 
         public bool isInstanced;
     }

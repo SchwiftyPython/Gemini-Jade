@@ -130,6 +130,8 @@ namespace World.Things
         /// </summary>
         public bool isStatic;
 
+        public float value;
+
         //todo components and component properties
 
         /// <summary>

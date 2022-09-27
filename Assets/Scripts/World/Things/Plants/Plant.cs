@@ -6,6 +6,7 @@ using UnityEngine;
 using Utilities;
 using World.Pawns;
 using World.Pawns.Jobs;
+using World.Pawns.Skills;
 
 namespace World.Things.Plants
 {
@@ -18,6 +19,14 @@ namespace World.Things.Plants
         private float _lifespanTicks;
 
         private float _ticksPerState;
+
+        public bool ReadyToHarvest => CanBeHarvested && _ageTicks >= ((PlantTemplate) template).daysToMaturity * Constants.TicksPerDay;
+
+        public bool CanBeHarvested => ((PlantTemplate) template).canHarvest;
+
+        public int MinSkillToHarvest => ((PlantTemplate) template).minSkillLevel;
+
+        public Skill SkillNeeded => ((PlantTemplate) template).skill;
         
         //todo growth states
 

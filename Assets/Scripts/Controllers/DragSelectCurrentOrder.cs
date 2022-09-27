@@ -4,6 +4,8 @@ using UI.Orders;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Utilities;
+using World;
+using World.Pawns.Jobs;
 
 namespace Controllers
 {
@@ -19,17 +21,27 @@ namespace Controllers
 
         private OrderTemplate _currentOrder;
 
+        private LocalMap _currentMap;
+
         private void Start()
         {
-            _currentOrder = ScriptableObject.CreateInstance<OrderTemplate>();
-
-            _currentOrder.selectionType = Selection.Area;
+            // _currentOrder = ScriptableObject.CreateInstance<OrderTemplate>();
+            //
+            // _currentOrder.selectionType = Selection.Area;
             
             isDragging = false;
         }
 
         private void Update()
         {
+            if (_currentOrder != null)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+                {
+                    OnOrderDeselected();
+                }
+            }
+
             BeginSelection();
 
             UpdateCurrentSelection(origin);
@@ -110,6 +122,21 @@ namespace Controllers
             DrawScreenRect(new Rect(rect.xMin, rect.yMax - thickness, rect.width, thickness), color);
         }
 
+        public void OnNewOrderSelected(OrderTemplate order)
+        {
+            if (order == null || order.selectionType != Selection.Area)
+            {
+                return;
+            }
+            
+            _currentOrder = order;
+        }
+
+        public void OnOrderDeselected()
+        {
+            _currentOrder = null;
+        }
+
         private void BeginSelection()
         {
             if (_currentOrder == null)
@@ -132,8 +159,25 @@ namespace Controllers
             {
                 return;
             }
-            
-            //todo add job to each eligible tile
+
+            if (_currentMap == null)
+            {
+                _currentMap = FindObjectOfType<Game>().CurrentLocalMap;
+            }
+
+            foreach (var position in currentMapSelection.Positions())
+            {
+                var plant = _currentMap.GetPlantAt(position);
+
+                if (plant == null || !plant.CanBeHarvested)
+                {
+                    continue;
+                }
+
+                var job = new Job(position, plant.SkillNeeded, plant.MinSkillToHarvest);
+                
+                _currentMap.onJobAdded?.Invoke(job);
+            }
             
             Reset();
         }
