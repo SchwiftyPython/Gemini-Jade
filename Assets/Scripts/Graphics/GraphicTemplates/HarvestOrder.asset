@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b10d8fa509cd3144b33d3b126031eb5, type: 3}
-  m_Name: HarvestMultiple
+  m_Script: {fileID: 11500000, guid: 78f7e5bc409adc54a81dc680c4f4ded0, type: 3}
+  m_Name: HarvestOrder
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,9 +21,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  templateName: HarvestMultipleOrder
-  label: harvest multiple order
-  description: Order colonists to harvest plants in selected area
-  skillNeeded: {fileID: 11400000, guid: a5ff22aa81c1c4a4fb459f28926832b2, type: 2}
-  selectionType: 1
-  graphics: {fileID: 11400000, guid: ed6f61a7a41ae1d4cb5c05bd26ccd9bc, type: 2}
+  templateName: HarvestOrderGraphics
+  label: harvest order graphics
+  description: 
+  texture: {fileID: 2800000, guid: 7edd27fe9658ed747bc4a2d07e6d5ffd, type: 3}
+  material: {fileID: 2100000, guid: 46d2be79d4269344b8141d558b7f533f, type: 2}
+  size: {x: 1, y: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  drawPriority: 0
+  pivot: {x: 0.5, y: 0.5}
+  isInstanced: 1

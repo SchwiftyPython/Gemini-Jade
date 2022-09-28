@@ -30,5 +30,18 @@ namespace Utilities
             var worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
             return worldPosition;
         }
+        
+        /// <summary>
+        /// Gets the mouse grid snapped position
+        /// </summary>
+        /// <returns>The snapped position</returns>
+        public static Vector3 GetMouseGridSnappedPosition()
+        {
+            var mousePosition = GetMouseWorldPosition();
+            
+            var snappedPosition = new Vector3((int) mousePosition.x, (int) mousePosition.y);
+
+            return snappedPosition;
+        }
     }
 }

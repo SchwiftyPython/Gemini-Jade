@@ -90,7 +90,7 @@ namespace World
         /// Graphic instance
         /// </summary>
         public GraphicInstance MainGraphic { get; set; }
-        
+
         /// <summary>
         /// Parent bucket
         /// </summary>
@@ -227,6 +227,24 @@ namespace World
             _matrices.Add(graphicUid, mat);
             
             return _matrices[graphicUid];
+        }
+
+        public void UpdateOrderGraphics(GraphicTemplate orderGraphics)
+        {
+            if (AddGraphics == null)
+            {
+                AddGraphics = new Dictionary<string, GraphicInstance>();
+            }
+            
+            if (!AddGraphics.ContainsKey(graphicTemplate.name))
+            {
+                AddGraphics.Add(graphicTemplate.name,
+                    GraphicInstance.GetNew(orderGraphics, new Color(1, 1, 1, 0.35f)));
+            }
+
+            resetMatrices = true;
+
+            Bucket.rebuildMatrices = true;
         }
         
         /// <summary>

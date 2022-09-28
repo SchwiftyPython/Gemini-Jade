@@ -1,4 +1,6 @@
+using System;
 using GoRogue;
+using Settings;
 using UI;
 using UI.Orders;
 using UnityEngine;
@@ -25,10 +27,6 @@ namespace Controllers
 
         private void Start()
         {
-            // _currentOrder = ScriptableObject.CreateInstance<OrderTemplate>();
-            //
-            // _currentOrder.selectionType = Selection.Area;
-            
             isDragging = false;
         }
 
@@ -67,17 +65,20 @@ namespace Controllers
             
             var mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             
-            rectOrigin.y = Screen.height - rectOrigin.y;
+            //rectOrigin.y = Screen.height - rectOrigin.y;
 
-            mousePosition.y = Screen.height - mousePosition.y;
+            //mousePosition.y = Screen.height - mousePosition.y;
 
-            var topLeft = Vector2.Min(rectOrigin, mousePosition);
+            var topLeft = Vector2.Min(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y), new Vector2(mousePosition.x, Screen.height - mousePosition.y));
 
-            var bottomRight = Vector2.Max(rectOrigin, mousePosition);
+            var bottomRight = Vector2.Max(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y), new Vector2(mousePosition.x, Screen.height - mousePosition.y));
 
             currentSelection = Rect.MinMaxRect(topLeft.x, topLeft.y, bottomRight.x, bottomRight.y);
             
             UpdateMapSelection(rectOrigin, mousePosition);
+            
+            //todo highlight valid tiles
+            
 
             if (Input.GetMouseButtonUp(0) && _currentOrder.selectionType != Selection.Single &&
                 !EventSystem.current.IsPointerOverGameObject())
@@ -102,8 +103,13 @@ namespace Controllers
                 (end.y, start.y) = (start.y, end.y);
             }
 
-            currentMapSelection = new Rectangle(new Coord(Mathf.FloorToInt(start.x), Mathf.FloorToInt(start.y)),
-                new Coord(Mathf.FloorToInt(end.x), Mathf.FloorToInt(end.y)));
+            //currentMapSelection = new Rectangle(new Coord(Mathf.FloorToInt(start.x + Constants.MeshOffset.Item1), Mathf.FloorToInt(start.y + Constants.MeshOffset.Item2)),
+                //new Coord(Mathf.FloorToInt(end.x + + Constants.MeshOffset.Item1), Mathf.FloorToInt(end.y + + Constants.MeshOffset.Item2)));
+            
+            Debug.Log($"Rect start {start} Rect end {end}");
+            
+            currentMapSelection = new Rectangle(new Coord((int)(start.x + 1), (int)(start.y + 1)),
+                new Coord((int)(end.x + 1), (int)(end.y + 1)));
         }
 
         public void DrawScreenRect(Rect rect, Color color)
@@ -152,6 +158,11 @@ namespace Controllers
                 isDragging = true;
             }
         }
+
+        private void HighlightValidTiles()
+        {
+            //todo
+        }
         
         private void AddJobs()
         {
@@ -165,20 +176,12 @@ namespace Controllers
                 _currentMap = FindObjectOfType<Game>().CurrentLocalMap;
             }
 
-            foreach (var position in currentMapSelection.Positions())
+            //todo might be able to have a Dictionary <Skill, Action or delegate> but could be over engineering at this point
+            if (_currentOrder.skillNeeded.templateName.Equals("harvest", StringComparison.OrdinalIgnoreCase))
             {
-                var plant = _currentMap.GetPlantAt(position);
-
-                if (plant == null || !plant.CanBeHarvested)
-                {
-                    continue;
-                }
-
-                var job = new Job(position, plant.SkillNeeded, plant.MinSkillToHarvest);
-                
-                _currentMap.onJobAdded?.Invoke(job);
+                HarvestSelectedPlants();
             }
-            
+
             Reset();
         }
         
@@ -192,6 +195,27 @@ namespace Controllers
             if (_currentOrder.selectionType == Selection.Area)
             {
                 DrawScreenRectBorder(currentSelection, new Color(1f, 1f, 1f, .5f), 3f);
+            }
+        }
+
+        private void HarvestSelectedPlants()
+        {
+            foreach (var position in currentMapSelection.Positions())
+            {
+                var plant = _currentMap.GetPlantAt(position);
+
+                if (plant == null || !plant.CanBeHarvested)
+                {
+                    continue;
+                }
+                
+                Debug.Log($"Adding job to {plant.ID} at position {position}");
+
+                var job = new Job(position, plant.SkillNeeded, plant.MinSkillToHarvest);
+                
+                _currentMap.onJobAdded?.Invoke(job);
+                
+                plant.UpdateOrderGraphics(_currentOrder.graphics);
             }
         }
     }
