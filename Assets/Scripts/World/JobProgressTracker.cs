@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using World.Pawns;
 using World.Pawns.Jobs;
@@ -22,6 +23,8 @@ namespace World
 
         private float _workTimer;
 
+        public Action onJobComplete;
+
         public bool NeedsToBeWorkedOn => _remainingWork > 0;
 
         private void Update()
@@ -35,9 +38,11 @@ namespace World
             {
                 _workingOn = false;
                 
-                //todo notify work done
+                Debug.Log($"Work Complete On {_job.SkillNeeded} at {_job.Location}");
                 
-                Destroy(this);
+                onJobComplete?.Invoke();
+                
+                Destroy(gameObject);
                 
                 return;
             }
@@ -51,10 +56,12 @@ namespace World
                 _remainingWork--;
                 
                 //todo progress bar
+                
+                Debug.Log($"Work Left On {_job.SkillNeeded} at {_job.Location}: {_remainingWork}");
             }
         }
 
-        public void WorkOn(Job job, Pawn worker, int skillLevel)
+        public void WorkOn(Job job, Pawn worker, int skillLevel, int remainingWork)
         {
             _job = job;
 
@@ -67,6 +74,8 @@ namespace World
             _workSpeed = 0.5f / (skillLevel + 1);
 
             _workTimer = 0;
+
+            _remainingWork = remainingWork;
 
             _workingOn = true;
         }

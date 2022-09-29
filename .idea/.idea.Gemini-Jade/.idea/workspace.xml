@@ -2,18 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Art/harvest icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Art/harvest icon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/UI.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/UI.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/HarvestOrder.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Graphics/GraphicTemplates/HarvestOrder.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Food/Food.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Food/Food.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/StackThing.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/StackThing.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/StackThingTemplate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/StackThingTemplate.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/HarvestMultiple.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/HarvestMultiple.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderTemplate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/MouseUtils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/BaseObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/JobProgressTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/JobProgressTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LayerGridBucket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/LocalMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Harvest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Pawns/AI/Goals/Harvest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Food/Corn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Food/Corn.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Food/FoodTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Food/FoodTemplate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/Thing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/ThingTemplate.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +35,13 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
@@ -119,9 +133,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/Skill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Pawns/Skills/SkillSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Season.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Food/Food.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Food/FoodTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Parts/PartTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/Plants/Plant.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/StackThing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/Things/StackThingTemplate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/TileTypes/TileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/World/WallPlacedObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -299,14 +316,8 @@
       <workItem from="1663931264296" duration="967000" />
       <workItem from="1664189208912" duration="11704000" />
       <workItem from="1664276006583" duration="8758000" />
-      <workItem from="1664364308336" duration="10561000" />
-    </task>
-    <task id="LOCAL-00021" summary="Added HealthModRepo.cs&#10;Looks like Cut and Injury works okay.&#10;Severity isn't modified by damage yet so injury mods won't last past one health interval yet.">
-      <created>1654016447519</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1654016447519</updated>
+      <workItem from="1664364308336" duration="10781000" />
+      <workItem from="1664446468127" duration="13655000" />
     </task>
     <task id="LOCAL-00022" summary="misc stuff">
       <created>1654016901895</created>
@@ -644,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664290449527</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Added harvest icon to plants selected for harvest">
+      <created>1664389159129</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1664389159130</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -668,7 +686,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Pawn wanders around okay&#10;Pathfinding a little janky. Pawn seems offset from the path a bit, but for the most part moves around walls okay." />
     <MESSAGE value="Pathfinding working fairly well.&#10;&#10;Can cancel an invalid path and choose a new destination." />
     <MESSAGE value="Added Wander.cs and got it working&#10;Started on defining pawn skills" />
     <MESSAGE value="Added SkillSet.cs&#10;Added Skill.cs&#10;Added Construction.asset Skill.cs&#10;Added JobGoal.cs&#10;Added Build.cs goal&#10;Added Job.cs&#10;Added JobGiver.cs" />
@@ -693,6 +710,7 @@
     <MESSAGE value="Added corn and wild corn&#10;Added area selection on drag&#10;Added OrderTemplate.cs" />
     <MESSAGE value="Added job progress tracker" />
     <MESSAGE value="Harvest jobs get added on drag selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Harvest jobs get added on drag selection" />
+    <MESSAGE value="Added harvest icon to plants selected for harvest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added harvest icon to plants selected for harvest" />
   </component>
 </project>

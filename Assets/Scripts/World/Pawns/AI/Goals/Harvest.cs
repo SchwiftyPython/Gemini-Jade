@@ -19,6 +19,8 @@ namespace World.Pawns.AI.Goals
         private bool _foundWorkSpot;
 
         private Plant _plant;
+
+        private bool _finished;
         
         public Harvest() {}
 
@@ -74,6 +76,13 @@ namespace World.Pawns.AI.Goals
             Pawn.FaceToward(Job.Location);
             
             plant.Harvest(Job, Pawn);
+
+            plant.onJobFinished += HarvestFinished;
+        }
+
+        private void HarvestFinished()
+        {
+            _finished = true;
         }
 
         /// <summary>
@@ -88,9 +97,7 @@ namespace World.Pawns.AI.Goals
 
         public override bool Finished()
         {
-            //todo sub to a job finished event or something
-
-            return false;
+            return _finished;
         }
     }
 }

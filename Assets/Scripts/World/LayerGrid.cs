@@ -66,6 +66,13 @@ namespace World
             bucket?.AddBaseObject(baseObject);
         }
 
+        public void RemoveBaseObject(BaseObject baseObject)
+        {
+            var bucket = GetBucketAt(baseObject.Position);
+            
+            bucket?.RemoveBaseObject(baseObject);
+        }
+
         public List<BaseObject> GetBaseObjects()
         {
             return (from bucket in Buckets

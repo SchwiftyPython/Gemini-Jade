@@ -36,6 +36,8 @@ namespace World
         /// </summary>
         public Map CurrentMap => backingField.CurrentMap;
 
+        public LocalMap CurrentLocalMap => (LocalMap) CurrentMap;
+
         /// <summary>
         /// Gets the value of the is static
         /// </summary>
@@ -94,7 +96,7 @@ namespace World
         /// <summary>
         /// Parent bucket
         /// </summary>
-        private LayerGridBucket Bucket { get; set; }
+        protected LayerGridBucket Bucket { get; set; }
         
         protected GraphicTemplate graphicTemplate;
         

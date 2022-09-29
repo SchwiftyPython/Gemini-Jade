@@ -22,17 +22,22 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: thingClass
-      Entry: 6
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Things.Food.Food, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
   templateName: Corn
   label: corn
   description: A staple carried by humans across the universe due to its long shelf
     life and many uses.
   parent: {fileID: 0}
-  _category: {fileID: 0}
+  _category: {fileID: 11400000, guid: 1c619ceabe736a140a7a9011e91cdf27, type: 2}
   _layer: 3
-  _tickerType: {fileID: 0}
-  _stackLimit: 50
+  _tickerType: {fileID: 11400000, guid: 63ffcf4f75f52b54cb467c69c9efa1de, type: 2}
   _maxHitPoints: 80
   _flammability: 1
   _beauty: -1
@@ -49,5 +54,6 @@ MonoBehaviour:
   walkable: 1
   isStatic: 1
   value: 0.05
+  stackLimit: 100
   shelfLifeDays: 20
   nutrition: 15

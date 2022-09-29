@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using GoRogue;
-using Graphics.GraphicTemplates;
 using UnityEngine;
 using World.Pawns.Health.DamageWorkers;
 
@@ -13,6 +12,10 @@ namespace World.Things
     /// <seealso cref="BaseObject"/>
     public class Thing : BaseObject
     {
+        //todo total item counts -- adding, removing and updating counts of whatever is in stock pile
+        
+        //todo stockpile area
+        
         /// <summary>
         /// The hit points
         /// </summary>
@@ -76,7 +79,7 @@ namespace World.Things
         /// Initializes a new instance of the <see cref="Thing"/> class
         /// </summary>
         /// <param name="template">The template</param>
-        protected Thing(ThingTemplate template) : base(template.MapLayer, template.isStatic, template.walkable, template.transparent)
+        public Thing(ThingTemplate template) : base(template.MapLayer, template.isStatic, template.walkable, template.transparent)
         {
             this.template = template;
             

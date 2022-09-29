@@ -117,7 +117,16 @@ namespace World
             if (force || baseObject.Layer == (int) MapLayer.Undefined || GetBaseObjectAt(position, baseObject.GetMapLayer()) == null)
             {
                 layerGrids[baseObject.GetMapLayer()].AddBaseObject(baseObject);
+
+                AddEntity(baseObject);
             }
+        }
+
+        public void RemoveBaseObject(BaseObject baseObject)
+        {
+            layerGrids[baseObject.GetMapLayer()].RemoveBaseObject(baseObject);
+
+            RemoveEntity(baseObject);
         }
 
         public BaseObject GetBaseObjectAt(Coord position, MapLayer layer)

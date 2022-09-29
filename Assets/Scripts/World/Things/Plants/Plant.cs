@@ -1,3 +1,4 @@
+using System;
 using GoRogue;
 using Graphics;
 using Settings;
@@ -7,6 +8,8 @@ using Utilities;
 using World.Pawns;
 using World.Pawns.Jobs;
 using World.Pawns.Skills;
+using World.Things.Food;
+using Object = UnityEngine.Object;
 
 namespace World.Things.Plants
 {
@@ -20,6 +23,8 @@ namespace World.Things.Plants
 
         private float _ticksPerState;
 
+        public Action onJobFinished;
+
         public bool ReadyToHarvest => CanBeHarvested && _ageTicks >= ((PlantTemplate) template).daysToMaturity * Constants.TicksPerDay;
 
         public bool CanBeHarvested => ((PlantTemplate) template).canHarvest;
@@ -27,6 +32,8 @@ namespace World.Things.Plants
         public int MinSkillToHarvest => ((PlantTemplate) template).minSkillLevel;
 
         public Skill SkillNeeded => ((PlantTemplate) template).skill;
+
+        public PlantTemplate PlantTemplate => (PlantTemplate) template;
         
         //todo growth states
 
@@ -75,16 +82,16 @@ namespace World.Things.Plants
         {
             if (_progressTracker == null)
             {
-                var go = new GameObject($"{id} Harvest Progress Tracker");
+                var go = new GameObject($"{template.label} {id} Harvest Progress Tracker");
 
                 _progressTracker = go.AddComponent<JobProgressTracker>();
             }
             
             //todo get worker's harvest skill
             
-            _progressTracker.WorkOn(job, worker, 16);
-            
-            //todo sub to job completing to drop loot
+            _progressTracker.WorkOn(job, worker, 16, PlantTemplate.workToHarvest);
+
+            _progressTracker.onJobComplete += FinishHarvest;
         }
 
         protected sealed override void UpdateGraphics()
@@ -97,6 +104,41 @@ namespace World.Things.Plants
         private void CalculateGrowthState()
         {
             //todo
+        }
+
+        private void FinishHarvest()
+        {
+            onJobFinished?.Invoke();
+            
+            DropLoot();
+
+            CurrentLocalMap.RemoveBaseObject(this);
+        }
+
+        private void DropLoot()
+        {
+            Thing loot;
+            
+            if (PlantTemplate.numThingHarvested > 1)
+            {
+                //todo vary number of thing harvested depending on current growth state, pawn harvest skill, and if cutting or harvesting
+                //probably call it float harvestModifier
+
+                if (PlantTemplate.thingHarvested is FoodTemplate foodTemplate)
+                {
+                    loot = new Food.Food(foodTemplate, Position, PlantTemplate.numThingHarvested);
+                }
+                else
+                {
+                    loot = new StackThing(PlantTemplate.thingHarvested, Position, PlantTemplate.numThingHarvested);
+                }
+            }
+            else
+            {
+                loot = new Thing(PlantTemplate.thingHarvested);
+            }
+            
+            CurrentLocalMap.AddBaseObject(loot, Position);
         }
     }
 }

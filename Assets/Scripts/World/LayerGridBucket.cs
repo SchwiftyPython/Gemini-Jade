@@ -236,9 +236,11 @@ namespace World
 
             baseObject.SetBucket(this);
             
-            //todo onBucketChanged event
+            //todo onBucketChanged event -- rebuild matrices does this to some extent.
             
             //todo if tile has resources, add those resources to this bucket
+            
+            //todo update tile properties
 
             if (baseObject.HasInstancedGraphics)
             {
@@ -252,6 +254,22 @@ namespace World
                     }
                 }
 
+                rebuildMatrices = true;
+            }
+        }
+
+        public void RemoveBaseObject(BaseObject baseObject)
+        {
+            var localPosition = GetLocalPosition(baseObject.Position);
+            
+            //todo update bucket properties
+
+            BaseObjects[localPosition.X + localPosition.Y * Rect.Width] = null;
+            
+            //todo update tile properties
+
+            if (baseObject.HasInstancedGraphics)
+            {
                 rebuildMatrices = true;
             }
         }

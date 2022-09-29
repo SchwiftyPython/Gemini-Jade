@@ -20,7 +20,7 @@ namespace World.Things
         /// <summary>
         /// The parent
         /// </summary>
-        [SerializeField] private ThingTemplate parent;
+        [SerializeField] protected ThingTemplate parent;
         
         /// <summary>
         /// The thing
@@ -42,11 +42,6 @@ namespace World.Things
         /// </summary>
         [SerializeField] private TickerType _tickerType = null;
 
-        /// <summary>
-        /// The stack limit
-        /// </summary>
-        [SerializeField] private int _stackLimit = -1;
-        
         //stats start. May need a separate class for this.
         
         /// <summary>
@@ -197,23 +192,7 @@ namespace World.Things
                 return parent != null ? parent.TickerType : _tickerType;
             }
         }
-        
-        /// <summary>
-        /// Gets the value of the stack limit
-        /// </summary>
-        public int StackLimit
-        {
-            get
-            {
-                if (_stackLimit != -1)
-                {
-                    return _stackLimit;
-                }
-                
-                return parent != null ? parent.StackLimit : _stackLimit;
-            }
-        }
-        
+
         /// <summary>
         /// Gets the value of the max hit points
         /// </summary>
