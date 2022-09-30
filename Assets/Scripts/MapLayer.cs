@@ -24,8 +24,10 @@
     /// The blueprint map layer
     /// </summary>
     Blueprint,
+    Label,
     /// <summary>
     /// The undefined map layer
     /// </summary>
-    Undefined
+    Undefined,
+    
 }

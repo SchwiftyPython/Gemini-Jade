@@ -60,6 +60,8 @@ namespace World
             
             layerGrids.Add(MapLayer.Plant, new InstancedGrid(Size, MapLayer.Plant));
             
+            layerGrids.Add(MapLayer.GridObject, new InstancedGrid(Size, MapLayer.GridObject));
+            
             //todo other layers
         }
 
@@ -114,7 +116,11 @@ namespace World
 
         public void AddBaseObject(BaseObject baseObject, Coord position, bool force = false)
         {
-            if (force || baseObject.Layer == (int) MapLayer.Undefined || GetBaseObjectAt(position, baseObject.GetMapLayer()) == null)
+            //todo when forced might try to find an empty tile nearby to place the object instead if occupied
+
+            var presentBaseObject = GetBaseObjectAt(position, baseObject.GetMapLayer());
+
+            if (force || baseObject.Layer == (int) MapLayer.Undefined || presentBaseObject == null)
             {
                 layerGrids[baseObject.GetMapLayer()].AddBaseObject(baseObject);
 

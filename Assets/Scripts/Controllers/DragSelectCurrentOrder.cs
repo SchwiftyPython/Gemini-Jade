@@ -64,10 +64,6 @@ namespace Controllers
             }
             
             var mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            
-            //rectOrigin.y = Screen.height - rectOrigin.y;
-
-            //mousePosition.y = Screen.height - mousePosition.y;
 
             var topLeft = Vector2.Min(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y), new Vector2(mousePosition.x, Screen.height - mousePosition.y));
 
@@ -103,11 +99,6 @@ namespace Controllers
                 (end.y, start.y) = (start.y, end.y);
             }
 
-            //currentMapSelection = new Rectangle(new Coord(Mathf.FloorToInt(start.x + Constants.MeshOffset.Item1), Mathf.FloorToInt(start.y + Constants.MeshOffset.Item2)),
-                //new Coord(Mathf.FloorToInt(end.x + + Constants.MeshOffset.Item1), Mathf.FloorToInt(end.y + + Constants.MeshOffset.Item2)));
-            
-            Debug.Log($"Rect start {start} Rect end {end}");
-            
             currentMapSelection = new Rectangle(new Coord((int)(start.x + 1), (int)(start.y + 1)),
                 new Coord((int)(end.x + 1), (int)(end.y + 1)));
         }
@@ -209,8 +200,6 @@ namespace Controllers
                 {
                     continue;
                 }
-                
-                Debug.Log($"Adding job to {plant.ID} at position {position}");
 
                 var job = new Job(position, plant.SkillNeeded, plant.MinSkillToHarvest);
                 

@@ -38,7 +38,6 @@ MonoBehaviour:
   _category: {fileID: 11400000, guid: 6d140c97dce2ccd469452d0076ce7798, type: 2}
   _layer: 1
   _tickerType: {fileID: 11400000, guid: 63ffcf4f75f52b54cb467c69c9efa1de, type: 2}
-  _stackLimit: -1
   _maxHitPoints: 85
   _flammability: 1
   _beauty: 1
@@ -62,8 +61,8 @@ MonoBehaviour:
   thingHarvested: {fileID: 11400000, guid: 846347385646a1540b505cc6ab4c493b, type: 2}
   numThingHarvested: 12
   minFertility: 0.7
-  workToHarvest: -1
-  workToCut: -1
+  workToHarvest: 18
+  workToCut: 9
   skill: {fileID: 11400000, guid: a5ff22aa81c1c4a4fb459f28926832b2, type: 2}
   minSkillLevel: 0
   daysToMaturity: 5.8

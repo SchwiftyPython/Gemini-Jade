@@ -1,4 +1,7 @@
+using Controllers;
 using GoRogue;
+using Graphics;
+using UnityEngine;
 using Utilities;
 
 namespace World.Things
@@ -29,10 +32,24 @@ namespace World.Things
         public int StackLimit => ((StackThingTemplate)template).StackLimit;
 
         public StackThing(ThingTemplate thingTemplate, Coord position, int count) : base(position.ToVector3(),
-            MapLayer.Plant, thingTemplate.isStatic, thingTemplate.walkable, thingTemplate.transparent)
+            MapLayer.GridObject, thingTemplate.isStatic, thingTemplate.walkable, thingTemplate.transparent)
         {
             template = thingTemplate;
+
+            graphicTemplate = thingTemplate.graphics;
+
+            Position = position;
+            
             _count = count;
+            
+            UpdateGraphics();
+            
+            Object.FindObjectOfType<StackCountLabelController>().AddLabel(this);
+        }
+        
+        protected sealed override void UpdateGraphics()
+        {
+            MainGraphic = GraphicInstance.GetNew(template.graphics);
         }
     }
 }

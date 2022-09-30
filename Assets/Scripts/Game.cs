@@ -1,8 +1,10 @@
 using System;
+using Controllers;
 using Generators;
 using Repos;
 using Time;
 using UnityEngine;
+using UnityEngine.Serialization;
 using World;
 using World.Pawns.Jobs;
 using Random = UnityEngine.Random;
@@ -17,6 +19,8 @@ public class Game : MonoBehaviour
     /// The job giver
     /// </summary>
     public JobGiver jobGiver;
+
+    public StackCountLabelController stackCountLabelController;
 
     public LocalMap CurrentLocalMap { get; private set; }
 
@@ -68,6 +72,8 @@ public class Game : MonoBehaviour
         var localMapHolder = FindObjectOfType<LocalMapHolder>();
             
         localMapHolder.Build(CurrentLocalMap);
+
+        stackCountLabelController = GetComponentInChildren<StackCountLabelController>();
     }
 
     private void Update()
