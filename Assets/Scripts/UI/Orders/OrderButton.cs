@@ -6,7 +6,7 @@ namespace UI.Orders
     public class OrderButton : MonoBehaviour
     {
         private DragSelectCurrentOrder _dragSelector;
-    
+
         public OrderTemplate orderTemplate;
 
         private void Start()

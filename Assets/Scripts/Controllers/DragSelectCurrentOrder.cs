@@ -1,6 +1,5 @@
 using System;
 using GoRogue;
-using Settings;
 using UI;
 using UI.Orders;
 using UnityEngine;
@@ -24,6 +23,10 @@ namespace Controllers
         private OrderTemplate _currentOrder;
 
         private LocalMap _currentMap;
+
+        public Action<OrderTemplate> onOrderSelected;
+
+        public Action onOrderDeselected;
 
         private void Start()
         {
@@ -127,11 +130,15 @@ namespace Controllers
             }
             
             _currentOrder = order;
+            
+            onOrderSelected?.Invoke(_currentOrder);
         }
 
         public void OnOrderDeselected()
         {
             _currentOrder = null;
+            
+            onOrderDeselected?.Invoke();
         }
 
         private void BeginSelection()
