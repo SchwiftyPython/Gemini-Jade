@@ -176,6 +176,9 @@ namespace Controllers
 
             //todo might be able to have a Dictionary <Skill, Action or delegate> but could be over engineering at this point
             //pretty tempted to do what fy did and setup an action delegate for the area selected. Best choice to avoid having a bunch of conditionals
+            
+            //could also use the skill repo here so not using string equals
+            
             if (_currentOrder.skillNeeded.templateName.Equals("harvest", StringComparison.OrdinalIgnoreCase))
             {
                 HarvestSelectedPlants();

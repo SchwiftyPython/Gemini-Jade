@@ -14,6 +14,6 @@ namespace UI.Orders
 
         public GraphicTemplate graphics;
 
-        //idea here is to define a selection and then add a job for each of those selections
+        public KeyCode keyboardShortcut;
     }
 }
