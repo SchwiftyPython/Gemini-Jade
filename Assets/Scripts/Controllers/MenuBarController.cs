@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Repos;
+using TMPro;
 using UI.Orders;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,10 +31,10 @@ public struct MenuButton
 {
     public GameObject go;
     public Button button;
-    public Text text;
+    public TextMeshProUGUI text;
     public Image image;
 
-    public MenuButton(GameObject go, Button button, Text text, Image image)
+    public MenuButton(GameObject go, Button button, TextMeshProUGUI text, Image image)
     {
         this.go = go;
         this.button = button;
@@ -49,18 +48,22 @@ public class MenuBarController : MonoBehaviour
     public GameObject tabPrefab;
 
     public OrderButton orderButtonPrefab;
+
+    public GameObject tabButtonsPrefab;
     
-    public Transform parent;
+    public Transform tabParent;
     
     public Transform parentMenu;
     
-    public MenuButton[] buttons;
+    public MenuButton[] tabs;
     
-    public MenuTab[] tabs;
+    public MenuTab[] tabButtonPanels;
     
     public Color activeColor;
     
-    public Color defaultColor;
+    public Color defaultButtonColor;
+
+    public Color defaultTabColor;
     
     public int current = -1;
     
@@ -74,19 +77,46 @@ public class MenuBarController : MonoBehaviour
     
     private void Start()
     {
-        const int tabCount = 1;
+        
+    }
+
+    public void Setup()
+    {
+        const int tabCount = 6;
+
+        tabs = new MenuButton[tabCount];
+
+        tabButtonPanels = new MenuTab[tabCount];
+        
+        AddTab("Orders", 0, KeyCode.O);
+        
+        //Placeholder tabs TBD
+        
+        AddTab("Zones", 1, KeyCode.Z);
+        
+        AddTab("Structures", 2, KeyCode.S);
+        
+        AddTab("Production", 2, KeyCode.P);
+        
+        AddTab("Magic", 3, KeyCode.M);
+        
+        AddTab("Combat", 4, KeyCode.C);
+
+        currentOrder = null;
+        
+        Reset();
     }
 
     public void ClearSelection()
     {
-        foreach (var button in buttons)
-        {
-            button.image.color = defaultColor;
-        }
-
         foreach (var tab in tabs)
         {
-            tab.go.SetActive(false);
+            tab.image.color = defaultTabColor;
+        }
+
+        foreach (var panel in tabButtonPanels)
+        {
+            panel.go.SetActive(false);
         }
         
         //todo reset tooltip
@@ -96,7 +126,7 @@ public class MenuBarController : MonoBehaviour
     {
         foreach (var link in links.Values)
         {
-            link.image.color = defaultColor;
+            link.image.color = defaultButtonColor;
         }
     }
 
@@ -113,19 +143,17 @@ public class MenuBarController : MonoBehaviour
 
     public void AddTab(string tabName, int id, KeyCode shortcut)
     {
-        Text text;
+        TextMeshProUGUI text;
 
-        Image image;
+        Image image = null;
 
         Button button;
 
-        var tab = Instantiate(tabPrefab);
-        
-        tab.transform.SetParent(parent);
+        var tabButtons = Instantiate(tabButtonsPrefab, parentMenu);
 
-        tab.name = $"Tab: {tabName}";
+        tabButtons.name = $"TabButtons: {tabName}";
 
-        tabs[id] = new MenuTab(tab);
+        tabButtonPanels[id] = new MenuTab(tabButtons); 
 
         var orders = new List<OrderTemplate>();
         
@@ -134,19 +162,71 @@ public class MenuBarController : MonoBehaviour
         //todo also other tabs aren't going to have order templates. Placed objects use a placed object template.
         //probably going to have to use some baseclass. Not really sure yet.
         //My concern is with modding they won't be able to add tabs easily.
+        //It will be easier to see once we start adding the wall button
 
         if (id == 0)
         {
             orders = new List<OrderTemplate>(OrderRepo.orders);
         }
+        
+        //todo instantiate tab buttons prefab. Each tab has it's own group of tab buttons which are setup in the same spot just with their own set
+        //of buttons. Might need a parent object to keep organized. Also, rename the parent transforms in this class because they are vague. Should have tab parent, tab buttons parent etc
 
         foreach (var order in orders)
         {
-            var orderButton = Instantiate(orderButtonPrefab);
+            var orderButton = Instantiate(orderButtonPrefab, tabButtons.transform);
+
+            orderButton.name = $"OrderButton: {order.label}";
+
+            var textFields = orderButton.GetComponentsInChildren<TextMeshProUGUI>();
+
+            text = textFields[0];
+
+            text.text = order.LabelCap;
+
+            text = textFields[1];
+
+            text.text = order.keyboardShortcut.ToString();
+
+            image = orderButton.GetComponentsInChildren<Image>()[1];
+
+            image.sprite = Sprite.Create(order.graphics.texture,
+                new Rect(0, 0, order.graphics.texture.width, order.graphics.texture.height), new Vector2(0.5f, 0.5f));
             
-            orderButton.transform.SetParent(tab.transform);
+            keyboardShortcuts.Add(order.keyboardShortcut, order);
+
+            var link = new MenuTabLink(orderButton.gameObject, image);
             
+            links.Add(order.templateName, link);
             
+            button = orderButton.GetComponent<Button>();
+            
+            button.onClick.AddListener(delegate { orderButton.OnClick(); });
         }
+
+        var tab = Instantiate(tabPrefab, tabParent);
+
+        tab.name = $"Tab: {tabName}";
+
+        text = tab.GetComponentInChildren<TextMeshProUGUI>();
+
+        text.text = tabName;
+
+        tabShortcuts.Add(shortcut, id);
+
+        text.text += $" ({shortcut})";
+        
+        button = tab.GetComponent<Button>();
+        
+        button.onClick.AddListener(delegate { ClickTab(id); });
+
+        image = tab.GetComponentInChildren<Image>();
+
+        tabs[id] = new MenuButton(tab, button, text, image);
+    }
+
+    public void ClickTab(int id)
+    {
+        
     }
 }

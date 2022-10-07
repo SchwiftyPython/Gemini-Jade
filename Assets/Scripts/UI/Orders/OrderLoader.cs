@@ -7,10 +7,10 @@ using UnityEngine.AddressableAssets;
 public class OrderLoader : MonoBehaviour
 {
     [SerializeField] private AssetLabelReference orderAssetLabel;
-
+    
     private void Awake()
     {
-        LoadOrders();
+        //LoadOrders();
     }
 
     public void AddOrder(OrderTemplate orderTemplate)
@@ -22,9 +22,9 @@ public class OrderLoader : MonoBehaviour
     {
         OrderRepo.orders = new List<OrderTemplate>();
 
-        Addressables.LoadAssetsAsync<OrderTemplate>(orderAssetLabel, (orderTemplate) =>
+        Addressables.LoadAssetsAsync<OrderTemplate>(orderAssetLabel, orderTemplate =>
         {
-            OrderRepo.orders.Add(orderTemplate);
+            AddOrder(orderTemplate);
             
             Debug.Log($"{orderTemplate.label} loaded");
         });

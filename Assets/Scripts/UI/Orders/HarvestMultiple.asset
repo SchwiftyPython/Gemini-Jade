@@ -22,8 +22,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   templateName: HarvestMultipleOrder
-  label: harvest multiple order
+  label: harvest
   description: Order colonists to harvest plants in selected area
   skillNeeded: {fileID: 11400000, guid: a5ff22aa81c1c4a4fb459f28926832b2, type: 2}
   selectionType: 1
   graphics: {fileID: 11400000, guid: ed6f61a7a41ae1d4cb5c05bd26ccd9bc, type: 2}
+  keyboardShortcut: 104

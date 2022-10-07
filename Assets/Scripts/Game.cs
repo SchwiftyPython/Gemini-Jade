@@ -28,6 +28,8 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
+        LoadGameData();
+        
         var tickController = FindObjectOfType<TickController>();
         
         tickController.Init();
@@ -76,6 +78,13 @@ public class Game : MonoBehaviour
         stackCountLabelController = GetComponentInChildren<StackCountLabelController>();
     }
 
+    public void NewGame()
+    {
+        //todo basically everything in awake method except for loading data
+        
+        FindObjectOfType<MenuBarController>().Setup();
+    }
+
     private void Update()
     {
         //todo not sure if I want to keep this map stuff here
@@ -93,5 +102,10 @@ public class Game : MonoBehaviour
     private void LateUpdate()
     {
         CurrentLocalMap.CheckAllMatrices();
+    }
+
+    private void LoadGameData()
+    {
+        FindObjectOfType<OrderLoader>().LoadOrders();
     }
 }
