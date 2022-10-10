@@ -3,6 +3,7 @@ using Repos;
 using TMPro;
 using UI.Orders;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public struct MenuTab
@@ -65,7 +66,7 @@ public class MenuBarController : MonoBehaviour
 
     public Color defaultTabColor;
     
-    public int current = -1;
+    public int currentTabId = -1;
     
     public OrderTemplate currentOrder;
     
@@ -73,11 +74,38 @@ public class MenuBarController : MonoBehaviour
     
     public Dictionary<KeyCode, int> tabShortcuts = new Dictionary<KeyCode, int>();
     
-    public Dictionary<KeyCode, OrderTemplate> keyboardShortcuts = new Dictionary<KeyCode, OrderTemplate>();
+    public Dictionary<KeyCode, OrderButton> keyboardShortcuts = new Dictionary<KeyCode, OrderButton>();
     
-    private void Start()
+    private void Update()
     {
-        
+        if (currentOrder == null)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) 
+            {
+                Reset();
+            }
+        }
+
+        foreach (var shortcut in tabShortcuts)
+        {
+            if (Input.GetKeyDown(shortcut.Key))
+            {
+                ClickTab(shortcut.Value);
+            }
+        }
+
+        //todo use enums for tab id -- also it'd make sense for us to have a base class for order button and placed object button
+        //that way we can just define a <TabId, <KeyCode, BaseClass Button>>
+        if (currentTabId == 0)
+        {
+            foreach (var shortcut in keyboardShortcuts)
+            {
+                if (Input.GetKeyDown(shortcut.Key))
+                {
+                    ClickOrder(shortcut.Value);
+                }
+            }
+        }
     }
 
     public void Setup()
@@ -96,11 +124,11 @@ public class MenuBarController : MonoBehaviour
         
         AddTab("Structures", 2, KeyCode.S);
         
-        AddTab("Production", 2, KeyCode.P);
+        AddTab("Production", 3, KeyCode.P);
         
-        AddTab("Magic", 3, KeyCode.M);
+        AddTab("Magic", 4, KeyCode.M);
         
-        AddTab("Combat", 4, KeyCode.C);
+        AddTab("Combat", 5, KeyCode.C);
 
         currentOrder = null;
         
@@ -136,7 +164,7 @@ public class MenuBarController : MonoBehaviour
         
         ClearOrders();
 
-        current = -1;
+        currentTabId = -1;
         
         ClearSelection();
     }
@@ -178,6 +206,8 @@ public class MenuBarController : MonoBehaviour
 
             orderButton.name = $"OrderButton: {order.label}";
 
+            orderButton.orderTemplate = order;
+
             var textFields = orderButton.GetComponentsInChildren<TextMeshProUGUI>();
 
             text = textFields[0];
@@ -193,7 +223,7 @@ public class MenuBarController : MonoBehaviour
             image.sprite = Sprite.Create(order.graphics.texture,
                 new Rect(0, 0, order.graphics.texture.width, order.graphics.texture.height), new Vector2(0.5f, 0.5f));
             
-            keyboardShortcuts.Add(order.keyboardShortcut, order);
+            keyboardShortcuts.Add(order.keyboardShortcut, orderButton);
 
             var link = new MenuTabLink(orderButton.gameObject, image);
             
@@ -201,7 +231,7 @@ public class MenuBarController : MonoBehaviour
             
             button = orderButton.GetComponent<Button>();
             
-            button.onClick.AddListener(delegate { orderButton.OnClick(); });
+            button.onClick.AddListener(delegate { ClickOrder(orderButton); });
         }
 
         var tab = Instantiate(tabPrefab, tabParent);
@@ -225,8 +255,37 @@ public class MenuBarController : MonoBehaviour
         tabs[id] = new MenuButton(tab, button, text, image);
     }
 
+    public void ClickOrder(OrderButton orderButton)
+    {
+        ClearOrders();
+
+        if (currentOrder != orderButton.orderTemplate)
+        {
+            links[orderButton.orderTemplate.templateName].image.color = activeColor;
+         
+            orderButton.OnClick();
+        }
+        else
+        {
+            currentOrder = null;
+        }
+    }
+
     public void ClickTab(int id)
     {
-        
+        if (currentTabId != id)
+        {
+            ClearSelection();
+
+            currentTabId = id;
+
+            tabs[currentTabId].image.color = activeColor;
+            
+            tabButtonPanels[currentTabId].go.SetActive(true);
+        }
+        else
+        {
+            Reset();
+        }
     }
 }
