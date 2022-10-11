@@ -16,14 +16,14 @@ namespace UI.Grid
         /// <summary>
         /// The placed object type
         /// </summary>
-        [SerializeField] private PlacedObjectTemplate placedObjectType;
+        public PlacedObjectTemplate placedObjectType;
 
         /// <summary>
         /// Starts this instance
         /// </summary>
         private void Start()
         {
-            var button = GetComponent<Button>();
+            /*var button = GetComponent<Button>();
 
             if (button != null)
             {
@@ -34,13 +34,13 @@ namespace UI.Grid
             {
                 Debug.LogError("Error. No placed object type assigned to spawn on this selection option");
                 return;
-            }
+            }*/
         }
         
         /// <summary>
         /// Handles the button clicked
         /// </summary>
-        private void HandleButtonClicked()
+        public void HandleButtonClicked()
         {
             OnObjectSelected?.Invoke(placedObjectType);
         }

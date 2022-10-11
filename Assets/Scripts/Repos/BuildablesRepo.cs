@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using World.Things.CraftableThings;
 using World.TileTypes;
 
 namespace Repos
@@ -37,12 +39,14 @@ namespace Repos
         /// <summary>
         /// The test wall sprite sheet
         /// </summary>
-        [SerializeField] private Sprite testWallSpriteSheet; //todo need a collection of these for each material
+        [SerializeField] private Sprite testWallSpriteSheet; //todo need a collection of these for each material -- have this be black and white and color at runtime
 
         /// <summary>
         /// The test wall sprites
         /// </summary>
         private Sprite[] _testWallSprites;
+
+        public List<PlacedObjectTemplate> buildings;
 
         /// <summary>
         /// Starts this instance

@@ -646,6 +646,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1844967163}
+  - {fileID: 1441204129}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -997,13 +998,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabPrefab: {fileID: 0}
   orderButtonPrefab: {fileID: 0}
+  gridObjectButtonPrefab: {fileID: 0}
   tabButtonsPrefab: {fileID: 0}
   tabParent: {fileID: 0}
   parentMenu: {fileID: 0}
   activeColor: {r: 0, g: 0, b: 0, a: 0}
   defaultButtonColor: {r: 0, g: 0, b: 0, a: 0}
   defaultTabColor: {r: 0, g: 0, b: 0, a: 0}
-  current: -1
+  currentTabId: -1
   currentOrder: {fileID: 0}
 --- !u!1 &540712441
 GameObject:
@@ -1822,6 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 11400000, guid: 478fb90bcc36e5347bc06cce11549a3c, type: 2}
   testWallSpriteSheet: {fileID: 21300000, guid: ac1e24c54cc733346894eb08ffbf8547, type: 3}
+  buildings: []
 --- !u!1 &1122113820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2617,52 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1 &1441204128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1441204129}
+  - component: {fileID: 1441204130}
+  m_Layer: 0
+  m_Name: BuildingLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441204129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441204128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 366198835}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441204130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441204128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3a16ccd9e86dd4998ae9292d45020a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingAssetLabel:
+    m_LabelString: buildings
 --- !u!1 &1514761314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,13 +3326,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabPrefab: {fileID: 2100656923440455786, guid: 2c1c115e0efdf5241a876b38165497df, type: 3}
   orderButtonPrefab: {fileID: 3797866723495155174, guid: ff2ad41d990582544aeb85cebbdd60ba, type: 3}
+  gridObjectButtonPrefab: {fileID: 3091119596868842812, guid: 266c0f71f99570148854ae0a9c671efc, type: 3}
   tabButtonsPrefab: {fileID: 5499585131620076583, guid: 86623b1510298bb488145979065b9a23, type: 3}
   tabParent: {fileID: 1547400952}
   parentMenu: {fileID: 2010679343}
   activeColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   defaultButtonColor: {r: 1, g: 1, b: 1, a: 1}
   defaultTabColor: {r: 0.058823533, g: 0.058823533, b: 0.058823533, a: 1}
-  current: -1
+  currentTabId: -1
   currentOrder: {fileID: 0}
 --- !u!114 &2010679345
 MonoBehaviour:

@@ -3,10 +3,12 @@ using Controllers;
 using Generators;
 using Repos;
 using Time;
+using UI.Orders;
 using UnityEngine;
 using UnityEngine.Serialization;
 using World;
 using World.Pawns.Jobs;
+using World.Things.CraftableThings.Buildings;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -107,5 +109,7 @@ public class Game : MonoBehaviour
     private void LoadGameData()
     {
         FindObjectOfType<OrderLoader>().LoadOrders();
+        
+        FindObjectOfType<BuildingLoader>().LoadBuildings();
     }
 }

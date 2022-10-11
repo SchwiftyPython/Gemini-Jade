@@ -37,7 +37,6 @@ MonoBehaviour:
   _category: {fileID: 11400000, guid: bf44c11f405b00d40a7ff7c99a96e516, type: 2}
   _layer: 3
   _tickerType: {fileID: 0}
-  _stackLimit: -1
   _maxHitPoints: 450
   _flammability: 1
   _beauty: -2147483648
@@ -45,6 +44,7 @@ MonoBehaviour:
   _parts: []
   prefab: {fileID: 674682465395995725, guid: adb5b5e46db546f41b5ae7c89980b99e, type: 3}
   spriteSheet: {fileID: 0}
+  graphics: {fileID: 0}
   destroyable: 1
   rotatable: 0
   useHitPoints: 1
@@ -52,11 +52,12 @@ MonoBehaviour:
   transparent: 0
   walkable: 0
   isStatic: 0
+  value: 0
   workToMake: 100
   skill: {fileID: 11400000, guid: 477d27391c938c54795aca143920eead, type: 2}
   minSkillLevel: 0
   blueprintTexture: {fileID: 21300000, guid: 95fbc9bec8460d644ac3d5af440f5f3a, type: 3}
-  builtTexture: {fileID: 0}
+  builtTexture: {fileID: 21300000, guid: 95fbc9bec8460d644ac3d5af440f5f3a, type: 3}
   width: 1
   height: 1
   isWall: 1

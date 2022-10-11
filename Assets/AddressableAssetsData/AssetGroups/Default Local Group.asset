@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - orders
+  - m_GUID: 8c4ebefa5ce0a2b4f9ac1ea288c6dcbe
+    m_Address: Assets/Scripts/World/Things/CraftableThings/Buildings
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - buildings
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 282463e1612975c49b5d3dbefa2bc458, type: 2}
   m_SchemaSet:

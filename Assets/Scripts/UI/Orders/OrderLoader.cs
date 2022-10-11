@@ -1,32 +1,29 @@
 using System.Collections.Generic;
 using Repos;
-using UI.Orders;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-public class OrderLoader : MonoBehaviour
+namespace UI.Orders
 {
-    [SerializeField] private AssetLabelReference orderAssetLabel;
-    
-    private void Awake()
+    public class OrderLoader : MonoBehaviour
     {
-        //LoadOrders();
-    }
+        [SerializeField] private AssetLabelReference orderAssetLabel;
 
-    public void AddOrder(OrderTemplate orderTemplate)
-    {
-        OrderRepo.orders.Add(orderTemplate);
-    }
-
-    public void LoadOrders()
-    {
-        OrderRepo.orders = new List<OrderTemplate>();
-
-        Addressables.LoadAssetsAsync<OrderTemplate>(orderAssetLabel, orderTemplate =>
+        private static void AddOrder(OrderTemplate orderTemplate)
         {
-            AddOrder(orderTemplate);
+            OrderRepo.orders.Add(orderTemplate);
+        }
+
+        public void LoadOrders()
+        {
+            OrderRepo.orders = new List<OrderTemplate>();
+
+            Addressables.LoadAssetsAsync<OrderTemplate>(orderAssetLabel, orderTemplate =>
+            {
+                AddOrder(orderTemplate);
             
-            Debug.Log($"{orderTemplate.label} loaded");
-        });
+                Debug.Log($"{orderTemplate.label} loaded");
+            });
+        }
     }
 }

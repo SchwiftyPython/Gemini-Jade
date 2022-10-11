@@ -35,23 +35,29 @@ MonoBehaviour:
   description: 
   parent: {fileID: 0}
   _category: {fileID: 11400000, guid: bf44c11f405b00d40a7ff7c99a96e516, type: 2}
-  _layer: 1
+  _layer: 3
   _tickerType: {fileID: 0}
-  _stackLimit: -1
   _maxHitPoints: -1
   _flammability: -1
   _beauty: -2147483648
   _mass: -1
   _parts: []
   prefab: {fileID: 674682465395995725, guid: ed4b1146b586f9141b46b391c162e822, type: 3}
-  texture: {fileID: 0}
+  spriteSheet: {fileID: 0}
+  graphics: {fileID: 0}
   destroyable: 1
   rotatable: 1
   useHitPoints: 1
   selectable: 1
   transparent: 0
   walkable: 0
+  isStatic: 0
+  value: 0
   workToMake: 0
+  skill: {fileID: 0}
+  minSkillLevel: 0
   blueprintTexture: {fileID: 0}
+  builtTexture: {fileID: 0}
   width: 1
   height: 1
+  isWall: 0
