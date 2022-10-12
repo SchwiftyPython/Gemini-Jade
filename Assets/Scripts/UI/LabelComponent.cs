@@ -54,7 +54,7 @@ namespace UI
 
          _rectTransform.offsetMin = new Vector2(_stackThing.Position.X - 0.5f, _stackThing.Position.Y - 1.7f);
 
-         _rectTransform.offsetMax = new Vector2(_stackThing.Position.X + 0.5f, _stackThing.Position.Y + +1.2f);
+         _rectTransform.offsetMax = new Vector2(_stackThing.Position.X + 0.5f, _stackThing.Position.Y + 1.2f);
 
          if (_textMeshPro == null)
          {
@@ -63,7 +63,7 @@ namespace UI
 
          _textMeshPro.text = _stackThing.Count.ToString();
          
-         Hide();
+         Hide(false);
       }
 
       public void SetLabelObject(GameObject labelObject)
@@ -94,6 +94,23 @@ namespace UI
             return;
          }
 
+         ShowNeighbors();
+      }
+
+      public void Hide(bool hideNeighbors = true)
+      {
+         _label.SetActive(false);
+
+         if (!hideNeighbors)
+         {
+            return;
+         }
+
+         HideNeighbors();
+      }
+
+      private void ShowNeighbors()
+      {
          Collider[] neighbors = new Collider[9];
 
          var numColliders = Physics.OverlapSphereNonAlloc(transform.position, SphereRadius, neighbors);
@@ -117,18 +134,6 @@ namespace UI
                neighborLabel.Show(false);
             }
          }
-      }
-
-      public void Hide(bool hideNeighbors = true)
-      {
-         _label.SetActive(false);
-
-         if (!hideNeighbors)
-         {
-            return;
-         }
-
-         HideNeighbors();
       }
 
       private void HideNeighbors()
@@ -160,15 +165,11 @@ namespace UI
 
       private void OnMouseEnter()
       {
-         Debug.Log($"Mouse entered label");
-         
          Show();
       }
 
       private void OnMouseExit()
       {
-         Debug.Log($"Mouse exited label");
-         
          Hide();
       }
    }

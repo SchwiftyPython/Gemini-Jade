@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="Stack label only shows when moused over&#10;Stack label displays neighbor labels with a radius of 2">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/StackCountLabelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/StackCountLabelController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LabelComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LabelComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,14 +310,7 @@
       <workItem from="1665139897155" duration="9969000" />
       <workItem from="1665397189375" duration="4637000" />
       <workItem from="1665480092065" duration="9431000" />
-      <workItem from="1665572810279" duration="11097000" />
-    </task>
-    <task id="LOCAL-00029" summary="Added various DamageTypes&#10;Added Cut DamageTemplate.cs&#10;Added Cut DamageWorker">
-      <created>1655835251831</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1655835251831</updated>
+      <workItem from="1665572810279" duration="11726000" />
     </task>
     <task id="LOCAL-00030" summary="Fleshed out DamageInfo.cs">
       <created>1655915342419</created>
@@ -657,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665510087184</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Stack label only shows when moused over&#10;Stack label displays neighbor labels with a radius of 2">
+      <created>1665593707685</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1665593707685</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,7 +679,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
     <MESSAGE value="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test." />
     <MESSAGE value="Added Rock&#10;Added PerlinNoise.cs&#10;Got noise generating and meshes drawing dirt and rock&#10;Blending is not working os far" />
     <MESSAGE value="Figured out how to fix blending meshes" />
@@ -706,6 +703,7 @@
     <MESSAGE value="Got tabs and buttons for tabs to populate" />
     <MESSAGE value="Tabs and order buttons working just fine I'll tell ya" />
     <MESSAGE value="Can populate buildings tab with Placed Object Templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can populate buildings tab with Placed Object Templates" />
+    <MESSAGE value="Stack label only shows when moused over&#10;Stack label displays neighbor labels with a radius of 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stack label only shows when moused over&#10;Stack label displays neighbor labels with a radius of 2" />
   </component>
 </project>

@@ -22,8 +22,14 @@ namespace Controllers
 
             var labelParent = new GameObject("Stack Count Label");
 
-            labelParent.AddComponent<BoxCollider>().isTrigger = true;
-            
+            var collider = labelParent.AddComponent<BoxCollider>();
+
+            collider.isTrigger = true;
+
+            collider.center = new Vector3(0, 0.25f, 0);
+
+            collider.size = new Vector3(2, 2, 2);
+
             labelParent.AddComponent<LabelComponent>();
             
             labelParent.transform.SetParent(transform);
