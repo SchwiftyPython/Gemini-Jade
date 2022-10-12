@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/GridObjectButton.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/GridObjectButton.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Building.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Building.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/BuildingLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/BuildingLoader.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LocalMap.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Repos/BuildablesRepo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Repos/BuildablesRepo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Grid/SelectGridObjectButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Orders/OrderLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Building.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/Things/CraftableThings/Buildings/Wall.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/StackCountLabelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/StackCountLabelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LabelComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LabelComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,13 +21,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/0edcb05f22cd4a6a8e48ede00af0543bf200/8f/24a81e04/02000004.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/40205bb2cb25478a9cb0f5e54cf11441157400/c9/8cad397e/020000E5.il" root0="SKIP_HIGHLIGHTING" />
@@ -332,14 +311,8 @@
       <workItem from="1665057628759" duration="8865000" />
       <workItem from="1665139897155" duration="9969000" />
       <workItem from="1665397189375" duration="4637000" />
-      <workItem from="1665480092065" duration="9146000" />
-    </task>
-    <task id="LOCAL-00028" summary="Added DamageInfo.cs&#10;Added DamageResult.cs&#10;Added DamageTemplate.cs&#10;Added DamageWorker.cs">
-      <created>1655746686938</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1655746686938</updated>
+      <workItem from="1665480092065" duration="9431000" />
+      <workItem from="1665572810279" duration="11097000" />
     </task>
     <task id="LOCAL-00029" summary="Added various DamageTypes&#10;Added Cut DamageTemplate.cs&#10;Added Cut DamageWorker">
       <created>1655835251831</created>
@@ -677,7 +650,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665419956863</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Can populate buildings tab with Placed Object Templates">
+      <created>1665510087184</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1665510087184</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +681,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Auto generated basic xml docs for entire solution cause fuck it gotta start somewhere." />
     <MESSAGE value="Started working on Mesh Graphics&#10;Letting Jesus take the wheel on this one" />
     <MESSAGE value="Slogging through trying to get mesh setup. &#10;Working on getting LocalMap fleshed out then hopefully can test." />
     <MESSAGE value="Added Rock&#10;Added PerlinNoise.cs&#10;Got noise generating and meshes drawing dirt and rock&#10;Blending is not working os far" />
@@ -726,6 +705,7 @@
     <MESSAGE value="Started loading orders as addressables and building menu buttons from code" />
     <MESSAGE value="Got tabs and buttons for tabs to populate" />
     <MESSAGE value="Tabs and order buttons working just fine I'll tell ya" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tabs and order buttons working just fine I'll tell ya" />
+    <MESSAGE value="Can populate buildings tab with Placed Object Templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can populate buildings tab with Placed Object Templates" />
   </component>
 </project>

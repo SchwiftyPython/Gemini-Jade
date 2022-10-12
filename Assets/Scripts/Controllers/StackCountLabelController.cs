@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
@@ -19,13 +20,21 @@ namespace Controllers
                 return;
             }
 
-            var label = new GameObject("Stack Count Label");
-            
-            label.transform.SetParent(transform);
+            var labelParent = new GameObject("Stack Count Label");
 
-            label.AddComponent<LabelComponent>();
-                
-            GoPool.AddFromClone(label, transform, 100);
+            labelParent.AddComponent<BoxCollider>().isTrigger = true;
+            
+            labelParent.AddComponent<LabelComponent>();
+            
+            labelParent.transform.SetParent(transform);
+
+            var label = new GameObject("Label");
+
+            label.transform.SetParent(labelParent.transform);
+            
+            label.transform.localPosition = Vector3.zero;
+
+            GoPool.AddFromClone(labelParent, transform, 100);
         }
 
         public void AddLabel(StackThing stackThing)
@@ -33,6 +42,8 @@ namespace Controllers
             var label = GoPool.GetGameObject();
             
             label.GetComponent<LabelComponent>().SetStackThing(stackThing);
+
+            //Also might want to show labels in a given radius so need to grab adjacent labels too if they exist
         }
     }
 }

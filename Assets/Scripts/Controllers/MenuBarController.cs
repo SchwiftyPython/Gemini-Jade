@@ -129,7 +129,8 @@ namespace Controllers
 
         public void Setup()
         {
-            //if we end up with a lot of tabs, especially if we have to add sub tabs, should consider scriptable objects 
+            //if we end up with a lot of tabs, especially if we have to add sub tabs, should consider scriptable objects
+            //it would be easier to define keycodes and whatnot
             
             var tabCount = CollectionUtils.EnumToArray<Tab>().Length;
 
@@ -149,7 +150,7 @@ namespace Controllers
 
             AddTab(Tab.Furniture, KeyCode.F);
 
-            AddTab(Tab.Defense, KeyCode.D);
+            AddTab(Tab.Defense, KeyCode.L);
 
             currentOrder = null;
 
