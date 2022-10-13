@@ -1,4 +1,5 @@
 using System;
+using UI;
 using UnityEngine;
 using World.Pawns;
 using World.Pawns.Jobs;
@@ -17,14 +18,18 @@ namespace World
         
         private int _remainingWork;
 
+        private int _totalWork;
+
         private bool _workingOn;
 
         private float _workSpeed;
 
         private float _workTimer;
 
+        private ProgressBar _progressBar;
+        
         public Action onJobComplete;
-
+        
         public bool NeedsToBeWorkedOn => _remainingWork > 0;
 
         private void Update()
@@ -42,6 +47,8 @@ namespace World
                 
                 onJobComplete?.Invoke();
                 
+                _progressBar.DestroySelf();
+                
                 Destroy(gameObject);
                 
                 return;
@@ -55,7 +62,7 @@ namespace World
 
                 _remainingWork--;
                 
-                //todo progress bar
+               UpdateProgressBar();
                 
                 Debug.Log($"Work Left On {_job.SkillNeeded} at {_job.Location}: {_remainingWork}");
             }
@@ -76,6 +83,11 @@ namespace World
             _workTimer = 0;
 
             _remainingWork = remainingWork;
+
+            _totalWork = _remainingWork;
+            
+            _progressBar = new ProgressBar(gameObject.transform, new Vector3(0, 0), new Vector3(5,  0.5f), Color.gray,
+                Color.yellow, 0f, 0, new ProgressBar.Outline {color = Color.black, size = 0.5f});
 
             _workingOn = true;
         }
@@ -100,8 +112,19 @@ namespace World
             
             _job.onPawnUnassigned -= PauseWork;
             
+            _progressBar.DestroySelf();
+            
             //todo might be a good idea to save progress in a repo somewhere if the number of game objects gets too high
             //can just retrieve the info again when job is being worked on and send to a new game object
+        }
+
+        private void UpdateProgressBar()
+        {
+            var workNormalized = 1.0f -_remainingWork * 1f / _totalWork;
+            
+            Debug.Log($"{workNormalized}%");
+            
+            _progressBar.SetSize(workNormalized);
         }
     }
 }

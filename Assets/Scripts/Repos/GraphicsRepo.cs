@@ -6,5 +6,7 @@ namespace Repos
     public class GraphicsRepo : MonoBehaviour
     {
         public GraphicTemplate harvestOrder;
+
+        public Sprite whiteSquare;
     }
 }

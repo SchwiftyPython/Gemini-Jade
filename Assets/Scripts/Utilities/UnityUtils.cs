@@ -173,5 +173,31 @@ namespace Utilities
 
             return texture;
         }
+
+        public static GameObject CreateWorldSprite(Transform parent, string name, Sprite sprite, Vector3 localPosition,
+            Vector3 localScale, int sortingOrder, Color color)
+        {
+            var gameObject = new GameObject(name, typeof(SpriteRenderer));
+
+            var transform = gameObject.transform;
+
+            transform.SetParent(parent, false);
+
+            transform.localPosition = localPosition;
+
+            transform.localScale = localScale;
+
+            var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+            spriteRenderer.sprite = sprite;
+
+            spriteRenderer.sortingLayerName = "UI";
+
+            spriteRenderer.sortingOrder = sortingOrder;
+
+            spriteRenderer.color = color;
+
+            return gameObject;
+        }
     }
 }

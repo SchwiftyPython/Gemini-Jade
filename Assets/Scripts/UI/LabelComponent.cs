@@ -165,6 +165,11 @@ namespace UI
 
       private void OnMouseEnter()
       {
+         if (Camera.main.orthographicSize > 16)
+         {
+            return;
+         }
+         
          Show();
       }
 

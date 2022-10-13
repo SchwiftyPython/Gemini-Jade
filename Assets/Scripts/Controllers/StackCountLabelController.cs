@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using Utilities;
@@ -11,8 +9,6 @@ namespace Controllers
     {
         private static readonly GameObjectPool GoPool = new();
 
-        public List<GameObject> activeLabels = new();
-
         private void Awake()
         {
             if (GoPool.goQueue.Count != 0)
@@ -22,13 +18,13 @@ namespace Controllers
 
             var labelParent = new GameObject("Stack Count Label");
 
-            var collider = labelParent.AddComponent<BoxCollider>();
+            var boxCollider = labelParent.AddComponent<BoxCollider>();
 
-            collider.isTrigger = true;
+            boxCollider.isTrigger = true;
 
-            collider.center = new Vector3(0, 0.25f, 0);
+            boxCollider.center = new Vector3(0, 0.25f, 0);
 
-            collider.size = new Vector3(2, 2, 2);
+            boxCollider.size = new Vector3(2, 2, 2);
 
             labelParent.AddComponent<LabelComponent>();
             
@@ -48,8 +44,6 @@ namespace Controllers
             var label = GoPool.GetGameObject();
             
             label.GetComponent<LabelComponent>().SetStackThing(stackThing);
-
-            //Also might want to show labels in a given radius so need to grab adjacent labels too if they exist
         }
     }
 }

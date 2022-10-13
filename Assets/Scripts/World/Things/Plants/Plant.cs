@@ -85,11 +85,13 @@ namespace World.Things.Plants
                 var go = new GameObject($"{template.label} {id} Harvest Progress Tracker");
 
                 _progressTracker = go.AddComponent<JobProgressTracker>();
+
+                _progressTracker.transform.position = Position.ToVector3();
             }
             
             //todo get worker's harvest skill
             
-            _progressTracker.WorkOn(job, worker, 16, PlantTemplate.workToHarvest);
+            _progressTracker.WorkOn(job, worker, 3, PlantTemplate.workToHarvest);
 
             _progressTracker.onJobComplete += FinishHarvest;
         }

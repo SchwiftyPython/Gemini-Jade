@@ -616,7 +616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e61275e71418724b96c848927f0da0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeLabels: []
 --- !u!1 &366198834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1006,7 @@ MonoBehaviour:
   defaultTabColor: {r: 0, g: 0, b: 0, a: 0}
   currentTabId: -1
   currentOrder: {fileID: 0}
+  currentPlacedObject: {fileID: 0}
 --- !u!1 &540712441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,6 +1483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   harvestOrder: {fileID: 11400000, guid: ed6f61a7a41ae1d4cb5c05bd26ccd9bc, type: 2}
+  whiteSquare: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &968209916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3336,7 @@ MonoBehaviour:
   defaultTabColor: {r: 0.058823533, g: 0.058823533, b: 0.058823533, a: 1}
   currentTabId: -1
   currentOrder: {fileID: 0}
+  currentPlacedObject: {fileID: 0}
 --- !u!114 &2010679345
 MonoBehaviour:
   m_ObjectHideFlags: 0
