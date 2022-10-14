@@ -42,9 +42,7 @@ namespace World
             if (_remainingWork <= 0)
             {
                 _workingOn = false;
-                
-                Debug.Log($"Work Complete On {_job.SkillNeeded} at {_job.Location}");
-                
+
                 onJobComplete?.Invoke();
                 
                 _progressBar.DestroySelf();
@@ -63,8 +61,6 @@ namespace World
                 _remainingWork--;
                 
                UpdateProgressBar();
-                
-                Debug.Log($"Work Left On {_job.SkillNeeded} at {_job.Location}: {_remainingWork}");
             }
         }
 
@@ -86,8 +82,8 @@ namespace World
 
             _totalWork = _remainingWork;
             
-            _progressBar = new ProgressBar(gameObject.transform, new Vector3(0, 0), new Vector3(5,  0.5f), Color.gray,
-                Color.yellow, 0f, 0, new ProgressBar.Outline {color = Color.black, size = 0.5f});
+            _progressBar = new ProgressBar(gameObject.transform, new Vector3(0, -0.25f), new Vector3(0.5f,  0.05f), Color.gray,
+                Color.yellow, 0f, 0, new ProgressBar.Outline {color = Color.black, size = 0.05f});
 
             _workingOn = true;
         }
@@ -121,9 +117,7 @@ namespace World
         private void UpdateProgressBar()
         {
             var workNormalized = 1.0f -_remainingWork * 1f / _totalWork;
-            
-            Debug.Log($"{workNormalized}%");
-            
+
             _progressBar.SetSize(workNormalized);
         }
     }

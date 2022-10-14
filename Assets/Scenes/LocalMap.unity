@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   harvestOrder: {fileID: 11400000, guid: ed6f61a7a41ae1d4cb5c05bd26ccd9bc, type: 2}
-  whiteSquare: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  whiteSquare: {fileID: 21300000, guid: 920b138462153bf459a95ed11d868342, type: 3}
 --- !u!1 &968209916
 GameObject:
   m_ObjectHideFlags: 0

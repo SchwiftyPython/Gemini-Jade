@@ -125,8 +125,6 @@ namespace World.Things.Plants
             {
                 //todo vary number of thing harvested depending on current growth state, pawn harvest skill, and if cutting or harvesting
                 //probably call it float harvestModifier
-                
-                Debug.Log($"Harvested {PlantTemplate.numThingHarvested} {PlantTemplate.thingHarvested.label} from {PlantTemplate.label} at {Position}");
 
                 if (PlantTemplate.thingHarvested is FoodTemplate foodTemplate)
                 {

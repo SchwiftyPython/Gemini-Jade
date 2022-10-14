@@ -93,6 +93,8 @@ namespace UI
 
         public void SetSize(float sizeRatio)
         {
+            //todo can we lerp?
+            
             _bar.localScale = new Vector3(sizeRatio, 1, 1);
         }
 
