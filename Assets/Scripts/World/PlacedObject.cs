@@ -51,7 +51,19 @@ namespace World
             bool walkable;
             bool transparent;
 
-            placedObject.remainingWork = placedObjectType.workToMake;
+            //placedObject.remainingWork = placedObjectType.workToMake;
+
+            if (placedObjectType.workToMake > 0)
+            {
+                var go = new GameObject($"{placedObjectType.name} Construction Progress Tracker");
+
+                placedObject.progressTracker = go.AddComponent<JobProgressTracker>();
+
+                placedObject.progressTracker.transform.position =
+                    placedObject.GetGridPositions(origin, direction).First();
+                
+                placedObject.progressTracker.SetRemainingWork(placedObjectType.workToMake);
+            }
 
             if (placedObject.NeedsToBeMade)
             {
@@ -152,7 +164,7 @@ namespace World
         /// <summary>
         /// The remaining work
         /// </summary>
-        protected int remainingWork;
+        //protected int remainingWork;
 
         /// <summary>
         /// The constructing
@@ -179,6 +191,8 @@ namespace World
         /// </summary>
         private Pawn _pawn;
         
+        protected JobProgressTracker progressTracker;
+        
         /// <summary>
         /// Gets or sets the value of the grid objects
         /// </summary>
@@ -188,18 +202,18 @@ namespace World
         /// Gets the value of the sprite renderer
         /// </summary>
         public SpriteRenderer SpriteRenderer => spriteRenderer;
-        
+
         /// <summary>
         /// Gets the value of the needs to be made
         /// </summary>
-        public bool NeedsToBeMade => remainingWork > 0;
+        public bool NeedsToBeMade => progressTracker != null && progressTracker.NeedsToBeWorkedOn; 
 
         /// <summary>
         /// Updates this instance
         /// </summary>
         private void Update()
         {
-            if (!_constructing)
+            /*if (!_constructing)
             {
                 return;
             }
@@ -217,10 +231,8 @@ namespace World
             {
                 _constructionTimer -= _constructionSpeed;
                 
-                remainingWork--;
-
-                //todo progress bar of some kind
-            }
+                remainingWork--;               
+            }*/
         }
 
         /// <summary>
@@ -291,7 +303,7 @@ namespace World
         {
             _constructing = false;
             
-            remainingWork = 0;
+            //remainingWork = 0;
             
             MovePawnsOutTheWay();
             
@@ -340,15 +352,28 @@ namespace World
         {
             _constructionJob = job;
             
-            _constructionJob.onPawnUnassigned += PauseConstruction;
+            //_constructionJob.onPawnUnassigned += PauseConstruction;
 
             _pawn = jobPawn;
 
-            _pawn.onPawnMoved += OnPawnMoved;
+            //_pawn.onPawnMoved += OnPawnMoved;
 
-            _constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
+            //_constructionSpeed =  0.5f / (skillLevel + 1);  //todo probably could use a curve for this
 
-            _constructionTimer = 0;
+            //_constructionTimer = 0;
+            
+            // if (progressTracker == null)
+            // {
+            //     var go = new GameObject($"{placedObjectType.name} {job.Location} Harvest Progress Tracker");
+            //
+            //     progressTracker = go.AddComponent<JobProgressTracker>();
+            //
+            //     progressTracker.transform.position = job.Location.ToVector3();
+            // }
+            
+            progressTracker.WorkOn(job, _pawn, skillLevel); //todo need a way to keep track of remaining work when paused -- or just set progress tracker to inactive
+
+            progressTracker.onJobComplete += FinishConstruction;
             
             _constructing = true;
         }

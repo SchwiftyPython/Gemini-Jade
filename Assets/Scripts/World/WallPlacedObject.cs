@@ -41,7 +41,19 @@ namespace World
             bool walkable;
             bool transparent;
 
-            placedObject.remainingWork = placedObjectType.workToMake;
+            //placedObject.remainingWork = placedObjectType.workToMake;
+            
+            if (placedObjectType.workToMake > 0)
+            {
+                var go = new GameObject($"{placedObjectType.name} Construction Progress Tracker");
+
+                placedObject.progressTracker = go.AddComponent<JobProgressTracker>();
+
+                placedObject.progressTracker.transform.position =
+                    placedObject.GetGridPositions(origin, direction).First();
+                
+                placedObject.progressTracker.SetRemainingWork(placedObjectType.workToMake);
+            }
 
             if (placedObject.NeedsToBeMade)
             {
@@ -94,7 +106,7 @@ namespace World
         /// </summary>
         public override void FinishConstruction()
         {
-            remainingWork = 0;
+            //remainingWork = 0;
             
             MovePawnsOutTheWay();
             

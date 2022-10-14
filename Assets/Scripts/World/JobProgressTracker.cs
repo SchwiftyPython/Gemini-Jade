@@ -64,6 +64,16 @@ namespace World
             }
         }
 
+        public void SetRemainingWork(int remainingWork)
+        {
+            _remainingWork = remainingWork;
+        }
+        
+        public void WorkOn(Job job, Pawn worker, int skillLevel)
+        {
+            WorkOn(job, worker, skillLevel, _remainingWork);
+        }
+
         public void WorkOn(Job job, Pawn worker, int skillLevel, int remainingWork)
         {
             _job = job;

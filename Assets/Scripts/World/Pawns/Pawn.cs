@@ -298,7 +298,7 @@ namespace World.Pawns
         {
             var job = _brain.GetCurrentJob();
             
-            job.UnAssignPawn();
+            job?.UnAssignPawn();
         }
     }
 }
