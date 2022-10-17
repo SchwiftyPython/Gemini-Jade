@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using GoRogue;
+using Repos;
 using UI;
 using UI.Orders;
 using UnityEngine;
@@ -7,10 +10,11 @@ using UnityEngine.EventSystems;
 using Utilities;
 using World;
 using World.Pawns.Jobs;
+using World.Things.Plants;
 
 namespace Controllers
 {
-    public class DragSelectCurrentOrder : MonoBehaviour 
+    public class DragSelectCurrentOrder : MonoBehaviour
     {
         public bool isDragging;
 
@@ -28,9 +32,21 @@ namespace Controllers
 
         public Action onOrderDeselected;
 
+        private List<GameObject> _highlightedTiles;
+
+        private SkillRepo _skillRepo;
+
+        private GraphicsRepo _graphicsRepo;
+
         private void Start()
         {
             isDragging = false;
+
+            _skillRepo = FindObjectOfType<SkillRepo>();
+
+            _graphicsRepo = FindObjectOfType<GraphicsRepo>();
+
+            _currentMap = FindObjectOfType<Game>().CurrentLocalMap;
         }
 
         private void Update()
@@ -46,12 +62,17 @@ namespace Controllers
             BeginSelection();
 
             UpdateCurrentSelection(origin);
+
+            HighlightValidTilesInSelectionArea();
         }
 
         private void Reset()
         {
             origin = Vector2.zero;
+
             isDragging = false;
+
+            ClearHighlights();
         }
 
         private void OnGUI()
@@ -65,19 +86,18 @@ namespace Controllers
             {
                 return;
             }
-            
+
             var mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            var topLeft = Vector2.Min(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y), new Vector2(mousePosition.x, Screen.height - mousePosition.y));
+            var topLeft = Vector2.Min(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y),
+                new Vector2(mousePosition.x, Screen.height - mousePosition.y));
 
-            var bottomRight = Vector2.Max(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y), new Vector2(mousePosition.x, Screen.height - mousePosition.y));
+            var bottomRight = Vector2.Max(new Vector2(rectOrigin.x, Screen.height - rectOrigin.y),
+                new Vector2(mousePosition.x, Screen.height - mousePosition.y));
 
             currentSelection = Rect.MinMaxRect(topLeft.x, topLeft.y, bottomRight.x, bottomRight.y);
-            
+
             UpdateMapSelection(rectOrigin, mousePosition);
-            
-            //todo highlight valid tiles
-            
 
             if (Input.GetMouseButtonUp(0) && _currentOrder.selectionType != Selection.Single &&
                 !EventSystem.current.IsPointerOverGameObject())
@@ -102,8 +122,8 @@ namespace Controllers
                 (end.y, start.y) = (start.y, end.y);
             }
 
-            currentMapSelection = new Rectangle(new Coord((int)(start.x + 1), (int)(start.y + 1)),
-                new Coord((int)(end.x + 1), (int)(end.y + 1)));
+            currentMapSelection = new Rectangle(new Coord((int) (start.x + 1), (int) (start.y + 1)),
+                new Coord((int) (end.x + 1), (int) (end.y + 1)));
         }
 
         public void DrawScreenRect(Rect rect, Color color)
@@ -114,11 +134,11 @@ namespace Controllers
         public void DrawScreenRectBorder(Rect rect, Color color, float thickness)
         {
             DrawScreenRect(new Rect(rect.xMin, rect.yMin, rect.width, thickness), color);
-            
+
             DrawScreenRect(new Rect(rect.xMin, rect.yMin, thickness, rect.height), color);
-            
+
             DrawScreenRect(new Rect(rect.xMax - thickness, rect.yMin, thickness, rect.height), color);
-            
+
             DrawScreenRect(new Rect(rect.xMin, rect.yMax - thickness, rect.width, thickness), color);
         }
 
@@ -128,17 +148,66 @@ namespace Controllers
             {
                 return;
             }
-            
+
             _currentOrder = order;
-            
+
             onOrderSelected?.Invoke(_currentOrder);
         }
 
         public void OnOrderDeselected()
         {
             _currentOrder = null;
-            
+
             onOrderDeselected?.Invoke();
+        }
+
+        private void HighlightValidTilesInSelectionArea()
+        {
+            if (_currentOrder == null)
+            {
+                return;
+            }
+
+            if (!isDragging)
+            {
+                return;
+            }
+
+            ClearHighlights();
+
+            _highlightedTiles = new List<GameObject>();
+
+            if (_currentOrder.skillNeeded == _skillRepo.harvest)
+            {
+                var plants = GetAllHarvestablePlantsInSelection();
+
+                foreach (var plant in plants)
+                {
+                    var parentObject = new GameObject($"{plant.id} Highlight Parent");
+
+                    parentObject.transform.position = plant.Position.ToVector3();
+
+                    UnityUtils.CreateWorldSprite(parentObject.transform, $"{plant.id} Highlight",
+                        _graphicsRepo.whiteSquare, Vector3.zero, Vector3.one, 0, new Color(1, 0.95f, 0.75f, 0.125f));
+
+                    _highlightedTiles.Add(parentObject);
+                }
+            }
+        }
+
+        private void ClearHighlights()
+        {
+            if (_highlightedTiles == null)
+            {
+                return;
+            }
+
+            foreach (var highlight in _highlightedTiles.ToArray())
+            {
+                Destroy(highlight);
+            }
+
+            _highlightedTiles = null;
         }
 
         private void BeginSelection()
@@ -157,11 +226,6 @@ namespace Controllers
             }
         }
 
-        private void HighlightValidTiles()
-        {
-            //todo
-        }
-        
         private void AddJobs()
         {
             if (_currentOrder == null)
@@ -175,18 +239,15 @@ namespace Controllers
             }
 
             //todo might be able to have a Dictionary <Skill, Action or delegate> but could be over engineering at this point
-            //pretty tempted to do what fy did and setup an action delegate for the area selected. Best choice to avoid having a bunch of conditionals
-            
-            //could also use the skill repo here so not using string equals
-            
-            if (_currentOrder.skillNeeded.templateName.Equals("harvest", StringComparison.OrdinalIgnoreCase))
+
+            if (_currentOrder.skillNeeded == _skillRepo.harvest)
             {
                 HarvestSelectedPlants();
             }
 
             Reset();
         }
-        
+
         private void UpdateDrawRect()
         {
             if (_currentOrder == null || !isDragging)
@@ -202,21 +263,22 @@ namespace Controllers
 
         private void HarvestSelectedPlants()
         {
-            foreach (var position in currentMapSelection.Positions())
+            var plants = GetAllHarvestablePlantsInSelection();
+
+            foreach (var plant in plants)
             {
-                var plant = _currentMap.GetPlantAt(position);
+                var job = new Job(plant.Position, plant.SkillNeeded, plant.MinSkillToHarvest);
 
-                if (plant == null || !plant.CanBeHarvested)
-                {
-                    continue;
-                }
-
-                var job = new Job(position, plant.SkillNeeded, plant.MinSkillToHarvest);
-                
                 _currentMap.onJobAdded?.Invoke(job);
-                
+
                 plant.UpdateOrderGraphics(_currentOrder.graphics);
             }
+        }
+
+        private List<Plant> GetAllHarvestablePlantsInSelection()
+        {
+            return currentMapSelection.Positions().Select(position => _currentMap.GetPlantAt(position))
+                .Where(plant => plant is {CanBeHarvested: true}).ToList();
         }
     }
 }
