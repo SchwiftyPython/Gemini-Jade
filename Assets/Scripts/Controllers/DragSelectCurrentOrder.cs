@@ -55,7 +55,14 @@ namespace Controllers
             {
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
                 {
-                    OnOrderDeselected();
+                    if (isDragging)
+                    {
+                        Reset();
+                    }
+                    else
+                    {
+                        OnOrderDeselected();
+                    }
                 }
             }
 
@@ -99,7 +106,7 @@ namespace Controllers
 
             UpdateMapSelection(rectOrigin, mousePosition);
 
-            if (Input.GetMouseButtonUp(0) && _currentOrder.selectionType != Selection.Single &&
+            if (Input.GetMouseButtonUp(0) && _currentOrder?.selectionType != Selection.Single &&
                 !EventSystem.current.IsPointerOverGameObject())
             {
                 AddJobs();

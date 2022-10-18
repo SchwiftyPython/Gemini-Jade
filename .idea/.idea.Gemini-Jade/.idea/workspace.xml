@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="">
+    <list default="true" id="7fa03cca-5aa9-468f-a62e-f9494494a93d" name="Changes" comment="Added highlights to tiles that are valid for current order selected and in the selection area">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Gemini-Jade/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +65,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/AStarController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/User/source/repos/Gemini-Jade/Assets/Scripts/Controllers/DragSelectCurrentOrder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/MenuBarController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/StackCountLabelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Generators/LocalMapGenerator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -317,14 +319,7 @@
       <workItem from="1665572810279" duration="12036000" />
       <workItem from="1665656441965" duration="11283000" />
       <workItem from="1665746756261" duration="5639000" />
-      <workItem from="1666006328141" duration="5916000" />
-    </task>
-    <task id="LOCAL-00034" summary="Added DamageTemplateRepo.cs&#10;Looks like Cut Worker is working okay">
-      <created>1656527606377</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1656527606377</updated>
+      <workItem from="1666006328141" duration="7604000" />
     </task>
     <task id="LOCAL-00035" summary="Added Knife">
       <created>1657035306294</created>
@@ -662,7 +657,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665770889281</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Added highlights to tiles that are valid for current order selected and in the selection area">
+      <created>1666013676163</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1666013676163</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +688,6 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Couldn't recreate pawns getting stuck in walls.&#10;Cleaned up pathfinding to job sites.&#10;Fixed bug where Build goal wasn't recognizing that pawn was at job site due to rounding errors." />
     <MESSAGE value="Seperated wall placement from single object placement in grid building system.&#10;Can drag wall ghost objects in a line." />
     <MESSAGE value="Ghost object prefab fell behind" />
     <MESSAGE value="Can place walls once left mouse button is released." />
@@ -711,6 +712,7 @@
     <MESSAGE value="Added progress bar but it's shitty so far" />
     <MESSAGE value="Progress bar working well and looking good" />
     <MESSAGE value="Added progress tracker to placed objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added progress tracker to placed objects" />
+    <MESSAGE value="Added highlights to tiles that are valid for current order selected and in the selection area" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added highlights to tiles that are valid for current order selected and in the selection area" />
   </component>
 </project>

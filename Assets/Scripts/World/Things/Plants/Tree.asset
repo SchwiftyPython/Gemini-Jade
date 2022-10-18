@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e2ad534796bd94e92992e7c8beba00, type: 3}
+  m_Name: Tree
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: thingClass
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: World.Things.Plants.Plant, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  templateName: Tree
+  label: tree
+  description: 
+  parent: {fileID: 0}
+  _category: {fileID: 11400000, guid: 6d140c97dce2ccd469452d0076ce7798, type: 2}
+  _layer: 1
+  _tickerType: {fileID: 11400000, guid: 63ffcf4f75f52b54cb467c69c9efa1de, type: 2}
+  _maxHitPoints: 170
+  _flammability: 1.5
+  _beauty: 0
+  _mass: -1
+  _parts: []
+  prefab: {fileID: 0}
+  spriteSheet: {fileID: 0}
+  graphics: {fileID: 11400000, guid: 4c2d6dae4e031d04e943a0c40726d266, type: 2}
+  destroyable: 1
+  rotatable: 0
+  useHitPoints: 1
+  selectable: 1
+  transparent: 0
+  walkable: 0
+  isStatic: 1
+  value: 0
+  minTemp: -130
+  maxTemp: 130
+  canCut: 1
+  canHarvest: 1
+  thingHarvested: {fileID: 11400000, guid: 1bac485f364de47479195a024f121441, type: 2}
+  numThingHarvested: 45
+  minFertility: 0.05
+  workToHarvest: 54
+  workToCut: 27
+  skill: {fileID: 11400000, guid: a5ff22aa81c1c4a4fb459f28926832b2, type: 2}
+  minSkillLevel: 0
+  daysToMaturity: 16
+  lifeSpanMultiplier: 10

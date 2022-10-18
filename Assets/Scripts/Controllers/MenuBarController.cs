@@ -97,6 +97,8 @@ namespace Controllers
     
         private void Update()
         {
+            //todo current order is not assigned when an order is selected
+            
             if (currentOrder == null)
             {
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) 
